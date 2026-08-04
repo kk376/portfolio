@@ -1,39 +1,69 @@
-# Kushagra Kumar — Portfolio
+# Kushagra Kumar | Portfolio
 
-Personal portfolio site built with React + Vite.
+Personal portfolio website built with React and Vite.
 
 ## About
 
-I'm Kushagra Kumar. I did my BCA (8.2 CGPA) and spent mid 2022 to mid 2026 preparing for government exams. That didn't pan out, so I pivoted to Data Analytics and started learning a few weeks ago.
+I'm Kushagra Kumar, a BCA graduate.
 
-Right now I'm going through MySQL. Once I'm done with revision, I'll build some projects around it, then move to Excel.
+After graduating in 2022, I spent roughly four years preparing for government examinations. When that path didn't work out, I decided to transition into tech and build a career in Data Analytics, with the long-term goal of progressing into Data Engineering, Data Science, and AI/ML.
 
-I commit to GitHub every day. No finished projects yet.
+I'm currently building my foundations through structured learning, hands-on practice, and projects, while documenting my progress on GitHub.
 
-## Stack
+## Current Focus
+
+I'm currently working through Data Analytics, starting with:
+
+- MySQL
+- Excel
+- Power BI
+- Python for Data Analysis
+
+MySQL coursework is complete, and I'm currently revising the concepts before building projects with them.
+
+You can follow my learning progress in my [AI/ML Journey](https://github.com/Kk376/ai-ml-journey) repository.
+
+## Tech Stack
+
+This portfolio is built with:
 
 - **Framework:** React + Vite
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
 - **Icons:** Lucide React
 
-## What's on the site
+## Screenshots
 
-- **About** — who I am and where I'm at
-- **Skills** — what I'm actually working with (MySQL, Python/Pandas & Numpy, Excel, Power BI)
-- **Projects** — planned projects, nothing finished yet
-- **Journey** — timeline from BCA (2022) to now
-- **Contact** — email, phone, LinkedIn & GitHub
+### Home
 
-## Running locally
+![Portfolio Home](screenshots/home.png)
+
+### Skills
+
+![Skills Section](screenshots/skills.png)
+
+### Journey
+
+![Journey Section](screenshots/journey1.png & screenshots/journey2.png)
+
+### Contact
+
+![Contact Section](screenshots/contact.png)
+
+## What's on the Site
+
+- **About:** Background and current career direction
+- **Skills:** Technologies and tools I'm currently working with
+- **Projects:** Projects completed throughout my learning journey
+- **Journey:** My path from graduating with a BCA in 2022 to transitioning into Data Analytics
+- **Contact:** Ways to connect with me
+
+## Running Locally
+
+Clone the repository:
 
 ```bash
+git clone https://github.com/Kk376/Portfolio.git
+cd Portfolio
 pnpm install
 pnpm run dev
-```
-
-## Contact
-
-- Email: kkushagra86@gmail.com
-- LinkedIn: [kushagra-kumar376](https://www.linkedin.com/in/kushagra-kumar376/)
-- GitHub: [Kk376](https://github.com/Kk376)
