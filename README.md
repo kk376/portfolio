@@ -44,7 +44,8 @@ This portfolio is built with:
 
 ### Journey
 
-![Journey Section](screenshots/journey1.png & screenshots/journey2.png)
+![Journey Section 1](screenshots/journey1.png)
+![Journey Section 2](screenshots/journey2.png)
 
 ### Contact
 
