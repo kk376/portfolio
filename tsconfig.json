@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "ESNext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        //ADDED: Allow JavaScript files to be processed
+        "allowJs": true,
+        //ADDED: Support JSX syntax
+        "jsx": "react-jsx"
+    },
+    //UPDATED: Include JS and JSX files in the src directory
+    "include": [
+        "src",
+        "src/**/*.js",
+        "src/**/*.jsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
