@@ -1,28 +1,25 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "ESNext",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "rootDir": "./src",
-        "outDir": "./dist",
-        "paths": {
-            "@/*": ["./src/*"]
-        },
-        //ADDED: Allow JavaScript files to be processed
-        "allowJs": true,
-        //ADDED: Support JSX syntax
-        "jsx": "react-jsx"
-    },
-    //UPDATED: Include JS and JSX files in the src directory
-    "include": [
-        "src",
-        "src/**/*.js",
-        "src/**/*.jsx"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "vite.config.ts", "tailwind.config.ts"],
+  "exclude": ["node_modules", "dist"]
 }
