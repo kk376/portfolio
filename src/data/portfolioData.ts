@@ -25,32 +25,7 @@ export const NAV_ITEMS = [
   { id: "contact", label: "Contact" },
 ] as const;
 
-export const QUICK_STATS = [
-  {
-    label: "Education",
-    value: "BCA (2022)",
-    color: "text-cyan-400",
-    gradient: "from-cyan-500/20 to-cyan-500/5",
-  },
-  {
-    label: "Degree CGPA",
-    value: "8.2",
-    color: "text-pink-400",
-    gradient: "from-pink-500/20 to-pink-500/5",
-  },
-  {
-    label: "Projects Built",
-    value: "10+ CLI Tools",
-    color: "text-emerald-400",
-    gradient: "from-emerald-500/20 to-emerald-500/5",
-  },
-  {
-    label: "Accountability",
-    value: "Daily Git",
-    color: "text-violet-400",
-    gradient: "from-violet-500/20 to-violet-500/5",
-  },
-];
+
 
 export const TIMELINE_DATA = [
   {

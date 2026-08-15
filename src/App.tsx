@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import {
   Globe,
   Mail,
@@ -54,24 +54,12 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress, scrollY } = useScroll();
 
-  // 1. Passive scroll listener for scroll-to-top button
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setShowScrollTop(window.scrollY > 400);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // 1. Scroll listener for scroll-to-top button using framer-motion
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setShowScrollTop(latest > 400);
+  });
 
   // 2. High-performance IntersectionObserver for active section tracking
   useEffect(() => {
