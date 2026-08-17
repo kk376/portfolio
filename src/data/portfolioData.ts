@@ -10,10 +10,10 @@ export const PERSONAL_INFO = {
   university: "Suresh Gyan Vihar University",
   graduationYear: "2022",
   status: "Learning · Building Daily",
-  githubUrl: "https://github.com/Kk376",
-  journeyRepoUrl: "https://github.com/Kk376/ai-ml-journey",
-  crudRepoUrl: "https://github.com/Kk376/cli-python-crud-project",
-  miniProjectsUrl: "https://github.com/Kk376/ai-ml-journey/tree/main/Python_Mini_Projects",
+  githubUrl: "https://github.com/kk376",
+  journeyRepoUrl: "https://github.com/kk376/ai-ml-journey",
+  crudRepoUrl: "https://github.com/kk376/cli-python-crud-project",
+  miniProjectsUrl: "https://github.com/kk376/ai-ml-journey/tree/main/Python_Mini_Projects",
   linkedinUrl: "https://www.linkedin.com/in/kushagra-kumar376/",
 };
 

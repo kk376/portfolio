@@ -11,7 +11,7 @@ I'm Kushagra Kumar, a BCA graduate (8.2 CGPA). After spending four years prepari
 This repository houses my personal portfolio showcasing:
 - My educational background and career pivot
 - Verified skills in **Core Python** and **MySQL**
-- Real standalone and mini-projects ([CLI CRUD File Manager](https://github.com/Kk376/cli-python-crud-project) & [10 Python Mini Projects](https://github.com/Kk376/ai-ml-journey/tree/main/Python_Mini_Projects))
+- Real standalone and mini-projects ([CLI CRUD File Manager](https://github.com/kk376/cli-python-crud-project) & [10 Python Mini Projects](https://github.com/kk376/ai-ml-journey/tree/main/Python_Mini_Projects))
 - Upcoming learning roadmap (Python OOP, Pandas/NumPy, Excel, Power BI)
 - Interactive milestone timeline and direct contact channels
 
@@ -90,7 +90,7 @@ portfolio/
 
 ```bash
 # Clone the repository
-git clone https://github.com/Kk376/portfolio.git
+git clone https://github.com/kk376/portfolio.git
 cd portfolio
 
 # Install dependencies
@@ -114,11 +114,11 @@ pnpm run dev
 
 ## Related Repositories
 
-- [ai-ml-journey](https://github.com/Kk376/ai-ml-journey) — Daily progress logs, Python exercises, and MySQL practice queries.
-- [cli-python-crud-project](https://github.com/Kk376/cli-python-crud-project) — Command-line file and directory manager built in Python.
+- [ai-ml-journey](https://github.com/kk376/ai-ml-journey) — Daily progress logs, Python exercises, and MySQL practice queries.
+- [cli-python-crud-project](https://github.com/kk376/cli-python-crud-project) — Command-line file and directory manager built in Python.
 
 ---
 
 ## License
 
-MIT © [Kushagra Kumar](https://github.com/Kk376)
+MIT © [Kushagra Kumar](https://github.com/kk376)
