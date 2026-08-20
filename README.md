@@ -1,4 +1,4 @@
-# Kushagra Kumar — Portfolio
+# Kushagra Kumar: Portfolio
 
 Personal developer and data analytics portfolio website built with React 19, TypeScript, Vite, Tailwind CSS, and Framer Motion.
 
@@ -29,12 +29,12 @@ This repository houses my personal portfolio showcasing:
 
 ## Features
 
-- **Full TypeScript Architecture** — Strict type safety across all components, props, and data models.
-- **Centralized Data Layer** — All content and metadata stored in [`src/data/portfolioData.ts`](src/data/portfolioData.ts) for clean separation of concerns.
-- **High Performance (120 FPS)** — GPU-accelerated static radial background gradients, zero rasterization blur churn, and passive scroll handling with `IntersectionObserver`.
-- **Responsive Navigation** — Smooth offset scrolling with active section indicator and mobile drawer with keyboard controls.
-- **One-Click Clipboard Actions** — Instant copy buttons with feedback indicators for email and phone numbers.
-- **SEO & Accessibility** — Semantic HTML5 tags, full OpenGraph / Twitter Cards, and Schema.org `Person` JSON-LD structured data.
+- **Full TypeScript Architecture**: Strict type safety across all components, props, and data models.
+- **Centralized Data Layer**: All content and metadata stored in [`src/data/portfolioData.ts`](src/data/portfolioData.ts) for clean separation of concerns.
+- **High Performance (120 FPS)**: GPU-accelerated static radial background gradients, zero rasterization blur churn, and passive scroll handling with `IntersectionObserver`.
+- **Responsive Navigation**: Smooth offset scrolling with active section indicator and mobile drawer with keyboard controls.
+- **One-Click Clipboard Actions**: Instant copy buttons with feedback indicators for email and phone numbers.
+- **SEO & Accessibility**: Semantic HTML5 tags, full OpenGraph / Twitter Cards, and Schema.org `Person` JSON-LD structured data.
 
 ---
 
@@ -114,8 +114,8 @@ pnpm run dev
 
 ## Related Repositories
 
-- [ai-ml-journey](https://github.com/kk376/ai-ml-journey) — Daily progress logs, Python exercises, and MySQL practice queries.
-- [cli-python-crud-project](https://github.com/kk376/cli-python-crud-project) — Command-line file and directory manager built in Python.
+- [ai-ml-journey](https://github.com/kk376/ai-ml-journey): Daily progress logs, Python exercises, and MySQL practice queries.
+- [cli-python-crud-project](https://github.com/kk376/cli-python-crud-project): Command-line file and directory manager built in Python.
 
 ---
 

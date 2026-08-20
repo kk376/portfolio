@@ -18,13 +18,17 @@ export default function ContactInfoCard({
 }: ContactInfoCardProps) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = (e: MouseEvent) => {
+  const handleCopy = async (e: MouseEvent) => {
     if (!copyable) return;
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard.writeText(value);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard write failed or permission denied
+    }
   };
 
   const content = (
@@ -52,7 +56,11 @@ export default function ContactInfoCard({
           title="Click to copy"
         >
           {copied ? (
-            <span className="flex items-center gap-1 text-xs text-emerald-400">
+            <span
+              role="status"
+              aria-live="polite"
+              className="flex items-center gap-1 text-xs text-emerald-400"
+            >
               <Check size={14} />
               Copied
             </span>

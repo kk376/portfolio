@@ -103,7 +103,7 @@ export default function App() {
           const navbarHeight = 70;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition =
-            elementPosition + window.pageYOffset - navbarHeight;
+            elementPosition + window.scrollY - navbarHeight;
 
           window.scrollTo({
             top: offsetPosition,
@@ -192,6 +192,7 @@ export default function App() {
           >
             <div>
               <SectionHeader
+                id="about-heading"
                 title="About Me"
                 icon={<Heart className="text-red-400" size={20} />}
               />
@@ -252,6 +253,7 @@ export default function App() {
         <AnimatedSection>
           <section id="skills" aria-labelledby="skills-heading">
             <SectionHeader
+              id="skills-heading"
               title="Verified Skill Set"
               icon={<BarChart2 className="text-cyan-400" size={20} />}
               subtitle="Everything I have actually learned and practiced in my code repository."
@@ -331,6 +333,7 @@ export default function App() {
         <AnimatedSection>
           <section id="projects" aria-labelledby="projects-heading">
             <SectionHeader
+              id="projects-heading"
               title="Projects & Work"
               icon={<Rocket className="text-purple-400" size={20} />}
               subtitle="Standalone programs I've built to put my learning into practice, plus what's coming next."
@@ -413,6 +416,7 @@ export default function App() {
         <AnimatedSection>
           <section id="experience" aria-labelledby="experience-heading">
             <SectionHeader
+              id="experience-heading"
               title="My Journey"
               icon={<Award className="text-amber-400" size={20} />}
               subtitle="The milestones, pivots, and continuous learning curve that shaped where I am today."
