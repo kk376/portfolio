@@ -13,6 +13,9 @@ export interface ProjectItemProps {
   status?: string;
 }
 
+/**
+ * ProjectItem - Showcase card for completed software projects with external repository links.
+ */
 export default function ProjectItem({
   name,
   desc,

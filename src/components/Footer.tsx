@@ -1,6 +1,9 @@
 import { Terminal, Github, Linkedin, Mail } from "lucide-react";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
+/**
+ * Footer - Global page footer displaying dynamic year copyright and profile channel links.
+ */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 

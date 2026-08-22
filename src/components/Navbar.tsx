@@ -10,13 +10,20 @@ export interface NavbarProps {
   handleNavClick: (sectionId: string, e?: React.MouseEvent) => void;
 }
 
+/**
+ * Navbar - Fixed top navigation header with responsive mobile drawer.
+ *
+ * Features:
+ * - Backdrop filter with alpha background (`bg-[#030308]/85 backdrop-blur-xl`) for contrast across gradient backgrounds.
+ * - Global Escape key listener automatically closes the mobile drawer when active, with strict cleanup on unmount.
+ */
 export default function Navbar({
   isMenuOpen,
   setIsMenuOpen,
   activeSection,
   handleNavClick,
 }: NavbarProps) {
-  // Close menu on escape key
+  // Global Escape key dismiss handler with automatic listener removal on state change/unmount
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isMenuOpen) {

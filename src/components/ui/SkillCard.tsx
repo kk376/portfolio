@@ -11,6 +11,7 @@ export interface SkillCardProps {
   description?: string;
 }
 
+// Pre-computed Tailwind class variant map avoiding runtime interpolation
 const colorVariants: Record<SkillColor, { iconBg: string; text: string; badgeBorder: string }> = {
   cyan: {
     iconBg: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
@@ -34,6 +35,9 @@ const colorVariants: Record<SkillColor, { iconBg: string; text: string; badgeBor
   },
 };
 
+/**
+ * SkillCard - Displays a categorized skillset block with badges and hover animations.
+ */
 export default function SkillCard({
   title,
   icon,

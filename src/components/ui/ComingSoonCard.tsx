@@ -10,6 +10,9 @@ export interface ComingSoonCardProps {
   eta: string;
 }
 
+/**
+ * ComingSoonCard - Placeholder card for planned roadmap projects with ETA indicators.
+ */
 export default function ComingSoonCard({
   title,
   description,

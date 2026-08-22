@@ -1,3 +1,12 @@
+/**
+ * Static Data Store for Kushagra Kumar's Developer Portfolio
+ *
+ * Centralized constant datasets used across Hero, About, Skills, Experience, and Contact components.
+ */
+
+/**
+ * Core personal metadata, contact coordinates, and external repository links.
+ */
 export const PERSONAL_INFO = {
   name: "Kushagra Kumar",
   title: "Python & SQL Learner | Data Analytics Journey",
@@ -17,6 +26,9 @@ export const PERSONAL_INFO = {
   linkedinUrl: "https://www.linkedin.com/in/kushagra-kumar376/",
 };
 
+/**
+ * Primary navigation item definitions corresponding to section HTML IDs.
+ */
 export const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
@@ -25,8 +37,9 @@ export const NAV_ITEMS = [
   { id: "contact", label: "Contact" },
 ] as const;
 
-
-
+/**
+ * Career and academic milestones in chronological descending order.
+ */
 export const TIMELINE_DATA = [
   {
     year: "July 2026 - Present",

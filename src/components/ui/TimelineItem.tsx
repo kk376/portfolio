@@ -9,6 +9,13 @@ export interface TimelineItemProps {
   highlight?: boolean;
 }
 
+/**
+ * TimelineItem - Responsive milestone card anchored to the central gradient spine.
+ *
+ * Layout Math:
+ * - Mobile: Left-aligned with 32px (left-8) node dot offset.
+ * - Desktop (md): Alternates left/right of center spine via flex-row-reverse and 45% card width clamp.
+ */
 export default function TimelineItem({
   year,
   title,

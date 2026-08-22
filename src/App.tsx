@@ -50,18 +50,29 @@ import {
   EXPERIENCE_DATA,
 } from "./data/portfolioData";
 
+/**
+ * Root Portfolio Application Component
+ *
+ * Manages top-level application states:
+ * - Active section tracking via IntersectionObserver with asymmetric viewport margins.
+ * - Smooth scroll coordinator compensating for fixed 70px header offset and mobile drawer animations.
+ * - Dynamic scroll-to-top button visibility driven by Framer Motion scroll motion values.
+ */
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { scrollYProgress, scrollY } = useScroll();
 
-  // 1. Scroll listener for scroll-to-top button using framer-motion
+  // Scroll threshold listener for scroll-to-top button.
+  // Framer Motion's useMotionValueEvent runs outside React's render cycle for optimal frame rates.
   useMotionValueEvent(scrollY, "change", (latest) => {
     setShowScrollTop(latest > 400);
   });
 
-  // 2. High-performance IntersectionObserver for active section tracking
+  // Active section tracking via IntersectionObserver.
+  // rootMargin "-20% 0px -60% 0px" defines an asymmetric trigger band in the upper-middle viewport
+  // to ensure sections trigger when their headings enter comfortable reading range rather than viewport edges.
   useEffect(() => {
     const sectionIds = ["about", "skills", "projects", "experience", "contact"];
     const observerCallback: IntersectionObserverCallback = (entries) => {
@@ -90,6 +101,16 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  /**
+   * Smoothly navigates to a target section by ID.
+   *
+   * Coordinate calculation:
+   * - Reads element.getBoundingClientRect().top relative to current viewport.
+   * - Adds window.scrollY to determine absolute document offset.
+   * - Subtracts 70px fixed header height to prevent section headers from being occluded.
+   * - When closing the mobile drawer, delays scroll execution by 120ms to allow the collapsible
+   *   menu height transition to settle before calculating bounding rectangles.
+   */
   const handleNavClick = useCallback(
     (sectionId: string, e?: React.MouseEvent) => {
       e?.preventDefault();

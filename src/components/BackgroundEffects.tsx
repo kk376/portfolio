@@ -1,8 +1,14 @@
 import { memo } from "react";
 
 /**
- * BackgroundEffects - Ultra-high performance background using pure radial gradients.
- * Uses zero CSS filter:blur() and zero continuous rasterization for solid 120 FPS scrolling.
+ * BackgroundEffects - Hardware-accelerated ambient backdrop.
+ *
+ * Architectural & Performance Decisions:
+ * - Employs pure CSS radial gradients instead of `filter: blur(...)` or Canvas 2D/WebGL buffers.
+ *   CSS blur filters trigger expensive software rasterization passes on every scroll event;
+ *   pre-computed radial gradients compile directly into GPU composite textures.
+ * - Layer isolation via `pointer-events-none` and `fixed inset-0 z-0` prevents hit-testing
+ *   overhead and unintended pointer event interception.
  */
 function BackgroundEffects() {
   return (

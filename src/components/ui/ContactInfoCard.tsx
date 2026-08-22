@@ -9,6 +9,13 @@ export interface ContactInfoCardProps {
   copyable?: boolean;
 }
 
+/**
+ * ContactInfoCard - Interactive contact coordinate card with optional copy-to-clipboard functionality.
+ *
+ * Clipboard handling:
+ * - Uses navigator.clipboard.writeText with graceful try/catch for non-secure contexts or denied permissions.
+ * - Resets copied state feedback automatically after 2000ms.
+ */
 export default function ContactInfoCard({
   icon,
   label,
@@ -27,7 +34,7 @@ export default function ContactInfoCard({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard write failed or permission denied
+      // Clipboard write failed or permission denied in iframe/insecure context
     }
   };
 

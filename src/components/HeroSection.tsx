@@ -16,6 +16,13 @@ export interface HeroSectionProps {
   handleNavClick: (sectionId: string, e?: React.MouseEvent) => void;
 }
 
+/**
+ * HeroSection - Primary landing section with profile avatar and quick CTA links.
+ *
+ * Visual Transitions:
+ * - Profile avatar uses spring physics (`stiffness: 100, damping: 15`) to create a subtle natural settle without oscillation artifacts.
+ * - Staggered entrance delays (0.15s, 0.25s, 0.35s, 0.45s) sequence typography and CTA elements on initial mount.
+ */
 export default function HeroSection({ handleNavClick }: HeroSectionProps) {
   return (
     <section

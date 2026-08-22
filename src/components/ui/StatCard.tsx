@@ -9,6 +9,9 @@ export interface StatCardProps {
   gradient: string;
 }
 
+/**
+ * StatCard - Key performance and education metric card with hover micro-interaction.
+ */
 export default function StatCard({
   label,
   value,

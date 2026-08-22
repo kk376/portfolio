@@ -6,6 +6,14 @@ export interface AnimatedSectionProps {
   className?: string;
 }
 
+/**
+ * AnimatedSection - Scroll-triggered section wrapper using Framer Motion.
+ *
+ * Viewport configuration:
+ * - `once: true`: Prevents continuous unmount/remount animation churn as users scroll up and down.
+ * - `margin: "-80px"`: Offsets the intersection trigger point by 80px above the bottom viewport edge,
+ *   preventing sudden layout pops before the section is genuinely visible in the viewing area.
+ */
 function AnimatedSection({ children, className = "" }: AnimatedSectionProps) {
   return (
     <motion.div
