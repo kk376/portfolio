@@ -2,14 +2,16 @@ import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   globalIgnores(["dist"]),
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,
+      ...tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
@@ -23,12 +25,11 @@ export default defineConfig([
       },
     },
     rules: {
-      // 'motion' is used in JSX (e.g., <motion.div>) but ESLint doesn't detect this without eslint-plugin-react
-      "no-unused-vars": [
+      "@typescript-eslint/no-unused-vars": [
         "error",
         { varsIgnorePattern: "^([A-Z_]|motion$)", ignoreRestSiblings: true },
       ],
-      // Note: ESLint recognizes JSX usage via parser configuration above
     },
   },
 ]);
+
