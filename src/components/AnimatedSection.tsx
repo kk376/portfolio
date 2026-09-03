@@ -1,5 +1,5 @@
 import { memo, ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export interface AnimatedSectionProps {
   children: ReactNode;
@@ -9,18 +9,19 @@ export interface AnimatedSectionProps {
 /**
  * AnimatedSection - Scroll-triggered section wrapper using Framer Motion.
  *
- * Viewport configuration:
- * - `once: true`: Prevents continuous unmount/remount animation churn as users scroll up and down.
- * - `margin: "-80px"`: Offsets the intersection trigger point by 80px above the bottom viewport edge,
- *   preventing sudden layout pops before the section is genuinely visible in the viewing area.
+ * Supports prefers-reduced-motion:
+ * - When reduced motion is requested, suppresses entrance transitions.
+ * - Otherwise applies subtle 24px upward fade when scrolling into view.
  */
 function AnimatedSection({ children, className = "" }: AnimatedSectionProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.45, ease: "easeOut" }}
       className={className}
     >
       {children}

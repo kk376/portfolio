@@ -23,6 +23,8 @@ export default function Navbar({
   activeSection,
   handleNavClick,
 }: NavbarProps) {
+  const drawerRef = React.useRef<HTMLDivElement>(null);
+
   // Global Escape key dismiss handler with automatic listener removal on state change/unmount
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,6 +35,54 @@ export default function Navbar({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen, setIsMenuOpen]);
+
+  // Lock background scroll when mobile drawer is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }
+  }, [isMenuOpen]);
+
+  // Trap focus inside mobile drawer when open
+  useEffect(() => {
+    if (!isMenuOpen || !drawerRef.current) return;
+
+    const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusable[0];
+    if (firstFocusable) {
+      firstFocusable.focus();
+    }
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !drawerRef.current) return;
+      const elements = drawerRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (elements.length === 0) return;
+
+      const first = elements[0];
+      const last = elements[elements.length - 1];
+
+      if (first && last) {
+        if (e.shiftKey && document.activeElement === first) {
+          last.focus();
+          e.preventDefault();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          first.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+    return () => window.removeEventListener("keydown", handleTabKey);
+  }, [isMenuOpen]);
 
   return (
     <header className="fixed top-0 w-full z-50 bg-[#030308]/85 backdrop-blur-xl border-b border-white/5 transition-all">
@@ -48,7 +98,7 @@ export default function Navbar({
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
               <Terminal size={16} className="text-white" />
             </div>
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-[#030308] animate-pulse" />
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-[#030308] motion-safe:animate-pulse" />
           </div>
           <span className="font-bold tracking-tight text-lg text-white">
             Kushagra
@@ -109,6 +159,7 @@ export default function Navbar({
           className="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -118,6 +169,11 @@ export default function Navbar({
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-menu"
+            ref={drawerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -139,7 +195,7 @@ export default function Navbar({
                   }`}
                 >
                   <span>{item.label}</span>
-                  <ChevronRight size={16} className="text-gray-500" />
+                  <ChevronRight size={16} className="text-gray-400" />
                 </a>
               ))}
 

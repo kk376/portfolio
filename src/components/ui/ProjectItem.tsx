@@ -87,7 +87,7 @@ export default function ProjectItem({
             ) : null}
 
             {!githubUrl && !demoUrl && (
-              <span className="text-xs text-gray-500 italic">
+              <span className="text-xs text-gray-400 italic">
                 Repository coming soon
               </span>
             )}

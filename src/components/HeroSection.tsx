@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Github,
   Linkedin,
@@ -22,8 +22,11 @@ export interface HeroSectionProps {
  * Visual Transitions:
  * - Profile avatar uses spring physics (`stiffness: 100, damping: 15`) to create a subtle natural settle without oscillation artifacts.
  * - Staggered entrance delays (0.15s, 0.25s, 0.35s, 0.45s) sequence typography and CTA elements on initial mount.
+ * - Supports prefers-reduced-motion to disable continuous animations.
  */
 export default function HeroSection({ handleNavClick }: HeroSectionProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="about"
@@ -53,7 +56,7 @@ export default function HeroSection({ handleNavClick }: HeroSectionProps) {
         </div>
         <motion.div
           className="absolute -bottom-1 -right-1 w-8 h-8 bg-emerald-500 border-4 border-[#030308] rounded-full flex items-center justify-center shadow-lg"
-          animate={{ scale: [1, 1.15, 1] }}
+          animate={shouldReduceMotion ? undefined : { scale: [1, 1.15, 1] }}
           transition={{ repeat: Infinity, duration: 2.5 }}
           title="Actively building & learning"
         >
@@ -69,7 +72,7 @@ export default function HeroSection({ handleNavClick }: HeroSectionProps) {
         className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.04] rounded-full border border-white/10 mb-6 shadow-sm"
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
         <span className="text-xs md:text-sm text-gray-300 font-medium">
@@ -164,13 +167,13 @@ export default function HeroSection({ handleNavClick }: HeroSectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="text-gray-500 text-xs flex flex-col items-center gap-1.5"
+        className="text-gray-400 text-xs flex flex-col items-center gap-1.5"
       >
         <span className="uppercase tracking-widest font-semibold text-[10px]">
           Scroll to explore
         </span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={shouldReduceMotion ? undefined : { y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.8 }}
         >
           <ArrowDown size={14} className="text-cyan-400" />

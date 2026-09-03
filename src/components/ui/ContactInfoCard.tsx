@@ -1,5 +1,5 @@
 import { ReactNode, useState, MouseEvent } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, AlertCircle } from "lucide-react";
 
 export interface ContactInfoCardProps {
   icon: ReactNode;
@@ -14,7 +14,8 @@ export interface ContactInfoCardProps {
  *
  * Clipboard handling:
  * - Uses navigator.clipboard.writeText with graceful try/catch for non-secure contexts or denied permissions.
- * - Resets copied state feedback automatically after 2000ms.
+ * - Displays copied success status or explicit failure notification.
+ * - Resets status feedback automatically.
  */
 export default function ContactInfoCard({
   icon,
@@ -24,6 +25,7 @@ export default function ContactInfoCard({
   copyable = false,
 }: ContactInfoCardProps) {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const handleCopy = async (e: MouseEvent) => {
     if (!copyable) return;
@@ -32,9 +34,12 @@ export default function ContactInfoCard({
     try {
       await navigator.clipboard.writeText(value);
       setCopied(true);
+      setCopyError(false);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard write failed or permission denied in iframe/insecure context
+      setCopyError(true);
+      setCopied(false);
+      setTimeout(() => setCopyError(false), 3000);
     }
   };
 
@@ -44,7 +49,7 @@ export default function ContactInfoCard({
         {icon}
       </div>
       <div className="text-left min-w-0">
-        <p className="text-xs text-gray-500 uppercase font-medium tracking-wider mb-0.5">
+        <p className="text-xs text-gray-400 uppercase font-medium tracking-wider mb-0.5">
           {label}
         </p>
         <p className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors truncate">
@@ -75,18 +80,33 @@ export default function ContactInfoCard({
         <button
           type="button"
           onClick={handleCopy}
-          aria-label={copied ? `Copied ${label} to clipboard` : `Copy ${label} to clipboard`}
+          aria-label={
+            copied
+              ? `Copied ${label} to clipboard`
+              : copyError
+              ? `Failed to copy ${label}`
+              : `Copy ${label} to clipboard`
+          }
           className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors ml-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
-          title="Click to copy"
+          title={copyError ? "Failed to copy" : "Click to copy"}
         >
           {copied ? (
             <span
               role="status"
               aria-live="polite"
-              className="flex items-center gap-1 text-xs text-emerald-400"
+              className="flex items-center gap-1 text-xs text-emerald-400 font-medium"
             >
               <Check size={14} />
               Copied
+            </span>
+          ) : copyError ? (
+            <span
+              role="alert"
+              aria-live="assertive"
+              className="flex items-center gap-1 text-xs text-red-400 font-medium"
+            >
+              <AlertCircle size={14} />
+              Failed
             </span>
           ) : (
             <Copy size={14} />

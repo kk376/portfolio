@@ -65,7 +65,7 @@ export default function SkillCard({
               {title}
             </h3>
             {description && (
-              <p className="text-xs text-gray-500 mt-0.5">{description}</p>
+              <p className="text-xs text-gray-400 mt-0.5">{description}</p>
             )}
           </div>
         </div>
