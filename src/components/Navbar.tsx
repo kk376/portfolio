@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Keyboard } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
 import { ThemeToggle } from './ThemeToggle';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenShortcuts?: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenShortcuts }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -18,6 +22,7 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { label: 'Now Status', href: '#now' },
     { label: 'Upstream Dispatches', href: '#upstream' },
     { label: 'Models & Code', href: '#projects' },
     { label: 'Taxonomy', href: '#skills' },
@@ -42,9 +47,12 @@ export const Navbar: React.FC = () => {
           <span className="hidden sm:inline">KUSHAGRA KUMAR (kk376)</span>
         </div>
         <div className="flex items-center gap-3 font-medium">
-          <span className="px-2.5 py-0.5 rounded-full bg-[#533afd]/10 text-[#533afd] dark:bg-[#533afd]/20 dark:text-[#b9b9f9] text-[10px] font-semibold">
+          <a
+            href="#now"
+            className="px-2.5 py-0.5 rounded-full bg-[#533afd]/10 text-[#533afd] dark:bg-[#533afd]/20 dark:text-[#b9b9f9] text-[10px] font-semibold hover:bg-[#533afd]/20 transition-colors cursor-pointer"
+          >
             STATUS: ACTIVE LEARNING
-          </span>
+          </a>
           <span className="hidden md:inline text-[#64748d]">FEDORA 44 WORKSTATION</span>
         </div>
       </div>
@@ -79,8 +87,20 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Action Controls */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2">
             <ThemeToggle />
+
+            {/* Keyboard Shortcuts Trigger */}
+            <button
+              onClick={onOpenShortcuts}
+              className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] text-[#64748d] dark:text-[#94a3b8] hover:border-[#533afd] hover:text-[#533afd] text-xs font-mono transition-all shadow-xs cursor-pointer"
+              title="Press ? for keyboard shortcuts"
+            >
+              <kbd className="font-semibold text-[10px] bg-slate-100 dark:bg-[#1e293b] px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+                ?
+              </kbd>
+              <span className="text-[11px] hidden xl:inline font-sans">Hotkeys</span>
+            </button>
 
             <a
               href={PERSONAL_INFO.github}
@@ -160,13 +180,25 @@ export const Navbar: React.FC = () => {
                 LinkedIn
               </a>
             </div>
-            <a
-              href="#connect"
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-2 rounded-full bg-[#533afd] text-white font-sans text-xs font-semibold"
-            >
-              Transmit
-            </a>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  setMobileOpen(false);
+                  onOpenShortcuts?.();
+                }}
+                className="px-3 py-1.5 rounded-full border border-[#e3e8ee] dark:border-white/10 text-xs font-mono text-[#64748d] dark:text-[#94a3b8] flex items-center gap-1.5"
+              >
+                <Keyboard className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff]" />
+                <span>Shortcuts</span>
+              </button>
+              <a
+                href="#connect"
+                onClick={() => setMobileOpen(false)}
+                className="px-4 py-2 rounded-full bg-[#533afd] text-white font-sans text-xs font-semibold"
+              >
+                Transmit
+              </a>
+            </div>
           </div>
         </div>
       )}

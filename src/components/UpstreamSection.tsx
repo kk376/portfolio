@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GitPullRequest, ExternalLink, ChevronDown, ChevronUp, Check, Sparkles } from 'lucide-react';
+import { GitPullRequest, ExternalLink, ChevronDown, ChevronUp, Check, Sparkles, Code2 } from 'lucide-react';
 import { UPSTREAM_CONTRIBUTIONS } from '../data/portfolioData';
 import type { ContributionCategory, UpstreamContribution } from '../types';
 import { GithubIcon } from './icons/GithubIcon';
@@ -9,6 +9,7 @@ import { SonarCanvas } from './SonarCanvas';
 export const UpstreamSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ContributionCategory>('all');
   const [showDemoForId, setShowDemoForId] = useState<string | null>(null);
+  const [expandedDiagnosticId, setExpandedDiagnosticId] = useState<string | null>(null);
 
   const categories: { label: string; value: ContributionCategory; count: number }[] = [
     { label: 'All Dispatches', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
@@ -166,7 +167,7 @@ export const UpstreamSection: React.FC = () => {
                 <div className="pt-2">
                   <button
                     onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
-                    className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all flex items-center gap-2 active:scale-95"
+                    className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all flex items-center gap-2 active:scale-95 cursor-pointer"
                   >
                     <span>
                       {showDemoForId === item.id
@@ -183,6 +184,75 @@ export const UpstreamSection: React.FC = () => {
                   {showDemoForId === item.id && (
                     <div className="mt-4 rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#0a101d] p-3 shadow-lg">
                       <SonarCanvas />
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Diagnostic Trace & Diff Inspector */}
+              {item.diagnostic && (
+                <div className="pt-1">
+                  <button
+                    onClick={() => setExpandedDiagnosticId(expandedDiagnosticId === item.id ? null : item.id)}
+                    className="px-4 py-2 rounded-full border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] hover:border-[#533afd] text-[#0d253d] dark:text-[#f8fafc] font-sans text-xs font-medium shadow-xs transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                  >
+                    <Code2 className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff]" />
+                    <span>{expandedDiagnosticId === item.id ? 'Hide Root Cause & Diff' : 'Inspect Diagnostic Trace & Diff'}</span>
+                    {expandedDiagnosticId === item.id ? (
+                      <ChevronUp className="w-3.5 h-3.5 stroke-[2]" />
+                    ) : (
+                      <ChevronDown className="w-3.5 h-3.5 stroke-[2]" />
+                    )}
+                  </button>
+
+                  {expandedDiagnosticId === item.id && (
+                    <div className="mt-3 rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#0d253d]/40 p-5 space-y-4 animate-in fade-in duration-200">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <div className="font-mono text-[10px] font-semibold text-rose-600 dark:text-rose-400 uppercase tracking-wider">
+                            HARDWARE SYMPTOM:
+                          </div>
+                          <p className="font-sans text-xs text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                            {item.diagnostic.symptom}
+                          </p>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="font-mono text-[10px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                            ROOT CAUSE TRACED:
+                          </div>
+                          <p className="font-sans text-xs text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                            {item.diagnostic.rootCause}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-1 border-t border-[#e3e8ee] dark:border-white/5 pt-3">
+                        <div className="font-mono text-[10px] font-semibold text-[#533afd] dark:text-[#00d4ff] uppercase tracking-wider">
+                          ARCHITECTURAL FIX:
+                        </div>
+                        <p className="font-sans text-xs text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                          {item.diagnostic.fix}
+                        </p>
+                      </div>
+
+                      {item.diagnostic.diffSnippet && (
+                        <div className="rounded-lg border border-black/10 dark:border-white/10 bg-[#0a101d] p-3 text-[11px] font-mono overflow-x-auto">
+                          <div className="text-slate-400 pb-1.5 mb-1.5 border-b border-white/10 text-[10px] flex items-center justify-between">
+                            <span>{item.diagnostic.diffSnippet.file}</span>
+                            <span className="text-slate-400 font-sans">Unified Diff</span>
+                          </div>
+                          {item.diagnostic.diffSnippet.removed?.map((line, lIdx) => (
+                            <div key={`rem-${lIdx}`} className="text-rose-400 bg-rose-500/10 px-1 py-0.5 rounded select-all">
+                              - {line}
+                            </div>
+                          ))}
+                          {item.diagnostic.diffSnippet.added?.map((line, lIdx) => (
+                            <div key={`add-${lIdx}`} className="text-emerald-400 bg-emerald-500/10 px-1 py-0.5 rounded select-all">
+                              + {line}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

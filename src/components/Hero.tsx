@@ -154,6 +154,35 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
+        {/* Live "Now" Micro-Status Indicator (Derek Sivers Pattern) */}
+        <div id="now" className="mb-10 rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white/70 dark:bg-[#0f172a]/70 backdrop-blur-md p-4 sm:p-5 shadow-xs">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-3 w-3 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </span>
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="font-mono text-xs font-semibold text-[#0d253d] dark:text-white">
+                  STATION STATUS // LIVE:
+                </span>
+                <span className="font-mono text-xs text-[#533afd] dark:text-[#00d4ff] font-medium">
+                  Fedora 44 Workstation (Kernel 6.13, Wayland)
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+              <span className="px-2.5 py-1 rounded-md bg-[#533afd]/10 text-[#533afd] dark:text-[#b9b9f9] border border-[#533afd]/20 font-medium">
+                FOCUS: React Architecture & WebGL GLSL
+              </span>
+              <span className="px-2.5 py-1 rounded-md bg-[#00d4ff]/10 text-[#008ba3] dark:text-[#00d4ff] border border-[#00d4ff]/20 font-medium">
+                DISPATCH: Merged Cesium PR #214
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* 4 Stripe Tabular Feature Metric Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}

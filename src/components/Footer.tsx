@@ -3,7 +3,11 @@ import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenShortcuts?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenShortcuts }) => {
   return (
     <footer className="bg-[#f6f9fc] dark:bg-[#080b11] text-[#0d253d] dark:text-[#f8fafc] py-16 transition-colors duration-200 border-t border-[#e3e8ee] dark:border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,8 +17,19 @@ export const Footer: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-[#533afd] dark:bg-[#00d4ff]" />
             <span className="font-semibold text-[#0d253d] dark:text-white">APPRENTICE DISPATCH // DIRECTION 05</span>
           </div>
-          <div className="text-[#64748d] dark:text-[#94a3b8]">
-            Open Source Systems & Frontend Exploration
+          <div className="flex items-center gap-3 text-[#64748d] dark:text-[#94a3b8]">
+            <span>Open Source Systems & Frontend Exploration</span>
+            {onOpenShortcuts && (
+              <>
+                <span>•</span>
+                <button
+                  onClick={onOpenShortcuts}
+                  className="text-[#533afd] dark:text-[#00d4ff] hover:underline cursor-pointer"
+                >
+                  developer-portfolios Catalog PR
+                </button>
+              </>
+            )}
           </div>
         </div>
 

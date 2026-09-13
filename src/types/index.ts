@@ -2,6 +2,17 @@ export type ContributionCategory = 'all' | 'merged' | 'systems' | 'discussions' 
 
 export type ContributionType = 'pr' | 'mr' | 'issue' | 'discussion' | 'package';
 
+export interface DiagnosticTrace {
+  symptom: string;
+  rootCause: string;
+  fix: string;
+  diffSnippet?: {
+    file: string;
+    removed?: string[];
+    added?: string[];
+  };
+}
+
 export interface UpstreamContribution {
   id: string;
   platform: 'github' | 'gitlab';
@@ -19,6 +30,7 @@ export interface UpstreamContribution {
   tags: string[];
   accentGradient: string;
   hasInteractiveDemo?: boolean;
+  diagnostic?: DiagnosticTrace;
 }
 
 export interface Project {
