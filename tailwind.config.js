@@ -8,33 +8,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        verge: {
-          canvas: '#131313',
-          slate: '#2d2d2d',
-          mint: '#3cffd0',
-          'mint-border': '#309875',
-          violet: '#5200ff',
-          'violet-rule': '#3d00bf',
-          yellow: '#fffa00',
-          pink: '#ff007a',
-          orange: '#ff5500',
-          blue: '#3860be',
-          hairline: '#ffffff',
-          dim: '#949494',
-        },
-        dark: {
-          950: '#06070b',
-          900: '#0b0d14',
-          850: '#10131c',
-          800: '#161a26',
-          700: '#222838',
-          600: '#2e364c',
+        swiss: {
+          paper: '#F4F3EE',
+          surface: '#FFFFFF',
+          muted: '#EAE7DF',
+          ink: '#111111',
+          'ink-muted': '#555555',
+          blue: '#1D4ED8',
+          orange: '#FF4F00',
+          green: '#15803D',
+          slate: '#141416',
+          'slate-surface': '#1F2026',
+          chalk: '#E5E5E0',
+          'chalk-muted': '#9E9EA0',
         },
       },
       fontFamily: {
-        display: ['Anton', 'Impact', 'sans-serif'],
+        serif: ['Newsreader', '"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Space Grotesk"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"Space Mono"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        mono: ['"JetBrains Mono"', '"Space Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',

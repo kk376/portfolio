@@ -1,157 +1,130 @@
 import React from 'react';
-import { Star, FolderGit2, ArrowUpRight } from 'lucide-react';
+import { Star, ArrowUpRight } from 'lucide-react';
 import { FLAGSHIP_PROJECTS } from '../data/portfolioData';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const ProjectsSection: React.FC = () => {
-  const getVergeTileStyles = (index: number) => {
+  const getPlateStamp = (index: number) => {
     switch (index) {
       case 0:
-        // Fedora Post Install: Jelly Mint
-        return {
-          container: 'bg-[#3cffd0] text-black',
-          kicker: 'text-black/70',
-          headline: 'text-black',
-          badge: 'bg-black text-[#3cffd0]',
-          metric: 'bg-black text-[#3cffd0]',
-          desc: 'text-black/85',
-          tag: 'bg-black/10 text-black border-black/20',
-          btn: 'bg-black text-white hover:bg-white hover:text-black',
-          star: 'text-black',
-        };
+        return 'bg-[#FF4F00] text-white';
       case 1:
-        // kkfetch: Verge Ultraviolet
-        return {
-          container: 'bg-[#5200ff] text-white',
-          kicker: 'text-white/80',
-          headline: 'text-white',
-          badge: 'bg-white text-black',
-          metric: 'bg-white text-black',
-          desc: 'text-white/90',
-          tag: 'bg-white/15 text-white border-white/20',
-          btn: 'bg-white text-black hover:bg-[#3cffd0] hover:text-black',
-          star: 'text-[#fffa00]',
-        };
+        return 'bg-[#1D4ED8] text-white';
       case 2:
-        // kkpdf-zed: Electric Yellow
-        return {
-          container: 'bg-[#fffa00] text-black',
-          kicker: 'text-black/70',
-          headline: 'text-black',
-          badge: 'bg-black text-[#fffa00]',
-          metric: 'bg-black text-[#fffa00]',
-          desc: 'text-black/85',
-          tag: 'bg-black/10 text-black border-black/20',
-          btn: 'bg-black text-white hover:bg-white hover:text-black',
-          star: 'text-black',
-        };
+        return 'bg-[#15803D] text-white';
       default:
-        // dev-suite: Hazard White
-        return {
-          container: 'bg-[#ffffff] text-black',
-          kicker: 'text-black/70',
-          headline: 'text-black',
-          badge: 'bg-black text-white',
-          metric: 'bg-black text-white',
-          desc: 'text-black/85',
-          tag: 'bg-black/10 text-black border-black/20',
-          btn: 'bg-black text-white hover:bg-[#5200ff] hover:text-white',
-          star: 'text-amber-500',
-        };
+        return 'bg-black text-white dark:bg-white dark:text-black';
     }
   };
 
   return (
-    <section id="projects" className="py-20 bg-[#131313] border-b border-[#ffffff]/10 relative">
+    <section id="projects" className="py-20 md:py-24 border-b-2 border-black dark:border-white bg-[#F4F3EE] dark:bg-[#141416]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2d2d2d] border border-[#fffa00]/40 text-xs font-mono text-[#fffa00] mb-3 font-bold uppercase tracking-[0.18em]">
-            <FolderGit2 className="w-3.5 h-3.5" />
-            <span>COVER STORIES // ACTIVE CODE REPOSITORIES</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="border-2 border-black dark:border-white bg-[#FF4F00] text-white font-mono text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 shadow-swiss-sm">
+                PLATE IV // FLAGSHIP CODEBASES
+              </span>
+              <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest">
+                FIG. 4.0
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-black dark:text-white tracking-tight leading-tight max-w-3xl">
+              Engineered codebases. Automation suites, systems fetchers, and document tools.
+            </h2>
           </div>
-          <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white">
-            FEATURED CODEBASES
-          </h2>
-          <p className="font-sans text-base text-[#949494] mt-2 max-w-2xl font-normal">
-            Automated Fedora Linux post-installation suites, microsecond Rust hardware fetchers,
-            and native document viewers for modern editors.
+          <p className="font-sans text-sm text-neutral-600 dark:text-neutral-400 max-w-md leading-relaxed">
+            A catalog of self-directed projects created to eliminate workstation friction on Fedora Linux, test low-level system APIs, and explore native application extensions.
           </p>
         </div>
 
-        {/* 2x2 The Verge Saturated Cover Grid */}
+        {/* 2x2 Architectural Monograph Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {FLAGSHIP_PROJECTS.map((project, idx) => {
-            const styles = getVergeTileStyles(idx);
-            return (
-              <div
-                key={project.id}
-                className={`p-7 sm:p-9 rounded-[28px] ${styles.container} transition-all duration-200 hover:scale-[1.015] flex flex-col justify-between`}
-              >
-                <div>
-                  {/* Top Meta Bar */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <span className={`px-3 py-1 rounded-full font-mono text-[10px] uppercase font-bold tracking-[0.15em] ${styles.badge}`}>
+          {FLAGSHIP_PROJECTS.map((project, idx) => (
+            <div
+              key={project.id}
+              className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-7 sm:p-9 flex flex-col justify-between group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-swiss transition-all"
+            >
+              <div>
+                {/* Plate Top Bar */}
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-4 mb-6">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-black dark:text-white">
+                      PLATE IV.0{idx + 1}
+                    </span>
+                    <span
+                      className={`font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border-2 border-black dark:border-white ${getPlateStamp(
+                        idx
+                      )}`}
+                    >
                       {project.badge}
                     </span>
-
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full ${styles.metric}`}>
-                      {project.highlightMetric}
-                    </span>
                   </div>
 
-                  {/* Kicker & Title */}
-                  <div className={`font-mono text-xs uppercase tracking-[0.16em] font-bold mb-1.5 ${styles.kicker}`}>
-                    {project.tagline}
-                  </div>
-
-                  <h3 className={`font-display text-3xl sm:text-4xl uppercase tracking-tight mb-4 ${styles.headline}`}>
-                    {project.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className={`font-sans text-sm sm:text-base leading-relaxed mb-6 font-normal ${styles.desc}`}>
-                    {project.description}
-                  </p>
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider px-2 py-0.5 border border-black/30 dark:border-white/30 bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white">
+                    {project.highlightMetric}
+                  </span>
                 </div>
 
-                <div>
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`px-3 py-1 rounded-md text-[11px] font-mono uppercase tracking-[0.14em] font-bold border ${styles.tag}`}
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
+                {/* Project Title */}
+                <h3 className="font-serif text-3xl font-bold text-black dark:text-white mb-2">
+                  {project.title}
+                </h3>
+                <div className="font-mono text-xs text-[#1D4ED8] dark:text-[#60a5fa] font-bold uppercase tracking-wider mb-4">
+                  {project.tagline}
+                </div>
 
-                  {/* Footer Bar */}
-                  <div className="pt-4 border-t border-current/15 flex items-center justify-between">
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-[0.16em] font-bold transition-all flex items-center gap-2 ${styles.btn}`}
+                {/* Project Description */}
+                <p className="font-sans text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                {/* Apprentice Context Box */}
+                <div className="p-3.5 border-2 border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-black/30 font-sans text-xs text-neutral-700 dark:text-neutral-300 mb-6">
+                  <span className="font-mono font-bold uppercase text-[10px] text-neutral-500 block mb-1">
+                    ENGINEERING CONTEXT:
+                  </span>
+                  {idx === 0 && 'Authored to completely automate fresh Fedora Workstation setups, configuring RPM Fusion, Zed editor, Flatpaks, and security checksum validation.'}
+                  {idx === 1 && 'Engineered in Rust using raw Linux kernel procfs parsing and ioctl calls for microsecond telemetry without external process spawns.'}
+                  {idx === 2 && 'Developed native document viewer integration for Zed editor on Linux Wayland environments.'}
+                  {idx === 3 && 'Comprehensive engineering standards, zero-trust security invariants, and automated pre-push audit tooling.'}
+                </div>
+
+                {/* Technical Tags */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 border border-black/20 dark:border-white/20 bg-neutral-100 dark:bg-neutral-800 font-mono text-[10px] text-neutral-700 dark:text-neutral-300 font-bold uppercase tracking-wider"
                     >
-                      <GithubIcon className="w-4 h-4" />
-                      <span>EXPLORE ON GITHUB</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-
-                    {project.starsCount && (
-                      <div className={`flex items-center gap-1.5 text-xs font-mono font-bold ${styles.star}`}>
-                        <Star className="w-4 h-4 fill-current" />
-                        <span>{project.starsCount}</span>
-                      </div>
-                    )}
-                  </div>
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+
+              {/* Bottom Action Wire */}
+              <div className="pt-4 border-t-2 border-black dark:border-white flex items-center justify-between">
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold shadow-swiss-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all flex items-center gap-2"
+                >
+                  <GithubIcon className="w-3.5 h-3.5" />
+                  <span>REPOSITORY</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+
+                <div className="font-mono text-[11px] text-neutral-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <Star className="w-3.5 h-3.5 text-[#FF4F00]" />
+                  <span>OPEN SOURCE</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -17,25 +17,21 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`relative inline-flex items-center gap-2 p-2 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500/40 ${
-        isDark
-          ? 'bg-white/[0.04] border-white/[0.08] hover:border-amber-400/50 text-amber-400 hover:bg-amber-400/10'
-          : 'bg-slate-100 border-slate-200 hover:border-purple-400/60 text-purple-600 hover:bg-purple-50 shadow-sm'
-      } ${className}`}
+      aria-label={isDark ? 'Switch to light paper mode' : 'Switch to dark slate mode'}
+      title={isDark ? 'Switch to light paper mode' : 'Switch to dark slate mode'}
+      className={`relative inline-flex items-center gap-2 p-2 rounded-none border-2 border-black dark:border-white shadow-swiss-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none bg-white dark:bg-[#1f2026] text-black dark:text-white transition-all focus:outline-none ${className}`}
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         {isDark ? (
-          <Sun className="w-4 h-4 transition-transform duration-300 rotate-0 hover:rotate-45 text-amber-400" />
+          <Sun className="w-4 h-4 text-amber-400" />
         ) : (
-          <Moon className="w-4 h-4 transition-transform duration-300 -rotate-12 hover:rotate-0 text-purple-600" />
+          <Moon className="w-4 h-4 text-[#1D4ED8]" />
         )}
       </div>
 
       {showLabel && (
-        <span className="text-xs font-mono font-medium">
-          {isDark ? 'Light Mode' : 'Dark Mode'}
+        <span className="text-[11px] font-mono font-bold uppercase tracking-wider">
+          {isDark ? 'Paper (Light)' : 'Slate (Dark)'}
         </span>
       )}
     </button>

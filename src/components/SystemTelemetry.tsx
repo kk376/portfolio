@@ -176,147 +176,173 @@ export const SystemTelemetry: React.FC = () => {
   };
 
   return (
-    <section id="system" className="py-24 border-t border-white/20 relative bg-[#131313]">
+    <section id="system" className="py-20 md:py-24 border-b-2 border-black dark:border-white bg-[#F4F3EE] dark:bg-[#141416]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        {/* Plate Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.2em] font-bold mb-3">
-              <Terminal className="w-3.5 h-3.5" />
-              <span>Workstation Bench // Hardware Diagnostics</span>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="border-2 border-black dark:border-white bg-[#1D4ED8] text-white font-mono text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 shadow-swiss-sm">
+                PLATE VI // WORKSTATION TELEMETRY & BENCHMARK
+              </span>
+              <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest">
+                FIG. 6.0
+              </span>
             </div>
-            <h2 className="font-display text-4xl sm:text-6xl text-white tracking-tight uppercase leading-none">
-              System Environment & kkfetch
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-black dark:text-white tracking-tight leading-tight max-w-3xl">
+              Workstation environment. Hardware specifications and microsecond fetch.
             </h2>
+            <p className="font-sans text-base text-neutral-600 dark:text-neutral-400 mt-4 max-w-2xl leading-relaxed">
+              Raw Linux workstation diagnostics on Fedora 44 with hybrid graphics, measured using kkfetch compiled in Rust with direct kernel procfs queries.
+            </p>
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3 self-start lg:self-end">
             <button
               onClick={() => setActiveTab('specs')}
-              className={`text-xs uppercase tracking-wider transition-colors ${
+              className={`px-4 py-2.5 border-2 border-black dark:border-white font-mono text-xs uppercase tracking-wider font-bold transition-all ${
                 activeTab === 'specs'
-                  ? 'bg-verge-mint text-black font-mono font-bold px-4 py-2 rounded-full'
-                  : 'border border-white/20 text-white/70 hover:text-white font-mono px-4 py-2 rounded-full'
+                  ? 'bg-black text-white dark:bg-white dark:text-black shadow-swiss-sm translate-x-[1px] translate-y-[1px]'
+                  : 'bg-white dark:bg-[#1f2026] text-black dark:text-white shadow-swiss hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-swiss-sm'
               }`}
             >
-              Structured Telemetry
+              Structured Spec Sheet
             </button>
             <button
               onClick={() => setActiveTab('terminal')}
-              className={`text-xs uppercase tracking-wider transition-colors ${
+              className={`px-4 py-2.5 border-2 border-black dark:border-white font-mono text-xs uppercase tracking-wider font-bold transition-all ${
                 activeTab === 'terminal'
-                  ? 'bg-verge-mint text-black font-mono font-bold px-4 py-2 rounded-full'
-                  : 'border border-white/20 text-white/70 hover:text-white font-mono px-4 py-2 rounded-full'
+                  ? 'bg-black text-white dark:bg-white dark:text-black shadow-swiss-sm translate-x-[1px] translate-y-[1px]'
+                  : 'bg-white dark:bg-[#1f2026] text-black dark:text-white shadow-swiss hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-swiss-sm'
               }`}
             >
-              Interactive Terminal
+              Interactive CLI Terminal
             </button>
           </div>
         </div>
 
         {activeTab === 'specs' ? (
-          /* Structured Specs Grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 bg-[#2d2d2d] border border-white/10 hover:border-verge-mint transition-colors group flex flex-col justify-between">
+          /* Structured Specs Architectural Grid */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-6 flex flex-col justify-between group">
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.14em] mb-3">
-                  <Monitor className="w-4 h-4 text-verge-mint" />
-                  <span>Platform // OS</span>
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-black dark:text-white font-bold uppercase tracking-wider">
+                    <Monitor className="w-4 h-4 text-[#FF4F00]" />
+                    SPEC 01 // PLATFORM
+                  </span>
+                  <span className="text-neutral-400">OS</span>
                 </div>
-                <div className="font-display text-xl uppercase tracking-wider text-white mb-1">{SYSTEM_SPECS.os}</div>
-                <div className="font-mono text-xs text-[#949494]">{SYSTEM_SPECS.kernel}</div>
+                <div className="font-serif text-2xl font-bold text-black dark:text-white mb-1">{SYSTEM_SPECS.os}</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">{SYSTEM_SPECS.kernel}</div>
               </div>
-              <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-[#949494] uppercase tracking-wider">
-                Workstation Host: {SYSTEM_SPECS.host}
+              <div className="mt-6 pt-3 border-t border-black/10 dark:border-white/10 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                Host: {SYSTEM_SPECS.host}
               </div>
             </div>
 
-            <div className="p-6 bg-[#2d2d2d] border border-white/10 hover:border-verge-yellow transition-colors group flex flex-col justify-between">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-6 flex flex-col justify-between group">
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-verge-yellow uppercase tracking-[0.14em] mb-3">
-                  <Cpu className="w-4 h-4 text-verge-yellow" />
-                  <span>Compute // Processor</span>
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-black dark:text-white font-bold uppercase tracking-wider">
+                    <Cpu className="w-4 h-4 text-[#1D4ED8]" />
+                    SPEC 02 // COMPUTE
+                  </span>
+                  <span className="text-neutral-400">CPU</span>
                 </div>
-                <div className="font-display text-xl uppercase tracking-wider text-white mb-1">{SYSTEM_SPECS.cpu}</div>
-                <div className="font-mono text-xs text-[#949494]">6 Cores / 12 Threads (4.0 GHz Boost)</div>
+                <div className="font-serif text-2xl font-bold text-black dark:text-white mb-1">{SYSTEM_SPECS.cpu}</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">6 Cores / 12 Threads (Zen 3)</div>
               </div>
-              <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-[#949494] uppercase tracking-wider">
-                Architecture: x86_64 Zen 3
+              <div className="mt-6 pt-3 border-t border-black/10 dark:border-white/10 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                Architecture: x86_64
               </div>
             </div>
 
-            <div className="p-6 bg-[#2d2d2d] border border-white/10 hover:border-verge-violet transition-colors group flex flex-col justify-between">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-6 flex flex-col justify-between group">
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.14em] mb-3">
-                  <Layers className="w-4 h-4 text-verge-mint" />
-                  <span>Graphics Configuration</span>
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-black dark:text-white font-bold uppercase tracking-wider">
+                    <Layers className="w-4 h-4 text-[#15803D]" />
+                    SPEC 03 // GRAPHICS
+                  </span>
+                  <span className="text-neutral-400">GPU</span>
                 </div>
-                <div className="font-display text-xl uppercase tracking-wider text-white mb-1">Hybrid MUXless GPU</div>
-                <div className="font-mono text-xs text-[#949494]">{SYSTEM_SPECS.gpu}</div>
+                <div className="font-serif text-2xl font-bold text-black dark:text-white mb-1">Hybrid MUXless GPU</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">{SYSTEM_SPECS.gpu}</div>
               </div>
-              <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-[#949494] uppercase tracking-wider">
-                Wayland Compositor Active
+              <div className="mt-6 pt-3 border-t border-black/10 dark:border-white/10 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                Compositor: Wayland
               </div>
             </div>
 
-            <div className="p-6 bg-[#2d2d2d] border border-white/10 hover:border-verge-mint transition-colors group flex flex-col justify-between">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-6 flex flex-col justify-between group">
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.14em] mb-3">
-                  <HardDrive className="w-4 h-4 text-verge-mint" />
-                  <span>Memory & System State</span>
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-black dark:text-white font-bold uppercase tracking-wider">
+                    <HardDrive className="w-4 h-4 text-black dark:text-white" />
+                    SPEC 04 // MEMORY
+                  </span>
+                  <span className="text-neutral-400">RAM</span>
                 </div>
-                <div className="font-display text-xl uppercase tracking-wider text-white mb-1">{SYSTEM_SPECS.memory}</div>
-                <div className="font-mono text-xs text-[#949494]">Uptime: {SYSTEM_SPECS.uptime}</div>
+                <div className="font-serif text-2xl font-bold text-black dark:text-white mb-1">{SYSTEM_SPECS.memory}</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">System Uptime: {SYSTEM_SPECS.uptime}</div>
               </div>
-              <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-[#949494] uppercase tracking-wider">
-                Active Packages: {SYSTEM_SPECS.packages}
+              <div className="mt-6 pt-3 border-t border-black/10 dark:border-white/10 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                Packages: {SYSTEM_SPECS.packages}
               </div>
             </div>
 
-            <div className="p-6 bg-[#2d2d2d] border border-white/10 hover:border-verge-yellow transition-colors group flex flex-col justify-between">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-6 flex flex-col justify-between group">
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-verge-yellow uppercase tracking-[0.14em] mb-3">
-                  <Terminal className="w-4 h-4 text-verge-yellow" />
-                  <span>User Shell & Terminal</span>
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-black dark:text-white font-bold uppercase tracking-wider">
+                    <Terminal className="w-4 h-4 text-[#FF4F00]" />
+                    SPEC 05 // ENVIRONMENT
+                  </span>
+                  <span className="text-neutral-400">SHELL</span>
                 </div>
-                <div className="font-display text-xl uppercase tracking-wider text-white mb-1">{SYSTEM_SPECS.shell}</div>
-                <div className="font-mono text-xs text-[#949494]">{SYSTEM_SPECS.terminal}</div>
+                <div className="font-serif text-2xl font-bold text-black dark:text-white mb-1">{SYSTEM_SPECS.shell}</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">{SYSTEM_SPECS.terminal}</div>
               </div>
-              <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-[#949494] uppercase tracking-wider">
-                Custom Bash Automation
+              <div className="mt-6 pt-3 border-t border-black/10 dark:border-white/10 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                Automation: Bash Suite
               </div>
             </div>
 
-            <div className="p-6 bg-[#2d2d2d] border border-white/10 hover:border-verge-violet transition-colors group flex flex-col justify-between">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-[#1f2026] shadow-swiss-lg p-6 flex flex-col justify-between group">
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.14em] mb-3">
-                  <Info className="w-4 h-4 text-verge-mint" />
-                  <span>Toolchain & Editor</span>
+                <div className="flex items-center justify-between border-b-2 border-black dark:border-white pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-black dark:text-white font-bold uppercase tracking-wider">
+                    <Info className="w-4 h-4 text-[#1D4ED8]" />
+                    SPEC 06 // TOOLCHAIN
+                  </span>
+                  <span className="text-neutral-400">IDE</span>
                 </div>
-                <div className="font-display text-xl uppercase tracking-wider text-white mb-1">{SYSTEM_SPECS.editor}</div>
-                <div className="font-mono text-xs text-[#949494]">Rust 1.85 / GCC 15 / Node 22</div>
+                <div className="font-serif text-2xl font-bold text-black dark:text-white mb-1">{SYSTEM_SPECS.editor}</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">Rust 1.85 / GCC 15 / Node 22</div>
               </div>
 
               <button
                 onClick={copySpecs}
-                className="mt-6 pt-3 border-t border-white/10 inline-flex items-center justify-between font-mono text-xs text-white hover:text-verge-mint transition-colors"
+                className="mt-6 pt-3 border-t-2 border-black dark:border-white inline-flex items-center justify-between font-mono text-xs font-bold text-black dark:text-white hover:text-[#1D4ED8] dark:hover:text-[#60a5fa] transition-colors"
               >
-                <span>{copied ? 'Specs Copied to Clipboard' : 'Copy System Telemetry'}</span>
-                {copied ? <Check className="w-3.5 h-3.5 text-verge-mint" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? 'SPECS COPIED TO CLIPBOARD' : 'COPY SPECIFICATION TEXT'}</span>
+                {copied ? <Check className="w-4 h-4 text-[#15803D]" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
           </div>
         ) : (
-          /* Interactive CLI View with strict internal scrolling */
-          <div className="border border-white/20 bg-[#1e1e1e] overflow-hidden">
-            {/* Window header */}
-            <div className="flex items-center justify-between px-5 py-3 bg-[#2d2d2d] border-b border-white/10">
+          /* Interactive CLI View with strict internal scrolling and Swiss styling */
+          <div className="border-2 border-black dark:border-white bg-black text-white shadow-swiss-lg">
+            {/* Window header bar */}
+            <div className="flex items-center justify-between px-5 py-3 border-b-2 border-black dark:border-white bg-neutral-900">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-verge-mint inline-block" />
-                <span className="w-2.5 h-2.5 rounded-full bg-verge-yellow inline-block" />
-                <span className="w-2.5 h-2.5 rounded-full bg-verge-violet inline-block" />
-                <span className="font-mono text-xs text-[#949494] ml-3 uppercase tracking-wider">
-                  kk376@victus-station: ~ (kkfetch v1.2)
+                <span className="w-3 h-3 border border-white bg-black inline-block" />
+                <span className="w-3 h-3 border border-white bg-[#FF4F00] inline-block" />
+                <span className="w-3 h-3 border border-white bg-[#1D4ED8] inline-block" />
+                <span className="font-mono text-xs text-neutral-300 ml-3 uppercase tracking-wider font-bold">
+                  VICTUS-STATION // KKFETCH v1.2 RUST BENCH
                 </span>
               </div>
 
@@ -326,7 +352,7 @@ export const SystemTelemetry: React.FC = () => {
                   <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}
-                    className="px-2.5 py-1 border border-white/20 hover:border-verge-mint hover:text-verge-mint text-white text-[11px] font-mono uppercase tracking-wider transition-colors"
+                    className="px-2.5 py-1 border border-neutral-600 hover:border-white text-neutral-300 hover:text-white text-[11px] font-mono uppercase tracking-wider transition-colors"
                   >
                     {cmd}
                   </button>
@@ -337,15 +363,15 @@ export const SystemTelemetry: React.FC = () => {
             {/* Scrollable body with locked window position */}
             <div
               ref={terminalScrollRef}
-              className="p-6 h-80 overflow-y-auto space-y-4 font-mono text-xs bg-[#131313]"
+              className="p-6 h-80 overflow-y-auto space-y-4 font-mono text-xs bg-black"
             >
               {history.map((item, idx) => (
                 <div key={idx} className="space-y-1.5">
-                  <div className="flex items-center gap-2 text-[#949494]">
-                    <span className="text-verge-mint font-bold">kk376@victus</span>
-                    <span className="text-white/40">:</span>
-                    <span className="text-verge-yellow">~</span>
-                    <span className="text-white/60">$</span>
+                  <div className="flex items-center gap-2 text-neutral-400">
+                    <span className="text-[#FF4F00] font-bold">kk376@victus</span>
+                    <span className="text-neutral-500">:</span>
+                    <span className="text-[#60a5fa]">~</span>
+                    <span className="text-neutral-400">$</span>
                     <span className="text-white font-medium">{item.command}</span>
                   </div>
                   <div className="pl-3">{item.output}</div>
@@ -353,25 +379,25 @@ export const SystemTelemetry: React.FC = () => {
               ))}
 
               {/* Active input line */}
-              <div className="flex items-center gap-2 text-[#949494] pt-1">
-                <span className="text-verge-mint font-bold">kk376@victus</span>
-                <span className="text-white/40">:</span>
-                <span className="text-verge-yellow">~</span>
-                <span className="text-white/60">$</span>
+              <div className="flex items-center gap-2 text-neutral-400 pt-1">
+                <span className="text-[#FF4F00] font-bold">kk376@victus</span>
+                <span className="text-neutral-500">:</span>
+                <span className="text-[#60a5fa]">~</span>
+                <span className="text-neutral-400">$</span>
                 <input
                   type="text"
                   value={inputVal}
                   onChange={(e) => setInputVal(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="type 'help' or click a command chip above..."
-                  className="flex-1 bg-transparent text-white outline-none border-none p-0 focus:ring-0 font-mono text-xs placeholder:text-[#949494]/60"
+                  className="flex-1 bg-transparent text-white outline-none border-none p-0 focus:ring-0 font-mono text-xs placeholder:text-neutral-600"
                 />
               </div>
             </div>
 
-            <div className="px-5 py-2.5 bg-[#2d2d2d] border-t border-white/10 text-[10px] font-mono text-[#949494] flex items-center justify-between uppercase tracking-wider">
+            <div className="px-5 py-2.5 border-t border-neutral-800 text-[10px] font-mono text-neutral-500 flex items-center justify-between uppercase tracking-wider bg-neutral-950">
               <span>Press Enter to execute</span>
-              <span className="text-verge-mint">Isolated Viewport (No Page Jump)</span>
+              <span className="text-[#15803D]">Isolated Viewport (No Page Jump)</span>
             </div>
           </div>
         )}
