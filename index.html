@@ -4,13 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kushagra Kumar - Systems engineering, Linux automation, Rust CLI tools, and upstream open source contributions." />
-    <title>Kushagra Kumar | Systems, Open Source & Vibe Coded Prototypes</title>
+    <meta name="description" content="Kushagra Kumar: BCA graduate mastering Frontend development while pair-programming with AI on Linux systems, tools, and upstream open source contributions." />
+    <title>Kushagra Kumar | Frontend Learner & Open Source Explorer</title>
+    <script>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (stored === 'light' || (!stored && prefersLight)) {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-obsidian-950 text-slate-200 antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

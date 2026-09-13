@@ -26,20 +26,20 @@ export const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 border-t border-white/[0.08] relative">
+    <section id="skills" className="py-20 border-t border-slate-200 dark:border-white/[0.08] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-pink-400 mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 dark:bg-white/[0.04] border border-pink-200 dark:border-white/[0.08] text-xs font-mono text-pink-600 dark:text-pink-400 mb-3 font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Technical Toolbelt</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               Skills & Learning Focus
             </h2>
           </div>
-          <p className="text-sm text-slate-400 max-w-md font-mono">
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md font-mono">
             Active daily frontend mastery backed by structured foundations in Python, SQL, and modern developer environments.
           </p>
         </div>
@@ -49,12 +49,12 @@ export const SkillsSection: React.FC = () => {
           {SKILL_GROUPS.map((group, idx) => (
             <div
               key={group.title}
-              className={`p-6 rounded-2xl bg-[#0b0d16] border border-white/[0.08] ${getBorderColor(idx)} transition-all duration-300 shadow-xl flex flex-col justify-between`}
+              className={`p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] ${getBorderColor(idx)} transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-xl flex flex-col justify-between`}
             >
               <div>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08]">
                     {getIcon(idx)}
                   </div>
                   <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-gradient-to-r ${group.accentColor} text-white font-semibold shadow-sm`}>
@@ -62,7 +62,7 @@ export const SkillsSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-4">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
                   {group.title}
                 </h3>
 
@@ -71,15 +71,15 @@ export const SkillsSection: React.FC = () => {
                   {group.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] transition-colors group"
+                      className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-white/[0.02] hover:bg-slate-100 dark:hover:bg-white/[0.06] border border-slate-200/80 dark:border-white/[0.04] transition-colors group"
                     >
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        <span className="text-xs font-medium text-slate-200 group-hover:text-white">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 shrink-0" />
+                        <span className="text-xs font-medium text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white">
                           {skill.name}
                         </span>
                       </div>
-                      <span className="text-[10px] font-mono text-slate-500 bg-black/40 px-1.5 py-0.5 rounded border border-white/[0.04]">
+                      <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 bg-slate-200/70 dark:bg-black/40 px-1.5 py-0.5 rounded border border-slate-300/60 dark:border-white/[0.04]">
                         {skill.tag}
                       </span>
                     </div>

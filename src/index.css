@@ -3,15 +3,21 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 body {
   margin: 0;
-  background-color: #06070b;
-  color: #f1f5f9;
+  background-color: #f8fafc;
+  color: #0f172a;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark body {
+  background-color: #06070b;
+  color: #f1f5f9;
 }
 
 ::selection {
@@ -25,29 +31,52 @@ body {
 }
 
 ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+html.dark ::-webkit-scrollbar-track {
   background: #06070b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
 ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
 
 /* Vibrant glass card with gradient rim */
 .vibrant-card {
   position: relative;
-  background: rgba(16, 19, 28, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+html.dark .vibrant-card {
+  background: rgba(16, 19, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .vibrant-card:hover {
+  border-color: rgba(148, 163, 184, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+html.dark .vibrant-card:hover {
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);

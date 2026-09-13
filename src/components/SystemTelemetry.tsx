@@ -176,26 +176,26 @@ export const SystemTelemetry: React.FC = () => {
   };
 
   return (
-    <section id="system" className="py-20 border-t border-white/[0.06]">
+    <section id="system" className="py-20 border-t border-slate-200 dark:border-white/[0.08] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="text-xs font-mono uppercase tracking-wider text-slate-500 mb-2">
+            <div className="text-xs font-mono uppercase tracking-wider text-slate-500 mb-2 font-semibold">
               Workstation & Diagnostics
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               System Environment & kkfetch
             </h2>
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex items-center gap-1.5 p-1 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+          <div className="flex items-center gap-1.5 p-1 rounded-lg bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
             <button
               onClick={() => setActiveTab('specs')}
               className={`px-3 py-1 rounded text-xs font-mono transition-colors ${
                 activeTab === 'specs'
-                  ? 'bg-white text-black font-semibold shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-slate-900 dark:text-black font-semibold shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
               }`}
             >
               Structured View
@@ -204,8 +204,8 @@ export const SystemTelemetry: React.FC = () => {
               onClick={() => setActiveTab('terminal')}
               className={`px-3 py-1 rounded text-xs font-mono transition-colors ${
                 activeTab === 'terminal'
-                  ? 'bg-white text-black font-semibold shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-slate-900 dark:text-black font-semibold shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
               }`}
             >
               Interactive CLI
@@ -216,75 +216,75 @@ export const SystemTelemetry: React.FC = () => {
         {activeTab === 'specs' ? (
           /* Structured Specs Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-                <Monitor className="w-4 h-4 text-cyan-400" />
+                <Monitor className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>Operating System</span>
               </div>
-              <div className="text-sm font-semibold text-white">{SYSTEM_SPECS.os}</div>
-              <div className="text-xs text-slate-400 font-mono mt-1">{SYSTEM_SPECS.kernel}</div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">{SYSTEM_SPECS.os}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">{SYSTEM_SPECS.kernel}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-                <Cpu className="w-4 h-4 text-emerald-400" />
+                <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Processor Unit</span>
               </div>
-              <div className="text-sm font-semibold text-white">{SYSTEM_SPECS.cpu}</div>
-              <div className="text-xs text-slate-400 font-mono mt-1">6 Cores / 12 Threads</div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">{SYSTEM_SPECS.cpu}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">6 Cores / 12 Threads</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-                <Layers className="w-4 h-4 text-purple-400" />
+                <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                 <span>Graphics Configuration</span>
               </div>
-              <div className="text-sm font-semibold text-white">Hybrid Graphics (MUXless)</div>
-              <div className="text-xs text-slate-400 font-mono mt-1">{SYSTEM_SPECS.gpu}</div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">Hybrid Graphics (MUXless)</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">{SYSTEM_SPECS.gpu}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-                <HardDrive className="w-4 h-4 text-amber-400" />
+                <HardDrive className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                 <span>Memory & State</span>
               </div>
-              <div className="text-sm font-semibold text-white">{SYSTEM_SPECS.memory}</div>
-              <div className="text-xs text-slate-400 font-mono mt-1">Uptime: {SYSTEM_SPECS.uptime}</div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">{SYSTEM_SPECS.memory}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Uptime: {SYSTEM_SPECS.uptime}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-                <Terminal className="w-4 h-4 text-cyan-400" />
+                <Terminal className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>User Environment</span>
               </div>
-              <div className="text-sm font-semibold text-white">{SYSTEM_SPECS.shell}</div>
-              <div className="text-xs text-slate-400 font-mono mt-1">{SYSTEM_SPECS.terminal}</div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">{SYSTEM_SPECS.shell}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">{SYSTEM_SPECS.terminal}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
+            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
                   <Info className="w-4 h-4 text-slate-400" />
                   <span>Editor & Toolchain</span>
                 </div>
-                <div className="text-sm font-semibold text-white">{SYSTEM_SPECS.editor}</div>
-                <div className="text-xs text-slate-400 font-mono mt-1">Rust 1.85 / GCC 15</div>
+                <div className="text-sm font-semibold text-slate-900 dark:text-white">{SYSTEM_SPECS.editor}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Rust 1.85 / GCC 15</div>
               </div>
 
               <button
                 onClick={copySpecs}
-                className="mt-3 inline-flex items-center justify-between text-xs font-mono text-slate-400 hover:text-white transition-colors pt-2 border-t border-white/[0.04]"
+                className="mt-3 inline-flex items-center justify-between text-xs font-mono text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors pt-2 border-t border-slate-100 dark:border-white/[0.04]"
               >
                 <span>{copied ? 'Specs Copied!' : 'Copy Telemetry Text'}</span>
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
           </div>
         ) : (
           /* Interactive CLI View with strict internal scrolling */
-          <div className="rounded-xl overflow-hidden border border-white/[0.08] bg-[#07080c] shadow-xl">
+          <div className="rounded-xl overflow-hidden border border-slate-300 dark:border-white/[0.08] bg-[#0c0e17] dark:bg-[#07080c] shadow-md dark:shadow-xl">
             {/* Window header */}
-            <div className="flex items-center justify-between px-4 py-2.5 bg-white/[0.02] border-b border-white/[0.06]">
+            <div className="flex items-center justify-between px-4 py-2.5 bg-white/[0.04] dark:bg-white/[0.02] border-b border-white/[0.06]">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block" />
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block" />
