@@ -8,95 +8,80 @@
 
 body {
   margin: 0;
-  background-color: #F4F3EE;
-  color: #111111;
-  font-family: 'Space Grotesk', Inter, system-ui, -apple-system, sans-serif;
+  background-color: #f9f7f3;
+  color: #202020;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   letter-spacing: -0.01em;
 }
 
 .dark body {
   background-color: #141416;
-  color: #E5E5E0;
+  color: #fcfcfc;
 }
 
-/* Swiss Monograph Selection: Klein Blue on White */
+/* Replicate Fire Orange Selection Highlight */
 ::selection {
-  background: #1D4ED8;
-  color: #FFFFFF;
+  background: #ea2804;
+  color: #ffffff;
 }
 
 .dark ::selection {
-  background: #FF4F00;
-  color: #FFFFFF;
+  background: #ff6a3d;
+  color: #ffffff;
 }
 
-/* Architectural Industrial Scrollbar */
+/* Fluid clean scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F4F3EE;
-  border-left: 1px solid #111111;
+  background: #f3f0e8;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #141416;
-  border-left: 1px solid #333333;
+  background: #1a1a1d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #111111;
-  border-radius: 0px;
+  background: #c5c1b8;
+  border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #E5E5E0;
-  border-radius: 0px;
+  background: #3a3a40;
+  border-radius: 9999px;
 }
 
-/* Swiss Neo-Brutalist Hard Shadow Utilities */
-.shadow-swiss-sm {
-  box-shadow: 2px 2px 0px 0px #111111;
+/* Replicate Pill and Elevation Utilities */
+.replicate-pill {
+  border-radius: 9999px;
+  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark .shadow-swiss-sm {
-  box-shadow: 2px 2px 0px 0px #E5E5E0;
+.replicate-pill:active {
+  transform: scale(0.98);
 }
 
-.shadow-swiss {
-  box-shadow: 4px 4px 0px 0px #111111;
+.replicate-card {
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(32, 32, 32, 0.12);
+  transition: all 200ms ease;
 }
 
-.dark .shadow-swiss {
-  box-shadow: 4px 4px 0px 0px #E5E5E0;
+.dark .replicate-card {
+  background: #1f1f23;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.shadow-swiss-lg {
-  box-shadow: 6px 6px 0px 0px #111111;
+.replicate-card:hover {
+  border-color: rgba(234, 40, 4, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(234, 40, 4, 0.1);
 }
 
-.dark .shadow-swiss-lg {
-  box-shadow: 6px 6px 0px 0px #E5E5E0;
-}
-
-/* Tactile Button Press Physics */
-.swiss-btn {
-  border-radius: 0px;
-  transition: all 120ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.swiss-btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px 0px #111111;
-}
-
-.dark .swiss-btn:hover {
-  box-shadow: 2px 2px 0px 0px #E5E5E0;
-}
-
-.swiss-btn:active {
-  transform: translate(4px, 4px);
-  box-shadow: 0px 0px 0px 0px transparent;
+.dark .replicate-card:hover {
+  border-color: rgba(255, 106, 61, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(255, 106, 61, 0.15);
 }

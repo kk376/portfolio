@@ -17,21 +17,21 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light paper mode' : 'Switch to dark slate mode'}
-      title={isDark ? 'Switch to light paper mode' : 'Switch to dark slate mode'}
-      className={`relative inline-flex items-center gap-2 p-2 rounded-none border-2 border-black dark:border-white shadow-swiss-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none bg-white dark:bg-[#1f2026] text-black dark:text-white transition-all focus:outline-none ${className}`}
+      aria-label={isDark ? 'Switch to warm cream mode' : 'Switch to charcoal dark mode'}
+      title={isDark ? 'Switch to warm cream mode' : 'Switch to charcoal dark mode'}
+      className={`relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/10 dark:border-white/15 bg-white dark:bg-[#202020] text-[#202020] dark:text-[#fcfcfc] hover:border-[#ea2804] dark:hover:border-[#ff6a3d] transition-all shadow-sm focus:outline-none ${className}`}
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         {isDark ? (
-          <Sun className="w-4 h-4 text-amber-400" />
+          <Sun className="w-3.5 h-3.5 text-amber-400" />
         ) : (
-          <Moon className="w-4 h-4 text-[#1D4ED8]" />
+          <Moon className="w-3.5 h-3.5 text-[#ea2804]" />
         )}
       </div>
 
       {showLabel && (
-        <span className="text-[11px] font-mono font-bold uppercase tracking-wider">
-          {isDark ? 'Paper (Light)' : 'Slate (Dark)'}
+        <span className="text-xs font-mono font-medium">
+          {isDark ? 'Cream' : 'Dark'}
         </span>
       )}
     </button>
