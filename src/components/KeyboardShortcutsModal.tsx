@@ -29,7 +29,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
       keys: ['/', 'K'],
       label: 'Focus CLI Terminal',
       desc: 'Jump directly to the interactive workstation terminal and focus the prompt',
-      icon: <Terminal className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />,
+      icon: <Terminal className="w-4 h-4 text-[#FF4C60]" />,
       action: () => {
         onTriggerAction('terminal');
         onClose();
@@ -38,8 +38,8 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
     {
       keys: ['T'],
       label: 'Toggle Theme',
-      desc: 'Switch between light canvas and dark slate mode',
-      icon: <SunMoon className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />,
+      desc: 'Switch between light and dark modes',
+      icon: <SunMoon className="w-4 h-4 text-[#FFD15C]" />,
       action: () => {
         onTriggerAction('theme');
       },
@@ -48,7 +48,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
       keys: ['C'],
       label: 'Copy Email Address',
       desc: 'Copy personal inbox address directly to your clipboard',
-      icon: <Mail className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />,
+      icon: <Mail className="w-4 h-4 text-[#6C6CE5]" />,
       action: () => {
         onTriggerAction('email');
       },
@@ -57,7 +57,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
       keys: ['S'],
       label: 'Launch Tactical Sonar',
       desc: 'Scroll to upstream dispatches and activate the live Cesium shader radar',
-      icon: <Radar className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />,
+      icon: <Radar className="w-4 h-4 text-[#08D9D6]" />,
       action: () => {
         onTriggerAction('sonar');
         onClose();
@@ -67,41 +67,41 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
       keys: ['?'],
       label: 'Open Shortcuts Helper',
       desc: 'Toggle this reference dialog from anywhere on the page',
-      icon: <Keyboard className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />,
+      icon: <Keyboard className="w-4 h-4 text-[#FF4C60]" />,
     },
     {
       keys: ['Esc'],
       label: 'Close Active Modal',
       desc: 'Dismiss open dialogs, drawers, and overlay menus',
-      icon: <X className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />,
+      icon: <X className="w-4 h-4 text-slate-400" />,
     },
   ];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-150">
       <div
-        className="relative w-full max-w-2xl rounded-2xl border border-slate-200 dark:border-[#2d3042] bg-white dark:bg-[#202230] shadow-2xl overflow-hidden"
+        className="relative w-full max-w-2xl rounded-[20px] border border-slate-200 dark:border-white/10 bg-white dark:bg-[#252536] shadow-2xl overflow-hidden"
         role="dialog"
         aria-modal="true"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-[#2d3042] bg-slate-50 dark:bg-[#15161e]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#1E1E28]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-[#7148fc] dark:text-[#09d8ff]">
+            <div className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-[#FF4C60]">
               <Keyboard className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-quicksand text-base font-bold text-slate-900 dark:text-white">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">
                 Command Wire &amp; Shortcuts
               </h3>
-              <p className="font-quicksand text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                 Instant workstation hotkeys for rapid navigation
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#15161e] transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close shortcuts dialog"
           >
             <X className="w-5 h-5" />
@@ -115,24 +115,24 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
               <div
                 key={item.label}
                 onClick={item.action}
-                className={`p-3 rounded-xl border border-slate-200/80 dark:border-[#2d3042] bg-slate-50/50 dark:bg-[#15161e]/40 flex items-center justify-between gap-4 transition-colors ${
-                  item.action ? 'cursor-pointer hover:border-[#7148fc] hover:bg-purple-50/40 dark:hover:bg-purple-950/30' : ''
+                className={`p-3 rounded-xl border border-slate-200/80 dark:border-white/5 bg-slate-50/50 dark:bg-[#1E1E28]/50 flex items-center justify-between gap-4 transition-colors ${
+                  item.action ? 'cursor-pointer hover:border-[#FF4C60] hover:bg-rose-50/40 dark:hover:bg-rose-950/20' : ''
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-white dark:bg-[#202230] border border-slate-200 dark:border-[#2d3042] shrink-0">
+                  <div className="p-2 rounded-lg bg-white dark:bg-[#252536] border border-slate-200 dark:border-white/5 shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <div className="font-quicksand text-xs font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-2">
                       <span>{item.label}</span>
                       {item.action && (
-                        <span className="text-[10px] font-mono font-medium text-[#7148fc] dark:text-[#09d8ff] bg-purple-50 dark:bg-purple-950/60 px-1.5 py-0.5 rounded">
+                        <span className="text-[10px] font-mono font-medium text-[#FF4C60] bg-rose-50 dark:bg-rose-950/60 px-1.5 py-0.5 rounded">
                           Click to run
                         </span>
                       )}
                     </div>
-                    <div className="font-quicksand text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                       {item.desc}
                     </div>
                   </div>
@@ -142,7 +142,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
                   {item.keys.map((key) => (
                     <kbd
                       key={key}
-                      className="px-2.5 py-1 rounded-md bg-white dark:bg-[#15161e] border border-slate-200 dark:border-slate-700 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 shadow-xs"
+                      className="px-2.5 py-1 rounded-md bg-white dark:bg-[#1E1E28] border border-slate-200 dark:border-white/10 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 shadow-xs"
                     >
                       {key}
                     </kbd>
@@ -153,10 +153,10 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
           </div>
 
           {/* Directory Inclusion Section */}
-          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-[#2d3042]">
+          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <Compass className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
+                <Compass className="w-4 h-4 text-[#FF4C60]" />
                 <span className="font-mono text-xs font-semibold text-slate-900 dark:text-white">
                   developer-portfolios Catalog Submission
                 </span>
@@ -165,23 +165,23 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
                 href="https://github.com/emmabostian/developer-portfolios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] font-mono text-[#7148fc] dark:text-[#09d8ff] hover:underline"
+                className="inline-flex items-center gap-1 text-[11px] font-mono text-[#FF4C60] hover:underline"
               >
                 <span>Directory Repo</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
-            <p className="font-quicksand text-[11px] text-slate-500 dark:text-slate-400 mb-3 leading-relaxed font-medium">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-3 leading-relaxed font-medium">
               Formatted according to the CONTRIBUTING.md checklist for open source developer directories (ordered alphabetically by Kushagra under K).
             </p>
 
-            <div className="p-3 rounded-xl bg-slate-900 dark:bg-[#15161e] border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <code className="font-mono text-xs text-[#09d8ff] break-all select-all">
+            <div className="p-3 rounded-xl bg-slate-900 dark:bg-[#12141d] border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <code className="font-mono text-xs text-[#08D9D6] break-all select-all">
                 {prSnippet}
               </code>
               <button
                 onClick={copyDirectoryPrLine}
-                className="px-3.5 py-1.5 rounded-full bg-[#7148fc] hover:bg-[#5d35e0] text-white font-quicksand text-xs font-bold inline-flex items-center justify-center gap-1.5 shrink-0 shadow-xs cursor-pointer active:scale-95"
+                className="px-3.5 py-1.5 rounded-full bg-[#FF4C60] hover:bg-[#E63946] text-white text-xs font-bold inline-flex items-center justify-center gap-1.5 shrink-0 shadow-xs cursor-pointer active:scale-95"
               >
                 {copiedPrLine ? (
                   <>
@@ -200,9 +200,9 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-200 dark:border-[#2d3042] bg-slate-50 dark:bg-[#15161e] flex items-center justify-between font-mono text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="px-6 py-3 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#1E1E28] flex items-center justify-between font-mono text-[11px] text-slate-500 dark:text-slate-400">
           <span>Press Esc anytime to close</span>
-          <span className="text-[#7148fc] dark:text-[#09d8ff] font-semibold">Andrew Baisden Style</span>
+          <span className="text-[#FF4C60] font-semibold">Greg Sithole Style Edition</span>
         </div>
       </div>
     </div>
