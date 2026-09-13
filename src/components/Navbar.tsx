@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
-import { GitlabIcon } from './icons/GitlabIcon';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
@@ -91,16 +90,6 @@ export const Navbar: React.FC = () => {
             </a>
 
             <a
-              href={PERSONAL_INFO.gitlab}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-orange-400/50 text-slate-300 hover:text-white transition-all"
-              title="GitLab Profile"
-            >
-              <GitlabIcon className="w-4 h-4 text-orange-400" />
-            </a>
-
-            <a
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -146,13 +135,12 @@ export const Navbar: React.FC = () => {
               GitHub
             </a>
             <a
-              href={PERSONAL_INFO.gitlab}
+              href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 font-mono"
+              className="text-xs text-slate-300 hover:text-purple-400 flex items-center gap-1.5 font-mono"
             >
-              <GitlabIcon className="w-3.5 h-3.5 text-orange-400" />
-              GitLab
+              LinkedIn
             </a>
           </div>
         </div>

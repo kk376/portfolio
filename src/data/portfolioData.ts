@@ -8,7 +8,6 @@ export const PERSONAL_INFO = {
     'BCA graduate (8.2 CGPA) actively mastering Frontend development (HTML, CSS, JavaScript, React, Tailwind). While learning web fundamentals, I love pairing with AI to investigate Linux kernel quirks, author CLI utilities, and land upstream open source contributions.',
   email: 'kkushagra86@gmail.com',
   github: 'https://github.com/kk376',
-  gitlab: 'https://gitlab.com/Kk376',
   linkedin: 'https://www.linkedin.com/in/kushagra-kumar376/',
   status: 'Learning Frontend Daily • Guiding AI on Open Source',
   education: 'BCA (8.2 CGPA), Suresh Gyan Vihar University (2022)',

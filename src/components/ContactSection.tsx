@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Check, Copy, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
-import { GitlabIcon } from './icons/GitlabIcon';
+import { LinkedinIcon } from './icons/LinkedinIcon';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
@@ -30,8 +30,8 @@ export const ContactSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Colorful Contact Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* 3 Colorful Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* GitHub Card */}
           <a
             href={PERSONAL_INFO.github}
@@ -52,26 +52,6 @@ export const ContactSection: React.FC = () => {
             </div>
           </a>
 
-          {/* GitLab Card */}
-          <a
-            href={PERSONAL_INFO.gitlab}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-[#0b0d16] border border-orange-500/25 hover:border-orange-500/60 hover:shadow-orange-500/10 transition-all duration-300 shadow-xl group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-4 group-hover:scale-110 transition-transform">
-                <GitlabIcon className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-white mb-1">GitLab</h3>
-              <p className="text-xs text-slate-400 font-mono">@Kk376</p>
-            </div>
-            <div className="mt-6 flex items-center justify-between text-xs font-mono text-orange-400 pt-3 border-t border-white/[0.04]">
-              <span>View MRs</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </div>
-          </a>
-
           {/* LinkedIn Card */}
           <a
             href={PERSONAL_INFO.linkedin}
@@ -81,7 +61,7 @@ export const ContactSection: React.FC = () => {
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform">
-                <span className="font-bold text-sm">in</span>
+                <LinkedinIcon className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-white mb-1">LinkedIn</h3>
               <p className="text-xs text-slate-400 font-mono">kushagra-kumar376</p>

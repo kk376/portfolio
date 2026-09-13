@@ -2,7 +2,7 @@ import React from 'react';
 import { Sparkles, BookOpen, GitPullRequest, Code2, Award, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { GithubIcon } from './icons/GithubIcon';
-import { GitlabIcon } from './icons/GitlabIcon';
+import { LinkedinIcon } from './icons/LinkedinIcon';
 
 export const Hero: React.FC = () => {
   return (
@@ -70,13 +70,13 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href={PERSONAL_INFO.gitlab}
+                href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.08] transition-all"
-                title="GitLab"
+                title="LinkedIn"
               >
-                <GitlabIcon className="w-4 h-4 text-orange-400" />
+                <LinkedinIcon className="w-4 h-4 text-purple-400" />
               </a>
             </div>
           </div>

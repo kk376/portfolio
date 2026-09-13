@@ -1,6 +1,6 @@
 import React from 'react';
 import { GithubIcon } from './icons/GithubIcon';
-import { GitlabIcon } from './icons/GitlabIcon';
+import { LinkedinIcon } from './icons/LinkedinIcon';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
@@ -29,13 +29,13 @@ export const Footer: React.FC = () => {
               <GithubIcon className="w-4 h-4" />
             </a>
             <a
-              href={PERSONAL_INFO.gitlab}
+              href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-orange-400 transition-colors"
-              title="GitLab"
+              className="text-slate-400 hover:text-purple-400 transition-colors"
+              title="LinkedIn"
             >
-              <GitlabIcon className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <span className="text-slate-600">•</span>
             <span className="text-slate-400">2026</span>
