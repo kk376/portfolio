@@ -13,7 +13,7 @@ export const UpstreamSection: React.FC = () => {
   const [expandedDiagnosticId, setExpandedDiagnosticId] = useState<string | null>(null);
 
   const categories: { label: string; value: ContributionCategory; count: number }[] = [
-    { label: 'All Dispatches', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
+    { label: 'All Contributions', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
     { label: 'Merged Upstream', value: 'merged', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'merged').length },
     { label: 'Systems & Kernel', value: 'systems', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'systems').length },
     { label: 'Packaging & CI', value: 'packaging', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'packaging').length },
@@ -55,7 +55,7 @@ export const UpstreamSection: React.FC = () => {
   return (
     <section id="upstream" className="py-20 px-4 max-w-5xl mx-auto">
       <SectionHeader
-        title="Upstream Dispatches"
+        title="Open Source"
         subtitle="Real hardware investigations, Cesium 3D WebGL shaders, and merged upstream pull requests"
       />
 
@@ -96,7 +96,7 @@ export const UpstreamSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-white/5 pb-4">
               <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
                 <span className="font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-[#181825] px-2.5 py-1 rounded-full border border-slate-200 dark:border-white/10 tabular-nums">
-                  DISPATCH 0{idx + 1}
+                  CONTRIBUTION 0{idx + 1}
                 </span>
 
                 {item.platform === 'gitlab' ? (

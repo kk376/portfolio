@@ -8,9 +8,9 @@ import avatarImg from '../assets/github_avatar.jpg';
 const phrases = [
   'Frontend & React Learner',
   'Linux Systems Explorer',
-  'Upstream Contributor',
+  'Open Source Contributor',
   'Python & SQL Developer',
-  'Open Source Enthusiast',
+  'Modern Web Developer',
 ];
 
 export const Hero: React.FC = () => {

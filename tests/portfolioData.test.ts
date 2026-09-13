@@ -15,7 +15,8 @@ describe('Portfolio Data Integrity & Schema Validation', () => {
     expect(PERSONAL_INFO.github).toMatch(/^https:\/\/github\.com\//);
     expect(PERSONAL_INFO.linkedin).toMatch(/^https:\/\/www\.linkedin\.com\//);
     expect(PERSONAL_INFO.shortBio.length).toBeGreaterThan(20);
-    expect(PERSONAL_INFO.education).toContain('BCA');
+    expect(PERSONAL_INFO.education).toContain('8.2 CGPA');
+    expect(PERSONAL_INFO.education).toContain('3.28 / 4.0 GPA');
   });
 
   it('validates skill groups and items integrity', () => {
@@ -31,8 +32,16 @@ describe('Portfolio Data Integrity & Schema Validation', () => {
     }
   });
 
-  it('validates upstream contributions entries and links', () => {
+  it('validates upstream contributions entries, links, and sorting order', () => {
     expect(UPSTREAM_CONTRIBUTIONS.length).toBeGreaterThanOrEqual(3);
+    // Verify merged items come first
+    expect(UPSTREAM_CONTRIBUTIONS[0].status).toBe('merged');
+    expect(UPSTREAM_CONTRIBUTIONS[1].status).toBe('merged');
+    expect(UPSTREAM_CONTRIBUTIONS[2].status).toBe('merged');
+    // Verify GitLab MR is positioned toward the end
+    expect(UPSTREAM_CONTRIBUTIONS[UPSTREAM_CONTRIBUTIONS.length - 2].platform).toBe('gitlab');
+    expect(UPSTREAM_CONTRIBUTIONS[UPSTREAM_CONTRIBUTIONS.length - 1].platform).toBe('gitlab');
+
     for (const item of UPSTREAM_CONTRIBUTIONS) {
       expect(item.id.length).toBeGreaterThan(0);
       expect(['github', 'gitlab']).toContain(item.platform);
@@ -48,8 +57,13 @@ describe('Portfolio Data Integrity & Schema Validation', () => {
     }
   });
 
-  it('validates flagship projects schema', () => {
+  it('validates flagship projects schema and verified star counts', () => {
     expect(FLAGSHIP_PROJECTS.length).toBeGreaterThanOrEqual(4);
+    const fedoraProj = FLAGSHIP_PROJECTS.find((p) => p.id === 'fedora-post-install');
+    const kkfetchProj = FLAGSHIP_PROJECTS.find((p) => p.id === 'kkfetch');
+    expect(fedoraProj?.starsCount).toBe(19);
+    expect(kkfetchProj?.starsCount).toBe(4);
+
     for (const project of FLAGSHIP_PROJECTS) {
       expect(project.id.length).toBeGreaterThan(0);
       expect(project.title.length).toBeGreaterThan(0);

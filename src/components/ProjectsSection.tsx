@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SectionHeader } from './SectionHeader';
-import { Star, ArrowUpRight } from 'lucide-react';
+import { Star, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { FLAGSHIP_PROJECTS } from '../data/portfolioData';
 import { GithubIcon } from './icons/GithubIcon';
 
@@ -29,15 +29,31 @@ export const ProjectsSection: React.FC = () => {
         );
       case 'kkfetch':
         return (
-          <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1 overflow-hidden">
-            <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
-              <span className="text-[var(--accent-cyan)] font-bold">kkfetch --bench</span>
-              <span>Rust Procfs</span>
+          <div className="space-y-3">
+            <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1 overflow-hidden">
+              <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
+                <span className="text-[var(--accent-cyan)] font-bold">kkfetch --bench</span>
+                <span>Rust CLI</span>
+              </div>
+              <p className="text-slate-400">Benchmark: 5.6x faster than fastfetch</p>
+              <p className="text-[var(--accent-primary)]">Kernel: Linux 6.14.0-rc5</p>
+              <p className="text-[var(--accent-peach)]">CPU: AMD Ryzen 5 7535HS (12)</p>
+              <p className="text-[var(--accent-green)]">GPU State: D3cold preserved</p>
             </div>
-            <p className="text-slate-400">Benchmark: 5.6x faster than fastfetch</p>
-            <p className="text-[var(--accent-primary)]">Kernel: Linux 6.14.0-rc5</p>
-            <p className="text-[var(--accent-peach)]">CPU: AMD Ryzen 5 7535HS (12)</p>
-            <p className="text-[var(--accent-green)]">GPU State: D3cold preserved</p>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl bg-[var(--accent-light)] border border-[var(--border-subtle)] text-xs">
+              <span className="font-medium text-slate-700 dark:text-slate-200">
+                Wanna try kkfetch CLI tool built by me?
+              </span>
+              <a
+                href="https://github.com/kk376/kkfetch"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 rounded-full bg-[var(--btn-primary-bg)] hover:bg-[var(--btn-primary-hover)] text-white font-bold text-[11px] inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors shadow-xs"
+              >
+                <span>Try kkfetch</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
         );
       case 'cli-python-crud-project':
@@ -110,7 +126,7 @@ export const ProjectsSection: React.FC = () => {
               : 'bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
-          Systems &amp; Telemetry
+          Systems &amp; CLI
         </button>
 
         <button
@@ -143,7 +159,7 @@ export const ProjectsSection: React.FC = () => {
                   <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-[#181825] text-slate-600 dark:text-slate-300">
                     {project.badge}
                   </span>
-                  {project.starsCount && (
+                  {typeof project.starsCount === 'number' && project.starsCount > 0 && (
                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-500">
                       <Star className="w-3.5 h-3.5 fill-current" />
                       <span>{project.starsCount}</span>

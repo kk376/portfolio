@@ -58,4 +58,13 @@ describe('Codebase Architectural Invariants', () => {
     expect(files.includes('avatar.jpg')).toBe(false);
     expect(files.includes('icons.svg')).toBe(false);
   });
+
+  it('guarantees zero occurrences of emmabostian or developer-portfolios references', () => {
+    for (const filePath of allSourceFiles) {
+      if (filePath.endsWith('invariants.test.ts')) continue;
+      const content = fs.readFileSync(filePath, 'utf-8');
+      expect(content.toLowerCase().includes('emmabostian')).toBe(false);
+      expect(content.toLowerCase().includes('developer-portfolios')).toBe(false);
+    }
+  });
 });

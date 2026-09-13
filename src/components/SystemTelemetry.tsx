@@ -44,7 +44,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         <div className="lg:col-span-7 space-y-1.5 text-xs tabular-nums font-mono">
           <div className="text-[var(--accent-primary)] font-bold border-b border-slate-800 pb-1 mb-2 flex items-center justify-between">
             <span>{SYSTEM_SPECS.user}@fedora</span>
-            <span className="text-[10px] text-slate-400 font-normal">kkfetch v1.2 [Rust procfs]</span>
+            <span className="text-[10px] text-slate-400 font-normal">kkfetch v0.14.5 [Rust CLI]</span>
           </div>
 
           <div><span className="text-slate-400 font-medium">OS:</span> <span className="text-slate-200 ml-1.5">{SYSTEM_SPECS.os}</span></div>
@@ -100,7 +100,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
             <div className="text-[var(--accent-peach)] font-semibold">Active Codebases:</div>
             <div>* fedora-post-install (v5.5.7, 1600+ lines bash automation)</div>
-            <div>* kkfetch (Rust sub-millisecond procfs telemetry fetcher)</div>
+            <div>* kkfetch (Rust sub-millisecond procfs CLI fetcher)</div>
             <div>* cli-python-crud-project (Python pathlib file manager)</div>
             <div>* 10-python-mini-projects (Interactive terminal utilities suite)</div>
           </div>
@@ -109,13 +109,15 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
       case 'prs':
       case 'upstream':
+      case 'opensource':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div className="text-[var(--accent-primary)] font-semibold">Upstream Contributions:</div>
+            <div className="text-[var(--accent-primary)] font-semibold">Open Source Contributions:</div>
             <div>* bilawalsidhu/gods-eye-view #214 (Tactical Sonar Cesium shader bugfix)</div>
             <div>* bilawalsidhu/gods-eye-view #216 (WCAG accessibility fix)</div>
-            <div>* mission-center-devs/gng !117 (D3cold GPU power thrash fix)</div>
+            <div>* distro-packages Multi-Distro (WinGet, Void, Termux packaging)</div>
             <div>* zed-industries/zed #63727 (Wayland shutdown timeout investigation)</div>
+            <div>* mission-center-devs/gng !117 (D3cold GPU power thrash fix)</div>
           </div>
         );
         break;
@@ -123,8 +125,8 @@ cccccccc;.:odl:.;cccccccccccccc:,.
       case 'help':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div><span className="text-[var(--accent-primary)]">kkfetch</span>: print live workstation hardware telemetry</div>
-            <div><span className="text-[var(--accent-peach)]">upstream</span>: list upstream pull requests and investigations</div>
+            <div><span className="text-[var(--accent-primary)]">kkfetch</span>: print live workstation hardware specs</div>
+            <div><span className="text-[var(--accent-peach)]">opensource</span>: list open source pull requests and investigations</div>
             <div><span className="text-[var(--accent-secondary)]">projects</span>: list flagship codebases</div>
             <div><span className="text-[var(--accent-cyan)]">clear</span>: clear terminal screen</div>
           </div>
@@ -181,7 +183,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
   return (
     <section id="telemetry" className="py-20 px-4 max-w-5xl mx-auto">
       <SectionHeader
-        title="Station Telemetry"
+        title="Station CLI"
         subtitle="Live Linux workstation diagnostics measured using kkfetch in Rust with direct kernel procfs queries"
       />
 
@@ -194,12 +196,12 @@ cccccccc;.:odl:.;cccccccccccccc:,.
             <span className="w-3 h-3 rounded-full bg-[var(--accent-peach)] inline-block" />
             <span className="w-3 h-3 rounded-full bg-[var(--accent-green)] inline-block" />
             <span className="font-mono text-xs text-slate-400 ml-2 font-medium">
-              fedora / kkfetch-telemetry
+              fedora / kkfetch-cli
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            {['kkfetch', 'upstream', 'projects', 'clear'].map((cmd) => (
+            {['kkfetch', 'opensource', 'projects', 'clear'].map((cmd) => (
               <button
                 key={cmd}
                 onClick={() => executeCommand(cmd)}

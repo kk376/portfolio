@@ -27,8 +27,8 @@ const navItems: NavItem[] = [
   { name: 'Services', href: '#services', icon: Briefcase },
   { name: 'Experience', href: '#resume', icon: GraduationCap },
   { name: 'Projects', href: '#portfolio', icon: Layers },
-  { name: 'Upstream', href: '#upstream', icon: GitPullRequest },
-  { name: 'Telemetry', href: '#telemetry', icon: Terminal },
+  { name: 'Open Source', href: '#upstream', icon: GitPullRequest },
+  { name: 'CLI', href: '#telemetry', icon: Terminal },
   { name: 'Contact', href: '#contact', icon: Mail },
 ];
 

@@ -5,12 +5,12 @@ export const PERSONAL_INFO = {
   handle: 'kk376',
   tagline: 'Frontend Learner • Open Source Contributor • Linux Systems Explorer',
   shortBio:
-    'BCA graduate (8.21 CGPA distinction) actively mastering Frontend development across HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside modern web fundamentals, I investigate Linux system bottlenecks and ship upstream open source contributions.',
+    'BCA graduate (8.2 CGPA [3.28 / 4.0 GPA] distinction) actively mastering Frontend development across HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside modern web fundamentals, I investigate Linux system bottlenecks and ship open source contributions.',
   email: 'kkushagra86@gmail.com',
   github: 'https://github.com/kk376',
   linkedin: 'https://www.linkedin.com/in/kushagra-kumar376/',
-  status: 'Learning Frontend Daily • Shipping Upstream Contributions',
-  education: 'BCA (8.21 CGPA Distinction), Suresh Gyan Vihar University (2022)',
+  status: 'Learning Frontend Daily • Shipping Open Source Contributions',
+  education: 'BCA (8.2 CGPA [3.28 / 4.0 GPA] Distinction), Suresh Gyan Vihar University (2022)',
   location: 'Jaipur, Rajasthan, India',
 };
 
@@ -55,44 +55,6 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ];
 
 export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
-  {
-    id: 'mission-center-mr-117',
-    platform: 'gitlab',
-    type: 'mr',
-    repo: 'gng',
-    repoOwner: 'mission-center-devs',
-    refLabel: '!117',
-    title: 'gpu: Avoid waking suspended discrete GPUs during periodic refresh',
-    url: 'https://gitlab.com/mission-center-devs/gng/-/merge_requests/117',
-    status: 'open',
-    category: 'systems',
-    date: 'Sep 2026',
-    summary:
-      'Fixed Wayland desktop micro-stutters and freezes on hybrid AMD/NVIDIA laptops caused by NVTop waking the sleeping dGPU from D3cold every polling tick.',
-    myRoleNote:
-      'Discovered the issue on my laptop, isolated the PCIe power thrash, and guided AI to inspect sysfs runtime_status in-memory and temporarily unlink sleeping nodes from NVTop list heads.',
-    tags: ['GitLab MR', 'Linux Kernel', 'PCIe D3cold', 'Rust', 'Wayland'],
-    accentGradient: 'from-emerald-500 to-cyan-500',
-    diagnostic: {
-      symptom: 'Periodic 1000ms NVTop poll woke sleeping NVIDIA discrete GPU from PCIe D3cold power state, triggering repetitive desktop Wayland micro-stutters and 10W battery drain.',
-      rootCause: 'NVTop device list traversal performed unconditional open() and ioctl queries on /sys/bus/pci/devices nodes without pre-checking Linux kernel runtime PM status in memory.',
-      fix: 'Implemented lightweight sysfs runtime_status parsing before polling. If status is suspended, device query is skipped, keeping the GPU sleeping.',
-      diffSnippet: {
-        file: 'src/nvtop_gpu.rs',
-        removed: [
-          '// Unconditionally poll device telemetry',
-          'let metrics = query_device_metrics(device_fd);',
-        ],
-        added: [
-          '// Check runtime PM status without waking PCIe bus',
-          'if is_device_suspended(device_sysfs_path) {',
-          '    return Ok(CachedGpuState::Sleeping);',
-          '}',
-          'let metrics = query_device_metrics(device_fd);',
-        ],
-      },
-    },
-  },
   {
     id: 'gods-eye-view-pr-214',
     platform: 'github',
@@ -149,6 +111,25 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     accentGradient: 'from-pink-500 to-rose-500',
   },
   {
+    id: 'packaging-ecosystem',
+    platform: 'github',
+    type: 'package',
+    repo: 'distro-packages',
+    repoOwner: 'upstream-distros',
+    refLabel: 'Multi-Distro',
+    title: 'System package maintainership: WinGet, Void Linux, Chimera, Termux',
+    url: 'https://github.com/microsoft/winget-pkgs/pull/422521',
+    status: 'merged',
+    category: 'packaging',
+    date: 'Aug - Sep 2026',
+    summary:
+      'Authored packaging manifests to distribute CLI utilities across Microsoft WinGet, Void Linux xbps-src, Chimera Linux cports, and Termux.',
+    myRoleNote:
+      'Guided AI to package the binaries according to each distribution standard format and submitted the PRs.',
+    tags: ['Packaging', 'Merged', 'WinGet', 'Void Linux', 'Termux'],
+    accentGradient: 'from-blue-500 to-indigo-600',
+  },
+  {
     id: 'zed-issue-63727',
     platform: 'github',
     type: 'issue',
@@ -184,6 +165,44 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     },
   },
   {
+    id: 'mission-center-mr-117',
+    platform: 'gitlab',
+    type: 'mr',
+    repo: 'gng',
+    repoOwner: 'mission-center-devs',
+    refLabel: '!117',
+    title: 'gpu: Avoid waking suspended discrete GPUs during periodic refresh',
+    url: 'https://gitlab.com/mission-center-devs/gng/-/merge_requests/117',
+    status: 'open',
+    category: 'systems',
+    date: 'Sep 2026',
+    summary:
+      'Fixed Wayland desktop micro-stutters and freezes on hybrid AMD/NVIDIA laptops caused by NVTop waking the sleeping dGPU from D3cold every polling tick.',
+    myRoleNote:
+      'Discovered the issue on my laptop, isolated the PCIe power thrash, and guided AI to inspect sysfs runtime_status in-memory and temporarily unlink sleeping nodes from NVTop list heads.',
+    tags: ['GitLab MR', 'Linux Kernel', 'PCIe D3cold', 'Rust', 'Wayland'],
+    accentGradient: 'from-emerald-500 to-cyan-500',
+    diagnostic: {
+      symptom: 'Periodic 1000ms NVTop poll woke sleeping NVIDIA discrete GPU from PCIe D3cold power state, triggering repetitive desktop Wayland micro-stutters and 10W battery drain.',
+      rootCause: 'NVTop device list traversal performed unconditional open() and ioctl queries on /sys/bus/pci/devices nodes without pre-checking Linux kernel runtime PM status in memory.',
+      fix: 'Implemented lightweight sysfs runtime_status parsing before polling. If status is suspended, device query is skipped, keeping the GPU sleeping.',
+      diffSnippet: {
+        file: 'src/nvtop_gpu.rs',
+        removed: [
+          '// Unconditionally poll device telemetry',
+          'let metrics = query_device_metrics(device_fd);',
+        ],
+        added: [
+          '// Check runtime PM status without waking PCIe bus',
+          'if is_device_suspended(device_sysfs_path) {',
+          '    return Ok(CachedGpuState::Sleeping);',
+          '}',
+          'let metrics = query_device_metrics(device_fd);',
+        ],
+      },
+    },
+  },
+  {
     id: 'mission-center-issue-544',
     platform: 'gitlab',
     type: 'issue',
@@ -202,25 +221,6 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     tags: ['GitLab Issue', 'Root Cause Analysis', 'Power Mgmt', 'Linux'],
     accentGradient: 'from-amber-500 to-orange-500',
   },
-  {
-    id: 'packaging-ecosystem',
-    platform: 'github',
-    type: 'package',
-    repo: 'distro-packages',
-    repoOwner: 'upstream-distros',
-    refLabel: 'Multi-Distro',
-    title: 'System package maintainership: WinGet, Void Linux, Chimera, Termux',
-    url: 'https://github.com/microsoft/winget-pkgs/pull/422521',
-    status: 'merged',
-    category: 'packaging',
-    date: 'Aug - Sep 2026',
-    summary:
-      'Authored packaging manifests to distribute CLI utilities across Microsoft WinGet, Void Linux xbps-src, Chimera Linux cports, and Termux.',
-    myRoleNote:
-      'Guided AI to package the binaries according to each distribution standard format and submitted the PRs.',
-    tags: ['Packaging', 'Merged', 'WinGet', 'Void Linux', 'Termux'],
-    accentGradient: 'from-blue-500 to-indigo-600',
-  },
 ];
 
 export const FLAGSHIP_PROJECTS: Project[] = [
@@ -236,21 +236,21 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     badge: 'v5.5.7',
     highlightMetric: '1,600+ Lines of Bash',
     accentColor: 'emerald',
-    starsCount: 42,
+    starsCount: 19,
   },
   {
     id: 'kkfetch',
     title: 'kkfetch',
     tagline: 'Sub-Millisecond Rust System Information Fetcher',
     description:
-      'Fast system telemetry tool in Rust with custom ASCII art geometry, direct sysinfo kernel queries without subshell overhead, and documented safety invariants.',
+      'Fast system CLI tool in Rust with custom ASCII art geometry, direct sysinfo kernel queries without subshell overhead, and documented safety invariants.',
     category: 'systems',
     tags: ['Rust', 'CLI Tool', 'Linux Kernel', 'Memory Safety'],
     repoUrl: 'https://github.com/kk376/kkfetch',
     badge: 'Fast CLI',
     highlightMetric: '5.6x Faster than Fastfetch',
     accentColor: 'cyan',
-    starsCount: 18,
+    starsCount: 4,
   },
   {
     id: 'cli-python-crud-project',
@@ -264,7 +264,7 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     badge: 'Python Core',
     highlightMetric: 'Full CRUD Operations',
     accentColor: 'violet',
-    starsCount: 8,
+    starsCount: 0,
   },
   {
     id: 'mini-projects-collection',
@@ -278,7 +278,7 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     badge: '10 Apps',
     highlightMetric: '10 Interactive Apps',
     accentColor: 'pink',
-    starsCount: 12,
+    starsCount: 0,
   },
 ];
 

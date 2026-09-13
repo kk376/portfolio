@@ -5,6 +5,7 @@ import { useTheme } from './hooks/useTheme';
 import { Sidebar } from './components/Sidebar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
+import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ResumeSection } from './components/ResumeSection';
 import { ProjectsSection } from './components/ProjectsSection';
@@ -40,7 +41,7 @@ const PortfolioContent: React.FC = () => {
             }
           }, 350);
         }
-        showToast('Jumped to CLI Terminal (kkfetch telemetry)');
+        showToast('Jumped to CLI Terminal (kkfetch CLI)');
         break;
       }
       case 'theme': {
@@ -125,6 +126,7 @@ const PortfolioContent: React.FC = () => {
       <main className="min-h-screen">
         <Hero />
         <AboutSection />
+        <SkillsSection />
         <ServicesSection />
         <ResumeSection />
         <ProjectsSection />

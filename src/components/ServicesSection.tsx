@@ -34,11 +34,11 @@ const services: ServiceItem[] = [
     accentColor: 'var(--accent-peach)',
     bgLight: 'bg-[var(--accent-peach)]/10',
     bgDark: 'dark:bg-[var(--accent-peach)]/15',
-    skills: ['Fedora Linux', 'Bash Scripting', 'Procfs Telemetry', 'PCIe Power Tuning'],
+    skills: ['Bash Scripting', 'Procfs CLI', 'PCIe Power Tuning'],
   },
   {
     id: 3,
-    title: 'Upstream & Graphics Engineering',
+    title: 'Open Source & Graphics Engineering',
     description:
       'Diagnosing complex graphics and window lifecycle defects, resolving GLSL shader issues in Cesium.js, and collaborating with upstream maintainers.',
     icon: <Cpu className="w-9 h-9 text-[var(--accent-primary)]" />,

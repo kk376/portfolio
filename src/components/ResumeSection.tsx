@@ -16,9 +16,9 @@ const educationData: TimelineItem[] = [
     title: 'Bachelor of Computer Applications (BCA)',
     institution: 'Suresh Gyan Vihar University, Jaipur',
     description:
-      'Completed three-year graduation with 8.21 CGPA (Distinction classification). Rigorous curriculum covering Relational Database Management Systems (MySQL), Data Structures, and Software Engineering principles.',
+      'Completed three-year graduation with 8.2 CGPA (3.28 / 4.0 GPA) Distinction classification. Rigorous curriculum covering Relational Database Management Systems (MySQL), Data Structures, and Software Engineering principles.',
     highlights: [
-      '8.21 CGPA Distinction classification',
+      '8.2 CGPA (3.28 / 4.0 GPA) Distinction classification',
       'Relational database schema design and SQL query formulation',
       'Solid programming foundations in data structures and applications',
     ],
@@ -50,10 +50,10 @@ const experienceData: TimelineItem[] = [
     title: 'Linux Systems & Workstation Engineering',
     institution: 'Development Environment & Shell Automation (MSI Thin A15)',
     description:
-      'Configured dedicated Linux development workstation (Fedora 44, AMD Ryzen 5, NVIDIA RTX 2050 Mobile). Engineered modular shell provisioning suites and authored system telemetry tools while solidifying the foundation for full-time software engineering.',
+      'Configured dedicated Linux development workstation (Fedora 44, AMD Ryzen 5, NVIDIA RTX 2050 Mobile). Engineered modular shell provisioning suites and authored system CLI tools while solidifying the foundation for full-time software engineering.',
     highlights: [
       'Engineered 1,600+ lines of modular Bash workstation provisioning',
-      'Authored high-performance Rust kernel telemetry fetcher (kkfetch, 5.6x faster than Fastfetch)',
+      'Authored high-performance Rust kernel CLI fetcher (kkfetch, 5.6x faster than Fastfetch)',
     ],
   },
   {

@@ -3,19 +3,6 @@ import { SectionHeader } from './SectionHeader';
 import { Sparkles, Terminal, Award, FileCode } from 'lucide-react';
 import avatarImg from '../assets/github_avatar.jpg';
 
-interface SkillBar {
-  name: string;
-  percentage: number;
-  color: string;
-}
-
-const skills: SkillBar[] = [
-  { name: 'Semantic HTML & Modern CSS', percentage: 90, color: 'var(--accent-peach)' },
-  { name: 'JavaScript & React Architecture', percentage: 85, color: 'var(--accent-primary)' },
-  { name: 'Linux Systems & Shell Automation', percentage: 88, color: 'var(--accent-secondary)' },
-  { name: 'Upstream PRs & WebGL Shaders', percentage: 80, color: 'var(--accent-cyan)' },
-];
-
 export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-20 px-4 max-w-5xl mx-auto">
@@ -45,46 +32,46 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Bio speech container + Skill bars */}
+        {/* Right Column: Bio speech container + Domain Focus */}
         <div className="md:col-span-8">
           <div className="greg-card p-6 sm:p-8">
             <p className="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed mb-4">
-              Hello! I am Kushagra, based in Jaipur, India. I completed my Bachelor of Computer Applications (BCA) with 8.21 CGPA Distinction from Suresh Gyan Vihar University in 2022.
+              Hello! I am Kushagra, based in Jaipur, India. I completed my Bachelor of Computer Applications (BCA) with 8.2 CGPA (3.28 / 4.0 GPA) Distinction from Suresh Gyan Vihar University in 2022.
             </p>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              I am actively mastering web development across HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside modern frontend interfaces, I investigate Linux system bottlenecks, tune hardware power states, and ship upstream bugfixes to projects such as Cesium, Mission Center, and Zed.
+              I am actively mastering web development across HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside modern frontend interfaces, I investigate Linux system bottlenecks, tune hardware power states, and ship open source contributions to projects such as Cesium, Mission Center, and Zed.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mb-8">
               <a href="#upstream" className="btn-coral text-sm py-2.5 px-6">
                 <Sparkles className="w-4 h-4" />
-                <span>Upstream Work</span>
+                <span>Open Source</span>
               </a>
               <a href="#contact" className="btn-secondary text-sm py-2.5 px-6">
                 <span>Direct Dispatch</span>
               </a>
             </div>
 
-            {/* Skill Progress Bars */}
-            <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-white/5">
-              {skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
-                    <span className="text-slate-800 dark:text-slate-200">{skill.name}</span>
-                    <span style={{ color: skill.color }}>{skill.percentage}%</span>
-                  </div>
-                  <div className="w-full h-2.5 bg-slate-100 dark:bg-[#181825] rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-500"
-                      style={{
-                        width: `${skill.percentage}%`,
-                        backgroundColor: skill.color,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
+            {/* Core Engineering Domains */}
+            <div className="space-y-3 pt-4 border-t border-slate-100 dark:border-white/5">
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                Core Engineering Domains
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#181825] text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200/60 dark:border-white/5">
+                  Semantic HTML &amp; Modern CSS
+                </span>
+                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#181825] text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200/60 dark:border-white/5">
+                  JavaScript &amp; React Architecture
+                </span>
+                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#181825] text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200/60 dark:border-white/5">
+                  Linux Systems &amp; Shell Automation
+                </span>
+                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#181825] text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200/60 dark:border-white/5">
+                  Open Source PRs &amp; WebGL Shaders
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -115,10 +102,10 @@ export const AboutSection: React.FC = () => {
         <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
           <Award className="w-8 h-8 text-[var(--accent-peach)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
-            8.21
+            8.2
           </span>
           <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
-            CGPA Distinction (BCA)
+            CGPA (3.28 / 4.0 GPA)
           </span>
         </div>
       </div>
