@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionHeader } from './SectionHeader';
 import { Sparkles, Terminal, Award, FileCode, CheckCircle2 } from 'lucide-react';
-import heroImg from '../assets/hero.png';
+import avatarImg from '../assets/github_avatar.jpg';
 
 interface SkillBar {
   name: string;
@@ -27,7 +27,7 @@ export const AboutSection: React.FC = () => {
           <div className="w-full max-w-[260px] greg-card p-4 flex flex-col items-center text-center">
             <div className="w-36 h-36 rounded-2xl overflow-hidden mb-4 shadow-md">
               <img
-                src={heroImg}
+                src={avatarImg}
                 alt="Kushagra Kumar profile"
                 className="w-full h-full object-cover"
               />

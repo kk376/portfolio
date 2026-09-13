@@ -3,7 +3,7 @@ import { Mail, ArrowDown } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
 import { Shapes } from './Shapes';
-import heroImg from '../assets/hero.png';
+import avatarImg from '../assets/github_avatar.jpg';
 
 const phrases = [
   'Apprentice Software Engineer',
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
         <div className="relative mb-7">
           <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white dark:border-[#252536] shadow-xl ring-4 ring-[#FF4C60]/20 dark:ring-[#FF4C60]/30 transition-transform duration-300 hover:scale-105">
             <img
-              src={heroImg}
+              src={avatarImg}
               alt="Kushagra Kumar"
               className="w-full h-full object-cover"
             />
