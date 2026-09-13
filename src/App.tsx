@@ -3,22 +3,20 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { UpstreamSection } from './components/UpstreamSection';
 import { ProjectsSection } from './components/ProjectsSection';
-import { TerminalSection } from './components/TerminalSection';
-import { VibeManifesto } from './components/VibeManifesto';
-import { ContactSection } from './components/ContactSection';
+import { SystemTelemetry } from './components/SystemTelemetry';
+import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-obsidian-950 text-slate-200 tactical-grid relative selection:bg-cyan-500/20 selection:text-cyan-400">
+    <div className="min-h-screen bg-[#08090c] text-slate-200 antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
       <Navbar />
       <main>
         <Hero />
         <UpstreamSection />
         <ProjectsSection />
-        <TerminalSection />
-        <VibeManifesto />
-        <ContactSection />
+        <SystemTelemetry />
+        <AboutSection />
       </main>
       <Footer />
     </div>

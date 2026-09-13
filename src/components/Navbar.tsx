@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Radio, Menu, X, Cpu } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
+import { GitlabIcon } from './icons/GitlabIcon';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,104 +16,124 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Upstream PRs', href: '#upstream' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Interactive Terminal', href: '#terminal' },
-    { name: 'Vibe Manifesto', href: '#manifesto' },
-    { name: 'Coordinates', href: '#contact' },
+    { label: 'Upstream & PRs', href: '#upstream' },
+    { label: 'Flagship Projects', href: '#projects' },
+    { label: 'System Telemetry', href: '#system' },
+    { label: 'Methodology', href: '#methodology' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-obsidian-950/85 backdrop-blur-md border-b border-obsidian-700/70 shadow-lg shadow-black/40'
-          : 'bg-transparent border-b border-white/[0.04]'
+          ? 'bg-[#08090c]/90 backdrop-blur-md border-b border-white/[0.08] shadow-sm'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Brand & Tactical status */}
-          <div className="flex items-center gap-3">
-            <a href="#" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-lg bg-obsidian-850 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition-colors">
-                <Radio className="w-4 h-4 text-cyan-400 group-hover:animate-spin" />
-              </div>
-              <div>
-                <span className="font-mono font-bold text-sm tracking-wide text-white group-hover:text-cyan-400 transition-colors">
-                  KK376
-                </span>
-                <span className="text-slate-500 text-xs font-mono block">
-                  vibe // systems
-                </span>
-              </div>
-            </a>
-
-            {/* Tactical Status Pill */}
-            <div className="hidden md:flex items-center gap-2 pl-4 ml-4 border-l border-obsidian-700/60 font-mono text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-400/90 font-medium">ONLINE</span>
-              <span className="text-slate-500">/</span>
-              <span className="text-slate-400 flex items-center gap-1">
-                <Cpu className="w-3 h-3 text-cyan-400" />
-                Fedora 44
+          {/* Brand Name */}
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-7 h-7 rounded-md bg-white/[0.06] border border-white/[0.1] flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-white/[0.25] transition-colors">
+              KK
+            </div>
+            <div>
+              <span className="text-sm font-semibold tracking-tight text-white group-hover:text-slate-200 transition-colors block">
+                Kushagra Kumar
+              </span>
+              <span className="text-[11px] text-slate-500 font-mono block">
+                Systems & Open Source
               </span>
             </div>
-          </div>
+          </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6">
+          {/* Desktop Links */}
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.label}
                 href={link.href}
-                className="font-mono text-xs text-slate-400 hover:text-cyan-400 transition-colors py-1"
+                className="text-xs font-medium text-slate-400 hover:text-white transition-colors"
               >
-                {link.name}
+                {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Right Action Icons */}
-          <div className="flex items-center gap-3">
+          {/* Social Links */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
               href="https://github.com/kk376"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-obsidian-850 border border-obsidian-700 hover:border-cyan-400/50 hover:bg-obsidian-800 text-slate-200 text-xs font-mono transition-all flex items-center gap-2 shadow-sm"
+              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.18] transition-all"
+              title="GitHub Profile"
             >
-              <GithubIcon className="w-4 h-4 text-slate-300" />
-              <span className="hidden sm:inline">github/kk376</span>
+              <GithubIcon className="w-4 h-4" />
             </a>
 
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-obsidian-850 border border-obsidian-700 text-slate-400 hover:text-white"
-              aria-label="Toggle menu"
+            <a
+              href="https://gitlab.com/Kk376"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.18] transition-all"
+              title="GitLab Profile"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+              <GitlabIcon className="w-4 h-4 text-orange-400" />
+            </a>
+
+            <a
+              href="mailto:kkushagra86@gmail.com"
+              className="px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.12] border border-white/[0.12] text-xs font-medium text-white transition-colors flex items-center gap-1.5"
+            >
+              <span>Contact</span>
+              <ArrowUpRight className="w-3 h-3 text-slate-400" />
+            </a>
           </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white border border-white/[0.08]"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile dropdown menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-obsidian-950/95 backdrop-blur-xl border-b border-obsidian-800 px-4 py-4 space-y-3 font-mono text-sm">
+      {/* Mobile menu dropdown */}
+      {mobileOpen && (
+        <div className="md:hidden bg-[#0a0b10] border-b border-white/[0.08] px-4 py-4 space-y-3">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.label}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-300 hover:text-cyan-400 transition-colors border-b border-obsidian-800/60"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-sm text-slate-300 hover:text-white"
             >
-              {link.name}
+              {link.label}
             </a>
           ))}
-          <div className="pt-2 flex items-center justify-between text-xs text-slate-500">
-            <span>STATUS: READY</span>
-            <span className="text-emerald-400">FEDORA 44 LINUX</span>
+          <div className="pt-3 border-t border-white/[0.08] flex items-center gap-4">
+            <a
+              href="https://github.com/kk376"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 font-mono"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              GitHub
+            </a>
+            <a
+              href="https://gitlab.com/Kk376"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 font-mono"
+            >
+              <GitlabIcon className="w-3.5 h-3.5 text-orange-400" />
+              GitLab
+            </a>
           </div>
         </div>
       )}

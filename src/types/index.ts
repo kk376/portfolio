@@ -1,35 +1,38 @@
-export type ProjectCategory = 'all' | 'upstream' | 'systems' | 'linux';
+export type ContributionCategory = 'all' | 'merged' | 'systems' | 'discussions' | 'packaging';
+
+export type ContributionType = 'pr' | 'mr' | 'issue' | 'discussion' | 'package';
+
+export interface UpstreamContribution {
+  id: string;
+  platform: 'github' | 'gitlab';
+  type: ContributionType;
+  repo: string;
+  repoOwner: string;
+  refLabel: string;
+  title: string;
+  url: string;
+  status: 'merged' | 'open' | 'investigated' | 'active';
+  category: ContributionCategory;
+  date: string;
+  summary: string;
+  technicalDetails: string;
+  tags: string[];
+  isVibePrototyped?: boolean;
+  hasInteractiveDemo?: boolean;
+}
 
 export interface Project {
   id: string;
   title: string;
-  subtitle: string;
+  tagline: string;
   description: string;
-  category: ProjectCategory;
+  category: 'systems' | 'linux' | 'tools';
   tags: string[];
-  githubUrl: string;
-  liveUrl?: string;
-  badge?: string;
-  isVibeCoded: boolean;
-  vibeNotes: string;
-  highlightMetric?: string;
+  repoUrl: string;
+  version?: string;
+  highlightMetric: string;
+  methodologyNote?: string;
   starsCount?: number;
-  forksCount?: number;
-}
-
-export interface UpstreamContribution {
-  id: string;
-  repo: string;
-  repoOwner: string;
-  prNumber: number;
-  prTitle: string;
-  prUrl: string;
-  status: 'merged' | 'open' | 'active';
-  description: string;
-  impact: string;
-  techStack: string[];
-  isVibeCoded: boolean;
-  sonarPreview?: boolean;
 }
 
 export interface SystemSpec {
