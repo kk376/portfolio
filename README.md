@@ -1,24 +1,23 @@
 # portfolio_v2
 
-> High-velocity systems developer portfolio engineered for Kushagra Kumar (kk376). Built with HTML, CSS, Tailwind CSS, TypeScript, and React. Minimal, maintainable footprint with zero extra runtime weight.
+> Personal developer portfolio for Kushagra Kumar (kk376). Built with HTML, CSS, Tailwind CSS, TypeScript, and React 19. Vibrant Bento layout showcasing frontend learning, Python/SQL foundation, and real-world open source contributions landed with AI assistance.
 
-## Core Features
+## Highlights
 
-- **Interactive Tactical Sonar Canvas Engine**: Commemorating upstream contribution to God's Eye View (PR #214 - Tactical Sonar Visual Style in Cesium). Features real-time acoustic range rings, rotating phosphor sweep beam, and interactive acoustic pings.
-- **Live `kkfetch` Terminal Prober**: Embedded interactive CLI simulator allowing visitors to probe system hardware telemetry (Fedora 44, Ryzen 5 7535HS), browse projects, and inspect runtime philosophy.
-- **The Vibe Coding Manifesto**: Unapologetic transparency declaring rapid generative prototyping paired with rigorous engineering discipline (zero-warning builds, safety invariant proofs, memory leak audits, and signed commits).
-- **Flagship Repositories Matrix**: Dedicated showcase for `gods-eye-view` PR #214, `fedora-post-install` (v5.5.7), `kkfetch` (Rust CLI), and `kkpdf-zed` (Zed editor native document engine).
-- **Zero Em Dash Standard**: Strictly enforced punctuation discipline across the entire application and documentation.
+- **Bento Hero & Learning Status**: Showcases ongoing frontend mastery (HTML, CSS, JavaScript, React, Tailwind) alongside a BCA degree (8.2 CGPA).
+- **Interactive Upstream Showcase**: Detailed breakdown of real upstream PRs, MRs, and bug investigations across Cesium (God's Eye View), Mission Center (GitLab), and Zed editor, with honest transparency regarding AI pair-programming.
+- **Cesium Tactical Sonar Demo**: Interactive WebGL/Canvas shader simulation for God's Eye View PR #214 with range rings and acoustic pings.
+- **Featured Projects**: Flagship codebases including `fedora-post-install` (v5.5.7), `kkfetch` (Rust CLI), and Python CRUD utilities.
+- **System Telemetry & kkfetch**: Interactive specs inspector with dual-mode view (Structured Specs and Interactive Terminal) with zero window scroll jumping.
 
 ## Tech Stack
 
 - **Framework**: React 19
-- **Type System**: TypeScript (strict, verbatimModuleSyntax)
-- **Styling**: Tailwind CSS (tactical obsidian dark palette)
-- **Icons**: Lucide React + custom inline SVGs
-- **Bundler & Linter**: Vite + Oxlint
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS (custom vibrant glass and gradient palette)
+- **Tooling**: Vite + Oxlint
 
-## Development
+## Local Development
 
 ```bash
 # Install dependencies
@@ -27,14 +26,11 @@ pnpm install
 # Start local dev server
 pnpm dev
 
-# Typecheck and production build
+# Typecheck and build for production
 pnpm build
 
-# Fast Oxlint validation
+# Lint with Oxlint
 pnpm lint
-
-# Preview production build locally
-pnpm preview
 ```
 
 ## License

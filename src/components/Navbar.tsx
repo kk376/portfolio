@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { GitlabIcon } from './icons/GitlabIcon';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,82 +17,101 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Upstream & PRs', href: '#upstream' },
-    { label: 'Flagship Projects', href: '#projects' },
-    { label: 'System Telemetry', href: '#system' },
-    { label: 'Methodology', href: '#methodology' },
+    { label: 'About', href: '#about' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Upstream PRs', href: '#upstream' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'System', href: '#system' },
+    { label: 'Connect', href: '#connect' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#08090c]/90 backdrop-blur-md border-b border-white/[0.08] shadow-sm'
+          ? 'bg-[#06070b]/85 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-black/50'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
+      {/* Top rainbow gradient hairline */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-pink-500 via-purple-500 via-cyan-500 to-emerald-400" />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Brand Name */}
+          {/* Brand with photo thumbnail */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-7 h-7 rounded-md bg-white/[0.06] border border-white/[0.1] flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-white/[0.25] transition-colors">
-              KK
+            <div className="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400">
+              <img
+                src="/avatar.jpg"
+                alt="Kushagra Kumar"
+                className="w-full h-full rounded-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
             </div>
             <div>
-              <span className="text-sm font-semibold tracking-tight text-white group-hover:text-slate-200 transition-colors block">
-                Kushagra Kumar
-              </span>
-              <span className="text-[11px] text-slate-500 font-mono block">
-                Systems & Open Source
+              <div className="flex items-center gap-1.5">
+                <span className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  {PERSONAL_INFO.name}
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-pink-500/10 text-pink-400 border border-pink-500/20">
+                  kk376
+                </span>
+              </div>
+              <span className="text-[11px] text-slate-400 font-mono block">
+                Learning Frontend
               </span>
             </div>
           </a>
 
-          {/* Desktop Links */}
-          <nav className="hidden md:flex items-center gap-7">
+          {/* Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-xs font-medium text-slate-400 hover:text-white transition-colors"
+                className="text-xs font-medium text-slate-300 hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Social Links */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Social & Contact */}
+          <div className="hidden sm:flex items-center gap-2.5">
             <a
-              href="https://github.com/kk376"
+              href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.18] transition-all"
+              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-cyan-400/50 text-slate-300 hover:text-white transition-all"
               title="GitHub Profile"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
 
             <a
-              href="https://gitlab.com/Kk376"
+              href={PERSONAL_INFO.gitlab}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.18] transition-all"
+              className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-orange-400/50 text-slate-300 hover:text-white transition-all"
               title="GitLab Profile"
             >
               <GitlabIcon className="w-4 h-4 text-orange-400" />
             </a>
 
             <a
-              href="mailto:kkushagra86@gmail.com"
-              className="px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.12] border border-white/[0.12] text-xs font-medium text-white transition-colors flex items-center gap-1.5"
+              href={PERSONAL_INFO.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500/15 via-purple-500/15 to-pink-500/15 hover:from-cyan-500/25 hover:via-purple-500/25 hover:to-pink-500/25 border border-purple-500/30 text-xs font-medium text-white transition-all flex items-center gap-1.5"
             >
-              <span>Contact</span>
-              <ArrowUpRight className="w-3 h-3 text-slate-400" />
+              <span>LinkedIn</span>
+              <ArrowUpRight className="w-3 h-3 text-purple-400" />
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white border border-white/[0.08]"
@@ -104,32 +124,32 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile menu dropdown */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#0a0b10] border-b border-white/[0.08] px-4 py-4 space-y-3">
+        <div className="md:hidden bg-[#0a0c14] border-b border-white/[0.08] px-4 py-4 space-y-3">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-2 text-sm text-slate-300 hover:text-white"
+              className="block py-2 text-sm text-slate-300 hover:text-cyan-400"
             >
               {link.label}
             </a>
           ))}
           <div className="pt-3 border-t border-white/[0.08] flex items-center gap-4">
             <a
-              href="https://github.com/kk376"
+              href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 font-mono"
+              className="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 font-mono"
             >
               <GithubIcon className="w-3.5 h-3.5" />
               GitHub
             </a>
             <a
-              href="https://gitlab.com/Kk376"
+              href={PERSONAL_INFO.gitlab}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 font-mono"
+              className="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 font-mono"
             >
               <GitlabIcon className="w-3.5 h-3.5 text-orange-400" />
               GitLab

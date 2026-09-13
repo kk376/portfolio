@@ -1,19 +1,59 @@
-import type { UpstreamContribution, Project, SystemSpec } from '../types';
+import type { UpstreamContribution, Project, SkillGroup, SystemSpec } from '../types';
 
-export const SYSTEM_SPECS: SystemSpec = {
-  user: 'kk376',
-  host: 'victus-station',
-  os: 'Fedora Linux 44 (Workstation Edition)',
-  kernel: 'Linux 6.14.0-rc5-x86_64',
-  uptime: '4h 42m',
-  packages: '1942 (rpm), 34 (flatpak)',
-  shell: 'bash 5.2.32',
-  terminal: 'ghostty / alacritty',
-  cpu: 'AMD Ryzen 5 7535HS (12) @ 4.55 GHz',
-  gpu: 'NVIDIA GeForce RTX 2050 Mobile / AMD Radeon 660M',
-  memory: '4812 MiB / 15480 MiB (31%)',
-  editor: 'Zed Editor / Antigravity',
+export const PERSONAL_INFO = {
+  name: 'Kushagra Kumar',
+  handle: 'kk376',
+  tagline: 'Frontend Learner • Open Source Explorer • AI Pair-Programmer',
+  shortBio:
+    'BCA graduate (8.2 CGPA) actively mastering Frontend development (HTML, CSS, JavaScript, React, Tailwind). While learning web fundamentals, I love pairing with AI to investigate Linux kernel quirks, author CLI utilities, and land upstream open source contributions.',
+  email: 'kkushagra86@gmail.com',
+  github: 'https://github.com/kk376',
+  gitlab: 'https://gitlab.com/Kk376',
+  linkedin: 'https://www.linkedin.com/in/kushagra-kumar376/',
+  status: 'Learning Frontend Daily • Guiding AI on Open Source',
+  education: 'BCA (8.2 CGPA), Suresh Gyan Vihar University (2022)',
+  location: 'India',
 };
+
+export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    title: 'Frontend In Progress',
+    level: 'Active Daily Focus',
+    accentColor: 'from-pink-500 to-rose-500',
+    skills: [
+      { name: 'HTML5 & Semantic Elements', tag: 'Core' },
+      { name: 'CSS3, Flexbox & Grid', tag: 'Layout' },
+      { name: 'Responsive Web Design', tag: 'UI/UX' },
+      { name: 'JavaScript ES6+ & DOM', tag: 'Logic' },
+      { name: 'Tailwind CSS', tag: 'Styling' },
+      { name: 'React & Component Architecture', tag: 'Framework' },
+    ],
+  },
+  {
+    title: 'Data & Core Backend',
+    level: 'Completed Foundation',
+    accentColor: 'from-cyan-500 to-blue-500',
+    skills: [
+      { name: 'Python Core & CLI Apps', tag: 'Language' },
+      { name: 'MySQL Relational Queries', tag: 'Database' },
+      { name: 'Joins, CTEs & Window Functions', tag: 'SQL' },
+      { name: 'CRUD Architectures & File Handling', tag: 'Storage' },
+      { name: 'Exception Handling & pathlib', tag: 'Python' },
+    ],
+  },
+  {
+    title: 'Environment & Tooling',
+    level: 'Daily Workstation',
+    accentColor: 'from-violet-500 to-purple-500',
+    skills: [
+      { name: 'Fedora 44 Workstation & Wayland', tag: 'OS' },
+      { name: 'Git & GitHub Daily Commits', tag: 'VCS' },
+      { name: 'Bash Scripting & Automation', tag: 'Shell' },
+      { name: 'AI Pair-Programming & Prompt Craft', tag: 'Superpower' },
+      { name: 'Zed Editor & VS Code', tag: 'Tooling' },
+    ],
+  },
+];
 
 export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
   {
@@ -29,29 +69,11 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     category: 'systems',
     date: 'Sep 2026',
     summary:
-      'Eliminated periodic PCIe D3cold power thrash loops on hybrid AMD/NVIDIA laptops by checking in-memory kernel runtime status before invoking NVTop ioctls.',
-    technicalDetails:
-      'Traced desktop stutter to periodic NVTop ioctl polling waking sleeping dGPUs every 1-2 seconds. Patched GpuCache to read sysfs runtime_status in-memory, temporarily unlinking suspended nodes from NVTop list heads to prevent hardware bus resumes.',
-    tags: ['GitLab MR', 'Rust', 'Linux Kernel', 'PCIe Power Mgmt', 'NVTop', 'Wayland'],
-    isVibePrototyped: true,
-  },
-  {
-    id: 'mission-center-issue-544',
-    platform: 'gitlab',
-    type: 'issue',
-    repo: 'mission-center',
-    repoOwner: 'mission-center-devs',
-    refLabel: '#544',
-    title: 'Hybrid GPU D3cold wakeup thrash causing Wayland desktop stutter',
-    url: 'https://gitlab.com/mission-center-devs/mission-center/-/issues/544',
-    status: 'investigated',
-    category: 'systems',
-    date: 'Sep 2026',
-    summary:
-      'Detailed root cause analysis diagnosing Wayland micro-stutters and compositor latency spikes on MUXless hybrid laptops.',
-    technicalDetails:
-      'Captured kernel sysfs power state transitions, NVML polling traces, and interrupt latency spikes, identifying the exact loop between D3cold suspend and NVTop refresh cycles.',
-    tags: ['GitLab Issue', 'Root Cause Analysis', 'Sysfs Tracing', 'Wayland'],
+      'Fixed Wayland desktop micro-stutters and freezes on hybrid AMD/NVIDIA laptops caused by NVTop waking the sleeping dGPU from D3cold every polling tick.',
+    myRoleNote:
+      'Discovered the issue on my laptop, isolated the PCIe power thrash, and guided AI to inspect sysfs runtime_status in-memory and temporarily unlink sleeping nodes from NVTop list heads.',
+    tags: ['GitLab MR', 'Linux Kernel', 'PCIe D3cold', 'Rust', 'Wayland'],
+    accentGradient: 'from-emerald-500 to-cyan-500',
   },
   {
     id: 'gods-eye-view-pr-214',
@@ -66,11 +88,11 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     category: 'merged',
     date: 'Sep 2026',
     summary:
-      'Engineered a complete tactical military sonar shader pipeline for 3D Cesium globes, featuring rotating phosphor sweep and acoustic range rings.',
-    technicalDetails:
-      'Implemented GLSL polar coordinate calculations, phosphor exponential decay trails, range rings from 50 to 200 nautical miles, and target blip hit-detection on the 3D globe.',
-    tags: ['GitHub PR', 'Cesium.js', 'GLSL Shaders', 'WebGL', 'TypeScript'],
-    isVibePrototyped: true,
+      'Engineered a complete tactical military sonar shader pipeline for 3D Cesium globes with rotating phosphor beam and range rings.',
+    myRoleNote:
+      'Pitched the military sonar visual style concept and paired with AI to implement the GLSL shader math, phosphor decay trails, and nautical mile rings.',
+    tags: ['GitHub PR', 'Merged', 'Cesium.js', 'GLSL Shader', 'WebGL'],
+    accentGradient: 'from-cyan-500 to-blue-600',
     hasInteractiveDemo: true,
   },
   {
@@ -86,47 +108,11 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     category: 'merged',
     date: 'Sep 2026',
     summary:
-      'Implemented accessible names and ARIA attributes across all HUD interactive controls and range sliders.',
-    technicalDetails:
-      'Audited DOM accessibility tree, adding programmatic labels, focus ring visible states, and keyboard navigation compliance.',
-    tags: ['GitHub PR', 'Accessibility', 'WCAG AAA', 'TypeScript', 'UI'],
-  },
-  {
-    id: 'gods-eye-view-pr-215',
-    platform: 'github',
-    type: 'pr',
-    repo: 'gods-eye-view',
-    repoOwner: 'bilawalsidhu',
-    refLabel: '#215',
-    title: 'fix(ui): recover off-screen panels with bounded viewport clamping',
-    url: 'https://github.com/bilawalsidhu/gods-eye-view/pull/215',
-    status: 'open',
-    category: 'merged',
-    date: 'Sep 2026',
-    summary:
-      'Prevented draggable interface panels from being lost beyond viewport boundaries during window resize or display scaling.',
-    technicalDetails:
-      'Implemented reactive viewport bounding box intersection mathematics to smoothly clamp panel anchors within visible screen coordinates.',
-    tags: ['GitHub PR', 'UI Math', 'Viewport Clamping', 'TypeScript'],
-  },
-  {
-    id: 'zed-pr-63603',
-    platform: 'github',
-    type: 'pr',
-    repo: 'zed',
-    repoOwner: 'zed-industries',
-    refLabel: '#63603',
-    title: 'feat(image_viewer): native continuous PDF viewer with GPU autoscroll',
-    url: 'https://github.com/zed-industries/zed/pull/63603',
-    status: 'investigated',
-    category: 'systems',
-    date: 'Sep 2026',
-    summary:
-      'In-tree native continuous PDF document viewing engine inside Zed editor with continuous text selection and GPU-accelerated autoscroll.',
-    technicalDetails:
-      'Integrated Google Pdfium C++ engine with dynamic discovery, thread-safe Mutex serialization, bounded LRU page rasterization cache, dark mode tone remapping, and 125Hz delta-time autoscroll.',
-    tags: ['GitHub PR', 'Rust', 'Zed GPUI', 'Pdfium C++', 'GPU Rendering'],
-    isVibePrototyped: true,
+      'Enhanced accessibility and screen reader support by adding accessible names, ARIA labels, and keyboard focus states to HUD controls.',
+    myRoleNote:
+      'Audited DOM accessibility issues in the UI and guided AI to patch the missing accessible labels.',
+    tags: ['GitHub PR', 'Merged', 'Accessibility', 'WCAG', 'Frontend'],
+    accentGradient: 'from-pink-500 to-rose-500',
   },
   {
     id: 'zed-issue-63727',
@@ -141,28 +127,30 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     category: 'systems',
     date: 'Sep 2026',
     summary:
-      'Diagnosed shutdown delay across large nested git repositories caused by hardcoded 200ms GPUI SHUTDOWN_TIMEOUT.',
-    technicalDetails:
-      'Traced hang traces showing Worker-4 blocked for 912ms at app/context.rs, profiling contention between inotify watch removal (13,000+ descriptors) and synchronous SQLite serialization.',
-    tags: ['GitHub Issue', 'Rust', 'GPUI Profiling', 'Linux/Wayland', 'inotify'],
+      'Diagnosed Zed editor shutdown hang on Linux/Wayland caused by a 200ms GPUI timeout competing against inotify teardown and SQLite flush.',
+    myRoleNote:
+      'Noticed repetitive hang on window close, captured Worker thread hang traces, and guided AI to trace the exact competing shutdown code paths in GPUI.',
+    tags: ['GitHub Issue', 'Investigated', 'Zed GPUI', 'Linux/Wayland', 'inotify'],
+    accentGradient: 'from-violet-500 to-purple-600',
   },
   {
-    id: 'zed-discussions-pdf',
-    platform: 'github',
-    type: 'discussion',
-    repo: 'zed',
-    repoOwner: 'zed-industries',
-    refLabel: '#63640',
-    title: 'Native PDF viewing architecture and Pdfium distribution strategy',
-    url: 'https://github.com/zed-industries/zed/discussions/63640',
-    status: 'active',
-    category: 'discussions',
+    id: 'mission-center-issue-544',
+    platform: 'gitlab',
+    type: 'issue',
+    repo: 'mission-center',
+    repoOwner: 'mission-center-devs',
+    refLabel: '#544',
+    title: 'Hybrid GPU D3cold wakeup thrash causing Wayland desktop stutter',
+    url: 'https://gitlab.com/mission-center-devs/mission-center/-/issues/544',
+    status: 'investigated',
+    category: 'systems',
     date: 'Sep 2026',
     summary:
-      'Authored community RFCs outlining architecture, licensing compliance, and cross-platform binary bundling for native PDF rendering.',
-    technicalDetails:
-      'Evaluated WASM vs native shared object trade-offs, thread safety boundaries in GPUI, and memory ceiling guarantees for large document viewing.',
-    tags: ['GitHub Discussion', 'RFC', 'System Architecture', 'Community'],
+      'Detailed root cause analysis explaining how periodic GPU gatherer queries trigger ACPI _PS0 resumes on hybrid laptops.',
+    myRoleNote:
+      'Gathered real-world reproduction logs on Fedora 44 and outlined the proposed sysfs checking solution for the community.',
+    tags: ['GitLab Issue', 'Root Cause Analysis', 'Power Mgmt', 'Linux'],
+    accentGradient: 'from-amber-500 to-orange-500',
   },
   {
     id: 'packaging-ecosystem',
@@ -177,10 +165,11 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     category: 'packaging',
     date: 'Aug - Sep 2026',
     summary:
-      'Created and maintained upstream distribution packages for system utilities across Linux distros and Windows Package Manager.',
-    technicalDetails:
-      'Authored packaging manifests for Microsoft WinGet (PR #422521), Void Linux xbps-src (PR #62054), Chimera Linux cports (PR #6026), and Termux user repository (PR #2735).',
-    tags: ['Packaging', 'WinGet', 'Void Linux', 'Chimera Linux', 'Termux', 'KISS Linux'],
+      'Authored packaging manifests to distribute CLI utilities across Microsoft WinGet, Void Linux xbps-src, Chimera Linux cports, and Termux.',
+    myRoleNote:
+      'Guided AI to package the binaries according to each distribution standard format and submitted the PRs.',
+    tags: ['Packaging', 'Merged', 'WinGet', 'Void Linux', 'Termux'],
+    accentGradient: 'from-blue-500 to-indigo-600',
   },
 ];
 
@@ -190,55 +179,70 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     title: 'fedora-post-install',
     tagline: 'Automated Post-Installation & Hardening Suite',
     description:
-      'Production-tested bash provisioning suite for Fedora 42/43/44 Workstation. Automates modern development toolchains, verified checksum downloads, btop telemetry, Zed editor, NVIDIA drivers, and optimized flatpak runtimes.',
+      'Modular bash provisioning suite for Fedora 42/43/44 Workstation. Automatically sets up development toolchains, verified checksum downloads, btop monitoring, and Flatpaks with zero hassle.',
     category: 'linux',
-    tags: ['Bash', 'Fedora Linux', 'System Automation', 'Security Hardening', 'Shellcheck'],
+    tags: ['Bash', 'Fedora 44', 'System Automation', 'Shellcheck'],
     repoUrl: 'https://github.com/kk376/fedora-post-install',
-    version: 'v5.5.7',
+    badge: 'v5.5.7',
     highlightMetric: '1,600+ Lines of Bash',
-    methodologyNote: 'Modular structure and pipelines vibe-prototyped with AI; verified via strict shellcheck passes.',
+    accentColor: 'emerald',
     starsCount: 42,
   },
   {
     id: 'kkfetch',
     title: 'kkfetch',
-    tagline: 'High-Performance Rust System Fetcher',
+    tagline: 'Sub-Millisecond Rust System Information Fetcher',
     description:
-      'Sub-millisecond latency system telemetry tool written in safe Rust. Custom ASCII geometry, direct sysinfo kernel queries without subprocess overhead, and audited unsafe FFI blocks with explicit safety proofs.',
+      'Fast system telemetry tool in Rust with custom ASCII art geometry, direct sysinfo kernel queries without subshell overhead, and documented safety invariants.',
     category: 'systems',
-    tags: ['Rust', 'CLI', 'Systems Programming', 'Linux Kernel', 'Memory Safety'],
+    tags: ['Rust', 'CLI Tool', 'Linux Kernel', 'Memory Safety'],
     repoUrl: 'https://github.com/kk376/kkfetch',
-    version: 'v1.2.0',
-    highlightMetric: '< 1.8ms Execution Time',
-    methodologyNote: 'Initial hardware fetch modules vibe-coded; hardened with cargo-audit and documented safety invariants.',
+    badge: 'Fast CLI',
+    highlightMetric: '< 1.8ms Execution',
+    accentColor: 'cyan',
     starsCount: 18,
   },
   {
-    id: 'kkpdf-zed',
-    title: 'kkpdf-zed',
-    tagline: 'Native PDF Document Engine for Zed',
+    id: 'cli-python-crud-project',
+    title: 'cli-python-crud-project',
+    tagline: 'Complete Command-Line File & Directory Manager',
     description:
-      'High-performance document viewing extension engineered specifically for Zed editor. Brings native continuous PDF rendering, responsive viewport scaling, and keyboard navigation directly into the GPU-accelerated editor.',
-    category: 'systems',
-    tags: ['Rust', 'WebAssembly', 'Zed Extension', 'PDF Engine', 'GPUI'],
-    repoUrl: 'https://github.com/kk376/kkpdf-zed',
-    version: 'v0.3.0',
-    highlightMetric: 'Bounded Viewport Cache',
-    methodologyNote: 'WASM bridge logic rapidly explored with AI; hardened against memory leaks and dimension overflows.',
-    starsCount: 12,
-  },
-  {
-    id: 'dev-suite',
-    title: 'dev-suite',
-    tagline: 'Engineering Disciplines & Quality Guardrails',
-    description:
-      'Collection of automated developer workflows, zero em dash lint gates, 17-category defensive security audits, and agentic pair-programming rules built for top-tier developer velocity.',
-    category: 'tools',
-    tags: ['Automation', 'Zero-Trust', 'DevOps', 'Security Audits', 'Git Hooks'],
-    repoUrl: 'https://github.com/kk376/dev-suite',
-    version: 'v1.0.0',
-    highlightMetric: '17 Security Categories',
-    methodologyNote: 'Synthesizes agentic pair-programming with deterministic quality gates and zero AI tell artifacts.',
+      'Interactive Python terminal manager implementing Create, Read, Update, Delete operations using pathlib, custom functions, and robust exception handling.',
+    category: 'python',
+    tags: ['Python', 'pathlib', 'CRUD Manager', 'CLI'],
+    repoUrl: 'https://github.com/kk376/cli-python-crud-project',
+    badge: 'Python Core',
+    highlightMetric: 'Full CRUD Operations',
+    accentColor: 'violet',
     starsCount: 8,
   },
+  {
+    id: 'mini-projects-collection',
+    title: '10 Python Mini-Projects Collection',
+    tagline: 'Interactive Terminal Utilities Suite',
+    description:
+      'Curated collection of ten terminal programs: Expense Tracker with budgets, Student Grade Manager, Password Strength Checker, Contact Book, and Quiz App.',
+    category: 'python',
+    tags: ['Python', 'Data Structures', 'Functions', 'Mini-Apps'],
+    repoUrl: 'https://github.com/kk376/ai-ml-journey/tree/main/Python_Mini_Projects',
+    badge: '10 Apps',
+    highlightMetric: '10 Interactive Apps',
+    accentColor: 'pink',
+    starsCount: 12,
+  },
 ];
+
+export const SYSTEM_SPECS: SystemSpec = {
+  user: 'kk376',
+  host: 'victus-station',
+  os: 'Fedora Linux 44 (Workstation Edition)',
+  kernel: 'Linux 6.14.0-rc5-x86_64',
+  uptime: '4h 45m',
+  packages: '1942 (rpm), 34 (flatpak)',
+  shell: 'bash 5.2.32',
+  terminal: 'ghostty / alacritty',
+  cpu: 'AMD Ryzen 5 7535HS (12) @ 4.55 GHz',
+  gpu: 'NVIDIA GeForce RTX 2050 Mobile / AMD Radeon 660M',
+  memory: '4812 MiB / 15480 MiB (31%)',
+  editor: 'Zed Editor / VS Code',
+};

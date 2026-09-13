@@ -15,9 +15,9 @@ export interface UpstreamContribution {
   category: ContributionCategory;
   date: string;
   summary: string;
-  technicalDetails: string;
+  myRoleNote: string;
   tags: string[];
-  isVibePrototyped?: boolean;
+  accentGradient: string;
   hasInteractiveDemo?: boolean;
 }
 
@@ -26,13 +26,20 @@ export interface Project {
   title: string;
   tagline: string;
   description: string;
-  category: 'systems' | 'linux' | 'tools';
+  category: 'linux' | 'systems' | 'python';
   tags: string[];
   repoUrl: string;
-  version?: string;
+  badge: string;
   highlightMetric: string;
-  methodologyNote?: string;
+  accentColor: 'cyan' | 'pink' | 'violet' | 'emerald' | 'amber';
   starsCount?: number;
+}
+
+export interface SkillGroup {
+  title: string;
+  level: string;
+  accentColor: string;
+  skills: { name: string; tag: string }[];
 }
 
 export interface SystemSpec {
