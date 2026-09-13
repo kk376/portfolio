@@ -14,7 +14,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ id, title, subtitl
         {/* Signature decorative dots */}
         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)]" />
-          <span className="w-6 h-1.5 rounded-full bg-[var(--accent-peach)]" />
+          <span className="w-8 h-1.5 rounded-full bg-gradient-to-r from-[var(--accent-primary)] via-[var(--accent-secondary)] to-[var(--accent-peach)]" />
           <span className="w-2 h-2 rounded-full bg-[var(--accent-secondary)]" />
         </span>
       </h2>

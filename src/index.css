@@ -31,6 +31,10 @@
   --btn-primary-hover: #b58ce8;
   --btn-primary-shadow: rgba(203, 166, 247, 0.35);
 
+  --bg-gradient: radial-gradient(circle at 50% 0%, rgba(203, 166, 247, 0.05) 0%, transparent 60%);
+  --card-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 25px 0 rgba(0, 0, 0, 0.45);
+
   color-scheme: light dark;
 }
 
@@ -63,6 +67,10 @@ html.dark {
   --btn-primary-bg: #cba6f7;
   --btn-primary-hover: #b58ce8;
   --btn-primary-shadow: rgba(203, 166, 247, 0.35);
+
+  --bg-gradient: radial-gradient(circle at 50% 0%, rgba(203, 166, 247, 0.05) 0%, transparent 60%);
+  --card-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 25px 0 rgba(0, 0, 0, 0.45);
 }
 
 /* Catppuccin Latte (Light Mode) */
@@ -94,6 +102,16 @@ html:not(.dark) {
   --btn-primary-bg: #8839ef;
   --btn-primary-hover: #7322dc;
   --btn-primary-shadow: rgba(136, 57, 239, 0.3);
+
+  --bg-gradient:
+    radial-gradient(at 0% 0%, rgba(136, 57, 239, 0.08) 0px, transparent 52%),
+    radial-gradient(at 100% 0%, rgba(114, 135, 253, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 32%, rgba(220, 138, 120, 0.05) 0px, transparent 45%),
+    radial-gradient(at 88% 68%, rgba(254, 100, 11, 0.04) 0px, transparent 45%),
+    radial-gradient(at 12% 82%, rgba(4, 165, 229, 0.05) 0px, transparent 50%),
+    radial-gradient(at 62% 100%, rgba(136, 57, 239, 0.06) 0px, transparent 50%);
+  --card-shadow: 0 4px 20px 0 rgba(136, 57, 239, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 12px 28px 0 rgba(136, 57, 239, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.04);
 }
 
 html {
@@ -104,6 +122,8 @@ html {
 body {
   margin: 0;
   background-color: var(--bg-canvas);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
   color: var(--text-primary);
   font-family: 'Rubik', 'Noto Sans', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
@@ -112,7 +132,15 @@ body {
 
 .dark body {
   background-color: var(--bg-canvas);
+  background-image: var(--bg-gradient);
   color: var(--text-primary);
+}
+
+/* Canvas background utility */
+.canvas-bg {
+  background-color: var(--bg-canvas);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
 }
 
 /* Tabular figures for telemetry data */
@@ -175,25 +203,25 @@ body {
 .greg-card {
   background-color: var(--bg-card);
   border-radius: 20px;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   border: 1px solid var(--border-subtle);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .dark .greg-card {
   background-color: var(--bg-card);
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: var(--card-shadow);
   border: 1px solid var(--border-subtle);
 }
 
 .greg-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: var(--card-shadow-hover);
   border-color: var(--border-active);
 }
 
 .dark .greg-card:hover {
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.45);
+  box-shadow: var(--card-shadow-hover);
   border-color: var(--border-active);
 }
 
@@ -204,7 +232,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: var(--btn-primary-bg);
+  background: linear-gradient(135deg, var(--btn-primary-bg) 0%, var(--accent-hover) 100%);
   color: #FFFFFF;
   font-weight: 700;
   font-size: 0.95rem;
@@ -219,7 +247,7 @@ body {
 
 .btn-coral:hover,
 .btn-accent:hover {
-  background-color: var(--btn-primary-hover);
+  background: linear-gradient(135deg, var(--btn-primary-hover) 0%, var(--btn-primary-bg) 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px 0 var(--btn-primary-shadow);
 }

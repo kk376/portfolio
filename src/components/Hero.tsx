@@ -49,10 +49,21 @@ export const Hero: React.FC = () => {
       {/* Greg Floating Shapes */}
       <Shapes />
 
+      {/* Soft Catppuccin Ambient Backdrop Glow */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] max-w-[90vw] h-[400px] rounded-full bg-gradient-to-tr from-[#8839ef]/12 via-[#7287fd]/12 to-[#fe640b]/10 blur-3xl pointer-events-none -z-10 dark:opacity-25 opacity-75 transition-opacity"
+        aria-hidden="true"
+      />
+
       <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
         {/* Avatar with colorful drop shadow / ring */}
         <div className="relative mb-7">
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white dark:border-[#252536] shadow-xl ring-4 ring-[var(--accent-primary)]/20 dark:ring-[var(--accent-primary)]/30 transition-transform duration-300 hover:scale-105">
+          {/* Subtle Catppuccin Ambient Halo */}
+          <div
+            className="absolute -inset-3 sm:-inset-4 rounded-full bg-gradient-to-tr from-[var(--accent-primary)]/25 via-[var(--accent-secondary)]/20 to-[var(--accent-peach)]/25 blur-xl opacity-80 pointer-events-none -z-10"
+            aria-hidden="true"
+          />
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white dark:border-[#252538] shadow-xl ring-4 ring-[var(--accent-primary)]/20 dark:ring-[var(--accent-primary)]/30 transition-transform duration-300 hover:scale-105">
             <img
               src={avatarImg}
               alt="Kushagra Kumar"
@@ -61,7 +72,7 @@ export const Hero: React.FC = () => {
           </div>
           {/* Active status pip */}
           <span
-            className="absolute bottom-1 right-2 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#1E1E28]"
+            className="absolute bottom-1 right-2 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#1e1e2e]"
             title="Active Station: Fedora 44"
           />
         </div>
