@@ -8,6 +8,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        verge: {
+          canvas: '#131313',
+          slate: '#2d2d2d',
+          mint: '#3cffd0',
+          'mint-border': '#309875',
+          violet: '#5200ff',
+          'violet-rule': '#3d00bf',
+          yellow: '#fffa00',
+          pink: '#ff007a',
+          orange: '#ff5500',
+          blue: '#3860be',
+          hairline: '#ffffff',
+          dim: '#949494',
+        },
         dark: {
           950: '#06070b',
           900: '#0b0d14',
@@ -18,8 +32,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        display: ['Anton', 'Impact', 'sans-serif'],
+        sans: ['"Space Grotesk"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Space Mono"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',

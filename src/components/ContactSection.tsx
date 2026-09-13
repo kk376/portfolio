@@ -14,83 +14,133 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="connect" className="py-20 border-t border-slate-200 dark:border-white/[0.08] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="connect" className="py-24 border-t border-white/20 relative bg-[#131313]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-50 dark:bg-white/[0.04] border border-pink-200 dark:border-pink-500/30 text-pink-700 dark:text-pink-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
-            <MessageCircle className="w-3.5 h-3.5 text-pink-500 dark:text-pink-400" />
-            <span>Open Channels</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.2em] font-bold mb-3">
+              <MessageCircle className="w-3.5 h-3.5" />
+              <span>Communication Channels // Direct Transmission</span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-6xl text-white tracking-tight uppercase leading-none">
+              Let's Connect & Collaborate
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Let's Connect & Collaborate
-          </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 font-normal">
-            Whether you want to discuss frontend opportunities, open source work, or AI pair-programming, my inbox is open.
+          <p className="font-sans text-sm text-[#949494] max-w-md leading-relaxed">
+            Whether discussing frontend apprenticeship, systems tooling, or AI-directed engineering, my inbox is open.
           </p>
         </div>
 
-        {/* 3 Colorful Contact Cards */}
+        {/* 3 High-Voltage Color-Block Tiles */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* GitHub Card */}
-          <a
-            href={PERSONAL_INFO.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-cyan-300/80 dark:border-cyan-500/25 hover:border-cyan-500 dark:hover:border-cyan-400 shadow-sm hover:shadow-lg hover:shadow-cyan-500/10 dark:shadow-xl group flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500" />
+          {/* GitHub Tile: Jelly Mint */}
+          <div className="p-8 bg-verge-mint text-black flex flex-col justify-between relative group">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/15 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
-                <GithubIcon className="w-5 h-5" />
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] font-bold text-black/70">
+                  Channel 01 // Codebase
+                </span>
+                <GithubIcon className="w-6 h-6 text-black" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">GitHub</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">@kk376</p>
-            </div>
-            <div className="mt-6 flex items-center justify-between text-xs font-mono text-cyan-600 dark:text-cyan-400 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
-              <span>Explore Repos</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </div>
-          </a>
 
-          {/* LinkedIn Card */}
-          <a
-            href={PERSONAL_INFO.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-purple-300/80 dark:border-purple-500/25 hover:border-purple-500 dark:hover:border-purple-400 shadow-sm hover:shadow-lg hover:shadow-purple-500/10 dark:shadow-xl group flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 to-indigo-500" />
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-500/15 border border-purple-200 dark:border-purple-500/30 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-4 group-hover:scale-110 transition-transform">
-                <LinkedinIcon className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">LinkedIn</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">kushagra-kumar376</p>
+              <h3 className="font-display text-3xl sm:text-4xl uppercase tracking-wider text-black mb-2">
+                GitHub
+              </h3>
+              <p className="font-mono text-sm font-bold text-black mb-4">
+                @kk376
+              </p>
+              <p className="font-sans text-xs sm:text-sm text-black/80 leading-relaxed">
+                Explore daily commits, Bash automation suites, Rust fetch utilities, and upstream pull requests.
+              </p>
             </div>
-            <div className="mt-6 flex items-center justify-between text-xs font-mono text-purple-600 dark:text-purple-400 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
-              <span>Connect</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </div>
-          </a>
 
-          {/* Email Direct Card */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-pink-300/80 dark:border-pink-500/25 hover:border-pink-500 dark:hover:border-pink-400 shadow-sm hover:shadow-lg hover:shadow-pink-500/10 dark:shadow-xl flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-pink-500 to-rose-500" />
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-500/15 border border-pink-200 dark:border-pink-500/30 flex items-center justify-center text-pink-600 dark:text-pink-400 mb-4 group-hover:scale-110 transition-transform">
-                <Mail className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">Direct Email</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono truncate">{PERSONAL_INFO.email}</p>
+            <div className="mt-8 pt-6 border-t border-black/20">
+              <a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-black text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-white hover:text-black transition-colors"
+              >
+                <span>Explore Repositories</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
             </div>
-            <button
-              onClick={copyEmail}
-              className="mt-6 flex items-center justify-between text-xs font-mono text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 pt-3 border-t border-slate-100 dark:border-white/[0.04] transition-colors"
-            >
-              <span>{copied ? 'Copied to Clipboard!' : 'Copy Address'}</span>
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            </button>
+          </div>
+
+          {/* LinkedIn Tile: Verge Ultraviolet */}
+          <div className="p-8 bg-verge-violet text-white flex flex-col justify-between relative group">
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] font-bold text-white/70">
+                  Channel 02 // Network
+                </span>
+                <LinkedinIcon className="w-6 h-6 text-white" />
+              </div>
+
+              <h3 className="font-display text-3xl sm:text-4xl uppercase tracking-wider text-white mb-2">
+                LinkedIn
+              </h3>
+              <p className="font-mono text-sm font-bold text-white mb-4">
+                kushagra-kumar376
+              </p>
+              <p className="font-sans text-xs sm:text-sm text-white/80 leading-relaxed">
+                Connect for junior frontend roles, collaboration inquiries, and software craftsmanship discussions.
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/20">
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-white text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-verge-mint hover:text-black transition-colors"
+              >
+                <span>Connect on LinkedIn</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Direct Email Tile: Electric Yellow */}
+          <div className="p-8 bg-verge-yellow text-black flex flex-col justify-between relative group">
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] font-bold text-black/70">
+                  Channel 03 // Direct
+                </span>
+                <Mail className="w-6 h-6 text-black" />
+              </div>
+
+              <h3 className="font-display text-3xl sm:text-4xl uppercase tracking-wider text-black mb-2">
+                Direct Email
+              </h3>
+              <p className="font-mono text-xs sm:text-sm font-bold text-black mb-4 truncate">
+                {PERSONAL_INFO.email}
+              </p>
+              <p className="font-sans text-xs sm:text-sm text-black/80 leading-relaxed">
+                Send direct proposals, project inquiries, or technical feedback straight to my inbox.
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-black/20">
+              <button
+                onClick={copyEmail}
+                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-black text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-white hover:text-black transition-colors"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 text-verge-mint" />
+                    <span>Copied to Clipboard!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    <span>Copy Email Address</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>

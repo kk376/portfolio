@@ -11,10 +11,10 @@ export const UpstreamSection: React.FC = () => {
   const [showDemoForId, setShowDemoForId] = useState<string | null>(null);
 
   const categories: { label: string; value: ContributionCategory; count: number }[] = [
-    { label: 'All Work', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
-    { label: 'Merged', value: 'merged', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'merged').length },
-    { label: 'Systems & Kernel', value: 'systems', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'systems').length },
-    { label: 'Packaging', value: 'packaging', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'packaging').length },
+    { label: 'ALL DISPATCHES', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
+    { label: 'MERGED UPSTREAM', value: 'merged', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'merged').length },
+    { label: 'SYSTEMS & KERNEL', value: 'systems', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'systems').length },
+    { label: 'PACKAGING', value: 'packaging', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'packaging').length },
   ];
 
   const filtered = UPSTREAM_CONTRIBUTIONS.filter((item) => {
@@ -27,22 +27,22 @@ export const UpstreamSection: React.FC = () => {
     switch (status) {
       case 'merged':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30 shadow-sm">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-[0.14em] bg-[#3cffd0] text-black">
             <CheckCircle2 className="w-3 h-3" />
-            Merged Upstream
+            MERGED UPSTREAM
           </span>
         );
       case 'open':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-cyan-50 text-cyan-700 border border-cyan-200 dark:bg-cyan-500/15 dark:text-cyan-400 dark:border-cyan-500/30 shadow-sm">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-[0.14em] bg-[#fffa00] text-black">
             <GitPullRequest className="w-3 h-3" />
-            Active MR
+            ACTIVE MR
           </span>
         );
       case 'investigated':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-purple-50 text-purple-700 border border-purple-200 dark:bg-purple-500/15 dark:text-purple-400 dark:border-purple-500/30 shadow-sm">
-            Root Cause Traced
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-[0.14em] bg-[#5200ff] text-white">
+            ROOT CAUSE TRACED
           </span>
         );
       default:
@@ -51,37 +51,38 @@ export const UpstreamSection: React.FC = () => {
   };
 
   return (
-    <section id="upstream" className="py-20 border-t border-slate-200 dark:border-white/[0.08] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+    <section id="upstream" className="py-20 bg-[#131313] border-b border-[#ffffff]/10 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Masthead Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 dark:bg-white/[0.04] border border-cyan-200 dark:border-cyan-500/30 text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-3 font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2d2d2d] border border-[#3cffd0]/40 text-xs font-mono text-[#3cffd0] mb-3 font-bold uppercase tracking-[0.18em]">
               <HeartHandshake className="w-3.5 h-3.5" />
-              <span>Real Community Impact</span>
+              <span>THE STORYSTREAM FEED // REAL CODE TRANSFERS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Open Source Contributions
+            <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white">
+              OPEN SOURCE TRANSMISSIONS
             </h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xl font-normal">
-              Real PRs, MRs, and bug diagnoses across Cesium, Mission Center, and Zed, guided by me and built with AI assistance.
+            <p className="font-sans text-base text-[#949494] mt-2 max-w-2xl font-normal">
+              Directing AI step by step to solve real Linux hardware friction, author GLSL graphics shaders,
+              and submit appreciated upstream contributions across GitHub and GitLab.
             </p>
           </div>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-full bg-[#2d2d2d] border border-[#ffffff]/15 self-start md:self-end">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setSelectedCategory(cat.value)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 ${
+                className={`px-4 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-[0.16em] font-bold transition-all flex items-center gap-1.5 ${
                   selectedCategory === cat.value
-                    ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold shadow-md'
-                    : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
+                    ? 'bg-[#3cffd0] text-black shadow-sm'
+                    : 'text-[#949494] hover:text-[#3860be]'
                 }`}
               >
                 <span>{cat.label}</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-black/15 dark:bg-black/30">
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-black/20 text-current">
                   {cat.count}
                 </span>
               </button>
@@ -89,99 +90,115 @@ export const UpstreamSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Contributions Grid */}
-        <div className="space-y-5">
+        {/* The Verge StoryStream Timeline Feed */}
+        <div className="relative pl-6 sm:pl-10 space-y-10 before:content-[''] before:absolute before:top-4 before:bottom-4 before:left-2 sm:before:left-3 before:w-[2px] before:border-l-2 before:border-dashed before:border-[#5200ff]">
           {filtered.map((item) => (
-            <div
-              key={item.id}
-              className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/[0.2] transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group"
-            >
-              {/* Vibrant accent gradient bar on top */}
-              <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${item.accentGradient}`} />
-
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-                  {item.platform === 'gitlab' ? (
-                    <span className="inline-flex items-center gap-1 text-orange-500 dark:text-orange-400 font-semibold">
-                      <GitlabIcon className="w-3.5 h-3.5" />
-                      GitLab
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-slate-700 dark:text-slate-300 font-semibold">
-                      <GithubIcon className="w-3.5 h-3.5" />
-                      GitHub
-                    </span>
-                  )}
-
-                  <span className="text-slate-300 dark:text-slate-600">/</span>
-                  <span className="text-slate-700 dark:text-slate-300">{item.repoOwner}</span>
-                  <span className="text-slate-300 dark:text-slate-600">/</span>
-                  <span className="text-slate-900 dark:text-white font-semibold">{item.repo}</span>
-                  <span className="text-cyan-600 dark:text-cyan-400 font-mono font-bold">({item.refLabel})</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-slate-500">{item.date}</span>
-                  {getStatusBadge(item.status)}
-                </div>
+            <div key={item.id} className="relative">
+              {/* Timeline Bullet Node */}
+              <div className="absolute -left-[30px] sm:-left-[46px] top-6 w-4 h-4 rounded-full bg-[#131313] border-2 border-[#3cffd0] flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#3cffd0]" />
               </div>
 
-              {/* Title */}
-              <div className="mb-3">
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-baseline gap-1.5 text-lg sm:text-xl font-bold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-                >
-                  <span>{item.title}</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity translate-y-0.5" />
-                </a>
+              {/* Timestamp rail label */}
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#3cffd0] font-bold mb-2.5 flex items-center gap-2">
+                <span>{item.date}</span>
+                <span className="text-[#949494]">/</span>
+                <span className="text-white">{item.refLabel}</span>
               </div>
 
-              {/* Summary */}
-              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                {item.summary}
-              </p>
+              {/* The Verge Story Tile */}
+              <div className="p-6 sm:p-8 rounded-[24px] bg-[#2d2d2d] border border-[#ffffff]/20 hover:border-[#3cffd0] transition-colors group">
+                {/* Platform & Repo Meta */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                  <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-[#949494]">
+                    {item.platform === 'gitlab' ? (
+                      <span className="inline-flex items-center gap-1 text-[#ff5500] font-bold">
+                        <GitlabIcon className="w-3.5 h-3.5" />
+                        GITLAB
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-white font-bold">
+                        <GithubIcon className="w-3.5 h-3.5" />
+                        GITHUB
+                      </span>
+                    )}
 
-              {/* How Kushagra Guided It */}
-              <div className="p-3.5 rounded-xl bg-purple-50/80 dark:bg-[#0e101c] dark:bg-gradient-to-r dark:from-purple-950/30 dark:via-cyan-950/20 dark:to-transparent border border-purple-200/90 dark:border-purple-500/30 text-xs text-slate-700 dark:text-slate-300 font-sans leading-relaxed mb-4">
-                <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-purple-700 dark:text-purple-300 mb-1">
-                  <Sparkles className="w-3.5 h-3.5 text-pink-500 dark:text-pink-400" />
-                  <span>My Role & AI Collaboration:</span>
+                    <span className="text-[#ffffff]/20">/</span>
+                    <span className="text-[#e9e9e9]">{item.repoOwner}</span>
+                    <span className="text-[#ffffff]/20">/</span>
+                    <span className="text-white font-bold">{item.repo}</span>
+                  </div>
+
+                  <div>{getStatusBadge(item.status)}</div>
                 </div>
-                {item.myRoleNote}
-              </div>
 
-              {/* Interactive Shader Preview Toggle */}
-              {item.hasInteractiveDemo && (
+                {/* Story Headline */}
                 <div className="mb-4">
-                  <button
-                    onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
-                    className="px-4 py-2 rounded-xl bg-cyan-50 hover:bg-cyan-100 dark:bg-cyan-950/40 dark:hover:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30 text-xs font-mono transition-colors flex items-center gap-2 shadow-sm"
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-baseline gap-2 font-sans text-xl sm:text-2xl font-bold text-white group-hover:text-[#3860be] transition-colors leading-snug"
                   >
-                    <span>{showDemoForId === item.id ? 'Hide Tactical Sonar Demo' : 'Launch Interactive Cesium Sonar Demo'}</span>
-                    {showDemoForId === item.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                  </button>
-
-                  {showDemoForId === item.id && (
-                    <div className="mt-3">
-                      <SonarCanvas />
-                    </div>
-                  )}
+                    <span>{item.title}</span>
+                    <ExternalLink className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity translate-y-0.5 shrink-0" />
+                  </a>
                 </div>
-              )}
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100 dark:border-white/[0.04]">
-                {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-0.5 rounded text-[11px] font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/[0.06]"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                {/* Summary Deck */}
+                <p className="font-sans text-sm sm:text-base text-[#e9e9e9] leading-relaxed mb-6 font-normal">
+                  {item.summary}
+                </p>
+
+                {/* The Apprentice Role & AI Collaboration Dispatch Box */}
+                <div className="p-4 rounded-[16px] bg-[#131313] border border-[#ffffff]/15 mb-6 space-y-1.5">
+                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#3cffd0] uppercase tracking-[0.15em]">
+                    <Sparkles className="w-3.5 h-3.5 text-[#fffa00]" />
+                    <span>My Role & AI Collaboration:</span>
+                  </div>
+                  <p className="font-sans text-xs sm:text-sm text-[#e9e9e9] leading-relaxed font-normal">
+                    {item.myRoleNote}
+                  </p>
+                </div>
+
+                {/* Interactive Shader Preview Button */}
+                {item.hasInteractiveDemo && (
+                  <div className="mb-6">
+                    <button
+                      onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
+                      className="px-5 py-2.5 rounded-full bg-[#131313] border border-[#3cffd0] text-[#3cffd0] hover:bg-[#3cffd0] hover:text-black font-mono text-xs uppercase tracking-[0.16em] font-bold transition-all flex items-center gap-2"
+                    >
+                      <span>
+                        {showDemoForId === item.id
+                          ? 'CLOSE LIVE TACTICAL SONAR'
+                          : 'LAUNCH CESIUM SONAR SHADER DEMO'}
+                      </span>
+                      {showDemoForId === item.id ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
+                    </button>
+
+                    {showDemoForId === item.id && (
+                      <div className="mt-4 p-2 rounded-[20px] bg-[#131313] border border-[#3cffd0]/40">
+                        <SonarCanvas />
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Category Tags */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-[#ffffff]/10">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-md text-[11px] font-mono uppercase tracking-[0.14em] text-[#949494] bg-[#131313] border border-[#ffffff]/10"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

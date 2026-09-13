@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
-import { ThemeToggle } from './ThemeToggle';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
@@ -18,76 +17,57 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Upstream PRs', href: '#upstream' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'System', href: '#system' },
-    { label: 'Connect', href: '#connect' },
+    { label: 'STORYSTREAM', href: '#upstream' },
+    { label: 'PROJECTS', href: '#projects' },
+    { label: 'LEARNING', href: '#skills' },
+    { label: 'AI PAIRING', href: '#philosophy' },
+    { label: 'DIAGNOSTICS', href: '#system' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-white/90 dark:bg-[#06070b]/90 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/[0.08] shadow-sm dark:shadow-lg dark:shadow-black/50'
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-[#131313]/95 backdrop-blur-md border-b border-[#ffffff]/15 shadow-xl'
+          : 'bg-[#131313] border-b border-[#ffffff]/10'
       }`}
     >
-      {/* Top rainbow gradient hairline */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-pink-500 via-purple-500 via-cyan-500 to-emerald-400" />
+      {/* Top 2px Hazard tape or mint hairline */}
+      <div className="h-[2px] w-full bg-[#3cffd0]" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Brand with photo thumbnail */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400">
-              <img
-                src="/avatar.jpg"
-                alt="Kushagra Kumar"
-                className="w-full h-full rounded-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                  {PERSONAL_INFO.name}
-                </span>
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">
-                  kk376
-                </span>
-              </div>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono block">
-                Learning Frontend
-              </span>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          {/* Masthead Left: Logo & Dispatch Badge */}
+          <a href="#" className="flex items-center gap-2.5 group">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#3cffd0] animate-pulse" />
+            <span className="font-display text-xl sm:text-2xl tracking-wider text-white group-hover:text-[#3860be] transition-colors uppercase">
+              KUSHAGRA KUMAR
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] px-2 py-0.5 bg-[#2d2d2d] text-[#3cffd0] border border-[#3cffd0]/40 rounded-full hidden sm:inline-block">
+              DISPATCH
+            </span>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Center: UPPERCASE Mono Nav Links */}
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-xs font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+                className="font-mono text-xs uppercase tracking-[0.18em] font-bold text-[#949494] hover:text-[#3860be] transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Controls: Theme Toggle & Social Icons */}
-          <div className="hidden sm:flex items-center gap-2">
-            <ThemeToggle />
-
+          {/* Right: Controls & Jelly Mint Pill CTA */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:border-cyan-400/60 hover:bg-cyan-500/10 text-slate-600 hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400 transition-all shadow-sm dark:shadow-none"
+              className="p-2 rounded-full bg-[#2d2d2d] border border-[#ffffff]/20 hover:border-[#3cffd0] text-[#ffffff] hover:text-[#3860be] transition-colors"
               title="GitHub Profile"
             >
               <GithubIcon className="w-4 h-4" />
@@ -97,19 +77,33 @@ export const Navbar: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:border-purple-400/60 hover:bg-purple-500/10 text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 transition-all shadow-sm dark:shadow-none"
+              className="p-2 rounded-full bg-[#2d2d2d] border border-[#ffffff]/20 hover:border-[#3cffd0] text-[#ffffff] hover:text-[#3860be] transition-colors"
               title="LinkedIn Profile"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
+
+            {/* Signature Jelly Mint Pill */}
+            <a
+              href="#connect"
+              className="px-4 py-2 rounded-full bg-[#3cffd0] text-black font-mono text-xs uppercase tracking-[0.16em] font-bold hover:bg-white/20 hover:text-white transition-all flex items-center gap-1.5"
+            >
+              <span>CONNECT</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
 
-          {/* Mobile controls */}
-          <div className="flex sm:hidden items-center gap-1.5">
-            <ThemeToggle />
+          {/* Mobile Menu Button */}
+          <div className="flex sm:hidden items-center gap-2">
+            <a
+              href="#connect"
+              className="px-3 py-1.5 rounded-full bg-[#3cffd0] text-black font-mono text-[10px] uppercase tracking-[0.14em] font-bold"
+            >
+              CONNECT
+            </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-xl text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] bg-slate-100 dark:bg-transparent"
+              className="p-2 rounded-lg text-[#ffffff] border border-[#ffffff]/20 bg-[#2d2d2d]"
               aria-label="Toggle navigation menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -118,26 +112,26 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
+      {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-[#0a0c14] border-b border-slate-200 dark:border-white/[0.08] px-4 py-4 space-y-3 backdrop-blur-xl shadow-lg">
+        <div className="lg:hidden bg-[#131313] border-b border-[#ffffff]/20 px-5 py-5 space-y-4">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-2 text-sm text-slate-700 hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400 font-medium"
+              className="block font-mono text-xs uppercase tracking-[0.18em] font-bold text-[#e9e9e9] hover:text-[#3860be] py-1"
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-3 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
+          <div className="pt-3 border-t border-[#ffffff]/10 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-slate-600 hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400 flex items-center gap-1.5 font-mono"
+                className="font-mono text-xs uppercase tracking-wider text-[#949494] hover:text-[#3860be] flex items-center gap-1.5"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 GitHub
@@ -146,13 +140,12 @@ export const Navbar: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 flex items-center gap-1.5 font-mono"
+                className="font-mono text-xs uppercase tracking-wider text-[#949494] hover:text-[#3860be] flex items-center gap-1.5"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" />
                 LinkedIn
               </a>
             </div>
-            <ThemeToggle showLabel />
           </div>
         </div>
       )}

@@ -1,104 +1,109 @@
 import React from 'react';
-import { Sparkles, Code2, Database, Terminal, CheckCircle2 } from 'lucide-react';
+import { Code2, Database, Terminal, Sparkles } from 'lucide-react';
 import { SKILL_GROUPS } from '../data/portfolioData';
 
 export const SkillsSection: React.FC = () => {
-  const getIcon = (idx: number) => {
+  const getGroupBadge = (idx: number) => {
     switch (idx) {
       case 0:
-        return <Code2 className="w-5 h-5 text-pink-500 dark:text-pink-400" />;
+        return 'bg-verge-mint text-black font-mono font-bold';
       case 1:
-        return <Database className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />;
+        return 'bg-verge-yellow text-black font-mono font-bold';
       default:
-        return <Terminal className="w-5 h-5 text-purple-500 dark:text-purple-400" />;
+        return 'bg-verge-violet text-white font-mono font-bold';
     }
   };
 
-  const getIconContainer = (idx: number) => {
+  const getGroupBorder = (idx: number) => {
     switch (idx) {
       case 0:
-        return 'bg-pink-50 dark:bg-pink-500/10 border-pink-200 dark:border-pink-500/30';
+        return 'hover:border-verge-mint';
       case 1:
-        return 'bg-cyan-50 dark:bg-cyan-500/10 border-cyan-200 dark:border-cyan-500/30';
+        return 'hover:border-verge-yellow';
       default:
-        return 'bg-purple-50 dark:bg-purple-500/10 border-purple-200 dark:border-purple-500/30';
+        return 'hover:border-verge-violet';
     }
   };
 
-  const getBorderColor = (idx: number) => {
+  const getGroupIcon = (idx: number) => {
     switch (idx) {
       case 0:
-        return 'hover:border-pink-500/50 hover:shadow-pink-500/10 dark:hover:border-pink-500/40';
+        return <Code2 className="w-5 h-5 text-verge-mint" />;
       case 1:
-        return 'hover:border-cyan-500/50 hover:shadow-cyan-500/10 dark:hover:border-cyan-500/40';
+        return <Database className="w-5 h-5 text-verge-yellow" />;
       default:
-        return 'hover:border-purple-500/50 hover:shadow-purple-500/10 dark:hover:border-purple-500/40';
+        return <Terminal className="w-5 h-5 text-white" />;
     }
   };
 
   return (
-    <section id="skills" className="py-20 border-t border-slate-200 dark:border-white/[0.08] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 border-t border-white/20 relative bg-[#131313]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 dark:bg-white/[0.04] border border-pink-200 dark:border-white/[0.08] text-xs font-mono text-pink-600 dark:text-pink-400 mb-3 font-semibold">
+            <div className="flex items-center gap-2 font-mono text-xs text-verge-mint uppercase tracking-[0.2em] font-bold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Technical Toolbelt</span>
+              <span>Taxonomy // Technical Toolbelt</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Skills & Learning Focus
+            <h2 className="font-display text-4xl sm:text-6xl text-white tracking-tight uppercase leading-none">
+              Learning Frontend. Practicing Linux & Data.
             </h2>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md font-mono">
-            Active daily frontend mastery backed by structured foundations in Python, SQL, and modern developer environments.
+          <p className="font-sans text-sm text-[#949494] max-w-md leading-relaxed">
+            Active daily focus on modern UI engineering, supported by proven foundations in relational data and daily Fedora workstation tooling.
           </p>
         </div>
 
-        {/* 3 Skill Category Bento Cards */}
+        {/* 3 Editorial Taxonomy Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {SKILL_GROUPS.map((group, idx) => (
             <div
               key={group.title}
-              className={`p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] ${getBorderColor(idx)} transition-all duration-300 shadow-sm hover:shadow-lg dark:shadow-xl flex flex-col justify-between relative overflow-hidden group`}
+              className={`p-6 sm:p-8 bg-[#2d2d2d] border border-white/10 ${getGroupBorder(
+                idx
+              )} transition-colors flex flex-col justify-between relative group`}
             >
-              {/* Top hairline accent gradient */}
-              <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${group.accentColor}`} />
-
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-2.5 rounded-xl ${getIconContainer(idx)} group-hover:scale-105 transition-transform`}>
-                    {getIcon(idx)}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="p-2.5 bg-black/40 border border-white/10">
+                    {getGroupIcon(idx)}
                   </div>
-                  <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-gradient-to-r ${group.accentColor} text-white font-semibold shadow-sm`}>
+                  <span
+                    className={`text-[10px] uppercase tracking-[0.14em] px-3 py-1 ${getGroupBadge(
+                      idx
+                    )}`}
+                  >
                     {group.level}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+                <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-6 group-hover:text-verge-blue transition-colors">
                   {group.title}
                 </h3>
 
-                {/* Skill Pills */}
-                <div className="space-y-2">
+                {/* Skill List */}
+                <div className="space-y-2.5">
                   {group.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-white/[0.02] hover:bg-slate-100 dark:hover:bg-white/[0.06] border border-slate-200/80 dark:border-white/[0.04] transition-colors group"
+                      className="flex items-center justify-between p-3 bg-[#1e1e1e] border border-white/5 hover:border-white/20 transition-colors"
                     >
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 shrink-0" />
-                        <span className="text-xs font-medium text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 bg-slate-200/70 dark:bg-black/40 px-1.5 py-0.5 rounded border border-slate-300/60 dark:border-white/[0.04]">
+                      <span className="font-sans text-xs font-medium text-white">
+                        {skill.name}
+                      </span>
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-verge-mint bg-black/50 px-2 py-0.5 border border-white/10">
                         {skill.tag}
                       </span>
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[11px] text-[#949494] uppercase tracking-wider">
+                <span>Domain 0{idx + 1}</span>
+                <span className="text-verge-mint group-hover:text-white transition-colors">Verified In Code</span>
               </div>
             </div>
           ))}

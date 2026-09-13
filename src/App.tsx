@@ -13,7 +13,7 @@ import { Footer } from './components/Footer';
 export const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-slate-50 dark:bg-[#06070b] text-slate-800 dark:text-slate-200 antialiased selection:bg-pink-500/30 selection:text-pink-600 dark:selection:text-pink-300 transition-colors duration-200">
+      <div className="min-h-screen bg-[#131313] text-white antialiased selection:bg-verge-mint selection:text-black font-sans">
         <Navbar />
         <main>
           <Hero />
