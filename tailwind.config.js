@@ -8,20 +8,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          blue: '#2563eb',
-          'blue-hover': '#1d4ed8',
-          cyan: '#06b6d4',
-          indigo: '#4f46e5',
-          accent: '#03d6f3',
-          'accent-blue': '#458ff6',
+        andrew: {
+          purple: '#7148fc',
+          'purple-hover': '#5d35e0',
+          blue: '#09d8ff',
+          green: '#0c9b56',
+          yellow: '#c99200',
+          red: '#ef2f4c',
+          dark: '#15161e',
+          'dark-card': '#202230',
+          'dark-border': '#2d3042',
+          light: '#f3f6fb',
+          'light-card': '#ffffff',
+          'light-border': '#e2e8f0',
         },
       },
       fontFamily: {
-        poppins: ['"Poppins"', 'sans-serif'],
-        montserrat: ['"Montserrat"', 'sans-serif'],
-        display: ['"Poppins"', '"Montserrat"', 'sans-serif'],
-        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        quicksand: ['"Quicksand"', 'sans-serif'],
+        display: ['"Quicksand"', 'sans-serif'],
+        sans: ['"Quicksand"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {

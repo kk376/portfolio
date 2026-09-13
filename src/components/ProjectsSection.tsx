@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { ExternalLink, Star } from 'lucide-react';
-import { SectionHeader } from './SectionHeader';
-import { SectionFooter } from './SectionFooter';
+import { Star, ArrowRight } from 'lucide-react';
+import { AndrewSectionHeader } from './AndrewSectionHeader';
 import { FLAGSHIP_PROJECTS } from '../data/portfolioData';
 import { GithubIcon } from './icons/GithubIcon';
 
@@ -17,71 +16,68 @@ export const ProjectsSection: React.FC = () => {
     switch (id) {
       case 'fedora-post-install':
         return (
-          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
-            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
-              <span className="text-cyan-400">setup.sh (v5.5.7)</span>
+          <div className="bg-[#15161e] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-[#2d3042] space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-[#2d3042]">
+              <span className="text-[#09d8ff] font-bold">setup.sh (v5.5.7)</span>
               <span>1,600+ lines bash</span>
             </div>
-            <p className="text-emerald-400">$ ./setup.sh --verify-checksums</p>
+            <p className="text-[#11ef75]">$ ./setup.sh --verify-checksums</p>
             <p className="text-slate-400">[INFO] RPM Fusion non-free: verified</p>
-            <p className="text-slate-400">[INFO] Zed editor & btop: configured</p>
-            <p className="text-cyan-400">[OK] Fedora Workstation hardened</p>
+            <p className="text-slate-400">[INFO] Zed editor &amp; btop: configured</p>
+            <p className="text-[#09d8ff]">[OK] Fedora Workstation hardened</p>
           </div>
         );
       case 'kkfetch':
         return (
-          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
-            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
-              <span className="text-cyan-400">kkfetch (Rust 1.85)</span>
+          <div className="bg-[#15161e] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-[#2d3042] space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-[#2d3042]">
+              <span className="text-[#09d8ff] font-bold">kkfetch (Rust 1.85)</span>
               <span>0.8 µs latency</span>
             </div>
-            <p className="text-cyan-400">kk376@victus-station</p>
+            <p className="text-[#09d8ff]">kk376@victus-station</p>
             <p className="text-slate-400">OS: Fedora 44 (Workstation Edition)</p>
             <p className="text-slate-400">Kernel: Linux 6.14.0-rc5-x86_64</p>
-            <p className="text-emerald-400">Procfs Query: direct memory parsing</p>
+            <p className="text-[#11ef75]">Procfs Query: direct memory parsing</p>
           </div>
         );
       case 'cli-python-crud-project':
         return (
-          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
-            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
-              <span className="text-cyan-400">manager.py (pathlib)</span>
+          <div className="bg-[#15161e] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-[#2d3042] space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-[#2d3042]">
+              <span className="text-[#09d8ff] font-bold">manager.py (pathlib)</span>
               <span>CRUD Architecture</span>
             </div>
-            <p className="text-amber-400">&gt;&gt;&gt; file_manager.create_record()</p>
+            <p className="text-[#ffca04]">&gt;&gt;&gt; file_manager.create_record()</p>
             <p className="text-slate-400">[1] Create [2] Read [3] Update [4] Delete</p>
-            <p className="text-emerald-400">[SUCCESS] Record written to disk safely</p>
+            <p className="text-[#11ef75]">[SUCCESS] Record written to disk safely</p>
           </div>
         );
       default:
         return (
-          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
-            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
-              <span className="text-cyan-400">Python Suite</span>
+          <div className="bg-[#15161e] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-[#2d3042] space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-[#2d3042]">
+              <span className="text-[#09d8ff] font-bold">Python Suite</span>
               <span>10 Mini Applications</span>
             </div>
-            <p className="text-blue-400">&gt; Expense Tracker &amp; Budgeting</p>
+            <p className="text-[#7148fc]">&gt; Expense Tracker &amp; Budgeting</p>
             <p className="text-slate-400">&gt; Student Grade Management System</p>
-            <p className="text-emerald-400">&gt; Password Entropy &amp; Contact Book</p>
+            <p className="text-[#11ef75]">&gt; Password Entropy &amp; Contact Book</p>
           </div>
         );
     }
   };
 
   return (
-    <section
-      id="projects"
-      className="py-20 md:py-28 bg-white dark:bg-[#0b0f19] border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
-    >
+    <section id="projects" className="py-16 md:py-24 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="PORTFOLIO WORK"
-          heading="My Projects."
-          subHeading="Here are a few cool codebases and tools I have engineered, do check them out!"
+        <AndrewSectionHeader
+          id="projects"
+          title="Flagship Projects"
+          lede="A curated collection of self-directed codebases, system automation utilities, and native tools."
         />
 
-        {/* Filter Chips */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        {/* Filter Pills */}
+        <div className="flex flex-wrap items-center gap-2 mb-10">
           {[
             { label: 'All Projects', value: 'all' },
             { label: 'Linux Automation', value: 'linux' },
@@ -91,10 +87,10 @@ export const ProjectsSection: React.FC = () => {
             <button
               key={item.value}
               onClick={() => setFilter(item.value as typeof filter)}
-              className={`px-5 py-2 rounded-full font-poppins text-xs font-semibold transition-all active:scale-95 cursor-pointer ${
+              className={`px-5 py-2 rounded-full font-quicksand text-xs font-bold transition-all active:scale-95 cursor-pointer ${
                 filter === item.value
-                  ? 'anand-gradient-bg text-white shadow-md'
-                  : 'bg-slate-100 dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+                  ? 'bg-[#7148fc] text-white shadow-sm'
+                  : 'bg-white dark:bg-[#202230] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
               }`}
             >
               {item.label}
@@ -102,15 +98,15 @@ export const ProjectsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Anand Project Cards Grid */}
+        {/* Project Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className="anand-card p-6 sm:p-8 bg-white dark:bg-[#111827] flex flex-col justify-between"
+              className="andrew-card p-6 sm:p-8 bg-white dark:bg-[#202230] flex flex-col justify-between"
             >
               <div className="space-y-5">
-                {/* Visual Preview Header */}
+                {/* Visual Header */}
                 <div className="rounded-xl overflow-hidden shadow-inner">
                   {getProjectPreview(project.id)}
                 </div>
@@ -118,30 +114,30 @@ export const ProjectsSection: React.FC = () => {
                 {/* Card Title & Tagline */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs font-semibold text-blue-600 dark:text-cyan-400">
+                    <span className="font-mono text-xs font-bold text-[#7148fc] dark:text-[#09d8ff]">
                       PROJECT 0{idx + 1}
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-cyan-300 border border-blue-200 dark:border-blue-900/50">
+                    <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-50 dark:bg-purple-950/60 text-[#7148fc] dark:text-[#09d8ff] border border-purple-200 dark:border-purple-900/50">
                       {project.highlightMetric}
                     </span>
                   </div>
 
-                  <h3 className="font-poppins text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                  <h3 className="font-quicksand text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="font-montserrat text-xs sm:text-sm font-medium text-blue-600 dark:text-cyan-400 mt-0.5">
+                  <p className="font-quicksand text-sm font-semibold text-[#7148fc] dark:text-[#09d8ff] mt-0.5">
                     {project.tagline}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="font-sans text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="font-quicksand text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                   {project.description}
                 </p>
 
                 {/* Engineering Context Note */}
-                <div className="bg-slate-50 dark:bg-[#162032] p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-                  <span className="font-mono font-bold text-[10px] text-blue-600 dark:text-cyan-400 uppercase tracking-wider block mb-1">
+                <div className="bg-slate-50 dark:bg-[#15161e] p-4 rounded-xl border border-slate-200 dark:border-[#2d3042] text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-quicksand font-medium">
+                  <span className="font-mono font-bold text-[10px] text-[#7148fc] dark:text-[#09d8ff] uppercase tracking-wider block mb-1">
                     ENGINEERING CONTEXT:
                   </span>
                   {project.id === 'fedora-post-install' &&
@@ -159,7 +155,7 @@ export const ProjectsSection: React.FC = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1f2937] text-slate-600 dark:text-slate-300 font-mono text-[11px] font-medium border border-slate-200 dark:border-slate-700"
+                      className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#15161e] text-slate-600 dark:text-slate-300 font-mono text-[11px] font-medium border border-slate-200 dark:border-slate-700"
                     >
                       #{tag}
                     </span>
@@ -167,17 +163,17 @@ export const ProjectsSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bottom Action Links */}
+              {/* Bottom Action Link */}
               <div className="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <a
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full anand-gradient-bg text-white font-poppins text-xs font-semibold shadow-sm hover:shadow-md hover:scale-105 transition-all active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#7148fc] hover:bg-[#5d35e0] text-white font-quicksand text-xs font-bold shadow-xs hover:shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <GithubIcon className="w-4 h-4" />
-                  <span>View Source</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>View Repository</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
 
                 <div className="flex items-center gap-1.5 font-mono text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -188,13 +184,9 @@ export const ProjectsSection: React.FC = () => {
             </div>
           ))}
         </div>
-
-        <SectionFooter
-          phrase="Check out "
-          link="upstream dispatches!"
-          toAddress="#upstream"
-        />
       </div>
     </section>
   );
 };
+
+export default ProjectsSection;

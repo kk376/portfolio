@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Terminal, Cpu, HardDrive, Monitor, Layers, Copy, Check, Info } from 'lucide-react';
-import { SectionHeader } from './SectionHeader';
-import { SectionFooter } from './SectionFooter';
+import { AndrewSectionHeader } from './AndrewSectionHeader';
 import { SYSTEM_SPECS } from '../data/portfolioData';
 
 interface HistoryItem {
@@ -21,7 +20,7 @@ export const SystemTelemetry: React.FC = () => {
   const renderKkfetchAscii = () => (
     <div className="font-mono text-xs text-slate-200 py-1 leading-relaxed">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-        <div className="md:col-span-5 text-cyan-400 font-mono text-[11px] leading-tight select-none whitespace-pre bg-black/50 p-4 rounded-xl border border-slate-800">
+        <div className="md:col-span-5 text-[#09d8ff] font-mono text-[11px] leading-tight select-none whitespace-pre bg-black/50 p-4 rounded-xl border border-slate-800">
 {`       .----------------.
       |      _   _       |
       |     | | / /      |
@@ -36,7 +35,7 @@ export const SystemTelemetry: React.FC = () => {
         </div>
 
         <div className="md:col-span-7 space-y-1.5 text-xs tabular-nums">
-          <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1 mb-2 flex items-center justify-between">
+          <div className="text-[#09d8ff] font-bold border-b border-slate-800 pb-1 mb-2 flex items-center justify-between">
             <span>{SYSTEM_SPECS.user}@{SYSTEM_SPECS.host}</span>
             <span className="text-[10px] text-slate-400 font-normal">kkfetch v1.2 [Rust]</span>
           </div>
@@ -52,11 +51,11 @@ export const SystemTelemetry: React.FC = () => {
 
           <div className="flex gap-1.5 pt-2">
             <span className="w-3 h-3 rounded-sm bg-slate-700" />
-            <span className="w-3 h-3 rounded-sm bg-rose-500" />
-            <span className="w-3 h-3 rounded-sm bg-blue-500" />
-            <span className="w-3 h-3 rounded-sm bg-amber-500" />
-            <span className="w-3 h-3 rounded-sm bg-cyan-400" />
-            <span className="w-3 h-3 rounded-sm bg-violet-500" />
+            <span className="w-3 h-3 rounded-sm bg-[#ef2f4c]" />
+            <span className="w-3 h-3 rounded-sm bg-[#7148fc]" />
+            <span className="w-3 h-3 rounded-sm bg-[#c99200]" />
+            <span className="w-3 h-3 rounded-sm bg-[#09d8ff]" />
+            <span className="w-3 h-3 rounded-sm bg-[#0c9b56]" />
           </div>
         </div>
       </div>
@@ -88,7 +87,7 @@ export const SystemTelemetry: React.FC = () => {
       case 'projects':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div className="text-cyan-400 font-semibold">Active Codebases:</div>
+            <div className="text-[#09d8ff] font-semibold">Active Codebases:</div>
             <div>* fedora-post-install (v5.5.7, 1600+ lines bash)</div>
             <div>* kkfetch (Rust microsecond system fetcher)</div>
             <div>* cli-python-crud-project (Python CRUD file manager)</div>
@@ -101,7 +100,7 @@ export const SystemTelemetry: React.FC = () => {
       case 'upstream':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div className="text-cyan-400 font-semibold">Upstream Contributions:</div>
+            <div className="text-[#09d8ff] font-semibold">Upstream Contributions:</div>
             <div>* mission-center-devs/gng !117 (D3cold power thrash fix)</div>
             <div>* mission-center-devs/mission-center #544 (Wayland freeze root cause)</div>
             <div>* bilawalsidhu/gods-eye-view #214 (Tactical Sonar Cesium shader)</div>
@@ -114,10 +113,10 @@ export const SystemTelemetry: React.FC = () => {
       case 'help':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div><span className="text-cyan-400">kkfetch</span>: print system hardware specifications</div>
-            <div><span className="text-cyan-400">upstream</span>: list upstream pull requests and merge requests</div>
-            <div><span className="text-cyan-400">projects</span>: list flagship codebases</div>
-            <div><span className="text-cyan-400">clear</span>: clear terminal window</div>
+            <div><span className="text-[#09d8ff]">kkfetch</span>: print system hardware specifications</div>
+            <div><span className="text-[#09d8ff]">upstream</span>: list upstream pull requests and merge requests</div>
+            <div><span className="text-[#09d8ff]">projects</span>: list flagship codebases</div>
+            <div><span className="text-[#09d8ff]">clear</span>: clear terminal window</div>
           </div>
         );
         break;
@@ -177,35 +176,32 @@ export const SystemTelemetry: React.FC = () => {
   };
 
   return (
-    <section
-      id="system"
-      className="py-20 md:py-28 bg-white dark:bg-[#0b0f19] border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
-    >
+    <section id="system" className="py-16 md:py-24 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="WORKSTATION & HARDWARE TELEMETRY"
-          heading="Workstation &amp; Specs."
-          subHeading="Fedora 44 environment, hardware telemetry, and microsecond Rust fetcher."
+        <AndrewSectionHeader
+          id="system"
+          title="Workstation Telemetry"
+          lede="Raw Linux workstation diagnostics on Fedora 44 with hybrid graphics, measured using kkfetch compiled in Rust with direct kernel procfs queries."
         />
 
         {/* Tab Switcher */}
-        <div className="flex items-center justify-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-10">
           <button
             onClick={() => setActiveTab('specs')}
-            className={`px-6 py-2.5 rounded-full font-poppins text-xs font-semibold transition-all active:scale-95 cursor-pointer ${
+            className={`px-6 py-2.5 rounded-full font-quicksand text-xs font-bold transition-all active:scale-95 cursor-pointer ${
               activeTab === 'specs'
-                ? 'anand-gradient-bg text-white shadow-md'
-                : 'bg-slate-100 dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+                ? 'bg-[#7148fc] text-white shadow-sm'
+                : 'bg-white dark:bg-[#202230] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
             }`}
           >
             Structured Spec Sheet
           </button>
           <button
             onClick={() => setActiveTab('terminal')}
-            className={`px-6 py-2.5 rounded-full font-poppins text-xs font-semibold transition-all active:scale-95 cursor-pointer ${
+            className={`px-6 py-2.5 rounded-full font-quicksand text-xs font-bold transition-all active:scale-95 cursor-pointer ${
               activeTab === 'terminal'
-                ? 'anand-gradient-bg text-white shadow-md'
-                : 'bg-slate-100 dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+                ? 'bg-[#7148fc] text-white shadow-sm'
+                : 'bg-white dark:bg-[#202230] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
             }`}
           >
             Interactive CLI Terminal
@@ -215,16 +211,16 @@ export const SystemTelemetry: React.FC = () => {
         {activeTab === 'specs' ? (
           /* Structured Specs Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
+            <div className="andrew-card p-6 bg-white dark:bg-[#202230] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
                   <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
-                    <Monitor className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <Monitor className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
                     SPEC 01 // PLATFORM
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">OS</span>
                 </div>
-                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                <div className="font-quicksand text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   {SYSTEM_SPECS.os}
                 </div>
                 <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
@@ -236,16 +232,16 @@ export const SystemTelemetry: React.FC = () => {
               </div>
             </div>
 
-            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
+            <div className="andrew-card p-6 bg-white dark:bg-[#202230] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
                   <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
-                    <Cpu className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <Cpu className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
                     SPEC 02 // COMPUTE
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">CPU</span>
                 </div>
-                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                <div className="font-quicksand text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   {SYSTEM_SPECS.cpu}
                 </div>
                 <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
@@ -257,16 +253,16 @@ export const SystemTelemetry: React.FC = () => {
               </div>
             </div>
 
-            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
+            <div className="andrew-card p-6 bg-white dark:bg-[#202230] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
                   <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
-                    <Layers className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <Layers className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
                     SPEC 03 // GRAPHICS
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">GPU</span>
                 </div>
-                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                <div className="font-quicksand text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   Hybrid MUXless GPU
                 </div>
                 <div className="font-mono text-xs text-slate-500 dark:text-slate-400">
@@ -278,16 +274,16 @@ export const SystemTelemetry: React.FC = () => {
               </div>
             </div>
 
-            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
+            <div className="andrew-card p-6 bg-white dark:bg-[#202230] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
                   <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
-                    <HardDrive className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <HardDrive className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
                     SPEC 04 // MEMORY
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">RAM</span>
                 </div>
-                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                <div className="font-quicksand text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   {SYSTEM_SPECS.memory}
                 </div>
                 <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
@@ -299,16 +295,16 @@ export const SystemTelemetry: React.FC = () => {
               </div>
             </div>
 
-            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
+            <div className="andrew-card p-6 bg-white dark:bg-[#202230] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
                   <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
-                    <Terminal className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <Terminal className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
                     SPEC 05 // ENVIRONMENT
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">SHELL</span>
                 </div>
-                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                <div className="font-quicksand text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   {SYSTEM_SPECS.shell}
                 </div>
                 <div className="font-mono text-xs text-slate-500 dark:text-slate-400">
@@ -320,16 +316,16 @@ export const SystemTelemetry: React.FC = () => {
               </div>
             </div>
 
-            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
+            <div className="andrew-card p-6 bg-white dark:bg-[#202230] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
                   <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
-                    <Info className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <Info className="w-4 h-4 text-[#7148fc] dark:text-[#09d8ff]" />
                     SPEC 06 // TOOLCHAIN
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">IDE</span>
                 </div>
-                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                <div className="font-quicksand text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   {SYSTEM_SPECS.editor}
                 </div>
                 <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
@@ -339,7 +335,7 @@ export const SystemTelemetry: React.FC = () => {
 
               <button
                 onClick={copySpecs}
-                className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 inline-flex items-center justify-between font-mono text-xs font-semibold text-blue-600 dark:text-cyan-400 hover:opacity-80 transition-opacity cursor-pointer"
+                className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 inline-flex items-center justify-between font-mono text-xs font-semibold text-[#7148fc] dark:text-[#09d8ff] hover:opacity-80 transition-opacity cursor-pointer"
               >
                 <span>{copied ? 'Specs copied to clipboard' : 'Copy specification text'}</span>
                 {copied ? <Check className="w-4 h-4 text-emerald-500 stroke-[2.5]" /> : <Copy className="w-4 h-4" />}
@@ -347,8 +343,8 @@ export const SystemTelemetry: React.FC = () => {
             </div>
           </div>
         ) : (
-          /* Anand-styled CLI Terminal Window */
-          <div className="rounded-2xl border border-slate-800 bg-[#0b0f19] text-white shadow-2xl overflow-hidden max-w-4xl mx-auto">
+          /* Andrew Baisden Styled CLI Terminal Window */
+          <div className="rounded-2xl border border-slate-800 bg-[#0b0f19] text-white shadow-2xl overflow-hidden max-w-4xl">
             {/* Window header */}
             <div className="flex items-center justify-between px-6 py-3.5 border-b border-slate-800 bg-[#0d1524]">
               <div className="flex items-center gap-2">
@@ -365,7 +361,7 @@ export const SystemTelemetry: React.FC = () => {
                   <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}
-                    className="px-3 py-1 rounded-full bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white text-[11px] font-mono font-medium transition-colors cursor-pointer"
+                    className="px-3 py-1 rounded-full bg-slate-800 hover:bg-[#7148fc] text-slate-300 hover:text-white text-[11px] font-mono font-medium transition-colors cursor-pointer"
                   >
                     {cmd}
                   </button>
@@ -381,9 +377,9 @@ export const SystemTelemetry: React.FC = () => {
               {history.map((item, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex items-center gap-2 text-slate-400">
-                    <span className="text-cyan-400 font-bold">kk376@victus</span>
+                    <span className="text-[#09d8ff] font-bold">kk376@victus</span>
                     <span className="text-slate-600">:</span>
-                    <span className="text-blue-400">~</span>
+                    <span className="text-[#7148fc]">~</span>
                     <span className="text-slate-600">$</span>
                     <span className="text-white font-medium">{item.command}</span>
                   </div>
@@ -393,9 +389,9 @@ export const SystemTelemetry: React.FC = () => {
 
               {/* Input row */}
               <div className="flex items-center gap-2 text-slate-400 pt-1">
-                <span className="text-cyan-400 font-bold">kk376@victus</span>
+                <span className="text-[#09d8ff] font-bold">kk376@victus</span>
                 <span className="text-slate-600">:</span>
-                <span className="text-blue-400">~</span>
+                <span className="text-[#7148fc]">~</span>
                 <span className="text-slate-600">$</span>
                 <input
                   type="text"
@@ -410,17 +406,13 @@ export const SystemTelemetry: React.FC = () => {
 
             <div className="px-6 py-3 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between bg-[#0d1524]">
               <span>Press Enter to execute</span>
-              <span className="text-cyan-400 font-medium">Isolated Viewport (No Page Jump)</span>
+              <span className="text-[#09d8ff] font-medium">Isolated Viewport (No Page Jump)</span>
             </div>
           </div>
         )}
-
-        <SectionFooter
-          phrase="Get in "
-          link="touch."
-          toAddress="#contact"
-        />
       </div>
     </section>
   );
 };
+
+export default SystemTelemetry;

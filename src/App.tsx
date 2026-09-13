@@ -3,11 +3,11 @@ import { ThemeProvider } from './context/ThemeContext';
 import { useTheme } from './hooks/useTheme';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { AboutSection } from './components/AboutSection';
+import { AboutProfileText } from './components/AboutProfileText';
+import { DeveloperNetwork } from './components/DeveloperNetwork';
+import { TechStackSection } from './components/TechStackSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { UpstreamSection } from './components/UpstreamSection';
-import { SkillsSection } from './components/SkillsSection';
-import { AIWorkflowStory } from './components/AIWorkflowStory';
 import { SystemTelemetry } from './components/SystemTelemetry';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -36,7 +36,7 @@ const PortfolioContent: React.FC = () => {
             const terminalTabBtn = document.querySelector<HTMLButtonElement>(
               '#system button:nth-of-type(2)'
             );
-            if (terminalTabBtn && !terminalTabBtn.classList.contains('anand-gradient-bg')) {
+            if (terminalTabBtn && !terminalTabBtn.classList.contains('bg-[#7148fc]')) {
               terminalTabBtn.click();
             }
             const input = document.querySelector<HTMLInputElement>('#system input');
@@ -50,7 +50,7 @@ const PortfolioContent: React.FC = () => {
       }
       case 'theme': {
         toggleTheme();
-        showToast(isDark ? 'Switched to Light Canvas' : 'Switched to Obsidian Dark Mode');
+        showToast(isDark ? 'Switched to Light Canvas' : 'Switched to Slate Dark Mode');
         break;
       }
       case 'email': {
@@ -118,15 +118,15 @@ const PortfolioContent: React.FC = () => {
   }, [triggerAction]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0b0f19] text-slate-900 dark:text-white antialiased font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-[#f3f6fb] dark:bg-[#15161e] text-slate-900 dark:text-[#f3f4f6] antialiased font-sans transition-colors duration-200">
       <Navbar onOpenShortcuts={() => setShortcutsOpen(true)} />
       <main>
         <Hero />
-        <AboutSection />
+        <AboutProfileText />
+        <DeveloperNetwork />
+        <TechStackSection />
         <ProjectsSection />
         <UpstreamSection />
-        <SkillsSection />
-        <AIWorkflowStory />
         <SystemTelemetry />
         <ContactSection />
       </main>
@@ -136,13 +136,13 @@ const PortfolioContent: React.FC = () => {
       <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2">
         <button
           onClick={() => setShortcutsOpen(true)}
-          className="group px-3.5 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#162032]/95 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:border-blue-500 dark:hover:border-cyan-400 text-xs font-mono transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
+          className="group px-3.5 py-2 rounded-full border border-slate-200 dark:border-[#2d3042] bg-white/95 dark:bg-[#202230]/95 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:border-[#7148fc] text-xs font-mono transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
           title="Press ? for keyboard shortcuts"
         >
-          <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-700 font-mono text-[10px] font-bold text-blue-600 dark:text-cyan-400">
+          <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#15161e] border border-slate-200 dark:border-slate-700 font-mono text-[10px] font-bold text-[#7148fc] dark:text-[#09d8ff]">
             ?
           </kbd>
-          <span className="text-[11px] font-poppins font-medium group-hover:text-blue-600 dark:group-hover:text-cyan-400">
+          <span className="text-[11px] font-quicksand font-bold group-hover:text-[#7148fc] dark:group-hover:text-[#09d8ff]">
             Shortcuts
           </span>
         </button>
@@ -151,8 +151,8 @@ const PortfolioContent: React.FC = () => {
       {/* Action Toast Alert */}
       {toastMessage && (
         <div className="fixed bottom-20 right-6 z-50 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <div className="px-4 py-2.5 rounded-full border border-blue-500/30 bg-slate-900 dark:bg-[#111827] text-white font-mono text-xs shadow-xl flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+          <div className="px-4 py-2.5 rounded-full border border-[#7148fc]/40 bg-[#15161e] text-white font-mono text-xs shadow-xl flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#09d8ff] animate-ping" />
             <span>{toastMessage}</span>
           </div>
         </div>
