@@ -1,225 +1,121 @@
-import React, { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight, Sparkles, Terminal, Github } from "lucide-react";
-import { NAV_ITEMS, PERSONAL_INFO } from "../data/portfolioData";
+import React, { useState, useEffect } from 'react';
+import { Radio, Menu, X, Cpu } from 'lucide-react';
+import { GithubIcon } from './icons/GithubIcon';
 
-export interface NavbarProps {
-  isMenuOpen: boolean;
-  setIsMenuOpen: (open: boolean) => void;
-  activeSection: string;
-  handleNavClick: (sectionId: string, e?: React.MouseEvent) => void;
-}
+export const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-/**
- * Navbar - Fixed top navigation header with responsive mobile drawer.
- *
- * Features:
- * - Backdrop filter with alpha background (`bg-[#030308]/85 backdrop-blur-xl`) for contrast across gradient backgrounds.
- * - Global Escape key listener automatically closes the mobile drawer when active, with strict cleanup on unmount.
- */
-export default function Navbar({
-  isMenuOpen,
-  setIsMenuOpen,
-  activeSection,
-  handleNavClick,
-}: NavbarProps) {
-  const drawerRef = React.useRef<HTMLDivElement>(null);
-
-  // Global Escape key dismiss handler with automatic listener removal on state change/unmount
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isMenuOpen, setIsMenuOpen]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Lock background scroll when mobile drawer is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      const originalStyle = window.getComputedStyle(document.body).overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalStyle;
-      };
-    }
-  }, [isMenuOpen]);
-
-  // Trap focus inside mobile drawer when open
-  useEffect(() => {
-    if (!isMenuOpen || !drawerRef.current) return;
-
-    const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    );
-    const firstFocusable = focusable[0];
-    if (firstFocusable) {
-      firstFocusable.focus();
-    }
-
-    const handleTabKey = (e: KeyboardEvent) => {
-      if (e.key !== "Tab" || !drawerRef.current) return;
-      const elements = drawerRef.current.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      );
-      if (elements.length === 0) return;
-
-      const first = elements[0];
-      const last = elements[elements.length - 1];
-
-      if (first && last) {
-        if (e.shiftKey && document.activeElement === first) {
-          last.focus();
-          e.preventDefault();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          first.focus();
-          e.preventDefault();
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleTabKey);
-    return () => window.removeEventListener("keydown", handleTabKey);
-  }, [isMenuOpen]);
+  const navLinks = [
+    { name: 'Upstream PRs', href: '#upstream' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Interactive Terminal', href: '#terminal' },
+    { name: 'Vibe Manifesto', href: '#manifesto' },
+    { name: 'Coordinates', href: '#contact' },
+  ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#030308]/85 backdrop-blur-xl border-b border-white/5 transition-all">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Brand / Logo */}
-        <a
-          href="#about"
-          onClick={(e) => handleNavClick("about", e)}
-          className="flex items-center gap-2.5 group cursor-pointer"
-          aria-label="Kushagra Kumar Home"
-        >
-          <div className="relative">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-              <Terminal size={16} className="text-white" />
-            </div>
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-[#030308] motion-safe:animate-pulse" />
-          </div>
-          <span className="font-bold tracking-tight text-lg text-white">
-            Kushagra
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-extrabold">
-              .dev
-            </span>
-          </span>
-        </a>
-
-        {/* Desktop Navigation Links */}
-        <nav
-          className="hidden md:flex items-center gap-1 text-sm font-medium"
-          aria-label="Main Navigation"
-        >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => handleNavClick(item.id, e)}
-              className={`px-4 py-2 rounded-full transition-all duration-200 ${
-                activeSection === item.id
-                  ? "bg-white/10 text-cyan-400 font-semibold shadow-inner"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {item.label}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-obsidian-950/85 backdrop-blur-md border-b border-obsidian-700/70 shadow-lg shadow-black/40'
+          : 'bg-transparent border-b border-white/[0.04]'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Brand & Tactical status */}
+          <div className="flex items-center gap-3">
+            <a href="#" className="flex items-center gap-2.5 group">
+              <div className="w-8 h-8 rounded-lg bg-obsidian-850 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition-colors">
+                <Radio className="w-4 h-4 text-cyan-400 group-hover:animate-spin" />
+              </div>
+              <div>
+                <span className="font-mono font-bold text-sm tracking-wide text-white group-hover:text-cyan-400 transition-colors">
+                  KK376
+                </span>
+                <span className="text-slate-500 text-xs font-mono block">
+                  vibe // systems
+                </span>
+              </div>
             </a>
-          ))}
-        </nav>
 
-        {/* Action Controls */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href={PERSONAL_INFO.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/5 border border-white/5 hover:border-white/15 transition-all"
-            title="GitHub Profile"
-          >
-            <Github size={18} />
-          </a>
+            {/* Tactical Status Pill */}
+            <div className="hidden md:flex items-center gap-2 pl-4 ml-4 border-l border-obsidian-700/60 font-mono text-[11px]">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-emerald-400/90 font-medium">ONLINE</span>
+              <span className="text-slate-500">/</span>
+              <span className="text-slate-400 flex items-center gap-1">
+                <Cpu className="w-3 h-3 text-cyan-400" />
+                Fedora 44
+              </span>
+            </div>
+          </div>
 
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick("contact", e)}
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full text-sm font-semibold text-white hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-105"
-          >
-            <Sparkles size={14} />
-            Let's Connect
-          </a>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="font-mono text-xs text-slate-400 hover:text-cyan-400 transition-colors py-1"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right Action Icons */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/kk376"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-obsidian-850 border border-obsidian-700 hover:border-cyan-400/50 hover:bg-obsidian-800 text-slate-200 text-xs font-mono transition-all flex items-center gap-2 shadow-sm"
+            >
+              <GithubIcon className="w-4 h-4 text-slate-300" />
+              <span className="hidden sm:inline">github/kk376</span>
+            </a>
+
+            {/* Mobile menu toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg bg-obsidian-850 border border-obsidian-700 text-slate-400 hover:text-white"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </div>
 
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            id="mobile-menu"
-            ref={drawerRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile Navigation Menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-[#030308]/98 backdrop-blur-2xl border-t border-white/5"
-          >
-            <div className="p-6 space-y-2">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    handleNavClick(item.id, e);
-                  }}
-                  className={`flex items-center justify-between text-base font-medium py-3 px-4 rounded-xl transition-all ${
-                    activeSection === item.id
-                      ? "bg-white/10 text-cyan-400"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  <ChevronRight size={16} className="text-gray-400" />
-                </a>
-              ))}
-
-              <div className="pt-4 mt-2 border-t border-white/5 flex items-center justify-between">
-                <a
-                  href={PERSONAL_INFO.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-white"
-                >
-                  <Github size={16} /> GitHub Profile
-                </a>
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick("contact", e)}
-                  className="px-4 py-2 bg-cyan-500 text-black font-semibold text-xs rounded-full"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile dropdown menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-obsidian-950/95 backdrop-blur-xl border-b border-obsidian-800 px-4 py-4 space-y-3 font-mono text-sm">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-slate-300 hover:text-cyan-400 transition-colors border-b border-obsidian-800/60"
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="pt-2 flex items-center justify-between text-xs text-slate-500">
+            <span>STATUS: READY</span>
+            <span className="text-emerald-400">FEDORA 44 LINUX</span>
+          </div>
+        </div>
+      )}
     </header>
   );
-}
+};

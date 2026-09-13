@@ -2,50 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply antialiased;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #030308;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #06b6d4, #8b5cf6);
-    border-radius: 9999px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #22d3ee, #a855f7);
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #8b5cf6 #030308;
-  }
+:root {
+  color-scheme: dark;
 }
 
-/* Component utilities */
-@layer components {
-  .glass {
-    @apply bg-white/[0.03] backdrop-blur-md border border-white/10;
-  }
+body {
+  margin: 0;
+  background-color: #06070a;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #06b6d4;
+  selection-color: #06070a;
+}
 
-  .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400;
-  }
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #22d3ee;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06070a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2638;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2b364e;
+}
+
+/* Subtle tactical grid background */
+.tactical-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Tactical HUD border glow */
+.hud-border {
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.05), inset 0 0 15px rgba(34, 211, 238, 0.03);
+}
+
+.hud-border:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.1), inset 0 0 20px rgba(34, 211, 238, 0.05);
+}
+
+/* Tactical emerald border glow */
+.hud-border-emerald {
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.05), inset 0 0 15px rgba(52, 211, 153, 0.03);
+}
+
+.hud-border-emerald:hover {
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.1), inset 0 0 20px rgba(52, 211, 153, 0.05);
+}
+
+/* Scanline effect */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
 }
