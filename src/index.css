@@ -8,80 +8,80 @@
 
 body {
   margin: 0;
-  background-color: #f9f7f3;
-  color: #202020;
-  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  background-color: #e8ebe6;
+  color: #0e0f0c;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .dark body {
-  background-color: #141416;
-  color: #fcfcfc;
+  background-color: #0e0f0c;
+  color: #f4f6f2;
 }
 
-/* Replicate Fire Orange Selection Highlight */
+/* Wise Fluorescent Lime Selection Highlight */
 ::selection {
-  background: #ea2804;
-  color: #ffffff;
+  background: #9fe870;
+  color: #0e0f0c;
 }
 
 .dark ::selection {
-  background: #ff6a3d;
-  color: #ffffff;
+  background: #9fe870;
+  color: #0e0f0c;
 }
 
-/* Fluid clean scrollbar */
+/* Smooth Scandinavian Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f0e8;
+  background: #e8ebe6;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1a1a1d;
+  background: #0e0f0c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c5c1b8;
+  background: #c2c7bf;
   border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #3a3a40;
+  background: #2b2f26;
   border-radius: 9999px;
 }
 
-/* Replicate Pill and Elevation Utilities */
-.replicate-pill {
+/* Wise Pill & Surface Utilities */
+.wise-pill {
   border-radius: 9999px;
-  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.replicate-pill:active {
-  transform: scale(0.98);
+.wise-pill:active {
+  transform: scale(0.97);
 }
 
-.replicate-card {
-  border-radius: 16px;
+.wise-card {
+  border-radius: 24px;
   background: #ffffff;
-  border: 1px solid rgba(32, 32, 32, 0.12);
+  border: 1px solid rgba(14, 15, 12, 0.06);
   transition: all 200ms ease;
 }
 
-.dark .replicate-card {
-  background: #1f1f23;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.dark .wise-card {
+  background: #191b16;
+  border: 1px solid rgba(244, 246, 242, 0.08);
 }
 
-.replicate-card:hover {
-  border-color: rgba(234, 40, 4, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(234, 40, 4, 0.1);
+.wise-card:hover {
+  border-color: rgba(159, 232, 112, 0.6);
+  box-shadow: 0 12px 36px -12px rgba(159, 232, 112, 0.15);
 }
 
-.dark .replicate-card:hover {
-  border-color: rgba(255, 106, 61, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(255, 106, 61, 0.15);
+.dark .wise-card:hover {
+  border-color: rgba(159, 232, 112, 0.4);
+  box-shadow: 0 12px 36px -12px rgba(159, 232, 112, 0.08);
 }
