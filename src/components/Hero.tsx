@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
   return (
     <section id="about" className="relative pt-28 pb-20 md:pt-36 md:pb-28 border-b border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0a101d] overflow-hidden transition-colors duration-200">
       {/* Stripe Atmospheric Iridescent Gradient Mesh */}
-      <div className="absolute top-0 left-0 right-0 h-[620px] -z-0 stripe-mesh-light dark:stripe-mesh-dark pointer-events-none opacity-90 dark:opacity-80 transition-opacity" />
+      <div className="absolute inset-0 pointer-events-none stripe-mesh stripe-mesh-mask opacity-90 dark:opacity-75 transition-opacity -z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Stripe Micro-Pill */}
@@ -25,132 +25,55 @@ export const Hero: React.FC = () => {
           </span>
         </div>
 
-        {/* Hero Main Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
-          {/* Left Column: Stripe Thin Display Headline */}
-          <div className="lg:col-span-7 space-y-6">
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-[70px] font-light tracking-[-0.03em] text-[#0d253d] dark:text-[#f8fafc] leading-[1.05] max-w-3xl">
-              Learning modern Frontend. Directing AI models across upstream Linux systems.
-            </h1>
+        {/* Hero Main Content */}
+        <div className="max-w-4xl space-y-6 mb-16">
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-[70px] font-light tracking-[-0.03em] text-[#0d253d] dark:text-[#f8fafc] leading-[1.05]">
+            Learning modern Frontend. Directing AI models across upstream Linux systems.
+          </h1>
 
-            <p className="font-sans text-base sm:text-lg text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed max-w-2xl">
-              I am <span className="font-medium text-[#0d253d] dark:text-white">{PERSONAL_INFO.name}</span> (
-              <span className="font-mono text-[#533afd] dark:text-[#b9b9f9] font-medium">@{PERSONAL_INFO.handle}</span>), a BCA graduate actively building fluency in HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside daily frontend studies, I direct AI coding agents to diagnose Linux bottlenecks, verify low-level system behaviors, and ship upstream contributions to projects like Cesium, Mission Center, and Zed.
-            </p>
+          <p className="font-sans text-base sm:text-lg text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed max-w-3xl">
+            I am <span className="font-medium text-[#0d253d] dark:text-white">{PERSONAL_INFO.name}</span> (
+            <span className="font-mono text-[#533afd] dark:text-[#b9b9f9] font-medium">@{PERSONAL_INFO.handle}</span>), a BCA graduate actively building fluency in HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside daily frontend studies, I direct AI coding agents to diagnose Linux bottlenecks, verify low-level system behaviors, and ship upstream contributions to projects like Cesium, Mission Center, and Zed.
+          </p>
 
-            {/* Stripe Action Controls */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                href="#upstream"
-                className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs sm:text-sm font-medium shadow-sm hover:shadow-md transition-all flex items-center gap-2 active:scale-95"
-              >
-                <GitPullRequest className="w-4 h-4" />
-                <span>Explore Upstream Dispatches</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+          {/* Stripe Action Controls */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <a
+              href="#upstream"
+              className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs sm:text-sm font-medium shadow-sm hover:shadow-md transition-all flex items-center gap-2 active:scale-95"
+            >
+              <GitPullRequest className="w-4 h-4" />
+              <span>Explore Upstream Dispatches</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
 
-              <a
-                href="#projects"
-                className="px-5 py-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#0d253d] dark:text-[#f8fafc] font-sans text-xs sm:text-sm font-medium hover:border-[#533afd] transition-all flex items-center gap-2 shadow-sm active:scale-95"
-              >
-                <Code2 className="w-4 h-4 text-[#533afd]" />
-                <span>Codebases & Tools</span>
-              </a>
+            <a
+              href="#projects"
+              className="px-5 py-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#0d253d] dark:text-[#f8fafc] font-sans text-xs sm:text-sm font-medium hover:border-[#533afd] transition-all flex items-center gap-2 shadow-sm active:scale-95"
+            >
+              <Code2 className="w-4 h-4 text-[#533afd]" />
+              <span>Codebases & Tools</span>
+            </a>
 
-              <a
-                href={PERSONAL_INFO.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#273951] dark:text-[#f8fafc] hover:border-[#533afd] hover:text-[#533afd] transition-all shadow-sm active:scale-95"
-                title="GitHub"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
+            <a
+              href={PERSONAL_INFO.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#273951] dark:text-[#f8fafc] hover:border-[#533afd] hover:text-[#533afd] transition-all shadow-sm active:scale-95"
+              title="GitHub"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </a>
 
-              <a
-                href={PERSONAL_INFO.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#273951] dark:text-[#f8fafc] hover:border-[#533afd] hover:text-[#533afd] transition-all shadow-sm active:scale-95"
-                title="LinkedIn"
-              >
-                <LinkedinIcon className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Composited Multi-Layer Dashboard Mockup */}
-          <div className="lg:col-span-5">
-            <div className="stripe-card p-6 space-y-5 bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md">
-              {/* Panel Top Chrome */}
-              <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#ea2261]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff9f43]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#00d4ff]" />
-                  <span className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8] ml-1.5">
-                    api.kk376.dev/v1/telemetry
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#533afd]/10 text-[#533afd] dark:text-[#b9b9f9]">
-                  200 OK // LIVE
-                </span>
-              </div>
-
-              {/* Multi-layer Code Block */}
-              <div className="rounded-lg bg-[#0d253d] dark:bg-[#080b11] p-4 text-xs font-mono text-[#f8fafc] space-y-1 shadow-inner">
-                <div className="text-[#64748d]">// Directed AI Pair-Programming Contract</div>
-                <div><span className="text-[#00d4ff]">const</span> telemetry = &#123;</div>
-                <div className="pl-4"><span className="text-[#b9b9f9]">apprentice</span>: <span className="text-[#ff9f43]">"{PERSONAL_INFO.name}"</span>,</div>
-                <div className="pl-4"><span className="text-[#b9b9f9]">degree</span>: <span className="text-[#ff9f43]">"BCA 8.2 CGPA (Distinction)"</span>,</div>
-                <div className="pl-4"><span className="text-[#b9b9f9]">procfs_latency</span>: <span className="text-[#00d4ff]">0.8</span> <span className="text-[#64748d]">// microseconds</span>,</div>
-                <div className="pl-4"><span className="text-[#b9b9f9]">ai_disclosure</span>: <span className="text-[#ea2261]">1.0</span> <span className="text-[#64748d]">// 100% transparent</span></div>
-                <div>&#125;;</div>
-              </div>
-
-              {/* Tabular Transaction Rows */}
-              <div className="space-y-2 pt-1 font-mono text-xs">
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#f6f9fc] dark:bg-[#1e293b]/70 border border-[#e3e8ee] dark:border-white/5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#533afd]" />
-                    <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">Cesium Tactical Shader</span>
-                  </div>
-                  <span className="text-[#533afd] dark:text-[#b9b9f9] font-medium tabular-nums">PR Merged</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#f6f9fc] dark:bg-[#1e293b]/70 border border-[#e3e8ee] dark:border-white/5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ea2261]" />
-                    <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">Mission Center D3cold Thrash</span>
-                  </div>
-                  <span className="text-[#ea2261] font-medium tabular-nums">Fix Validated</span>
-                </div>
-              </div>
-
-              {/* Profile Card Footer */}
-              <div className="pt-2 border-t border-[#e3e8ee] dark:border-white/10 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full overflow-hidden border border-[#e3e8ee] dark:border-white/10 shrink-0">
-                    <img
-                      src="/avatar.jpg"
-                      alt="Kushagra Kumar"
-                      className="w-full h-full object-cover grayscale contrast-125"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <div className="font-medium text-[#0d253d] dark:text-[#f8fafc]">{PERSONAL_INFO.name}</div>
-                    <div className="text-[11px] text-[#64748d] dark:text-[#94a3b8]">BCA Graduate (2022)</div>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-mono text-xs font-semibold text-[#533afd] dark:text-[#b9b9f9] tabular-nums">8.2 CGPA</div>
-                  <div className="text-[10px] text-[#64748d]">SGVU Distinction</div>
-                </div>
-              </div>
-            </div>
+            <a
+              href={PERSONAL_INFO.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#273951] dark:text-[#f8fafc] hover:border-[#533afd] hover:text-[#533afd] transition-all shadow-sm active:scale-95"
+              title="LinkedIn"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
           </div>
         </div>
 

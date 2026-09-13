@@ -62,26 +62,31 @@ body {
 }
 
 /* Stripe Iridescent Atmospheric Mesh Backdrop */
-.stripe-mesh-light {
-  background-color: #ffffff;
+.stripe-mesh {
+  background-color: transparent;
   background-image: 
     radial-gradient(at 0% 0%, rgba(245, 233, 212, 0.85) 0px, transparent 48%),
-    radial-gradient(at 35% 0%, rgba(255, 159, 67, 0.4) 0px, transparent 45%),
-    radial-gradient(at 75% 5%, rgba(234, 34, 97, 0.3) 0px, transparent 45%),
-    radial-gradient(at 95% 20%, rgba(249, 107, 238, 0.25) 0px, transparent 40%),
-    radial-gradient(at 45% 40%, rgba(83, 58, 253, 0.28) 0px, transparent 50%),
-    radial-gradient(at 80% 55%, rgba(0, 212, 255, 0.22) 0px, transparent 45%),
-    radial-gradient(at 10% 60%, rgba(185, 185, 249, 0.45) 0px, transparent 45%);
+    radial-gradient(at 35% 0%, rgba(255, 159, 67, 0.35) 0px, transparent 45%),
+    radial-gradient(at 75% 5%, rgba(234, 34, 97, 0.22) 0px, transparent 45%),
+    radial-gradient(at 95% 20%, rgba(249, 107, 238, 0.18) 0px, transparent 40%),
+    radial-gradient(at 45% 40%, rgba(83, 58, 253, 0.22) 0px, transparent 50%),
+    radial-gradient(at 80% 55%, rgba(0, 212, 255, 0.16) 0px, transparent 45%),
+    radial-gradient(at 10% 60%, rgba(185, 185, 249, 0.35) 0px, transparent 45%);
 }
 
-.stripe-mesh-dark {
-  background-color: #0a101d;
+.dark .stripe-mesh {
+  background-color: transparent;
   background-image: 
-    radial-gradient(at 10% 0%, rgba(83, 58, 253, 0.25) 0px, transparent 50%),
-    radial-gradient(at 55% 5%, rgba(234, 34, 97, 0.18) 0px, transparent 45%),
-    radial-gradient(at 85% 20%, rgba(0, 212, 255, 0.18) 0px, transparent 45%),
-    radial-gradient(at 35% 50%, rgba(102, 94, 253, 0.2) 0px, transparent 50%),
-    radial-gradient(at 80% 60%, rgba(249, 107, 238, 0.15) 0px, transparent 45%);
+    radial-gradient(at 15% 5%, rgba(83, 58, 253, 0.26) 0px, transparent 50%),
+    radial-gradient(at 65% 0%, rgba(0, 212, 255, 0.14) 0px, transparent 45%),
+    radial-gradient(at 85% 25%, rgba(122, 90, 248, 0.16) 0px, transparent 45%),
+    radial-gradient(at 35% 50%, rgba(83, 58, 253, 0.14) 0px, transparent 50%),
+    radial-gradient(at 80% 60%, rgba(234, 34, 97, 0.08) 0px, transparent 45%);
+}
+
+.stripe-mesh-mask {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* Stripe Card & Elevation Utilities */
