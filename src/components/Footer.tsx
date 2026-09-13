@@ -9,116 +9,106 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenShortcuts }) => {
   return (
-    <footer className="bg-[#f6f9fc] dark:bg-[#080b11] text-[#0d253d] dark:text-[#f8fafc] py-16 transition-colors duration-200 border-t border-[#e3e8ee] dark:border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Lab Top Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#e3e8ee] dark:border-white/10 font-mono text-xs">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#533afd] dark:bg-[#00d4ff]" />
-            <span className="font-semibold text-[#0d253d] dark:text-white">APPRENTICE DISPATCH // DIRECTION 05</span>
-          </div>
-          <div className="flex items-center gap-3 text-[#64748d] dark:text-[#94a3b8]">
-            <span>Open Source Systems & Frontend Exploration</span>
-            {onOpenShortcuts && (
-              <>
-                <span>•</span>
-                <button
-                  onClick={onOpenShortcuts}
-                  className="text-[#533afd] dark:text-[#00d4ff] hover:underline cursor-pointer"
-                >
-                  developer-portfolios Catalog PR
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Multi-column Content */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 py-10">
-          {/* Col 1: Identity & Apprentice Statement */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="font-display text-2xl font-light text-[#0d253d] dark:text-white tracking-tight">
-                Kushagra Kumar
+    <footer className="bg-slate-50 dark:bg-[#080b11] text-slate-900 dark:text-white py-16 transition-colors duration-200 border-t border-slate-200 dark:border-slate-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-200 dark:border-slate-800">
+          {/* Col 1: Identity & Bio */}
+          <div className="md:col-span-6 space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl anand-gradient-bg flex items-center justify-center text-white font-poppins font-bold text-sm shadow-sm">
+                KK
               </span>
-              <span className="font-mono text-xs text-[#533afd] dark:text-[#00d4ff] font-semibold">
-                @{PERSONAL_INFO.handle}
-              </span>
+              <div>
+                <span className="font-poppins text-xl font-bold tracking-tight text-slate-900 dark:text-white block">
+                  {PERSONAL_INFO.name}
+                </span>
+                <span className="font-mono text-xs text-blue-600 dark:text-cyan-400 font-semibold">
+                  @{PERSONAL_INFO.handle}
+                </span>
+              </div>
             </div>
-            <p className="font-sans text-xs text-[#64748d] dark:text-[#94a3b8] leading-relaxed max-w-sm">
-              Apprentice software engineer with a BCA degree (8.2 CGPA), actively mastering modern frontend architecture while steering AI partners to diagnose Linux bottlenecks and ship upstream contributions.
+
+            <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-md">
+              Apprentice software engineer with a BCA degree (8.2 CGPA distinction), actively mastering modern web frontend craftsmanship while directing AI partners to investigate Linux hardware bottlenecks and land upstream contributions.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#1e293b] border border-[#e3e8ee] dark:border-white/10 text-[#273951] dark:text-[#cbd5e1] font-mono text-[11px] tabular-nums">
-              <span>Station: Fedora 44 Workstation</span>
+
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#162032] border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-mono text-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Fedora 44 Workstation • Kernel 6.14</span>
             </div>
           </div>
 
-          {/* Col 2: Typographic Engine */}
-          <div className="md:col-span-4 space-y-3 font-mono text-xs">
-            <div className="font-semibold text-[#0d253d] dark:text-white border-b border-[#e3e8ee] dark:border-white/10 pb-1">
-              Design Architecture
+          {/* Col 2: Quick Links */}
+          <div className="md:col-span-3 space-y-3 font-poppins text-xs font-semibold">
+            <div className="text-slate-400 uppercase tracking-wider font-mono text-[11px]">
+              Directory
             </div>
-            <div className="space-y-2 text-[#64748d] dark:text-[#94a3b8]">
-              <div>
-                <span className="text-[#0d253d] dark:text-white font-medium">Display Type: </span>
-                <span>Inter Light (weight 300, -0.03em tracking)</span>
-              </div>
-              <div>
-                <span className="text-[#0d253d] dark:text-white font-medium">Body / UI: </span>
-                <span>Inter (weights 400 & 500, ss01)</span>
-              </div>
-              <div>
-                <span className="text-[#0d253d] dark:text-white font-medium">Figures & Telemetry: </span>
-                <span>JetBrains Mono (tabular-nums)</span>
-              </div>
-              <div>
-                <span className="text-[#0d253d] dark:text-white font-medium">Atmosphere: </span>
-                <span className="text-[#533afd] dark:text-[#00d4ff] font-semibold">Stripe Electric Indigo (#533afd) & Horizon Mesh</span>
-              </div>
+            <div className="flex flex-col space-y-2 text-slate-600 dark:text-slate-400 font-montserrat">
+              <a href="#home" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+              <a href="#about" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">About Me</a>
+              <a href="#projects" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">My Projects</a>
+              <a href="#upstream" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Upstream Dispatches</a>
+              <a href="#skills" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">My Skills</a>
+              <a href="#philosophy" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">How I Work</a>
+              <a href="#system" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Workstation Telemetry</a>
+              <a href="#contact" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Get in Touch</a>
             </div>
           </div>
 
           {/* Col 3: Direct Channels */}
-          <div className="md:col-span-3 space-y-3 font-mono text-xs">
-            <div className="font-semibold text-[#0d253d] dark:text-white border-b border-[#e3e8ee] dark:border-white/10 pb-1">
+          <div className="md:col-span-3 space-y-3 font-poppins text-xs font-semibold">
+            <div className="text-slate-400 uppercase tracking-wider font-mono text-[11px]">
               Direct Channels
             </div>
-            <div className="flex flex-col gap-2 pt-1">
+            <div className="flex flex-col space-y-2.5">
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e3e8ee] dark:border-white/10 hover:border-[#533afd] text-[#273951] dark:text-[#cbd5e1] hover:text-[#533afd] dark:hover:text-white transition-all font-medium shadow-sm"
+                className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-white dark:bg-[#162032] border border-slate-200 dark:border-slate-700 hover:border-blue-500 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-all shadow-xs"
               >
-                <span className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub</span>
-                </span>
+                </div>
                 <span>-&gt;</span>
               </a>
+
               <a
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e3e8ee] dark:border-white/10 hover:border-[#533afd] text-[#273951] dark:text-[#cbd5e1] hover:text-[#533afd] dark:hover:text-white transition-all font-medium shadow-sm"
+                className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-white dark:bg-[#162032] border border-slate-200 dark:border-slate-700 hover:border-blue-500 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-all shadow-xs"
               >
-                <span className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <LinkedinIcon className="w-4 h-4" />
                   <span>LinkedIn</span>
-                </span>
+                </div>
                 <span>-&gt;</span>
               </a>
+
+              {onOpenShortcuts && (
+                <button
+                  onClick={onOpenShortcuts}
+                  className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#162032]/60 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-400 transition-all text-left cursor-pointer"
+                >
+                  <span>Keyboard Shortcuts</span>
+                  <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-700 font-mono text-[10px]">
+                    ?
+                  </kbd>
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Bottom Colophon Metadata */}
-        <div className="pt-6 border-t border-[#e3e8ee] dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8]">
+        {/* Bottom Colophon */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500 dark:text-slate-400">
           <div>
-            (c) 2026 Kushagra Kumar. All rights reserved.
+            (c) 2026 Kushagra Kumar. Crafted with React and Tailwind CSS.
           </div>
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="text-[#533afd] dark:text-[#00d4ff] font-semibold tabular-nums">[EDITION NO. 05 // STRIPE IRIDESCENT HORIZON]</span>
+          <div className="flex items-center gap-4">
+            <span className="text-blue-600 dark:text-cyan-400 font-semibold">[Anand Baraik Minimalist Edition]</span>
             <span>Local Verified</span>
           </div>
         </div>

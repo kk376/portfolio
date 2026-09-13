@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { Mail, Check, Copy, ArrowUpRight, Send } from 'lucide-react';
+import { Mail, Check, Copy, ArrowUpRight, Send, MessageSquare } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
+import { SectionFooter } from './SectionFooter';
 import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
   const copyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -13,138 +21,211 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.email || !formData.message) return;
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+      setFormSubmitted(false);
+    }, 4000);
+  };
+
   return (
-    <section id="connect" className="py-20 md:py-24 border-b border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0a101d] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#533afd]/10 dark:bg-[#533afd]/20 border border-[#533afd]/20 text-xs font-mono font-semibold text-[#533afd] dark:text-[#a8c3de]">
-                <Send className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff]" />
-                <span>DIRECT CHANNELS // TRANSMISSION</span>
-              </span>
+    <section
+      id="contact"
+      className="py-20 md:py-28 bg-slate-50/70 dark:bg-[#0f172a]/60 border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badge="COLLABORATION & TRANSMISSION"
+          heading="Get in touch."
+          subHeading="Interested to collaborate, discuss junior frontend opportunities, or share feedback? Feel free to drop me a message."
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start max-w-5xl mx-auto">
+          {/* Left Column: Anand-styled Contact Form */}
+          <div className="lg:col-span-7 anand-card p-6 sm:p-8 bg-white dark:bg-[#111827]">
+            <div className="flex items-center gap-2.5 mb-6 text-slate-900 dark:text-white font-poppins font-bold text-lg">
+              <MessageSquare className="w-5 h-5 text-blue-600 dark:text-cyan-400" />
+              <span>Send Me a Message</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] tracking-[-0.03em] leading-tight max-w-3xl">
-              Direct transmission. Open for apprentice roles and software collaboration.
-            </h2>
+
+            {formSubmitted ? (
+              <div className="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center space-y-2 animate-in fade-in duration-300">
+                <div className="w-12 h-12 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <Check className="w-6 h-6 stroke-[2.5]" />
+                </div>
+                <h4 className="font-poppins font-bold text-slate-900 dark:text-white text-base">
+                  Message Sent Successfully!
+                </h4>
+                <p className="font-sans text-xs text-slate-600 dark:text-slate-300">
+                  Thank you for reaching out! I will review your dispatch and get back to you promptly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Alex Smith"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#162032] text-slate-900 dark:text-white text-sm font-sans placeholder:text-slate-400 focus:border-blue-500 dark:focus:border-cyan-400 focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                    Your Email Address
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="e.g. alex@example.com"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#162032] text-slate-900 dark:text-white text-sm font-sans placeholder:text-slate-400 focus:border-blue-500 dark:focus:border-cyan-400 focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                    Your Message
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell me about the project, opportunity, or feedback..."
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#162032] text-slate-900 dark:text-white text-sm font-sans placeholder:text-slate-400 focus:border-blue-500 dark:focus:border-cyan-400 focus:outline-none transition-colors resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 rounded-xl anand-gradient-bg text-white font-poppins font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Send Message</span>
+                </button>
+              </form>
+            )}
           </div>
-          <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] max-w-md leading-relaxed">
-            Whether discussing junior frontend opportunities, systems automation tooling, or AI pair-programming methodology, direct channels remain open.
-          </p>
+
+          {/* Right Column: Direct Channels & Copy Email */}
+          <div className="lg:col-span-5 space-y-6">
+            {/* Quick Action Email Card */}
+            <div className="anand-card p-6 sm:p-7 bg-white dark:bg-[#111827] space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <span className="font-mono text-xs font-bold text-blue-600 dark:text-cyan-400">
+                  DIRECT CHANNEL // DISPATCH
+                </span>
+                <Mail className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+              </div>
+
+              <div>
+                <h4 className="font-poppins font-bold text-lg text-slate-900 dark:text-white">
+                  Direct Email
+                </h4>
+                <p className="font-mono text-xs text-blue-600 dark:text-cyan-400 font-medium break-all mt-1">
+                  {PERSONAL_INFO.email}
+                </p>
+                <p className="font-sans text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                  Fastest way to reach me for junior frontend discussions or code reviews.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-col gap-2.5">
+                <button
+                  onClick={copyEmail}
+                  className="w-full py-2.5 rounded-xl bg-slate-100 dark:bg-[#162032] border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-blue-500 dark:hover:border-cyan-400 font-poppins text-xs font-semibold shadow-xs transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-500 stroke-[2.5]" />
+                      <span className="text-emerald-600 dark:text-emerald-400">Copied to Clipboard!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                      <span>Copy Email Address</span>
+                    </>
+                  )}
+                </button>
+
+                <a
+                  href={`mailto:${PERSONAL_INFO.email}`}
+                  className="w-full py-2.5 rounded-xl anand-gradient-bg text-white font-poppins text-xs font-semibold shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Open Mail Client</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Social Channels Card */}
+            <div className="anand-card p-6 sm:p-7 bg-white dark:bg-[#111827] space-y-4">
+              <div className="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-3">
+                SOCIAL &amp; REPOSITORIES
+              </div>
+
+              <div className="space-y-3">
+                <a
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-[#162032] hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-slate-200/80 dark:border-slate-800 text-slate-800 dark:text-slate-200 transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <GithubIcon className="w-5 h-5 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-cyan-400" />
+                    <div>
+                      <div className="font-poppins font-bold text-xs text-slate-900 dark:text-white">
+                        GitHub
+                      </div>
+                      <div className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                        @{PERSONAL_INFO.handle}
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+
+                <a
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-[#162032] hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-slate-200/80 dark:border-slate-800 text-slate-800 dark:text-slate-200 transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <LinkedinIcon className="w-5 h-5 text-blue-600 dark:text-cyan-400" />
+                    <div>
+                      <div className="font-poppins font-bold text-xs text-slate-900 dark:text-white">
+                        LinkedIn
+                      </div>
+                      <div className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                        kushagra-kumar376
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* 3 Stripe Precision Channel Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 01: GitHub */}
-          <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
-            <div>
-              <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-4 mb-5">
-                <span className="font-mono text-xs font-semibold text-[#64748d] dark:text-[#94a3b8] tabular-nums">
-                  CHANNEL 01 // CODEBASE
-                </span>
-                <GithubIcon className="w-5 h-5 text-[#533afd] dark:text-[#00d4ff]" />
-              </div>
-
-              <h3 className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">
-                GitHub
-              </h3>
-              <p className="font-mono text-xs font-medium text-[#533afd] dark:text-[#00d4ff] mb-4">
-                @{PERSONAL_INFO.handle}
-              </p>
-              <p className="font-sans text-xs sm:text-sm text-[#64748d] dark:text-[#94a3b8] leading-relaxed mb-6">
-                Inspect daily commits, Bash workstation suites, microsecond Rust fetch utilities, and upstream PR discussions.
-              </p>
-            </div>
-
-            <div className="pt-5 border-t border-[#e3e8ee] dark:border-white/5">
-              <a
-                href={PERSONAL_INFO.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all active:scale-95"
-              >
-                <span>Explore Repositories</span>
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-              </a>
-            </div>
-          </div>
-
-          {/* Card 02: LinkedIn */}
-          <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
-            <div>
-              <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-4 mb-5">
-                <span className="font-mono text-xs font-semibold text-[#533afd] dark:text-[#00d4ff] tabular-nums">
-                  CHANNEL 02 // PROFESSIONAL
-                </span>
-                <LinkedinIcon className="w-5 h-5 text-[#533afd] dark:text-[#00d4ff]" />
-              </div>
-
-              <h3 className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">
-                LinkedIn
-              </h3>
-              <p className="font-mono text-xs font-medium text-[#533afd] dark:text-[#00d4ff] mb-4">
-                kushagra-kumar376
-              </p>
-              <p className="font-sans text-xs sm:text-sm text-[#64748d] dark:text-[#94a3b8] leading-relaxed mb-6">
-                Connect for junior frontend roles, technical apprenticeship inquiries, and engineering discussions.
-              </p>
-            </div>
-
-            <div className="pt-5 border-t border-[#e3e8ee] dark:border-white/5">
-              <a
-                href={PERSONAL_INFO.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all active:scale-95"
-              >
-                <span>Connect on LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-              </a>
-            </div>
-          </div>
-
-          {/* Card 03: Direct Email */}
-          <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
-            <div>
-              <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-4 mb-5">
-                <span className="font-mono text-xs font-semibold text-[#533afd] dark:text-[#00d4ff] tabular-nums">
-                  CHANNEL 03 // DISPATCH
-                </span>
-                <Mail className="w-5 h-5 text-[#533afd] dark:text-[#00d4ff]" />
-              </div>
-
-              <h3 className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">
-                Direct Email
-              </h3>
-              <p className="font-mono text-xs font-medium text-[#0d253d] dark:text-[#f8fafc] mb-4 truncate">
-                {PERSONAL_INFO.email}
-              </p>
-              <p className="font-sans text-xs sm:text-sm text-[#64748d] dark:text-[#94a3b8] leading-relaxed mb-6">
-                Send direct proposals, project inquiries, or code review feedback straight to my personal inbox.
-              </p>
-            </div>
-
-            <div className="pt-5 border-t border-[#e3e8ee] dark:border-white/5">
-              <button
-                onClick={copyEmail}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-[#f6f9fc] dark:bg-[#1e293b] border border-[#e3e8ee] dark:border-white/10 text-[#0d253d] dark:text-[#f8fafc] hover:border-[#533afd] font-sans text-xs font-semibold shadow-sm transition-all active:scale-95"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff] stroke-[2.5]" />
-                    <span className="text-[#533afd] dark:text-[#00d4ff]">Copied to Clipboard!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-[#64748d] dark:text-[#94a3b8]" />
-                    <span>Copy Email Address</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
+        <SectionFooter
+          phrase="Back to "
+          link="top."
+          toAddress="#home"
+        />
       </div>
     </section>
   );

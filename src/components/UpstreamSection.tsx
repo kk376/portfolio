@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { GitPullRequest, ExternalLink, ChevronDown, ChevronUp, Check, Sparkles, Code2 } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
+import { SectionFooter } from './SectionFooter';
 import { UPSTREAM_CONTRIBUTIONS } from '../data/portfolioData';
 import type { ContributionCategory, UpstreamContribution } from '../types';
 import { GithubIcon } from './icons/GithubIcon';
@@ -13,7 +15,7 @@ export const UpstreamSection: React.FC = () => {
 
   const categories: { label: string; value: ContributionCategory; count: number }[] = [
     { label: 'All Dispatches', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
-    { label: 'Merged Code', value: 'merged', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'merged').length },
+    { label: 'Merged Upstream', value: 'merged', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'merged').length },
     { label: 'Systems & Kernel', value: 'systems', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'systems').length },
     { label: 'Packaging & CI', value: 'packaging', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'packaging').length },
   ];
@@ -28,21 +30,21 @@ export const UpstreamSection: React.FC = () => {
     switch (status) {
       case 'merged':
         return (
-          <span className="rounded-full bg-[#533afd]/10 border border-[#533afd]/20 text-[#533afd] dark:text-[#a8c3de] font-mono text-[11px] font-semibold px-3 py-1 inline-flex items-center gap-1.5 shadow-sm">
+          <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold px-3 py-1 inline-flex items-center gap-1.5 shadow-xs">
             <Check className="w-3.5 h-3.5 stroke-[2.5]" />
             MERGED UPSTREAM
           </span>
         );
       case 'open':
         return (
-          <span className="rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/20 text-[#008ba3] dark:text-[#00d4ff] font-mono text-[11px] font-semibold px-3 py-1 inline-flex items-center gap-1.5 shadow-sm">
+          <span className="rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-cyan-400 font-mono text-xs font-semibold px-3 py-1 inline-flex items-center gap-1.5 shadow-xs">
             <GitPullRequest className="w-3.5 h-3.5 stroke-[2.5]" />
             ACTIVE MERGE REQUEST
           </span>
         );
       case 'investigated':
         return (
-          <span className="rounded-full bg-[#f6f9fc] dark:bg-[#1e293b] text-[#64748d] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 font-mono text-[11px] font-semibold px-3 py-1 inline-flex items-center gap-1.5">
+          <span className="rounded-full bg-slate-100 dark:bg-[#1f2937] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono text-xs font-semibold px-3 py-1 inline-flex items-center gap-1.5">
             ROOT CAUSE TRACED
           </span>
         );
@@ -52,126 +54,117 @@ export const UpstreamSection: React.FC = () => {
   };
 
   return (
-    <section id="upstream" className="py-20 md:py-24 border-b border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0a101d] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Lab Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#533afd]/10 dark:bg-[#533afd]/20 border border-[#533afd]/20 text-xs font-mono font-semibold text-[#533afd] dark:text-[#a8c3de]">
-                <span className="w-2 h-2 rounded-full bg-[#533afd] dark:bg-[#00d4ff]" />
-                <span>EXPERIMENT LOG // UPSTREAM</span>
-              </span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] tracking-[-0.03em] leading-tight max-w-3xl">
-              Open-source investigations. Real hardware bug fixes and upstream PRs.
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] mt-3 max-w-2xl leading-relaxed">
-              Documented pull requests and GitLab merge requests across Cesium graphics shaders, Mission Center power thrash mitigation, and Zed editor Wayland lifecycle diagnostics.
-            </p>
-          </div>
+    <section
+      id="upstream"
+      className="py-20 md:py-28 bg-slate-50/70 dark:bg-[#0f172a]/60 border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badge="HARDWARE BUG TRACES & PRS"
+          heading="Upstream Dispatches."
+          subHeading="Real hardware bug investigations, Cesium 3D shaders, and merged upstream pull requests."
+        />
 
-          {/* Stripe Pill Filters */}
-          <div className="flex flex-wrap items-center gap-2 self-start lg:self-end">
-            {categories.map((cat) => (
-              <button
-                key={cat.value}
-                onClick={() => setSelectedCategory(cat.value)}
-                className={`px-4 py-2 rounded-full font-sans text-xs font-medium transition-all flex items-center gap-2 active:scale-95 ${
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat.value}
+              onClick={() => setSelectedCategory(cat.value)}
+              className={`px-5 py-2 rounded-full font-poppins text-xs font-semibold transition-all flex items-center gap-2 active:scale-95 cursor-pointer ${
+                selectedCategory === cat.value
+                  ? 'anand-gradient-bg text-white shadow-md'
+                  : 'bg-white dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              <span>{cat.label}</span>
+              <span
+                className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold tabular-nums ${
                   selectedCategory === cat.value
-                    ? 'bg-[#533afd] text-white shadow-sm font-semibold'
-                    : 'bg-white dark:bg-[#0f172a] text-[#273951] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 hover:border-[#533afd]/40'
+                    ? 'bg-white/20 text-white'
+                    : 'bg-slate-100 dark:bg-[#1f2937] text-slate-500 dark:text-slate-400'
                 }`}
               >
-                <span>{cat.label}</span>
-                <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-medium tabular-nums ${
-                    selectedCategory === cat.value
-                      ? 'bg-white/20 text-white'
-                      : 'bg-[#f6f9fc] dark:bg-[#1e293b] text-[#64748d] dark:text-[#94a3b8]'
-                  }`}
-                >
-                  {cat.count}
-                </span>
-              </button>
-            ))}
-          </div>
+                {cat.count}
+              </span>
+            </button>
+          ))}
         </div>
 
-        {/* Upstream Case Study Cards */}
-        <div className="space-y-6">
+        {/* Contribution Cards */}
+        <div className="space-y-8">
           {filtered.map((item, idx) => (
             <div
               key={item.id}
-              className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-7 sm:p-8 space-y-6 shadow-sm hover:shadow-md transition-all"
+              className="anand-card p-6 sm:p-8 bg-white dark:bg-[#111827] space-y-6"
             >
-              {/* Card Meta Bar */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e3e8ee] dark:border-white/10 pb-4">
+              {/* Header Bar */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-                  <span className="font-semibold text-[#64748d] dark:text-[#94a3b8] bg-[#f6f9fc] dark:bg-[#1e293b] px-2.5 py-1 rounded-full border border-[#e3e8ee] dark:border-white/10 tabular-nums">
-                    ENTRY 0{idx + 1}
+                  <span className="font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-[#1f2937] px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700 tabular-nums">
+                    DISPATCH 0{idx + 1}
                   </span>
 
                   {item.platform === 'gitlab' ? (
-                    <span className="inline-flex items-center gap-1.5 font-medium text-[#533afd] dark:text-[#00d4ff]">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-orange-600 dark:text-orange-400">
                       <GitlabIcon className="w-3.5 h-3.5" />
                       gitlab.com/{item.repoOwner}/{item.repo}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 font-medium text-[#533afd] dark:text-[#00d4ff]">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-blue-600 dark:text-cyan-400">
                       <GithubIcon className="w-3.5 h-3.5" />
                       github.com/{item.repoOwner}/{item.repo}
                     </span>
                   )}
 
-                  <span className="text-[#64748d]/40 dark:text-white/20">/</span>
-                  <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">{item.refLabel}</span>
-                  <span className="text-[#64748d]/40 dark:text-white/20">/</span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8] tabular-nums">{item.date}</span>
+                  <span className="text-slate-300 dark:text-slate-700">/</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">{item.refLabel}</span>
+                  <span className="text-slate-300 dark:text-slate-700">/</span>
+                  <span className="text-slate-500 dark:text-slate-400 tabular-nums">{item.date}</span>
                 </div>
 
                 <div>{getStatusBadge(item.status)}</div>
               </div>
 
-              {/* Title & Link */}
+              {/* Title and Direct Link */}
               <div>
                 <a
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-baseline gap-2 font-display text-2xl sm:text-3xl font-medium text-[#0d253d] dark:text-[#f8fafc] hover:text-[#533afd] dark:hover:text-[#00d4ff] transition-colors leading-snug tracking-tight"
+                  className="group inline-flex items-baseline gap-2 font-poppins text-xl sm:text-2xl font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-cyan-400 transition-colors leading-snug tracking-tight"
                 >
                   <span>{item.title}</span>
-                  <ExternalLink className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity translate-y-0.5 shrink-0" />
+                  <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity shrink-0 translate-y-0.5" />
                 </a>
               </div>
 
-              {/* Summary Description */}
-              <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] leading-relaxed">
+              {/* Summary */}
+              <p className="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                 {item.summary}
               </p>
 
-              {/* The Apprentice Role & AI Collaboration Box */}
-              <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#1e293b]/60 p-5 space-y-2">
-                <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[#533afd] dark:text-[#00d4ff]">
-                  <Sparkles className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff]" />
+              {/* Apprentice Role & Collaboration Box */}
+              <div className="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/50 dark:bg-blue-950/20 p-5 space-y-2">
+                <div className="flex items-center gap-2 font-poppins text-xs font-bold text-blue-700 dark:text-cyan-300">
+                  <Sparkles className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                   <span>Apprentice Role & Directed AI Collaboration</span>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                <p className="font-sans text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                   {item.myRoleNote}
                 </p>
               </div>
 
-              {/* Interactive Cesium Radar Canvas */}
+              {/* Interactive Cesium Sonar Demo */}
               {item.hasInteractiveDemo && (
                 <div className="pt-2">
                   <button
                     onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
-                    className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all flex items-center gap-2 active:scale-95 cursor-pointer"
+                    className="px-6 py-2.5 rounded-full anand-gradient-bg text-white font-poppins text-xs font-semibold shadow-sm hover:shadow-md transition-all flex items-center gap-2 active:scale-95 cursor-pointer"
                   >
                     <span>
                       {showDemoForId === item.id
-                        ? 'Close Tactical Sonar'
+                        ? 'Close Tactical Sonar Demo'
                         : 'Launch Live Cesium Tactical Sonar'}
                     </span>
                     {showDemoForId === item.id ? (
@@ -182,7 +175,7 @@ export const UpstreamSection: React.FC = () => {
                   </button>
 
                   {showDemoForId === item.id && (
-                    <div className="mt-4 rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#0a101d] p-3 shadow-lg">
+                    <div className="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-[#0b0f19] p-3 shadow-lg">
                       <SonarCanvas />
                     </div>
                   )}
@@ -194,50 +187,54 @@ export const UpstreamSection: React.FC = () => {
                 <div className="pt-1">
                   <button
                     onClick={() => setExpandedDiagnosticId(expandedDiagnosticId === item.id ? null : item.id)}
-                    className="px-4 py-2 rounded-full border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] hover:border-[#533afd] text-[#0d253d] dark:text-[#f8fafc] font-sans text-xs font-medium shadow-xs transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                    className="px-5 py-2.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-[#162032] hover:border-blue-500 dark:hover:border-cyan-400 text-slate-800 dark:text-slate-200 font-poppins text-xs font-semibold shadow-xs transition-all flex items-center gap-2 cursor-pointer active:scale-95"
                   >
-                    <Code2 className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff]" />
-                    <span>{expandedDiagnosticId === item.id ? 'Hide Root Cause & Diff' : 'Inspect Diagnostic Trace & Diff'}</span>
+                    <Code2 className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                    <span>
+                      {expandedDiagnosticId === item.id
+                        ? 'Hide Root Cause & Diff'
+                        : 'Inspect Diagnostic Trace & Diff'}
+                    </span>
                     {expandedDiagnosticId === item.id ? (
-                      <ChevronUp className="w-3.5 h-3.5 stroke-[2]" />
+                      <ChevronUp className="w-4 h-4 stroke-[2]" />
                     ) : (
-                      <ChevronDown className="w-3.5 h-3.5 stroke-[2]" />
+                      <ChevronDown className="w-4 h-4 stroke-[2]" />
                     )}
                   </button>
 
                   {expandedDiagnosticId === item.id && (
-                    <div className="mt-3 rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#0d253d]/40 p-5 space-y-4 animate-in fade-in duration-200">
+                    <div className="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0d1524] p-5 space-y-4">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-1">
-                          <div className="font-mono text-[10px] font-semibold text-rose-600 dark:text-rose-400 uppercase tracking-wider">
+                          <div className="font-mono text-[10px] font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">
                             HARDWARE SYMPTOM:
                           </div>
-                          <p className="font-sans text-xs text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                          <p className="font-sans text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                             {item.diagnostic.symptom}
                           </p>
                         </div>
                         <div className="space-y-1">
-                          <div className="font-mono text-[10px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                          <div className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
                             ROOT CAUSE TRACED:
                           </div>
-                          <p className="font-sans text-xs text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                          <p className="font-sans text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                             {item.diagnostic.rootCause}
                           </p>
                         </div>
                       </div>
 
-                      <div className="space-y-1 border-t border-[#e3e8ee] dark:border-white/5 pt-3">
-                        <div className="font-mono text-[10px] font-semibold text-[#533afd] dark:text-[#00d4ff] uppercase tracking-wider">
+                      <div className="space-y-1 border-t border-slate-200 dark:border-slate-800 pt-3">
+                        <div className="font-mono text-[10px] font-bold text-blue-600 dark:text-cyan-400 uppercase tracking-wider">
                           ARCHITECTURAL FIX:
                         </div>
-                        <p className="font-sans text-xs text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
+                        <p className="font-sans text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                           {item.diagnostic.fix}
                         </p>
                       </div>
 
                       {item.diagnostic.diffSnippet && (
-                        <div className="rounded-lg border border-black/10 dark:border-white/10 bg-[#0a101d] p-3 text-[11px] font-mono overflow-x-auto">
-                          <div className="text-slate-400 pb-1.5 mb-1.5 border-b border-white/10 text-[10px] flex items-center justify-between">
+                        <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-[#0b0f19] p-3 text-[11px] font-mono overflow-x-auto">
+                          <div className="text-slate-400 pb-1.5 mb-1.5 border-b border-slate-800 text-[10px] flex items-center justify-between">
                             <span>{item.diagnostic.diffSnippet.file}</span>
                             <span className="text-slate-400 font-sans">Unified Diff</span>
                           </div>
@@ -258,12 +255,12 @@ export const UpstreamSection: React.FC = () => {
                 </div>
               )}
 
-              {/* Bottom Tag Index */}
-              <div className="flex flex-wrap gap-2 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px]">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-0.5 rounded-full bg-[#f6f9fc] dark:bg-[#1e293b] text-[#64748d] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 font-medium tabular-nums"
+                    className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1f2937] text-slate-600 dark:text-slate-400 font-mono text-[11px] font-medium border border-slate-200 dark:border-slate-700"
                   >
                     #{tag}
                   </span>
@@ -272,6 +269,12 @@ export const UpstreamSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        <SectionFooter
+          phrase="Check out "
+          link="my skills!"
+          toAddress="#skills"
+        />
       </div>
     </section>
   );

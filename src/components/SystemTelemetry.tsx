@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Terminal, Cpu, HardDrive, Monitor, Layers, Copy, Check, Info } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
+import { SectionFooter } from './SectionFooter';
 import { SYSTEM_SPECS } from '../data/portfolioData';
 
 interface HistoryItem {
@@ -18,8 +20,8 @@ export const SystemTelemetry: React.FC = () => {
 
   const renderKkfetchAscii = () => (
     <div className="font-mono text-xs text-slate-200 py-1 leading-relaxed">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-        <div className="md:col-span-4 text-cyan-400 font-mono text-[11px] leading-tight select-none whitespace-pre bg-black/40 p-3 rounded-lg border border-white/[0.08]">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <div className="md:col-span-5 text-cyan-400 font-mono text-[11px] leading-tight select-none whitespace-pre bg-black/50 p-4 rounded-xl border border-slate-800">
 {`       .----------------.
       |      _   _       |
       |     | | / /      |
@@ -33,8 +35,8 @@ export const SystemTelemetry: React.FC = () => {
        [FEDORA 44 // KK]`}
         </div>
 
-        <div className="md:col-span-8 space-y-1 text-xs tabular-nums">
-          <div className="text-cyan-400 font-semibold border-b border-white/[0.08] pb-1 mb-1.5 flex items-center justify-between">
+        <div className="md:col-span-7 space-y-1.5 text-xs tabular-nums">
+          <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1 mb-2 flex items-center justify-between">
             <span>{SYSTEM_SPECS.user}@{SYSTEM_SPECS.host}</span>
             <span className="text-[10px] text-slate-400 font-normal">kkfetch v1.2 [Rust]</span>
           </div>
@@ -48,13 +50,13 @@ export const SystemTelemetry: React.FC = () => {
           <div><span className="text-slate-400 font-medium">GPU:</span> <span className="text-slate-200 ml-1.5">{SYSTEM_SPECS.gpu}</span></div>
           <div><span className="text-slate-400 font-medium">Memory:</span> <span className="text-slate-200 ml-1.5">{SYSTEM_SPECS.memory}</span></div>
 
-          <div className="flex gap-1 pt-1.5">
-            <span className="w-2.5 h-2.5 rounded-sm bg-slate-800" />
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#ea2261]" />
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#533afd]" />
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#ff9f43]" />
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#00d4ff]" />
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#7a5af8]" />
+          <div className="flex gap-1.5 pt-2">
+            <span className="w-3 h-3 rounded-sm bg-slate-700" />
+            <span className="w-3 h-3 rounded-sm bg-rose-500" />
+            <span className="w-3 h-3 rounded-sm bg-blue-500" />
+            <span className="w-3 h-3 rounded-sm bg-amber-500" />
+            <span className="w-3 h-3 rounded-sm bg-cyan-400" />
+            <span className="w-3 h-3 rounded-sm bg-violet-500" />
           </div>
         </div>
       </div>
@@ -89,8 +91,8 @@ export const SystemTelemetry: React.FC = () => {
             <div className="text-cyan-400 font-semibold">Active Codebases:</div>
             <div>* fedora-post-install (v5.5.7, 1600+ lines bash)</div>
             <div>* kkfetch (Rust microsecond system fetcher)</div>
-            <div>* kkpdf-zed (Native PDF document engine for Zed)</div>
-            <div>* dev-suite (Engineering standards and security auditing)</div>
+            <div>* cli-python-crud-project (Python CRUD file manager)</div>
+            <div>* 10-python-mini-projects (Terminal utilities suite)</div>
           </div>
         );
         break;
@@ -175,181 +177,195 @@ export const SystemTelemetry: React.FC = () => {
   };
 
   return (
-    <section id="system" className="py-20 md:py-24 border-b border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#0a101d] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Lab Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#533afd]/10 dark:bg-[#533afd]/20 border border-[#533afd]/20 text-xs font-mono font-semibold text-[#533afd] dark:text-[#a8c3de]">
-                <span className="w-2 h-2 rounded-full bg-[#533afd] dark:bg-[#00d4ff]" />
-                <span>BENCHMARK // WORKSTATION TELEMETRY</span>
-              </span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] tracking-[-0.03em] leading-tight max-w-3xl">
-              Workstation environment. Hardware specifications and microsecond fetch.
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] mt-3 max-w-2xl leading-relaxed">
-              Raw Linux workstation diagnostics on Fedora 44 with hybrid graphics, measured using kkfetch compiled in Rust with direct kernel procfs queries.
-            </p>
-          </div>
+    <section
+      id="system"
+      className="py-20 md:py-28 bg-white dark:bg-[#0b0f19] border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badge="WORKSTATION & HARDWARE TELEMETRY"
+          heading="Workstation &amp; Specs."
+          subHeading="Fedora 44 environment, hardware telemetry, and microsecond Rust fetcher."
+        />
 
-          {/* Stripe Pill Switcher */}
-          <div className="flex items-center gap-2 self-start lg:self-end">
-            <button
-              onClick={() => setActiveTab('specs')}
-              className={`px-5 py-2.5 rounded-full font-sans text-xs font-medium transition-all active:scale-95 ${
-                activeTab === 'specs'
-                  ? 'bg-[#533afd] text-white shadow-sm font-semibold'
-                  : 'bg-white dark:bg-[#0f172a] text-[#273951] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 hover:border-[#533afd]/40'
-              }`}
-            >
-              Structured Spec Sheet
-            </button>
-            <button
-              onClick={() => setActiveTab('terminal')}
-              className={`px-5 py-2.5 rounded-full font-sans text-xs font-medium transition-all active:scale-95 ${
-                activeTab === 'terminal'
-                  ? 'bg-[#533afd] text-white shadow-sm font-semibold'
-                  : 'bg-white dark:bg-[#0f172a] text-[#273951] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 hover:border-[#533afd]/40'
-              }`}
-            >
-              Interactive CLI Terminal
-            </button>
-          </div>
+        {/* Tab Switcher */}
+        <div className="flex items-center justify-center gap-3 mb-12">
+          <button
+            onClick={() => setActiveTab('specs')}
+            className={`px-6 py-2.5 rounded-full font-poppins text-xs font-semibold transition-all active:scale-95 cursor-pointer ${
+              activeTab === 'specs'
+                ? 'anand-gradient-bg text-white shadow-md'
+                : 'bg-slate-100 dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+            }`}
+          >
+            Structured Spec Sheet
+          </button>
+          <button
+            onClick={() => setActiveTab('terminal')}
+            className={`px-6 py-2.5 rounded-full font-poppins text-xs font-semibold transition-all active:scale-95 cursor-pointer ${
+              activeTab === 'terminal'
+                ? 'anand-gradient-bg text-white shadow-md'
+                : 'bg-slate-100 dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+            }`}
+          >
+            Interactive CLI Terminal
+          </button>
         </div>
 
         {activeTab === 'specs' ? (
           /* Structured Specs Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all">
+            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3 mb-4 font-mono text-xs">
-                  <span className="flex items-center gap-2 text-[#0d253d] dark:text-[#f8fafc] font-semibold">
-                    <Monitor className="w-4 h-4 text-[#533afd] dark:text-[#00d4ff]" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+                    <Monitor className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                     SPEC 01 // PLATFORM
                   </span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8]">OS</span>
+                  <span className="text-slate-500 dark:text-slate-400">OS</span>
                 </div>
-                <div className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">{SYSTEM_SPECS.os}</div>
-                <div className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8] tabular-nums">{SYSTEM_SPECS.kernel}</div>
+                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                  {SYSTEM_SPECS.os}
+                </div>
+                <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
+                  {SYSTEM_SPECS.kernel}
+                </div>
               </div>
-              <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8] tabular-nums">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-500 dark:text-slate-400 tabular-nums">
                 Host: {SYSTEM_SPECS.host}
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all">
+            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3 mb-4 font-mono text-xs">
-                  <span className="flex items-center gap-2 text-[#0d253d] dark:text-[#f8fafc] font-semibold">
-                    <Cpu className="w-4 h-4 text-[#533afd] dark:text-[#00d4ff]" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+                    <Cpu className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                     SPEC 02 // COMPUTE
                   </span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8]">CPU</span>
+                  <span className="text-slate-500 dark:text-slate-400">CPU</span>
                 </div>
-                <div className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">{SYSTEM_SPECS.cpu}</div>
-                <div className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8] tabular-nums">6 Cores / 12 Threads (Zen 3)</div>
+                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                  {SYSTEM_SPECS.cpu}
+                </div>
+                <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
+                  6 Cores / 12 Threads (Zen 3)
+                </div>
               </div>
-              <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8]">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-500 dark:text-slate-400">
                 Architecture: x86_64
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all">
+            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3 mb-4 font-mono text-xs">
-                  <span className="flex items-center gap-2 text-[#0d253d] dark:text-[#f8fafc] font-semibold">
-                    <Layers className="w-4 h-4 text-[#533afd] dark:text-[#00d4ff]" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+                    <Layers className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                     SPEC 03 // GRAPHICS
                   </span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8]">GPU</span>
+                  <span className="text-slate-500 dark:text-slate-400">GPU</span>
                 </div>
-                <div className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">Hybrid MUXless GPU</div>
-                <div className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8]">{SYSTEM_SPECS.gpu}</div>
+                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                  Hybrid MUXless GPU
+                </div>
+                <div className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                  {SYSTEM_SPECS.gpu}
+                </div>
               </div>
-              <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8]">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-500 dark:text-slate-400">
                 Compositor: Wayland
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all">
+            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3 mb-4 font-mono text-xs">
-                  <span className="flex items-center gap-2 text-[#0d253d] dark:text-[#f8fafc] font-semibold">
-                    <HardDrive className="w-4 h-4 text-[#533afd] dark:text-[#00d4ff]" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+                    <HardDrive className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                     SPEC 04 // MEMORY
                   </span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8]">RAM</span>
+                  <span className="text-slate-500 dark:text-slate-400">RAM</span>
                 </div>
-                <div className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">{SYSTEM_SPECS.memory}</div>
-                <div className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8] tabular-nums">System Uptime: {SYSTEM_SPECS.uptime}</div>
+                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                  {SYSTEM_SPECS.memory}
+                </div>
+                <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
+                  System Uptime: {SYSTEM_SPECS.uptime}
+                </div>
               </div>
-              <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8] tabular-nums">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-500 dark:text-slate-400 tabular-nums">
                 Packages: {SYSTEM_SPECS.packages}
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all">
+            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3 mb-4 font-mono text-xs">
-                  <span className="flex items-center gap-2 text-[#0d253d] dark:text-[#f8fafc] font-semibold">
-                    <Terminal className="w-4 h-4 text-[#533afd] dark:text-[#00d4ff]" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+                    <Terminal className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                     SPEC 05 // ENVIRONMENT
                   </span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8]">SHELL</span>
+                  <span className="text-slate-500 dark:text-slate-400">SHELL</span>
                 </div>
-                <div className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">{SYSTEM_SPECS.shell}</div>
-                <div className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8]">{SYSTEM_SPECS.terminal}</div>
+                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                  {SYSTEM_SPECS.shell}
+                </div>
+                <div className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                  {SYSTEM_SPECS.terminal}
+                </div>
               </div>
-              <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8]">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-500 dark:text-slate-400">
                 Automation: Bash Suite
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all">
+            <div className="anand-card p-6 bg-white dark:bg-[#111827] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3 mb-4 font-mono text-xs">
-                  <span className="flex items-center gap-2 text-[#0d253d] dark:text-[#f8fafc] font-semibold">
-                    <Info className="w-4 h-4 text-[#533afd] dark:text-[#00d4ff]" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4 font-mono text-xs">
+                  <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+                    <Info className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                     SPEC 06 // TOOLCHAIN
                   </span>
-                  <span className="text-[#64748d] dark:text-[#94a3b8]">IDE</span>
+                  <span className="text-slate-500 dark:text-slate-400">IDE</span>
                 </div>
-                <div className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1 tracking-tight">{SYSTEM_SPECS.editor}</div>
-                <div className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8] tabular-nums">Rust 1.85 / GCC 15 / Node 22</div>
+                <div className="font-poppins text-xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
+                  {SYSTEM_SPECS.editor}
+                </div>
+                <div className="font-mono text-xs text-slate-500 dark:text-slate-400 tabular-nums">
+                  Rust 1.85 / GCC 15 / Node 22
+                </div>
               </div>
 
               <button
                 onClick={copySpecs}
-                className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/5 inline-flex items-center justify-between font-mono text-xs font-semibold text-[#533afd] dark:text-[#00d4ff] hover:opacity-80 transition-opacity"
+                className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 inline-flex items-center justify-between font-mono text-xs font-semibold text-blue-600 dark:text-cyan-400 hover:opacity-80 transition-opacity cursor-pointer"
               >
                 <span>{copied ? 'Specs copied to clipboard' : 'Copy specification text'}</span>
-                {copied ? <Check className="w-4 h-4 text-[#533afd] stroke-[2.5]" /> : <Copy className="w-4 h-4" />}
+                {copied ? <Check className="w-4 h-4 text-emerald-500 stroke-[2.5]" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
           </div>
         ) : (
-          /* Stripe Dark Code Well Terminal */
-          <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#0d253d] dark:bg-[#080b11] text-white shadow-xl overflow-hidden">
-            {/* Window header bar */}
-            <div className="flex items-center justify-between px-6 py-3.5 border-b border-white/10 bg-[#0a1b2d] dark:bg-[#05080d]">
+          /* Anand-styled CLI Terminal Window */
+          <div className="rounded-2xl border border-slate-800 bg-[#0b0f19] text-white shadow-2xl overflow-hidden max-w-4xl mx-auto">
+            {/* Window header */}
+            <div className="flex items-center justify-between px-6 py-3.5 border-b border-slate-800 bg-[#0d1524]">
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-                <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                <span className="font-mono text-xs text-slate-400 ml-2">
-                  victus-station / kkfetch-bench
+                <span className="w-3 h-3 rounded-full bg-red-500 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-yellow-500 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-green-500 inline-block" />
+                <span className="font-mono text-xs text-slate-400 ml-2 font-medium">
+                  victus-station / kkfetch-telemetry
                 </span>
               </div>
 
-              {/* Quick action chips */}
               <div className="flex items-center gap-2">
                 {['kkfetch', 'upstream', 'projects', 'clear'].map((cmd) => (
                   <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}
-                    className="px-3 py-1 rounded-full bg-white/10 hover:bg-[#533afd] text-slate-300 hover:text-white text-[11px] font-mono font-medium transition-colors"
+                    className="px-3 py-1 rounded-full bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white text-[11px] font-mono font-medium transition-colors cursor-pointer"
                   >
                     {cmd}
                   </button>
@@ -357,47 +373,53 @@ export const SystemTelemetry: React.FC = () => {
               </div>
             </div>
 
-            {/* Scrollable body with locked window position */}
+            {/* Scrollable body with locked window */}
             <div
               ref={terminalScrollRef}
-              className="p-6 h-80 overflow-y-auto space-y-4 font-mono text-xs bg-[#0d253d] dark:bg-[#080b11]"
+              className="p-6 h-80 overflow-y-auto space-y-4 font-mono text-xs bg-[#0b0f19]"
             >
               {history.map((item, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex items-center gap-2 text-slate-400">
-                    <span className="text-[#00d4ff] font-semibold">kk376@victus</span>
-                    <span className="text-slate-500">:</span>
-                    <span className="text-[#a8c3de]">~</span>
-                    <span className="text-slate-500">$</span>
+                    <span className="text-cyan-400 font-bold">kk376@victus</span>
+                    <span className="text-slate-600">:</span>
+                    <span className="text-blue-400">~</span>
+                    <span className="text-slate-600">$</span>
                     <span className="text-white font-medium">{item.command}</span>
                   </div>
                   <div className="pl-3">{item.output}</div>
                 </div>
               ))}
 
-              {/* Active input line */}
+              {/* Input row */}
               <div className="flex items-center gap-2 text-slate-400 pt-1">
-                <span className="text-[#00d4ff] font-semibold">kk376@victus</span>
-                <span className="text-slate-500">:</span>
-                <span className="text-[#a8c3de]">~</span>
-                <span className="text-slate-500">$</span>
+                <span className="text-cyan-400 font-bold">kk376@victus</span>
+                <span className="text-slate-600">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-slate-600">$</span>
                 <input
                   type="text"
                   value={inputVal}
                   onChange={(e) => setInputVal(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="type 'help' or click a command pill above..."
-                  className="flex-1 bg-transparent text-white outline-none border-none p-0 focus:ring-0 font-mono text-xs placeholder:text-slate-500"
+                  className="flex-1 bg-transparent text-white outline-none border-none p-0 focus:ring-0 font-mono text-xs placeholder:text-slate-600"
                 />
               </div>
             </div>
 
-            <div className="px-6 py-3 border-t border-white/10 text-[11px] font-mono text-slate-400 flex items-center justify-between bg-[#0a1b2d] dark:bg-[#05080d]">
+            <div className="px-6 py-3 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between bg-[#0d1524]">
               <span>Press Enter to execute</span>
               <span className="text-cyan-400 font-medium">Isolated Viewport (No Page Jump)</span>
             </div>
           </div>
         )}
+
+        <SectionFooter
+          phrase="Get in "
+          link="touch."
+          toAddress="#contact"
+        />
       </div>
     </section>
   );

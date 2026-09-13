@@ -1,111 +1,199 @@
-import React from 'react';
-import { Star, ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, Star } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
+import { SectionFooter } from './SectionFooter';
 import { FLAGSHIP_PROJECTS } from '../data/portfolioData';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const ProjectsSection: React.FC = () => {
-  return (
-    <section id="projects" className="py-20 md:py-24 border-b border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#0a101d] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#533afd]/10 dark:bg-[#533afd]/20 border border-[#533afd]/20 text-xs font-mono font-semibold text-[#533afd] dark:text-[#a8c3de]">
-                <span className="w-2 h-2 rounded-full bg-[#533afd] dark:bg-[#00d4ff]" />
-                <span>CODE REPOSITORIES // TOOLING</span>
-              </span>
+  const [filter, setFilter] = useState<'all' | 'linux' | 'systems' | 'python'>('all');
+
+  const filteredProjects = FLAGSHIP_PROJECTS.filter((proj) => {
+    if (filter === 'all') return true;
+    return proj.category === filter;
+  });
+
+  const getProjectPreview = (id: string) => {
+    switch (id) {
+      case 'fedora-post-install':
+        return (
+          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
+              <span className="text-cyan-400">setup.sh (v5.5.7)</span>
+              <span>1,600+ lines bash</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] tracking-[-0.03em] leading-tight max-w-3xl">
-              Engineered codebases. Automation suites, systems fetchers, and document tools.
-            </h2>
+            <p className="text-emerald-400">$ ./setup.sh --verify-checksums</p>
+            <p className="text-slate-400">[INFO] RPM Fusion non-free: verified</p>
+            <p className="text-slate-400">[INFO] Zed editor & btop: configured</p>
+            <p className="text-cyan-400">[OK] Fedora Workstation hardened</p>
           </div>
-          <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] max-w-md leading-relaxed">
-            A catalog of self-directed projects created to eliminate workstation friction on Fedora Linux, test low-level system APIs, and explore native application extensions.
-          </p>
+        );
+      case 'kkfetch':
+        return (
+          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
+              <span className="text-cyan-400">kkfetch (Rust 1.85)</span>
+              <span>0.8 µs latency</span>
+            </div>
+            <p className="text-cyan-400">kk376@victus-station</p>
+            <p className="text-slate-400">OS: Fedora 44 (Workstation Edition)</p>
+            <p className="text-slate-400">Kernel: Linux 6.14.0-rc5-x86_64</p>
+            <p className="text-emerald-400">Procfs Query: direct memory parsing</p>
+          </div>
+        );
+      case 'cli-python-crud-project':
+        return (
+          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
+              <span className="text-cyan-400">manager.py (pathlib)</span>
+              <span>CRUD Architecture</span>
+            </div>
+            <p className="text-amber-400">&gt;&gt;&gt; file_manager.create_record()</p>
+            <p className="text-slate-400">[1] Create [2] Read [3] Update [4] Delete</p>
+            <p className="text-emerald-400">[SUCCESS] Record written to disk safely</p>
+          </div>
+        );
+      default:
+        return (
+          <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-slate-800 space-y-1.5 overflow-hidden">
+            <div className="flex items-center justify-between text-slate-500 pb-1.5 border-b border-slate-800">
+              <span className="text-cyan-400">Python Suite</span>
+              <span>10 Mini Applications</span>
+            </div>
+            <p className="text-blue-400">&gt; Expense Tracker &amp; Budgeting</p>
+            <p className="text-slate-400">&gt; Student Grade Management System</p>
+            <p className="text-emerald-400">&gt; Password Entropy &amp; Contact Book</p>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <section
+      id="projects"
+      className="py-20 md:py-28 bg-white dark:bg-[#0b0f19] border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badge="PORTFOLIO WORK"
+          heading="My Projects."
+          subHeading="Here are a few cool codebases and tools I have engineered, do check them out!"
+        />
+
+        {/* Filter Chips */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {[
+            { label: 'All Projects', value: 'all' },
+            { label: 'Linux Automation', value: 'linux' },
+            { label: 'Systems & Rust', value: 'systems' },
+            { label: 'Python Tooling', value: 'python' },
+          ].map((item) => (
+            <button
+              key={item.value}
+              onClick={() => setFilter(item.value as typeof filter)}
+              className={`px-5 py-2 rounded-full font-poppins text-xs font-semibold transition-all active:scale-95 cursor-pointer ${
+                filter === item.value
+                  ? 'anand-gradient-bg text-white shadow-md'
+                  : 'bg-slate-100 dark:bg-[#162032] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
 
-        {/* 2x2 Stripe Precision Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {FLAGSHIP_PROJECTS.map((project, idx) => (
+        {/* Anand Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
+              className="anand-card p-6 sm:p-8 bg-white dark:bg-[#111827] flex flex-col justify-between"
             >
-              <div>
-                {/* Plate Top Bar */}
-                <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-4 mb-5">
-                  <div className="flex items-center gap-2 font-mono text-xs">
-                    <span className="text-[#64748d] dark:text-[#94a3b8] tabular-nums">0{idx + 1}</span>
-                    <span className="text-[#64748d]/40 dark:text-white/20">/</span>
-                    <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">
-                      kk376/{project.id}
+              <div className="space-y-5">
+                {/* Visual Preview Header */}
+                <div className="rounded-xl overflow-hidden shadow-inner">
+                  {getProjectPreview(project.id)}
+                </div>
+
+                {/* Card Title & Tagline */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-mono text-xs font-semibold text-blue-600 dark:text-cyan-400">
+                      PROJECT 0{idx + 1}
+                    </span>
+                    <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-cyan-300 border border-blue-200 dark:border-blue-900/50">
+                      {project.highlightMetric}
                     </span>
                   </div>
 
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#533afd]/10 text-[#533afd] dark:text-[#b9b9f9] border border-[#533afd]/20 font-mono text-[11px] font-semibold tabular-nums">
-                    {project.highlightMetric}
-                  </span>
+                  <h3 className="font-poppins text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                    {project.title}
+                  </h3>
+                  <p className="font-montserrat text-xs sm:text-sm font-medium text-blue-600 dark:text-cyan-400 mt-0.5">
+                    {project.tagline}
+                  </p>
                 </div>
 
-                {/* Project Title */}
-                <h3 className="font-display text-2xl font-medium text-[#0d253d] dark:text-[#f8fafc] mb-1.5 tracking-tight">
-                  {project.title}
-                </h3>
-                <div className="font-mono text-xs text-[#533afd] dark:text-[#00d4ff] font-medium mb-4">
-                  {project.tagline}
-                </div>
-
-                {/* Project Description */}
-                <p className="font-sans text-sm text-[#64748d] dark:text-[#94a3b8] leading-relaxed mb-5">
+                {/* Description */}
+                <p className="font-sans text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Engineering Context Box */}
-                <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#1e293b]/60 p-4 text-xs text-[#273951] dark:text-[#cbd5e1] mb-6 leading-relaxed">
-                  <span className="font-mono font-semibold uppercase text-[10px] text-[#533afd] dark:text-[#00d4ff] block mb-1">
+                {/* Engineering Context Note */}
+                <div className="bg-slate-50 dark:bg-[#162032] p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                  <span className="font-mono font-bold text-[10px] text-blue-600 dark:text-cyan-400 uppercase tracking-wider block mb-1">
                     ENGINEERING CONTEXT:
                   </span>
-                  {idx === 0 && 'Authored to completely automate fresh Fedora Workstation setups, configuring RPM Fusion, Zed editor, Flatpaks, and security checksum validation.'}
-                  {idx === 1 && 'Engineered in Rust using raw Linux kernel procfs parsing and ioctl calls for microsecond telemetry without external process spawns.'}
-                  {idx === 2 && 'Developed native document viewer integration for Zed editor on Linux Wayland environments.'}
-                  {idx === 3 && 'Comprehensive engineering standards, zero-trust security invariants, and automated pre-push audit tooling.'}
+                  {project.id === 'fedora-post-install' &&
+                    'Created to automate fresh Fedora Workstation setups, configuring verified checksum downloads, btop, Zed editor, and Flatpak isolation.'}
+                  {project.id === 'kkfetch' &&
+                    'Engineered in Rust with direct Linux kernel procfs parsing and ioctl calls, achieving sub-millisecond execution without subshells.'}
+                  {project.id === 'cli-python-crud-project' &&
+                    'Engineered with modern Python pathlib, comprehensive input sanitation, and graceful exception handling.'}
+                  {project.id === 'mini-projects-collection' &&
+                    'Ten standalone terminal utilities covering budgeting calculations, password entropy analysis, and student databases.'}
                 </div>
 
-                {/* Technical Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-1">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-0.5 rounded-full bg-[#f6f9fc] dark:bg-[#1e293b] font-mono text-[10px] text-[#64748d] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 font-medium tabular-nums"
+                      className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1f2937] text-slate-600 dark:text-slate-300 font-mono text-[11px] font-medium border border-slate-200 dark:border-slate-700"
                     >
-                      {tag}
+                      #{tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Bottom Action Wire */}
-              <div className="pt-4 border-t border-[#e3e8ee] dark:border-white/5 flex items-center justify-between">
+              {/* Bottom Action Links */}
+              <div className="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <a
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all flex items-center gap-2 active:scale-95"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full anand-gradient-bg text-white font-poppins text-xs font-semibold shadow-sm hover:shadow-md hover:scale-105 transition-all active:scale-95 cursor-pointer"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
-                  <span>Repository</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <GithubIcon className="w-4 h-4" />
+                  <span>View Source</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
                 </a>
 
-                <div className="font-mono text-[11px] text-[#64748d] dark:text-[#94a3b8] flex items-center gap-1.5 font-medium">
-                  <Star className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff] fill-[#533afd] dark:fill-[#00d4ff]" />
-                  <span>OPEN SOURCE</span>
+                <div className="flex items-center gap-1.5 font-mono text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                  <span>Open Source</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        <SectionFooter
+          phrase="Check out "
+          link="upstream dispatches!"
+          toAddress="#upstream"
+        />
       </div>
     </section>
   );
