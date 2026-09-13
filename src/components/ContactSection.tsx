@@ -81,7 +81,7 @@ export const ContactSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Info Column */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="greg-card p-6 sm:p-8">
+          <div className="portfolio-card p-6 sm:p-8">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
               Let's talk about everything!
             </h3>
@@ -143,7 +143,7 @@ export const ContactSection: React.FC = () => {
 
         {/* Right Form Column */}
         <div className="lg:col-span-7">
-          <div className="greg-card p-6 sm:p-8">
+          <div className="portfolio-card p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-6 text-slate-900 dark:text-white font-bold text-lg">
               <MessageSquare className="w-5 h-5 text-[var(--accent-primary)]" />
               <span>Send Me a Message</span>

@@ -11,7 +11,7 @@ export const AboutSection: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16">
         {/* Left Column: Avatar Profile Card */}
         <div className="md:col-span-4 flex flex-col items-center">
-          <div className="w-full max-w-[260px] greg-card p-5 flex flex-col items-center text-center">
+          <div className="w-full max-w-[260px] portfolio-card p-5 flex flex-col items-center text-center">
             <div className="w-36 h-36 rounded-full overflow-hidden mb-4 shadow-lg border-4 border-white dark:border-[#252538]">
               <img
                 src={avatarImg}
@@ -34,7 +34,7 @@ export const AboutSection: React.FC = () => {
 
         {/* Right Column: Bio speech container + Domain Focus */}
         <div className="md:col-span-8">
-          <div className="greg-card p-6 sm:p-8">
+          <div className="portfolio-card p-6 sm:p-8">
             <p className="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed mb-4">
               Hello! I am Kushagra, based in Jaipur, India. I completed my Bachelor of Computer Applications (BCA) with 8.2 CGPA (3.28 / 4.0 GPA) Distinction from Suresh Gyan Vihar University in 2022.
             </p>
@@ -79,7 +79,7 @@ export const AboutSection: React.FC = () => {
 
       {/* 3 Clean Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-        <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
+        <div className="portfolio-card p-6 text-center flex flex-col items-center justify-center">
           <FileCode className="w-8 h-8 text-[var(--accent-primary)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
             1,600+
@@ -89,7 +89,7 @@ export const AboutSection: React.FC = () => {
           </span>
         </div>
 
-        <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
+        <div className="portfolio-card p-6 text-center flex flex-col items-center justify-center">
           <Terminal className="w-8 h-8 text-[var(--accent-secondary)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
             3
@@ -99,7 +99,7 @@ export const AboutSection: React.FC = () => {
           </span>
         </div>
 
-        <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
+        <div className="portfolio-card p-6 text-center flex flex-col items-center justify-center">
           <Award className="w-8 h-8 text-[var(--accent-peach)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
             8.2

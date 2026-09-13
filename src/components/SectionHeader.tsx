@@ -9,7 +9,7 @@ interface SectionHeaderProps {
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ id, title, subtitle }) => {
   return (
     <div id={id} className="text-center mb-14">
-      <h2 className="greg-section-title relative inline-block">
+      <h2 className="portfolio-section-title relative inline-block">
         {title}
         {/* Signature decorative dots */}
         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">

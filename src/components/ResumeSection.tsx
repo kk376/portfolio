@@ -79,7 +79,7 @@ export const ResumeSection: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Education Timeline */}
-        <div className="greg-card p-6 sm:p-8">
+        <div className="portfolio-card p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-white/5">
             <div className="w-10 h-10 rounded-xl bg-[var(--accent-secondary)]/10 dark:bg-[var(--accent-secondary)]/20 flex items-center justify-center text-[var(--accent-secondary)]">
               <GraduationCap className="w-6 h-6" />
@@ -128,7 +128,7 @@ export const ResumeSection: React.FC = () => {
         </div>
 
         {/* Experience & Upstream Timeline */}
-        <div className="greg-card p-6 sm:p-8">
+        <div className="portfolio-card p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-white/5">
             <div className="w-10 h-10 rounded-xl bg-[var(--accent-primary)]/10 dark:bg-[var(--accent-primary)]/20 flex items-center justify-center text-[var(--accent-primary)]">
               <Briefcase className="w-6 h-6" />

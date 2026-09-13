@@ -146,7 +146,7 @@ export const ProjectsSection: React.FC = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="greg-card p-6 flex flex-col justify-between group"
+            className="portfolio-card p-6 flex flex-col justify-between group"
           >
             <div>
               {/* Header: Tag + Badge */}

@@ -46,7 +46,7 @@ export const Hero: React.FC = () => {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-4 text-center overflow-hidden"
     >
-      {/* Greg Floating Shapes */}
+      {/* Ambient Floating Shapes */}
       <Shapes />
 
       {/* Soft Catppuccin Ambient Backdrop Glow */}

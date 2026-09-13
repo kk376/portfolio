@@ -126,8 +126,8 @@ const PortfolioContent: React.FC = () => {
       <main className="min-h-screen">
         <Hero />
         <AboutSection />
-        <SkillsSection />
         <ServicesSection />
+        <SkillsSection />
         <ResumeSection />
         <ProjectsSection />
         <UpstreamSection />

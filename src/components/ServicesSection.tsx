@@ -61,7 +61,7 @@ export const ServicesSection: React.FC = () => {
         {services.map((service) => (
           <div
             key={service.id}
-            className="greg-card p-7 flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300"
+            className="portfolio-card p-7 flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300"
             style={{
               borderBottom: `4px solid ${service.accentColor}`,
             }}

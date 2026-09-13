@@ -90,7 +90,7 @@ export const UpstreamSection: React.FC = () => {
         {filtered.map((item, idx) => (
           <div
             key={item.id}
-            className="greg-card p-6 sm:p-8 space-y-6"
+            className="portfolio-card p-6 sm:p-8 space-y-6"
           >
             {/* Header Bar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-white/5 pb-4">
