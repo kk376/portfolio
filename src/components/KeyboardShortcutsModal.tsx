@@ -16,7 +16,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
 
   if (!isOpen) return null;
 
-  const prSnippet = `- [Kushagra Kumar](https://kk376.github.io) [Apprentice Software Engineer | Linux Systems Automation & Frontend]`;
+  const prSnippet = `- [Kushagra Kumar](https://kk376.github.io) [Frontend Developer | Linux Systems & Open Source]`;
 
   const copyDirectoryPrLine = () => {
     navigator.clipboard.writeText(prSnippet);

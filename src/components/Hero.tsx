@@ -6,11 +6,11 @@ import { Shapes } from './Shapes';
 import avatarImg from '../assets/github_avatar.jpg';
 
 const phrases = [
-  'Apprentice Software Engineer',
   'Frontend & React Learner',
   'Linux Systems Explorer',
   'Upstream Contributor',
-  'AI Pair-Programmer',
+  'Python & SQL Developer',
+  'Open Source Enthusiast',
 ];
 
 export const Hero: React.FC = () => {

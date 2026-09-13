@@ -134,7 +134,7 @@ export const Sidebar: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-xs text-slate-400">
-              <span>Apprentice Engineer</span>
+              <span>Frontend Developer</span>
               <span>© 2026 kk376</span>
             </div>
           </aside>

@@ -19,7 +19,7 @@ const skills: SkillBar[] = [
 export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-20 px-4 max-w-5xl mx-auto">
-      <SectionHeader title="About Me" subtitle="Apprentice software engineer grounded in web fundamentals and Linux systems" />
+      <SectionHeader title="About Me" subtitle="Frontend learner grounded in web fundamentals, open source, and Linux systems" />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16">
         {/* Left Column: Avatar Profile Card */}
@@ -36,7 +36,7 @@ export const AboutSection: React.FC = () => {
               Kushagra Kumar
             </h3>
             <p className="text-xs font-semibold text-[#FF4C60] mb-3">
-              Apprentice Engineer
+              Frontend Developer
             </p>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 text-xs font-medium border border-emerald-200 dark:border-emerald-800/40">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

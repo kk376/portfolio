@@ -138,11 +138,11 @@ export const UpstreamSection: React.FC = () => {
               {item.summary}
             </p>
 
-            {/* Apprentice Role Box */}
+            {/* Contribution Context Box */}
             <div className="rounded-2xl border border-rose-100 dark:border-rose-950/40 bg-rose-50/40 dark:bg-rose-950/15 p-5 space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-[#FF4C60]">
                 <Sparkles className="w-4 h-4 text-[#FF4C60]" />
-                <span>Apprentice Role &amp; Directed AI Collaboration</span>
+                <span>Engineering Workflow &amp; AI Collaboration</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                 {item.myRoleNote}
