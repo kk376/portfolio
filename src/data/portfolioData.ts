@@ -248,7 +248,7 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     tags: ['Rust', 'CLI Tool', 'Linux Kernel', 'Memory Safety'],
     repoUrl: 'https://github.com/kk376/kkfetch',
     badge: 'Fast CLI',
-    highlightMetric: '< 1.8ms Execution',
+    highlightMetric: '5.6x Faster than Fastfetch',
     accentColor: 'cyan',
     starsCount: 18,
   },
@@ -293,6 +293,6 @@ export const SYSTEM_SPECS: SystemSpec = {
   terminal: 'ghostty 1.3.1',
   cpu: 'AMD Ryzen 5 7535HS (6c 12t) @ 3.84 GHz',
   gpu: 'NVIDIA GeForce RTX 2050 (4 GiB) / AMD Radeon 680M',
-  memory: '9.88 GiB / 14.82 GiB (67%)',
+  memory: '3.76 GiB / 14.82 GiB (25%)',
   editor: 'Zed Editor / VS Code',
 };

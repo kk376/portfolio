@@ -34,7 +34,7 @@ export const ProjectsSection: React.FC = () => {
               <span className="text-[#08D9D6] font-bold">kkfetch --bench</span>
               <span>Rust Procfs</span>
             </div>
-            <p className="text-slate-400">Execution time: 0.8ms</p>
+            <p className="text-slate-400">Benchmark: 5.6x faster than fastfetch</p>
             <p className="text-[#FF4C60]">Kernel: Linux 6.14.0-rc5</p>
             <p className="text-[#FFD15C]">CPU: AMD Ryzen 5 7535HS (12)</p>
             <p className="text-[#38EF7D]">GPU State: D3cold preserved</p>

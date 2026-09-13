@@ -22,6 +22,15 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email || !formData.message) return;
+
+    const subject = encodeURIComponent(
+      formData.subject.trim() || `Portfolio inquiry from ${formData.name.trim() || 'Visitor'}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.name.trim()}\nEmail: ${formData.email.trim()}\n\nMessage:\n${formData.message.trim()}`
+    );
+    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
+
     setFormSubmitted(true);
     setTimeout(() => {
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -180,11 +189,14 @@ export const ContactSection: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="btn-coral w-full py-3.5 flex items-center justify-center gap-2"
+                  className="btn-coral w-full py-3.5 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message</span>
                 </button>
+                <p className="text-[11px] text-center text-slate-500 dark:text-slate-400">
+                  Pre-fills your message in your default email client addressed to {PERSONAL_INFO.email}
+                </p>
               </form>
             )}
           </div>

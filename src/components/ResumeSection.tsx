@@ -53,7 +53,7 @@ const experienceData: TimelineItem[] = [
       'Configured dedicated Linux development workstation (Fedora 44, AMD Ryzen 5, NVIDIA RTX 2050 Mobile). Engineered modular shell provisioning suites and authored system telemetry tools while solidifying the foundation for full-time software engineering.',
     highlights: [
       'Engineered 1,600+ lines of modular Bash workstation provisioning',
-      'Authored sub-millisecond Rust kernel telemetry fetcher (kkfetch)',
+      'Authored high-performance Rust kernel telemetry fetcher (kkfetch, 5.6x faster than Fastfetch)',
     ],
   },
   {

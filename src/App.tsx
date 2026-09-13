@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Command } from 'lucide-react';
 import { ThemeProvider } from './context/ThemeContext';
 import { useTheme } from './hooks/useTheme';
 import { Sidebar } from './components/Sidebar';
@@ -87,7 +88,11 @@ const PortfolioContent: React.FC = () => {
 
       const key = e.key.toLowerCase();
 
-      if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+      if (
+        e.key === '?' ||
+        (e.shiftKey && e.key === '/') ||
+        ((e.metaKey || e.ctrlKey) && key === 'k')
+      ) {
         e.preventDefault();
         setShortcutsOpen((prev) => !prev);
       } else if (e.key === 'Escape') {
@@ -133,15 +138,22 @@ const PortfolioContent: React.FC = () => {
       <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2">
         <button
           onClick={() => setShortcutsOpen(true)}
-          className="group px-3.5 py-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/95 dark:bg-[#252536]/95 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:border-[#FF4C60] text-xs font-mono transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
-          title="Press ? for keyboard shortcuts"
+          className="group relative px-3.5 py-2 rounded-full border border-slate-200/90 dark:border-white/10 bg-white/90 dark:bg-[#252536]/90 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:border-[#FF4C60]/60 hover:shadow-lg hover:shadow-[#FF4C60]/10 transition-all duration-200 shadow-md flex items-center gap-2.5 cursor-pointer active:scale-95"
+          title="Keyboard Shortcuts (Press ? or ⌘K)"
+          aria-label="Open keyboard shortcuts modal"
         >
-          <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#1E1E28] border border-slate-200 dark:border-white/10 font-mono text-[10px] font-bold text-[#FF4C60]">
-            ?
-          </kbd>
-          <span className="text-[11px] font-bold group-hover:text-[#FF4C60]">
+          <div className="flex items-center gap-1.5">
+            <span className="flex items-center justify-center w-5 h-5 rounded-md bg-[#FF4C60]/10 text-[#FF4C60] border border-[#FF4C60]/20 group-hover:bg-[#FF4C60] group-hover:text-white transition-colors duration-200 shadow-xs">
+              <Command className="w-3 h-3 stroke-[2.5]" />
+            </span>
+            <kbd className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-[#181824] border border-slate-200 dark:border-white/10 text-[10px] font-mono font-bold text-slate-600 dark:text-slate-300 shadow-xs group-hover:border-[#FF4C60]/40 group-hover:text-[#FF4C60] transition-colors">
+              ?
+            </kbd>
+          </div>
+          <span className="text-[11px] font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-[#FF4C60] transition-colors">
             Shortcuts
           </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" title="Keyboard navigation active" />
         </button>
       </div>
 
