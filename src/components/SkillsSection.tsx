@@ -62,9 +62,12 @@ const techSkills: TechSkill[] = [
   },
 ];
 
+const marqueeCards = [
+  ...techSkills.map((s) => Object.assign({ trackId: `primary-${s.name}` }, s)),
+  ...techSkills.map((s) => Object.assign({ trackId: `clone-${s.name}` }, s)),
+];
+
 export const SkillsSection: React.FC = () => {
-  // Duplicate array to enable continuous seamless horizontal loop
-  const marqueeCards = [...techSkills, ...techSkills];
 
   return (
     <section id="skills" className="py-20 px-4 max-w-6xl mx-auto overflow-hidden">
@@ -81,9 +84,9 @@ export const SkillsSection: React.FC = () => {
 
         {/* Continuous Animated Track */}
         <div className="skills-marquee-track gap-5 flex items-center">
-          {marqueeCards.map((skill, index) => (
+          {marqueeCards.map((skill) => (
             <div
-              key={`${skill.name}-${index}`}
+              key={skill.trackId}
               className="w-72 sm:w-80 shrink-0 p-5 rounded-2xl border border-slate-200/80 dark:border-white/5 bg-white dark:bg-[#252538] shadow-sm hover:shadow-md hover:border-[var(--accent-primary)]/60 transition-all duration-300 group select-none flex flex-col justify-between"
               style={{
                 borderBottom: `3px solid ${skill.accent}`,

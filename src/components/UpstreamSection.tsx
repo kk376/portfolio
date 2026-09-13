@@ -224,13 +224,13 @@ export const UpstreamSection: React.FC = () => {
                           <span>{item.diagnostic.diffSnippet.file}</span>
                           <span className="text-slate-400 font-sans">Unified Diff</span>
                         </div>
-                        {item.diagnostic.diffSnippet.removed?.map((line, lIdx) => (
-                          <div key={`rem-${lIdx}`} className="text-rose-400 bg-rose-500/10 px-1 py-0.5 rounded select-all">
+                        {item.diagnostic.diffSnippet.removed?.map((line) => (
+                          <div key={`${item.id}-rem-${line}`} className="text-rose-400 bg-rose-500/10 px-1 py-0.5 rounded select-all">
                             - {line}
                           </div>
                         ))}
-                        {item.diagnostic.diffSnippet.added?.map((line, lIdx) => (
-                          <div key={`add-${lIdx}`} className="text-emerald-400 bg-emerald-500/10 px-1 py-0.5 rounded select-all">
+                        {item.diagnostic.diffSnippet.added?.map((line) => (
+                          <div key={`${item.id}-add-${line}`} className="text-emerald-400 bg-emerald-500/10 px-1 py-0.5 rounded select-all">
                             + {line}
                           </div>
                         ))}

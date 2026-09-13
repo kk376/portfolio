@@ -21,12 +21,12 @@ const PortfolioContent: React.FC = () => {
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const showToast = (msg: string) => {
+  const showToast = useCallback((msg: string) => {
     setToastMessage(msg);
     setTimeout(() => {
       setToastMessage((current) => (current === msg ? null : current));
     }, 2500);
-  };
+  }, []);
 
   const triggerAction = useCallback((action: 'terminal' | 'theme' | 'email' | 'sonar') => {
     switch (action) {
@@ -63,7 +63,7 @@ const PortfolioContent: React.FC = () => {
         break;
       }
     }
-  }, [toggleTheme, isDark]);
+  }, [toggleTheme, isDark, showToast]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

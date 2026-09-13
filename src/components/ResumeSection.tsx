@@ -90,8 +90,8 @@ export const ResumeSection: React.FC = () => {
           </div>
 
           <div className="relative pl-6 border-l-2 border-[var(--accent-secondary)]/30 space-y-8">
-            {educationData.map((item, idx) => (
-              <div key={idx} className="relative group">
+            {educationData.map((item) => (
+              <div key={`${item.title}-${item.period}`} className="relative group">
                 {/* Timeline Dot */}
                 <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-secondary)] border-2 border-white dark:border-[#252538] shadow-sm group-hover:scale-125 transition-transform" />
 
@@ -114,8 +114,8 @@ export const ResumeSection: React.FC = () => {
 
                 {item.highlights && (
                   <ul className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
-                    {item.highlights.map((hl, hIdx) => (
-                      <li key={hIdx} className="flex items-center gap-2">
+                    {item.highlights.map((hl) => (
+                      <li key={hl} className="flex items-center gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                         <span>{hl}</span>
                       </li>
@@ -139,8 +139,8 @@ export const ResumeSection: React.FC = () => {
           </div>
 
           <div className="relative pl-6 border-l-2 border-[var(--accent-primary)]/30 space-y-8">
-            {experienceData.map((item, idx) => (
-              <div key={idx} className="relative group">
+            {experienceData.map((item) => (
+              <div key={`${item.title}-${item.period}`} className="relative group">
                 {/* Timeline Dot */}
                 <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-primary)] border-2 border-white dark:border-[#252538] shadow-sm group-hover:scale-125 transition-transform" />
 
@@ -163,8 +163,8 @@ export const ResumeSection: React.FC = () => {
 
                 {item.highlights && (
                   <ul className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
-                    {item.highlights.map((hl, hIdx) => (
-                      <li key={hIdx} className="flex items-center gap-2">
+                    {item.highlights.map((hl) => (
+                      <li key={hl} className="flex items-center gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                         <span>{hl}</span>
                       </li>

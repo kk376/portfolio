@@ -10,9 +10,15 @@
     <title>Kushagra Kumar | Frontend Developer &amp; Open Source Contributor</title>
     <script>
       (function() {
+        const queryTheme = new URLSearchParams(window.location.search).get('theme');
         const storedTheme = localStorage.getItem('theme');
         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        if (storedTheme === 'light' || (!storedTheme && prefersLight)) {
+        const activeTheme = queryTheme === 'light' || queryTheme === 'dark'
+          ? queryTheme
+          : (storedTheme === 'light' || storedTheme === 'dark'
+            ? storedTheme
+            : (prefersLight ? 'light' : 'dark'));
+        if (activeTheme === 'light') {
           document.documentElement.classList.remove('dark');
           document.documentElement.classList.add('light');
         } else {

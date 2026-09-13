@@ -29,7 +29,6 @@ export interface UpstreamContribution {
   myRoleNote: string;
   tags: string[];
   accentGradient: string;
-  hasInteractiveDemo?: boolean;
   diagnostic?: DiagnosticTrace;
 }
 

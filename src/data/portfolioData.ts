@@ -73,7 +73,6 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
       'Pitched the military sonar visual style concept and paired with AI to implement the GLSL shader math, phosphor decay trails, and nautical mile rings.',
     tags: ['GitHub PR', 'Merged', 'Cesium.js', 'GLSL Shader', 'WebGL'],
     accentGradient: 'from-cyan-500 to-blue-600',
-    hasInteractiveDemo: true,
     diagnostic: {
       symptom: 'Rotating radar beam suffered projection warping and clipping artifacts at high latitudes on 3D globe tiles due to planar distortion.',
       rootCause: 'Planar polar coordinates were calculated without correcting for ellipsoidal curvature, causing distortion as distance from sweep origin increased.',

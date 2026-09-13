@@ -3,6 +3,7 @@ import { SectionHeader } from './SectionHeader';
 import { SYSTEM_SPECS } from '../data/portfolioData';
 
 interface HistoryItem {
+  id: string;
   command: string;
   output: React.ReactNode;
 }
@@ -75,6 +76,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
   const [history, setHistory] = useState<HistoryItem[]>([
     {
+      id: 'initial-kkfetch',
       command: 'kkfetch',
       output: renderKkfetchAscii(),
     },
@@ -147,7 +149,10 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         break;
     }
 
-    setHistory((prev) => [...prev, { command: cmd, output: outputNode }]);
+    setHistory((prev) => [
+      ...prev,
+      { id: `${Date.now()}-${prev.length}`, command: cmd, output: outputNode },
+    ]);
     setInputVal('');
 
     setTimeout(() => {
@@ -218,8 +223,8 @@ cccccccc;.:odl:.;cccccccccccccc:,.
           ref={terminalScrollRef}
           className="p-6 h-96 overflow-y-auto space-y-4 font-mono text-xs bg-[#12141d]"
         >
-          {history.map((item, idx) => (
-            <div key={idx} className="space-y-1.5">
+          {history.map((item) => (
+            <div key={item.id} className="space-y-1.5">
               <div className="flex items-center gap-2 text-slate-400">
                 <span className="text-[var(--accent-primary)] font-bold">kk376@fedora</span>
                 <span className="text-slate-600">:</span>
