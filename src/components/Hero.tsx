@@ -1,56 +1,59 @@
 import React from 'react';
-import { GitPullRequest, Code2, ArrowUpRight, Sparkles } from 'lucide-react';
+import { GitPullRequest, Code2, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="about" className="relative pt-28 pb-20 md:pt-36 md:pb-28 border-b border-black/5 dark:border-white/10 bg-[#e8ebe6] dark:bg-[#0e0f0c] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Wise Badge Row */}
+    <section id="about" className="relative pt-28 pb-20 md:pt-36 md:pb-28 border-b border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0a101d] overflow-hidden transition-colors duration-200">
+      {/* Stripe Atmospheric Iridescent Gradient Mesh */}
+      <div className="absolute top-0 left-0 right-0 h-[620px] -z-0 stripe-mesh-light dark:stripe-mesh-dark pointer-events-none opacity-90 dark:opacity-80 transition-opacity" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Stripe Micro-Pill */}
         <div className="flex flex-wrap items-center gap-2 mb-6">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e2f6d5] dark:bg-[#22251e] border border-black/5 dark:border-white/10 text-xs font-mono font-bold text-[#163300] dark:text-[#9fe870]">
-            <span className="w-2 h-2 rounded-full bg-[#9fe870]" />
-            <span>APPRENTICE TELEMETRY</span>
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#533afd]/10 dark:bg-[#533afd]/20 border border-[#533afd]/20 text-xs font-mono font-medium text-[#533afd] dark:text-[#b9b9f9]">
+            <span className="w-2 h-2 rounded-full bg-[#533afd] animate-pulse" />
+            <span>INFRASTRUCTURE & CODE</span>
           </span>
-          <span className="px-3.5 py-1 rounded-full bg-white dark:bg-[#191b16] border border-black/5 dark:border-white/10 text-xs font-mono font-medium text-[#0e0f0c] dark:text-[#f4f6f2]">
+          <span className="px-3 py-1 rounded-full bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-sm border border-[#e3e8ee] dark:border-white/10 text-xs font-mono text-[#273951] dark:text-[#f8fafc] tabular-nums">
             BCA 8.2 CGPA
           </span>
-          <span className="px-3.5 py-1 rounded-full bg-white dark:bg-[#191b16] border border-black/5 dark:border-white/10 text-xs font-mono font-medium text-[#0e0f0c] dark:text-[#f4f6f2]">
+          <span className="px-3 py-1 rounded-full bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-sm border border-[#e3e8ee] dark:border-white/10 text-xs font-mono text-[#273951] dark:text-[#f8fafc]">
             FEDORA 44 WORKSTATION
           </span>
         </div>
 
-        {/* Hero Main Grid */}
+        {/* Hero Main Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
-          {/* Left Column: Massive Scandinavian Display Typography */}
+          {/* Left Column: Stripe Thin Display Headline */}
           <div className="lg:col-span-7 space-y-6">
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-[76px] font-black tracking-tight text-[#0e0f0c] dark:text-[#f4f6f2] leading-[1.02] max-w-3xl">
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-[70px] font-light tracking-[-0.03em] text-[#0d253d] dark:text-[#f8fafc] leading-[1.05] max-w-3xl">
               Learning modern Frontend. Directing AI models across upstream Linux systems.
             </h1>
 
-            <p className="font-sans text-base sm:text-lg text-[#454745] dark:text-[#b5b8b2] leading-relaxed max-w-2xl">
-              I am <span className="font-bold text-[#0e0f0c] dark:text-white">{PERSONAL_INFO.name}</span> (
-              <span className="font-mono text-[#163300] dark:text-[#9fe870] font-bold">@{PERSONAL_INFO.handle}</span>), a BCA graduate actively building fluency in HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside daily frontend studies, I direct AI coding agents to diagnose Linux bottlenecks, verify low-level system behaviors, and ship upstream contributions to projects like Cesium, Mission Center, and Zed.
+            <p className="font-sans text-base sm:text-lg text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed max-w-2xl">
+              I am <span className="font-medium text-[#0d253d] dark:text-white">{PERSONAL_INFO.name}</span> (
+              <span className="font-mono text-[#533afd] dark:text-[#b9b9f9] font-medium">@{PERSONAL_INFO.handle}</span>), a BCA graduate actively building fluency in HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside daily frontend studies, I direct AI coding agents to diagnose Linux bottlenecks, verify low-level system behaviors, and ship upstream contributions to projects like Cesium, Mission Center, and Zed.
             </p>
 
-            {/* Wise Pill CTAs and Social Links */}
+            {/* Stripe Action Controls */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#upstream"
-                className="px-6 py-3.5 rounded-full bg-[#9fe870] hover:bg-[#cdffad] text-[#0e0f0c] font-sans text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
+                className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs sm:text-sm font-medium shadow-sm hover:shadow-md transition-all flex items-center gap-2 active:scale-95"
               >
-                <GitPullRequest className="w-4 h-4 stroke-[2.5]" />
+                <GitPullRequest className="w-4 h-4" />
                 <span>Explore Upstream Dispatches</span>
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
 
               <a
                 href="#projects"
-                className="px-6 py-3.5 rounded-full bg-white dark:bg-[#191b16] border border-black/10 dark:border-white/15 text-[#0e0f0c] dark:text-[#f4f6f2] font-sans text-xs sm:text-sm font-bold hover:border-[#9fe870] transition-all flex items-center gap-2 shadow-sm active:scale-95"
+                className="px-5 py-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#0d253d] dark:text-[#f8fafc] font-sans text-xs sm:text-sm font-medium hover:border-[#533afd] transition-all flex items-center gap-2 shadow-sm active:scale-95"
               >
-                <Code2 className="w-4 h-4 text-[#0e0f0c] dark:text-[#9fe870]" />
+                <Code2 className="w-4 h-4 text-[#533afd]" />
                 <span>Codebases & Tools</span>
               </a>
 
@@ -58,7 +61,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 rounded-full bg-white dark:bg-[#191b16] border border-black/10 dark:border-white/15 text-[#0e0f0c] dark:text-[#f4f6f2] hover:border-[#9fe870] transition-all shadow-sm active:scale-95"
+                className="p-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#273951] dark:text-[#f8fafc] hover:border-[#533afd] hover:text-[#533afd] transition-all shadow-sm active:scale-95"
                 title="GitHub"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -68,7 +71,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 rounded-full bg-white dark:bg-[#191b16] border border-black/10 dark:border-white/15 text-[#0e0f0c] dark:text-[#f4f6f2] hover:border-[#9fe870] transition-all shadow-sm active:scale-95"
+                className="p-2.5 rounded-full bg-white dark:bg-[#0f172a] border border-[#e3e8ee] dark:border-white/15 text-[#273951] dark:text-[#f8fafc] hover:border-[#533afd] hover:text-[#533afd] transition-all shadow-sm active:scale-95"
                 title="LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4" />
@@ -76,176 +79,155 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Wise-Style Converter & Specimen Card */}
+          {/* Right Column: Composited Multi-Layer Dashboard Mockup */}
           <div className="lg:col-span-5">
-            <div className="rounded-[28px] border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] p-6 sm:p-7 space-y-5 shadow-sm">
-              {/* Card Header */}
-              <div className="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3.5">
+            <div className="stripe-card p-6 space-y-5 bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md">
+              {/* Panel Top Chrome */}
+              <div className="flex items-center justify-between border-b border-[#e3e8ee] dark:border-white/10 pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#9fe870]" />
-                  <span className="font-mono text-xs font-bold text-[#0e0f0c] dark:text-[#f4f6f2]">
-                    WORKFLOW ENGINE
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ea2261]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff9f43]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#00d4ff]" />
+                  <span className="font-mono text-xs text-[#64748d] dark:text-[#94a3b8] ml-1.5">
+                    api.kk376.dev/v1/telemetry
                   </span>
                 </div>
-                <span className="font-mono text-[11px] font-semibold text-[#868685] bg-[#e8ebe6] dark:bg-[#22251e] px-2.5 py-0.5 rounded-full">
-                  DIRECTED AI PIPELINE
+                <span className="font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#533afd]/10 text-[#533afd] dark:text-[#b9b9f9]">
+                  200 OK // LIVE
                 </span>
               </div>
 
-              {/* Wise-Style Interactive Exchange Wells */}
-              <div className="space-y-2">
-                {/* Input Well */}
-                <div className="p-4 rounded-2xl bg-[#e8ebe6] dark:bg-[#22251e] border border-black/5 dark:border-white/5 space-y-1">
-                  <div className="flex items-center justify-between text-[11px] font-mono text-[#868685]">
-                    <span>YOU INPUT (FRICTION POINT)</span>
-                    <span className="font-semibold text-[#0e0f0c] dark:text-white">FEDORA / LINUX</span>
+              {/* Multi-layer Code Block */}
+              <div className="rounded-lg bg-[#0d253d] dark:bg-[#080b11] p-4 text-xs font-mono text-[#f8fafc] space-y-1 shadow-inner">
+                <div className="text-[#64748d]">// Directed AI Pair-Programming Contract</div>
+                <div><span className="text-[#00d4ff]">const</span> telemetry = &#123;</div>
+                <div className="pl-4"><span className="text-[#b9b9f9]">apprentice</span>: <span className="text-[#ff9f43]">"{PERSONAL_INFO.name}"</span>,</div>
+                <div className="pl-4"><span className="text-[#b9b9f9]">degree</span>: <span className="text-[#ff9f43]">"BCA 8.2 CGPA (Distinction)"</span>,</div>
+                <div className="pl-4"><span className="text-[#b9b9f9]">procfs_latency</span>: <span className="text-[#00d4ff]">0.8</span> <span className="text-[#64748d]">// microseconds</span>,</div>
+                <div className="pl-4"><span className="text-[#b9b9f9]">ai_disclosure</span>: <span className="text-[#ea2261]">1.0</span> <span className="text-[#64748d]">// 100% transparent</span></div>
+                <div>&#125;;</div>
+              </div>
+
+              {/* Tabular Transaction Rows */}
+              <div className="space-y-2 pt-1 font-mono text-xs">
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#f6f9fc] dark:bg-[#1e293b]/70 border border-[#e3e8ee] dark:border-white/5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#533afd]" />
+                    <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">Cesium Tactical Shader</span>
                   </div>
-                  <div className="font-display text-lg font-bold text-[#0e0f0c] dark:text-[#f4f6f2]">
-                    Hardware Bottlenecks & Missing Tools
-                  </div>
-                  <div className="text-xs text-[#454745] dark:text-[#b5b8b2]">
-                    Wayland freezes, procfs overhead, GPU power thrash
-                  </div>
+                  <span className="text-[#533afd] dark:text-[#b9b9f9] font-medium tabular-nums">PR Merged</span>
                 </div>
 
-                {/* Conversion Rate Indicator */}
-                <div className="flex items-center justify-center py-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#191b16] border border-black/10 dark:border-white/10 text-[11px] font-mono font-medium shadow-sm">
-                    <Sparkles className="w-3 h-3 text-[#9fe870]" />
-                    <span className="text-[#0e0f0c] dark:text-[#f4f6f2]">Conversion Rate: 100% Transparent Disclosure</span>
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#f6f9fc] dark:bg-[#1e293b]/70 border border-[#e3e8ee] dark:border-white/5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ea2261]" />
+                    <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">Mission Center D3cold Thrash</span>
                   </div>
-                </div>
-
-                {/* Output Well */}
-                <div className="p-4 rounded-2xl bg-[#e2f6d5] dark:bg-[#163300]/40 border border-[#9fe870]/30 space-y-1">
-                  <div className="flex items-center justify-between text-[11px] font-mono text-[#163300] dark:text-[#9fe870]">
-                    <span className="font-bold">YOU OUTPUT (UPSTREAM IMPACT)</span>
-                    <span className="font-bold">VERIFIED</span>
-                  </div>
-                  <div className="font-display text-lg font-bold text-[#163300] dark:text-[#cdffad]">
-                    Merged Upstream Code & Benchmarks
-                  </div>
-                  <div className="text-xs text-[#163300] dark:text-[#9fe870]">
-                    Cesium shader, Mission Center MR, 0.8 µs Rust fetcher
-                  </div>
+                  <span className="text-[#ea2261] font-medium tabular-nums">Fix Validated</span>
                 </div>
               </div>
 
-              {/* Profile Bar */}
-              <div className="pt-2 border-t border-black/5 dark:border-white/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full border border-black/10 dark:border-white/10 bg-[#e8ebe6] dark:bg-[#22251e] shrink-0 overflow-hidden">
-                  <img
-                    src="/avatar.jpg"
-                    alt="Kushagra Kumar"
-                    className="w-full h-full object-cover grayscale contrast-125"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-display text-base font-bold text-[#0e0f0c] dark:text-[#f4f6f2] truncate">
-                    Kushagra Kumar
+              {/* Profile Card Footer */}
+              <div className="pt-2 border-t border-[#e3e8ee] dark:border-white/10 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full overflow-hidden border border-[#e3e8ee] dark:border-white/10 shrink-0">
+                    <img
+                      src="/avatar.jpg"
+                      alt="Kushagra Kumar"
+                      className="w-full h-full object-cover grayscale contrast-125"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
                   </div>
-                  <div className="text-xs text-[#454745] dark:text-[#b5b8b2]">
-                    BCA Graduate (2022) | Suresh Gyan Vihar University
+                  <div>
+                    <div className="font-medium text-[#0d253d] dark:text-[#f8fafc]">{PERSONAL_INFO.name}</div>
+                    <div className="text-[11px] text-[#64748d] dark:text-[#94a3b8]">BCA Graduate (2022)</div>
                   </div>
                 </div>
-              </div>
-
-              {/* Quick Spec Attributes */}
-              <div className="grid grid-cols-3 gap-2 font-mono text-center text-xs pt-1">
-                <div className="p-2 rounded-xl bg-[#e8ebe6] dark:bg-[#22251e]">
-                  <div className="text-[10px] text-[#868685]">DEGREE</div>
-                  <div className="font-bold text-[#0e0f0c] dark:text-[#f4f6f2]">8.2 CGPA</div>
-                </div>
-                <div className="p-2 rounded-xl bg-[#e8ebe6] dark:bg-[#22251e]">
-                  <div className="text-[10px] text-[#868685]">OS</div>
-                  <div className="font-bold text-[#0e0f0c] dark:text-[#f4f6f2]">Fedora 44</div>
-                </div>
-                <div className="p-2 rounded-xl bg-[#e8ebe6] dark:bg-[#22251e]">
-                  <div className="text-[10px] text-[#868685]">GPU</div>
-                  <div className="font-bold text-[#0e0f0c] dark:text-[#f4f6f2]">RX 6700 XT</div>
+                <div className="text-right">
+                  <div className="font-mono text-xs font-semibold text-[#533afd] dark:text-[#b9b9f9] tabular-nums">8.2 CGPA</div>
+                  <div className="text-[10px] text-[#64748d]">SGVU Distinction</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 4 Oversized Wise Metric Tiles */}
+        {/* 4 Stripe Tabular Feature Metric Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}
-          <div className="p-7 rounded-[24px] border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] shadow-sm hover:border-[#9fe870] transition-all flex flex-col justify-between">
+          <div className="stripe-card p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#868685]">
-                <span className="font-bold text-[#163300] dark:text-[#9fe870]">01 // ACTIVE TRACK</span>
+              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#64748d]">
+                <span className="font-semibold text-[#533afd] dark:text-[#b9b9f9]">01 // ACTIVE TRACK</span>
                 <span>LEARNING</span>
               </div>
-              <div className="font-display text-4xl sm:text-5xl font-black text-[#0e0f0c] dark:text-[#f4f6f2] mb-2 tracking-tight">
+              <div className="font-display text-4xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] mb-2 tracking-tight">
                 Frontend
               </div>
-              <p className="text-xs text-[#454745] dark:text-[#b5b8b2] leading-relaxed">
+              <p className="text-xs text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed">
                 Daily immersion in semantic HTML, CSS layout geometry, JavaScript, React components, and Tailwind styling.
               </p>
             </div>
-            <div className="mt-6 pt-3 border-t border-black/5 dark:border-white/5 font-mono text-[10px] text-[#868685] font-semibold">
+            <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/10 font-mono text-[10px] text-[#64748d]">
               HTML • CSS • REACT • TAILWIND
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="p-7 rounded-[24px] border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] shadow-sm hover:border-[#9fe870] transition-all flex flex-col justify-between">
+          <div className="stripe-card p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#868685]">
-                <span className="font-bold text-[#163300] dark:text-[#9fe870]">02 // ACADEMICS</span>
+              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#64748d]">
+                <span className="font-semibold text-[#533afd] dark:text-[#b9b9f9]">02 // ACADEMICS</span>
                 <span>GRADUATED</span>
               </div>
-              <div className="font-display text-4xl sm:text-5xl font-black text-[#0e0f0c] dark:text-[#f4f6f2] mb-2 tracking-tight">
+              <div className="font-display text-4xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] mb-2 tracking-tight tabular-nums">
                 8.2 CGPA
               </div>
-              <p className="text-xs text-[#454745] dark:text-[#b5b8b2] leading-relaxed">
+              <p className="text-xs text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed">
                 Bachelor of Computer Applications degree completed with distinction from Suresh Gyan Vihar University in 2022.
               </p>
             </div>
-            <div className="mt-6 pt-3 border-t border-black/5 dark:border-white/5 font-mono text-[10px] text-[#868685] font-semibold">
+            <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/10 font-mono text-[10px] text-[#64748d]">
               BCA COMPUTER APPLICATIONS
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="p-7 rounded-[24px] border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] shadow-sm hover:border-[#9fe870] transition-all flex flex-col justify-between">
+          <div className="stripe-card p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#868685]">
-                <span className="font-bold text-[#163300] dark:text-[#9fe870]">03 // BENCHMARK</span>
+              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#64748d]">
+                <span className="font-semibold text-[#533afd] dark:text-[#b9b9f9]">03 // BENCHMARK</span>
                 <span>LATENCY</span>
               </div>
-              <div className="font-display text-4xl sm:text-5xl font-black text-[#0e0f0c] dark:text-[#f4f6f2] mb-2 tracking-tight">
+              <div className="font-display text-4xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] mb-2 tracking-tight tabular-nums">
                 0.8 µs
               </div>
-              <p className="text-xs text-[#454745] dark:text-[#b5b8b2] leading-relaxed">
+              <p className="text-xs text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed">
                 Microsecond Rust system fetcher kkfetch parsing Linux kernel procfs directly with zero external process spawns.
               </p>
             </div>
-            <div className="mt-6 pt-3 border-t border-black/5 dark:border-white/5 font-mono text-[10px] text-[#868685] font-semibold">
+            <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/10 font-mono text-[10px] text-[#64748d]">
               RUST • PROCFS • TELEMETRY
             </div>
           </div>
 
           {/* Card 4 */}
-          <div className="p-7 rounded-[24px] border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] shadow-sm hover:border-[#9fe870] transition-all flex flex-col justify-between">
+          <div className="stripe-card p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#868685]">
-                <span className="font-bold text-[#163300] dark:text-[#9fe870]">04 // ETHICS</span>
+              <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#64748d]">
+                <span className="font-semibold text-[#533afd] dark:text-[#b9b9f9]">04 // ETHICS</span>
                 <span>DISCLOSURE</span>
               </div>
-              <div className="font-display text-4xl sm:text-5xl font-black text-[#0e0f0c] dark:text-[#f4f6f2] mb-2 tracking-tight">
+              <div className="font-display text-4xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] mb-2 tracking-tight tabular-nums">
                 100%
               </div>
-              <p className="text-xs text-[#454745] dark:text-[#b5b8b2] leading-relaxed">
+              <p className="text-xs text-[#273951] dark:text-[#94a3b8] font-light leading-relaxed">
                 Full transparency with upstream maintainers on all AI-assisted bug diagnostics, shaders, and merge requests.
               </p>
             </div>
-            <div className="mt-6 pt-3 border-t border-black/5 dark:border-white/5 font-mono text-[10px] text-[#868685] font-semibold">
+            <div className="mt-5 pt-3 border-t border-[#e3e8ee] dark:border-white/10 font-mono text-[10px] text-[#64748d]">
               TRANSPARENT AI PAIRING
             </div>
           </div>

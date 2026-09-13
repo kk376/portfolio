@@ -27,21 +27,21 @@ export const UpstreamSection: React.FC = () => {
     switch (status) {
       case 'merged':
         return (
-          <span className="rounded-full bg-[#9fe870] text-[#0e0f0c] font-mono text-[11px] font-bold px-3.5 py-1 inline-flex items-center gap-1.5 shadow-sm">
+          <span className="rounded-full bg-[#533afd]/10 border border-[#533afd]/20 text-[#533afd] dark:text-[#a8c3de] font-mono text-[11px] font-semibold px-3 py-1 inline-flex items-center gap-1.5 shadow-sm">
             <Check className="w-3.5 h-3.5 stroke-[2.5]" />
             MERGED UPSTREAM
           </span>
         );
       case 'open':
         return (
-          <span className="rounded-full bg-[#e2f6d5] dark:bg-[#22251e] text-[#163300] dark:text-[#9fe870] font-mono text-[11px] font-bold px-3.5 py-1 inline-flex items-center gap-1.5 shadow-sm">
+          <span className="rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/20 text-[#008ba3] dark:text-[#00d4ff] font-mono text-[11px] font-semibold px-3 py-1 inline-flex items-center gap-1.5 shadow-sm">
             <GitPullRequest className="w-3.5 h-3.5 stroke-[2.5]" />
             ACTIVE MERGE REQUEST
           </span>
         );
       case 'investigated':
         return (
-          <span className="rounded-full bg-[#e8ebe6] dark:bg-[#22251e] text-[#0e0f0c] dark:text-[#f4f6f2] border border-black/5 dark:border-white/10 font-mono text-[11px] font-bold px-3.5 py-1 inline-flex items-center gap-1.5">
+          <span className="rounded-full bg-[#f6f9fc] dark:bg-[#1e293b] text-[#64748d] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 font-mono text-[11px] font-semibold px-3 py-1 inline-flex items-center gap-1.5">
             ROOT CAUSE TRACED
           </span>
         );
@@ -51,43 +51,43 @@ export const UpstreamSection: React.FC = () => {
   };
 
   return (
-    <section id="upstream" className="py-20 md:py-24 border-b border-black/5 dark:border-white/10 bg-[#e8ebe6] dark:bg-[#0e0f0c] transition-colors duration-200">
+    <section id="upstream" className="py-20 md:py-24 border-b border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0a101d] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Lab Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e2f6d5] dark:bg-[#22251e] border border-black/5 dark:border-white/10 text-xs font-mono font-bold text-[#163300] dark:text-[#9fe870]">
-                <span className="w-2 h-2 rounded-full bg-[#9fe870]" />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#533afd]/10 dark:bg-[#533afd]/20 border border-[#533afd]/20 text-xs font-mono font-semibold text-[#533afd] dark:text-[#a8c3de]">
+                <span className="w-2 h-2 rounded-full bg-[#533afd] dark:bg-[#00d4ff]" />
                 <span>EXPERIMENT LOG // UPSTREAM</span>
               </span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-black text-[#0e0f0c] dark:text-[#f4f6f2] tracking-tight leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl sm:text-5xl font-light text-[#0d253d] dark:text-[#f8fafc] tracking-[-0.03em] leading-tight max-w-3xl">
               Open-source investigations. Real hardware bug fixes and upstream PRs.
             </h2>
-            <p className="font-sans text-sm sm:text-base text-[#454745] dark:text-[#b5b8b2] mt-3 max-w-2xl leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] mt-3 max-w-2xl leading-relaxed">
               Documented pull requests and GitLab merge requests across Cesium graphics shaders, Mission Center power thrash mitigation, and Zed editor Wayland lifecycle diagnostics.
             </p>
           </div>
 
-          {/* Wise Pill Filters */}
+          {/* Stripe Pill Filters */}
           <div className="flex flex-wrap items-center gap-2 self-start lg:self-end">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setSelectedCategory(cat.value)}
-                className={`px-4 py-2 rounded-full font-sans text-xs font-bold transition-all flex items-center gap-2 active:scale-95 ${
+                className={`px-4 py-2 rounded-full font-sans text-xs font-medium transition-all flex items-center gap-2 active:scale-95 ${
                   selectedCategory === cat.value
-                    ? 'bg-[#9fe870] text-[#0e0f0c] shadow-sm'
-                    : 'bg-white dark:bg-[#191b16] text-[#454745] dark:text-[#b5b8b2] border border-black/5 dark:border-white/10 hover:border-[#9fe870]'
+                    ? 'bg-[#533afd] text-white shadow-sm font-semibold'
+                    : 'bg-white dark:bg-[#0f172a] text-[#273951] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 hover:border-[#533afd]/40'
                 }`}
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold ${
+                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-medium tabular-nums ${
                     selectedCategory === cat.value
-                      ? 'bg-black/15 text-[#0e0f0c]'
-                      : 'bg-[#e8ebe6] dark:bg-[#22251e] text-[#454745] dark:text-[#b5b8b2]'
+                      ? 'bg-white/20 text-white'
+                      : 'bg-[#f6f9fc] dark:bg-[#1e293b] text-[#64748d] dark:text-[#94a3b8]'
                   }`}
                 >
                   {cat.count}
@@ -102,31 +102,31 @@ export const UpstreamSection: React.FC = () => {
           {filtered.map((item, idx) => (
             <div
               key={item.id}
-              className="rounded-[28px] border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] p-7 sm:p-8 space-y-6 shadow-sm hover:border-[#9fe870] transition-all"
+              className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] p-7 sm:p-8 space-y-6 shadow-sm hover:shadow-md transition-all"
             >
               {/* Card Meta Bar */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e3e8ee] dark:border-white/10 pb-4">
                 <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-                  <span className="font-bold text-[#868685] bg-[#e8ebe6] dark:bg-[#22251e] px-3 py-1 rounded-full">
+                  <span className="font-semibold text-[#64748d] dark:text-[#94a3b8] bg-[#f6f9fc] dark:bg-[#1e293b] px-2.5 py-1 rounded-full border border-[#e3e8ee] dark:border-white/10 tabular-nums">
                     ENTRY 0{idx + 1}
                   </span>
 
                   {item.platform === 'gitlab' ? (
-                    <span className="inline-flex items-center gap-1.5 font-bold text-[#163300] dark:text-[#9fe870]">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-[#533afd] dark:text-[#00d4ff]">
                       <GitlabIcon className="w-3.5 h-3.5" />
                       gitlab.com/{item.repoOwner}/{item.repo}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 font-bold text-[#163300] dark:text-[#9fe870]">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-[#533afd] dark:text-[#00d4ff]">
                       <GithubIcon className="w-3.5 h-3.5" />
                       github.com/{item.repoOwner}/{item.repo}
                     </span>
                   )}
 
-                  <span className="text-[#868685]">/</span>
-                  <span className="font-bold text-[#0e0f0c] dark:text-[#f4f6f2]">{item.refLabel}</span>
-                  <span className="text-[#868685]">/</span>
-                  <span className="text-[#868685]">{item.date}</span>
+                  <span className="text-[#64748d]/40 dark:text-white/20">/</span>
+                  <span className="font-medium text-[#0d253d] dark:text-[#f8fafc]">{item.refLabel}</span>
+                  <span className="text-[#64748d]/40 dark:text-white/20">/</span>
+                  <span className="text-[#64748d] dark:text-[#94a3b8] tabular-nums">{item.date}</span>
                 </div>
 
                 <div>{getStatusBadge(item.status)}</div>
@@ -138,7 +138,7 @@ export const UpstreamSection: React.FC = () => {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-baseline gap-2 font-display text-2xl sm:text-3xl font-black text-[#0e0f0c] dark:text-[#f4f6f2] hover:text-[#163300] dark:hover:text-[#9fe870] transition-colors leading-snug"
+                  className="group inline-flex items-baseline gap-2 font-display text-2xl sm:text-3xl font-medium text-[#0d253d] dark:text-[#f8fafc] hover:text-[#533afd] dark:hover:text-[#00d4ff] transition-colors leading-snug tracking-tight"
                 >
                   <span>{item.title}</span>
                   <ExternalLink className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity translate-y-0.5 shrink-0" />
@@ -146,17 +146,17 @@ export const UpstreamSection: React.FC = () => {
               </div>
 
               {/* Summary Description */}
-              <p className="font-sans text-sm sm:text-base text-[#454745] dark:text-[#b5b8b2] leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#64748d] dark:text-[#94a3b8] leading-relaxed">
                 {item.summary}
               </p>
 
               {/* The Apprentice Role & AI Collaboration Box */}
-              <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-[#e8ebe6] dark:bg-[#22251e] p-5 space-y-2">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#163300] dark:text-[#9fe870]">
-                  <Sparkles className="w-3.5 h-3.5 text-[#9fe870]" />
+              <div className="rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#f6f9fc] dark:bg-[#1e293b]/60 p-5 space-y-2">
+                <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[#533afd] dark:text-[#00d4ff]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#533afd] dark:text-[#00d4ff]" />
                   <span>Apprentice Role & Directed AI Collaboration</span>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-[#454745] dark:text-[#b5b8b2] leading-relaxed">
+                <p className="font-sans text-xs sm:text-sm text-[#273951] dark:text-[#cbd5e1] leading-relaxed">
                   {item.myRoleNote}
                 </p>
               </div>
@@ -166,7 +166,7 @@ export const UpstreamSection: React.FC = () => {
                 <div className="pt-2">
                   <button
                     onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
-                    className="px-6 py-3 rounded-full bg-[#9fe870] hover:bg-[#cdffad] text-[#0e0f0c] font-sans text-xs font-bold shadow-sm transition-all flex items-center gap-2 active:scale-95"
+                    className="px-5 py-2.5 rounded-full bg-[#533afd] hover:bg-[#4434d4] text-white font-sans text-xs font-semibold shadow-sm transition-all flex items-center gap-2 active:scale-95"
                   >
                     <span>
                       {showDemoForId === item.id
@@ -181,7 +181,7 @@ export const UpstreamSection: React.FC = () => {
                   </button>
 
                   {showDemoForId === item.id && (
-                    <div className="mt-4 rounded-2xl border border-white/10 bg-black p-3 shadow-lg">
+                    <div className="mt-4 rounded-xl border border-[#e3e8ee] dark:border-white/10 bg-[#0a101d] p-3 shadow-lg">
                       <SonarCanvas />
                     </div>
                   )}
@@ -189,11 +189,11 @@ export const UpstreamSection: React.FC = () => {
               )}
 
               {/* Bottom Tag Index */}
-              <div className="flex flex-wrap gap-2 pt-3 border-t border-black/5 dark:border-white/5 font-mono text-[11px]">
+              <div className="flex flex-wrap gap-2 pt-3 border-t border-[#e3e8ee] dark:border-white/5 font-mono text-[11px]">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-full bg-[#e8ebe6] dark:bg-[#22251e] text-[#454745] dark:text-[#b5b8b2] font-semibold"
+                    className="px-2.5 py-0.5 rounded-full bg-[#f6f9fc] dark:bg-[#1e293b] text-[#64748d] dark:text-[#94a3b8] border border-[#e3e8ee] dark:border-white/10 font-medium tabular-nums"
                   >
                     #{tag}
                   </span>

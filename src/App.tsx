@@ -12,7 +12,7 @@ import { Footer } from './components/Footer';
 export const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#e8ebe6] dark:bg-[#0e0f0c] text-[#0e0f0c] dark:text-[#f4f6f2] antialiased selection:bg-[#9fe870] selection:text-[#0e0f0c] font-sans transition-colors duration-200">
+      <div className="min-h-screen bg-white dark:bg-[#0a101d] text-[#0d253d] dark:text-[#f8fafc] antialiased selection:bg-[#533afd] selection:text-white font-sans transition-colors duration-200">
         <Navbar />
         <main>
           <Hero />

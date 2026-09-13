@@ -8,80 +8,103 @@
 
 body {
   margin: 0;
-  background-color: #e8ebe6;
-  color: #0e0f0c;
+  background-color: #ffffff;
+  color: #0d253d;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'ss01';
   overflow-x: hidden;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 .dark body {
-  background-color: #0e0f0c;
-  color: #f4f6f2;
+  background-color: #0a101d;
+  color: #f8fafc;
 }
 
-/* Wise Fluorescent Lime Selection Highlight */
+/* Tabular figures for financial/metric data */
+.tabular-nums {
+  font-feature-settings: 'tnum', 'ss01';
+  font-variant-numeric: tabular-nums;
+}
+
+/* Stripe Electric Indigo Selection */
 ::selection {
-  background: #9fe870;
-  color: #0e0f0c;
+  background: #533afd;
+  color: #ffffff;
 }
 
 .dark ::selection {
-  background: #9fe870;
-  color: #0e0f0c;
+  background: #533afd;
+  color: #ffffff;
 }
 
-/* Smooth Scandinavian Scrollbar */
+/* Silky Stripe Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e8ebe6;
+  background: #f6f9fc;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #0e0f0c;
+  background: #0a101d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c2c7bf;
+  background: #c7d5e4;
   border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #2b2f26;
+  background: #273951;
   border-radius: 9999px;
 }
 
-/* Wise Pill & Surface Utilities */
-.wise-pill {
-  border-radius: 9999px;
-  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+/* Stripe Iridescent Atmospheric Mesh Backdrop */
+.stripe-mesh-light {
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(245, 233, 212, 0.85) 0px, transparent 48%),
+    radial-gradient(at 35% 0%, rgba(255, 159, 67, 0.4) 0px, transparent 45%),
+    radial-gradient(at 75% 5%, rgba(234, 34, 97, 0.3) 0px, transparent 45%),
+    radial-gradient(at 95% 20%, rgba(249, 107, 238, 0.25) 0px, transparent 40%),
+    radial-gradient(at 45% 40%, rgba(83, 58, 253, 0.28) 0px, transparent 50%),
+    radial-gradient(at 80% 55%, rgba(0, 212, 255, 0.22) 0px, transparent 45%),
+    radial-gradient(at 10% 60%, rgba(185, 185, 249, 0.45) 0px, transparent 45%);
 }
 
-.wise-pill:active {
-  transform: scale(0.97);
+.stripe-mesh-dark {
+  background-color: #0a101d;
+  background-image: 
+    radial-gradient(at 10% 0%, rgba(83, 58, 253, 0.25) 0px, transparent 50%),
+    radial-gradient(at 55% 5%, rgba(234, 34, 97, 0.18) 0px, transparent 45%),
+    radial-gradient(at 85% 20%, rgba(0, 212, 255, 0.18) 0px, transparent 45%),
+    radial-gradient(at 35% 50%, rgba(102, 94, 253, 0.2) 0px, transparent 50%),
+    radial-gradient(at 80% 60%, rgba(249, 107, 238, 0.15) 0px, transparent 45%);
 }
 
-.wise-card {
-  border-radius: 24px;
+/* Stripe Card & Elevation Utilities */
+.stripe-card {
+  border-radius: 12px;
   background: #ffffff;
-  border: 1px solid rgba(14, 15, 12, 0.06);
-  transition: all 200ms ease;
+  border: 1px solid #e3e8ee;
+  box-shadow: 0 1px 3px rgba(0, 55, 112, 0.08);
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark .wise-card {
-  background: #191b16;
-  border: 1px solid rgba(244, 246, 242, 0.08);
+.dark .stripe-card {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.wise-card:hover {
-  border-color: rgba(159, 232, 112, 0.6);
-  box-shadow: 0 12px 36px -12px rgba(159, 232, 112, 0.15);
+.stripe-card:hover {
+  border-color: rgba(83, 58, 253, 0.35);
+  box-shadow: 0 10px 30px -5px rgba(0, 55, 112, 0.12), 0 2px 6px rgba(0, 55, 112, 0.06);
 }
 
-.dark .wise-card:hover {
-  border-color: rgba(159, 232, 112, 0.4);
-  box-shadow: 0 12px 36px -12px rgba(159, 232, 112, 0.08);
+.dark .stripe-card:hover {
+  border-color: rgba(102, 94, 253, 0.4);
+  box-shadow: 0 10px 30px -5px rgba(83, 58, 253, 0.2);
 }

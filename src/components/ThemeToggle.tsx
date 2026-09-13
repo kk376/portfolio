@@ -17,21 +17,21 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to pale sage mode' : 'Switch to deep carbon mode'}
-      title={isDark ? 'Switch to pale sage mode' : 'Switch to deep carbon mode'}
-      className={`relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/5 dark:border-white/10 bg-white dark:bg-[#191b16] text-[#0e0f0c] dark:text-[#f4f6f2] hover:border-[#9fe870] dark:hover:border-[#9fe870] transition-all shadow-sm focus:outline-none ${className}`}
+      aria-label={isDark ? 'Switch to Aurora light mode' : 'Switch to Midnight dark mode'}
+      title={isDark ? 'Switch to Aurora light mode' : 'Switch to Midnight dark mode'}
+      className={`relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#e3e8ee] dark:border-white/10 bg-white dark:bg-[#0f172a] text-[#0d253d] dark:text-[#f8fafc] hover:border-[#533afd] dark:hover:border-[#665efd] transition-all shadow-sm focus:outline-none ${className}`}
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         {isDark ? (
-          <Sun className="w-3.5 h-3.5 text-[#9fe870]" />
+          <Sun className="w-3.5 h-3.5 text-amber-400" />
         ) : (
-          <Moon className="w-3.5 h-3.5 text-[#0e0f0c]" />
+          <Moon className="w-3.5 h-3.5 text-[#533afd]" />
         )}
       </div>
 
       {showLabel && (
         <span className="text-xs font-mono font-medium">
-          {isDark ? 'Sage' : 'Carbon'}
+          {isDark ? 'Aurora' : 'Midnight'}
         </span>
       )}
     </button>
