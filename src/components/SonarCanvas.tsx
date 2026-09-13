@@ -38,13 +38,17 @@ export const SonarCanvas: React.FC = () => {
     }
     const ripples: Ripple[] = [];
 
+    const dimensions = { width: 0, height: 0 };
+
     const handleResize = () => {
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
+      dimensions.width = rect.width;
+      dimensions.height = rect.height;
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     handleResize();
@@ -64,10 +68,34 @@ export const SonarCanvas: React.FC = () => {
 
     canvas.addEventListener('click', handleCanvasClick);
 
+    let isVisible = true;
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          const currentlyVisible = entry.isIntersecting;
+          if (currentlyVisible && !isVisible) {
+            isVisible = true;
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(render);
+          } else {
+            isVisible = currentlyVisible;
+          }
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(canvas);
+    }
+
     const render = () => {
-      const rect = canvas.getBoundingClientRect();
-      const width = rect.width;
-      const height = rect.height;
+      if (!isVisible) return;
+
+      const width = dimensions.width;
+      const height = dimensions.height;
+      if (width === 0 || height === 0) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
       const centerX = width / 2;
       const centerY = height / 2;
       const maxRadius = Math.min(width, height) * 0.42;
@@ -196,7 +224,11 @@ export const SonarCanvas: React.FC = () => {
     render();
 
     return () => {
+      isVisible = false;
       cancelAnimationFrame(animationFrameId);
+      if (observer) {
+        observer.disconnect();
+      }
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('click', handleCanvasClick);
     };

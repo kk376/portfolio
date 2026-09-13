@@ -104,12 +104,10 @@ html:not(.dark) {
   --btn-primary-shadow: rgba(136, 57, 239, 0.3);
 
   --bg-gradient:
-    radial-gradient(at 0% 0%, rgba(136, 57, 239, 0.08) 0px, transparent 52%),
-    radial-gradient(at 100% 0%, rgba(114, 135, 253, 0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 32%, rgba(220, 138, 120, 0.05) 0px, transparent 45%),
-    radial-gradient(at 88% 68%, rgba(254, 100, 11, 0.04) 0px, transparent 45%),
-    radial-gradient(at 12% 82%, rgba(4, 165, 229, 0.05) 0px, transparent 50%),
-    radial-gradient(at 62% 100%, rgba(136, 57, 239, 0.06) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(136, 57, 239, 0.07) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(114, 135, 253, 0.07) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(254, 100, 11, 0.04) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(4, 165, 229, 0.05) 0px, transparent 50%);
   --card-shadow: 0 4px 20px 0 rgba(136, 57, 239, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.03);
   --card-shadow-hover: 0 12px 28px 0 rgba(136, 57, 239, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.04);
 }
@@ -122,8 +120,6 @@ html {
 body {
   margin: 0;
   background-color: var(--bg-canvas);
-  background-image: var(--bg-gradient);
-  background-attachment: fixed;
   color: var(--text-primary);
   font-family: 'Rubik', 'Noto Sans', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
@@ -132,15 +128,25 @@ body {
 
 .dark body {
   background-color: var(--bg-canvas);
-  background-image: var(--bg-gradient);
   color: var(--text-primary);
+}
+
+/* Dedicated hardware-accelerated ambient background layer */
+.fixed-ambient-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+  background-color: var(--bg-canvas);
+  background-image: var(--bg-gradient);
+  transform: translateZ(0);
+  will-change: transform;
+  transition: background-color 0.3s ease;
 }
 
 /* Canvas background utility */
 .canvas-bg {
-  background-color: var(--bg-canvas);
-  background-image: var(--bg-gradient);
-  background-attachment: fixed;
+  background-color: transparent;
 }
 
 /* Tabular figures for telemetry data */
@@ -347,6 +353,8 @@ body {
   display: flex;
   width: max-content;
   animation: marqueeScroll 24s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .skills-marquee-track:hover {

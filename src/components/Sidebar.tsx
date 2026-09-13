@@ -38,7 +38,9 @@ export const Sidebar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateActiveSection = () => {
       const sections = navItems.map((item) => item.href.substring(1));
       const scrollY = window.scrollY + 200;
 
@@ -48,6 +50,14 @@ export const Sidebar: React.FC = () => {
           setActiveSection(sections[i]);
           break;
         }
+      }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
       }
     };
 

@@ -118,7 +118,10 @@ const PortfolioContent: React.FC = () => {
   }, [triggerAction]);
 
   return (
-    <div className="min-h-screen canvas-bg text-[var(--text-primary)] antialiased font-sans transition-colors duration-300">
+    <div className="min-h-screen text-[var(--text-primary)] antialiased font-sans transition-colors duration-300 relative">
+      {/* Fixed GPU-Composited Ambient Theme Canvas */}
+      <div className="fixed-ambient-canvas" aria-hidden="true" />
+
       {/* Top Navigation Bar */}
       <Sidebar />
 
