@@ -18,7 +18,7 @@ export const SystemTelemetry: React.FC = () => {
     <div className="font-mono text-xs text-slate-200 py-1 leading-relaxed">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Fedora ASCII Art */}
-        <div className="lg:col-span-5 text-[#FF4C60] font-mono text-[11px] leading-tight select-none whitespace-pre bg-black/40 p-4 rounded-xl border border-slate-800/80 overflow-x-auto">
+        <div className="lg:col-span-5 text-[var(--accent-primary)] font-mono text-[11px] leading-tight select-none whitespace-pre bg-black/40 p-4 rounded-xl border border-slate-800/80 overflow-x-auto">
 {`             .',;::::;,'.
          .';:cccccccccccc:;,.
       .;cccccccccccccccccccccc;.
@@ -42,7 +42,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
         {/* System Specs List */}
         <div className="lg:col-span-7 space-y-1.5 text-xs tabular-nums font-mono">
-          <div className="text-[#FF4C60] font-bold border-b border-slate-800 pb-1 mb-2 flex items-center justify-between">
+          <div className="text-[var(--accent-primary)] font-bold border-b border-slate-800 pb-1 mb-2 flex items-center justify-between">
             <span>{SYSTEM_SPECS.user}@fedora</span>
             <span className="text-[10px] text-slate-400 font-normal">kkfetch v1.2 [Rust procfs]</span>
           </div>
@@ -62,11 +62,11 @@ cccccccc;.:odl:.;cccccccccccccc:,.
           <div><span className="text-slate-400 font-medium">Memory:</span> <span className="text-slate-200 ml-1.5">{SYSTEM_SPECS.memory}</span></div>
 
           <div className="flex gap-1.5 pt-2">
-            <span className="w-3 h-3 rounded-sm bg-[#FF4C60]" />
-            <span className="w-3 h-3 rounded-sm bg-[#FFD15C]" />
-            <span className="w-3 h-3 rounded-sm bg-[#6C6CE5]" />
-            <span className="w-3 h-3 rounded-sm bg-[#08D9D6]" />
-            <span className="w-3 h-3 rounded-sm bg-[#38EF7D]" />
+            <span className="w-3 h-3 rounded-sm bg-[var(--accent-primary)]" />
+            <span className="w-3 h-3 rounded-sm bg-[var(--accent-peach)]" />
+            <span className="w-3 h-3 rounded-sm bg-[var(--accent-secondary)]" />
+            <span className="w-3 h-3 rounded-sm bg-[var(--accent-cyan)]" />
+            <span className="w-3 h-3 rounded-sm bg-[var(--accent-green)]" />
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
       case 'projects':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div className="text-[#FFD15C] font-semibold">Active Codebases:</div>
+            <div className="text-[var(--accent-peach)] font-semibold">Active Codebases:</div>
             <div>* fedora-post-install (v5.5.7, 1600+ lines bash automation)</div>
             <div>* kkfetch (Rust sub-millisecond procfs telemetry fetcher)</div>
             <div>* cli-python-crud-project (Python pathlib file manager)</div>
@@ -111,7 +111,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
       case 'upstream':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div className="text-[#FF4C60] font-semibold">Upstream Contributions:</div>
+            <div className="text-[var(--accent-primary)] font-semibold">Upstream Contributions:</div>
             <div>* bilawalsidhu/gods-eye-view #214 (Tactical Sonar Cesium shader bugfix)</div>
             <div>* bilawalsidhu/gods-eye-view #216 (WCAG accessibility fix)</div>
             <div>* mission-center-devs/gng !117 (D3cold GPU power thrash fix)</div>
@@ -123,10 +123,10 @@ cccccccc;.:odl:.;cccccccccccccc:,.
       case 'help':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
-            <div><span className="text-[#FF4C60]">kkfetch</span>: print live workstation hardware telemetry</div>
-            <div><span className="text-[#FFD15C]">upstream</span>: list upstream pull requests and investigations</div>
-            <div><span className="text-[#6C6CE5]">projects</span>: list flagship codebases</div>
-            <div><span className="text-[#08D9D6]">clear</span>: clear terminal screen</div>
+            <div><span className="text-[var(--accent-primary)]">kkfetch</span>: print live workstation hardware telemetry</div>
+            <div><span className="text-[var(--accent-peach)]">upstream</span>: list upstream pull requests and investigations</div>
+            <div><span className="text-[var(--accent-secondary)]">projects</span>: list flagship codebases</div>
+            <div><span className="text-[var(--accent-cyan)]">clear</span>: clear terminal screen</div>
           </div>
         );
         break;
@@ -185,14 +185,14 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         subtitle="Live Linux workstation diagnostics measured using kkfetch in Rust with direct kernel procfs queries"
       />
 
-      {/* Greg Sithole Styled CLI Terminal Window */}
+      {/* CLI Terminal Window */}
       <div className="rounded-[20px] border border-slate-800 bg-[#12141d] text-white shadow-2xl overflow-hidden max-w-4xl mx-auto">
         {/* Window Header */}
         <div className="flex items-center justify-between px-6 py-3.5 border-b border-slate-800 bg-[#161824]">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#FF4C60] inline-block" />
-            <span className="w-3 h-3 rounded-full bg-[#FFD15C] inline-block" />
-            <span className="w-3 h-3 rounded-full bg-[#38EF7D] inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[var(--accent-primary)] inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[var(--accent-peach)] inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[var(--accent-green)] inline-block" />
             <span className="font-mono text-xs text-slate-400 ml-2 font-medium">
               fedora / kkfetch-telemetry
             </span>
@@ -203,7 +203,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
               <button
                 key={cmd}
                 onClick={() => executeCommand(cmd)}
-                className="px-3 py-1 rounded-full bg-slate-800 hover:bg-[#FF4C60] text-slate-300 hover:text-white text-[11px] font-mono font-medium transition-colors cursor-pointer"
+                className="px-3 py-1 rounded-full bg-slate-800 hover:bg-[var(--accent-primary)] text-slate-300 hover:text-white text-[11px] font-mono font-medium transition-colors cursor-pointer"
               >
                 {cmd}
               </button>
@@ -219,9 +219,9 @@ cccccccc;.:odl:.;cccccccccccccc:,.
           {history.map((item, idx) => (
             <div key={idx} className="space-y-1.5">
               <div className="flex items-center gap-2 text-slate-400">
-                <span className="text-[#FF4C60] font-bold">kk376@fedora</span>
+                <span className="text-[var(--accent-primary)] font-bold">kk376@fedora</span>
                 <span className="text-slate-600">:</span>
-                <span className="text-[#FFD15C]">~</span>
+                <span className="text-[var(--accent-peach)]">~</span>
                 <span className="text-slate-600">$</span>
                 <span className="text-white font-medium">{item.command}</span>
               </div>
@@ -231,9 +231,9 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
           {/* Interactive Input Prompt */}
           <div className="flex items-center gap-2 text-slate-400 pt-1">
-            <span className="text-[#FF4C60] font-bold">kk376@fedora</span>
+            <span className="text-[var(--accent-primary)] font-bold">kk376@fedora</span>
             <span className="text-slate-600">:</span>
-            <span className="text-[#FFD15C]">~</span>
+            <span className="text-[var(--accent-peach)]">~</span>
             <span className="text-slate-600">$</span>
             <input
               type="text"
@@ -249,7 +249,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         {/* Terminal Footer Bar */}
         <div className="px-6 py-3 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between bg-[#161824]">
           <span>Press Enter to execute</span>
-          <span className="text-[#38EF7D] font-medium">Sub-millisecond Rust Procfs</span>
+          <span className="text-[var(--accent-green)] font-medium">Sub-millisecond Rust Procfs</span>
         </div>
       </div>
     </section>

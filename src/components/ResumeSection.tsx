@@ -81,7 +81,7 @@ export const ResumeSection: React.FC = () => {
         {/* Education Timeline */}
         <div className="greg-card p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-white/5">
-            <div className="w-10 h-10 rounded-xl bg-[#6C6CE5]/10 dark:bg-[#6C6CE5]/20 flex items-center justify-center text-[#6C6CE5]">
+            <div className="w-10 h-10 rounded-xl bg-[var(--accent-secondary)]/10 dark:bg-[var(--accent-secondary)]/20 flex items-center justify-center text-[var(--accent-secondary)]">
               <GraduationCap className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -89,14 +89,14 @@ export const ResumeSection: React.FC = () => {
             </h3>
           </div>
 
-          <div className="relative pl-6 border-l-2 border-[#6C6CE5]/30 space-y-8">
+          <div className="relative pl-6 border-l-2 border-[var(--accent-secondary)]/30 space-y-8">
             {educationData.map((item, idx) => (
               <div key={idx} className="relative group">
-                {/* Timeline Coral Dot */}
-                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#6C6CE5] border-2 border-white dark:border-[#252536] shadow-sm group-hover:scale-125 transition-transform" />
+                {/* Timeline Dot */}
+                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-secondary)] border-2 border-white dark:border-[#252536] shadow-sm group-hover:scale-125 transition-transform" />
 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold mb-2">
-                  <Calendar className="w-3 h-3 text-[#6C6CE5]" />
+                  <Calendar className="w-3 h-3 text-[var(--accent-secondary)]" />
                   <span>{item.period}</span>
                 </div>
 
@@ -104,7 +104,7 @@ export const ResumeSection: React.FC = () => {
                   {item.title}
                 </h4>
 
-                <p className="text-xs font-semibold text-[#6C6CE5] mb-2">
+                <p className="text-xs font-semibold text-[var(--accent-secondary)] mb-2">
                   {item.institution}
                 </p>
 
@@ -130,7 +130,7 @@ export const ResumeSection: React.FC = () => {
         {/* Experience & Upstream Timeline */}
         <div className="greg-card p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-white/5">
-            <div className="w-10 h-10 rounded-xl bg-[#FF4C60]/10 dark:bg-[#FF4C60]/20 flex items-center justify-center text-[#FF4C60]">
+            <div className="w-10 h-10 rounded-xl bg-[var(--accent-primary)]/10 dark:bg-[var(--accent-primary)]/20 flex items-center justify-center text-[var(--accent-primary)]">
               <Briefcase className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -138,14 +138,14 @@ export const ResumeSection: React.FC = () => {
             </h3>
           </div>
 
-          <div className="relative pl-6 border-l-2 border-[#FF4C60]/30 space-y-8">
+          <div className="relative pl-6 border-l-2 border-[var(--accent-primary)]/30 space-y-8">
             {experienceData.map((item, idx) => (
               <div key={idx} className="relative group">
-                {/* Timeline Coral Dot */}
-                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#FF4C60] border-2 border-white dark:border-[#252536] shadow-sm group-hover:scale-125 transition-transform" />
+                {/* Timeline Dot */}
+                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-primary)] border-2 border-white dark:border-[#252536] shadow-sm group-hover:scale-125 transition-transform" />
 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold mb-2">
-                  <Calendar className="w-3 h-3 text-[#FF4C60]" />
+                  <Calendar className="w-3 h-3 text-[var(--accent-primary)]" />
                   <span>{item.period}</span>
                 </div>
 
@@ -153,7 +153,7 @@ export const ResumeSection: React.FC = () => {
                   {item.title}
                 </h4>
 
-                <p className="text-xs font-semibold text-[#FF4C60] mb-2">
+                <p className="text-xs font-semibold text-[var(--accent-primary)] mb-2">
                   {item.institution}
                 </p>
 

@@ -19,10 +19,10 @@ const services: ServiceItem[] = [
     title: 'Frontend Engineering',
     description:
       'Crafting clean, accessible, component-driven user interfaces with modern React, semantic HTML5 markup, and responsive Tailwind CSS layout models.',
-    icon: <Code2 className="w-9 h-9 text-[#6C6CE5]" />,
-    accentColor: '#6C6CE5',
-    bgLight: 'bg-[#6C6CE5]/10',
-    bgDark: 'dark:bg-[#6C6CE5]/15',
+    icon: <Code2 className="w-9 h-9 text-[var(--accent-secondary)]" />,
+    accentColor: 'var(--accent-secondary)',
+    bgLight: 'bg-[var(--accent-secondary)]/10',
+    bgDark: 'dark:bg-[var(--accent-secondary)]/15',
     skills: ['React', 'JavaScript', 'Tailwind CSS', 'Accessible DOM'],
   },
   {
@@ -30,10 +30,10 @@ const services: ServiceItem[] = [
     title: 'Linux Systems Automation',
     description:
       'Hardening Fedora 44 workstations with 1,600+ lines of modular bash provisioning, systemd services, kernel procfs parsing, and D3cold power tuning.',
-    icon: <Terminal className="w-9 h-9 text-[#FFD15C]" />,
-    accentColor: '#FFD15C',
-    bgLight: 'bg-[#FFD15C]/10',
-    bgDark: 'dark:bg-[#FFD15C]/15',
+    icon: <Terminal className="w-9 h-9 text-[var(--accent-peach)]" />,
+    accentColor: 'var(--accent-peach)',
+    bgLight: 'bg-[var(--accent-peach)]/10',
+    bgDark: 'dark:bg-[var(--accent-peach)]/15',
     skills: ['Fedora Linux', 'Bash Scripting', 'Procfs Telemetry', 'PCIe Power Tuning'],
   },
   {
@@ -41,10 +41,10 @@ const services: ServiceItem[] = [
     title: 'Upstream & Graphics Engineering',
     description:
       'Diagnosing complex graphics and window lifecycle defects, resolving GLSL shader issues in Cesium.js, and collaborating with upstream maintainers.',
-    icon: <Cpu className="w-9 h-9 text-[#FF4C60]" />,
-    accentColor: '#FF4C60',
-    bgLight: 'bg-[#FF4C60]/10',
-    bgDark: 'dark:bg-[#FF4C60]/15',
+    icon: <Cpu className="w-9 h-9 text-[var(--accent-primary)]" />,
+    accentColor: 'var(--accent-primary)',
+    bgLight: 'bg-[var(--accent-primary)]/10',
+    bgDark: 'dark:bg-[var(--accent-primary)]/15',
     skills: ['Cesium.js', 'WebGL GLSL', 'Wayland Protocols', 'Multi-distro Packaging'],
   },
 ];

@@ -36,14 +36,14 @@ export const UpstreamSection: React.FC = () => {
         );
       case 'open':
         return (
-          <span className="rounded-full bg-[#FF4C60]/10 border border-[#FF4C60]/20 text-[#FF4C60] font-mono text-xs font-bold px-3 py-1 inline-flex items-center gap-1.5">
+          <span className="rounded-full bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 text-[var(--accent-primary)] font-mono text-xs font-bold px-3 py-1 inline-flex items-center gap-1.5">
             <GitPullRequest className="w-3.5 h-3.5 stroke-[2.5]" />
             ACTIVE PR
           </span>
         );
       case 'investigated':
         return (
-          <span className="rounded-full bg-[#6C6CE5]/10 text-[#6C6CE5] border border-[#6C6CE5]/20 font-mono text-xs font-bold px-3 py-1 inline-flex items-center gap-1.5">
+          <span className="rounded-full bg-[var(--accent-secondary)]/10 text-[var(--accent-secondary)] border border-[var(--accent-secondary)]/20 font-mono text-xs font-bold px-3 py-1 inline-flex items-center gap-1.5">
             ROOT CAUSE TRACED
           </span>
         );
@@ -67,8 +67,8 @@ export const UpstreamSection: React.FC = () => {
             onClick={() => setSelectedCategory(cat.value)}
             className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
               selectedCategory === cat.value
-                ? 'bg-[#FF4C60] text-white shadow-md shadow-rose-500/20'
-                : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[#FF4C60] border border-slate-200 dark:border-white/5'
+                ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
+                : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
             }`}
           >
             <span>{cat.label}</span>
@@ -105,7 +105,7 @@ export const UpstreamSection: React.FC = () => {
                     gitlab.com/{item.repoOwner}/{item.repo}
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 font-medium text-[#FF4C60]">
+                  <span className="inline-flex items-center gap-1.5 font-medium text-[var(--accent-primary)]">
                     <GithubIcon className="w-3.5 h-3.5" />
                     github.com/{item.repoOwner}/{item.repo}
                   </span>
@@ -126,7 +126,7 @@ export const UpstreamSection: React.FC = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-baseline gap-2 text-xl sm:text-2xl font-bold text-slate-900 dark:text-white hover:text-[#FF4C60] transition-colors leading-snug tracking-tight"
+                className="group inline-flex items-baseline gap-2 text-xl sm:text-2xl font-bold text-slate-900 dark:text-white hover:text-[var(--accent-primary)] transition-colors leading-snug tracking-tight"
               >
                 <span>{item.title}</span>
                 <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity shrink-0 translate-y-0.5" />
@@ -139,9 +139,9 @@ export const UpstreamSection: React.FC = () => {
             </p>
 
             {/* Contribution Context Box */}
-            <div className="rounded-2xl border border-rose-100 dark:border-rose-950/40 bg-rose-50/40 dark:bg-rose-950/15 p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#FF4C60]">
-                <Sparkles className="w-4 h-4 text-[#FF4C60]" />
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--accent-light)] p-5 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-[var(--accent-primary)]">
+                <Sparkles className="w-4 h-4 text-[var(--accent-primary)]" />
                 <span>Engineering Workflow &amp; AI Collaboration</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
@@ -181,9 +181,9 @@ export const UpstreamSection: React.FC = () => {
               <div className="pt-1">
                 <button
                   onClick={() => setExpandedDiagnosticId(expandedDiagnosticId === item.id ? null : item.id)}
-                  className="px-5 py-2.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800/60 hover:border-[#FF4C60] text-slate-800 dark:text-slate-200 text-xs font-bold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800/60 hover:border-[var(--accent-primary)] text-slate-800 dark:text-slate-200 text-xs font-bold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <Code2 className="w-4 h-4 text-[#FF4C60]" />
+                  <Code2 className="w-4 h-4 text-[var(--accent-primary)]" />
                   <span>
                     {expandedDiagnosticId === item.id
                       ? 'Hide Root Cause & Diff'
@@ -218,7 +218,7 @@ export const UpstreamSection: React.FC = () => {
                     </div>
 
                     <div className="space-y-1 border-t border-slate-200 dark:border-white/5 pt-3">
-                      <div className="font-mono text-[10px] font-bold text-[#FF4C60] uppercase tracking-wider">
+                      <div className="font-mono text-[10px] font-bold text-[var(--accent-primary)] uppercase tracking-wider">
                         ARCHITECTURAL FIX:
                       </div>
                       <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">

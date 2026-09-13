@@ -8,15 +8,17 @@
     <title>Kushagra Kumar | Frontend Developer &amp; Open Source Contributor</title>
     <script>
       (function() {
-        const stored = localStorage.getItem('theme');
+        const storedTheme = localStorage.getItem('theme');
         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        if (stored === 'light' || (!stored && prefersLight)) {
+        if (storedTheme === 'light' || (!storedTheme && prefersLight)) {
           document.documentElement.classList.remove('dark');
           document.documentElement.classList.add('light');
         } else {
           document.documentElement.classList.add('dark');
           document.documentElement.classList.remove('light');
         }
+        const storedPalette = localStorage.getItem('palette') || 'tokyonight';
+        document.documentElement.setAttribute('data-palette', storedPalette);
       })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">

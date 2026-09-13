@@ -50,9 +50,9 @@ export const Hero: React.FC = () => {
       <Shapes />
 
       <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-        {/* Avatar with Greg's colorful drop shadow / ring */}
+        {/* Avatar with colorful drop shadow / ring */}
         <div className="relative mb-7">
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white dark:border-[#252536] shadow-xl ring-4 ring-[#FF4C60]/20 dark:ring-[#FF4C60]/30 transition-transform duration-300 hover:scale-105">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white dark:border-[#252536] shadow-xl ring-4 ring-[var(--accent-primary)]/20 dark:ring-[var(--accent-primary)]/30 transition-transform duration-300 hover:scale-105">
             <img
               src={avatarImg}
               alt="Kushagra Kumar"
@@ -75,8 +75,8 @@ export const Hero: React.FC = () => {
         <div className="h-9 flex items-center justify-center mb-6">
           <p className="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300">
             <span>I'm an </span>
-            <span className="text-[#FF4C60] font-semibold">{currentText}</span>
-            <span className="inline-block w-0.5 h-5 bg-[#FF4C60] ml-1 animate-pulse align-middle" />
+            <span className="text-[var(--accent-primary)] font-semibold">{currentText}</span>
+            <span className="inline-block w-0.5 h-5 bg-[var(--accent-primary)] ml-1 animate-pulse align-middle" />
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[#FF4C60] dark:hover:text-[#FF4C60] hover:-translate-y-1 shadow-sm transition-all"
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >
             <GithubIcon className="w-5 h-5" />
           </a>
@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[#FF4C60] dark:hover:text-[#FF4C60] hover:-translate-y-1 shadow-sm transition-all"
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >
             <LinkedinIcon className="w-5 h-5" />
           </a>
@@ -105,7 +105,7 @@ export const Hero: React.FC = () => {
           <a
             href="mailto:contact@kk376.dev"
             aria-label="Send email"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[#FF4C60] dark:hover:text-[#FF4C60] hover:-translate-y-1 shadow-sm transition-all"
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >
             <Mail className="w-5 h-5" />
           </a>
@@ -121,15 +121,15 @@ export const Hero: React.FC = () => {
           </a>
         </div>
 
-        {/* Greg Sithole Scroll Down Widget */}
+        {/* Scroll Down Widget */}
         <a href="#about" className="mouse-wrapper group">
-          <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-[#FF4C60]">
+          <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-[var(--accent-primary)]">
             Scroll Down
           </span>
-          <div className="mouse-box text-slate-400 group-hover:text-[#FF4C60] group-hover:border-[#FF4C60]">
+          <div className="mouse-box text-slate-400 group-hover:text-[var(--accent-primary)] group-hover:border-[var(--accent-primary)]">
             <span className="mouse-wheel" />
           </div>
-          <ArrowDown className="w-3.5 h-3.5 animate-bounce text-slate-400 group-hover:text-[#FF4C60]" />
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce text-slate-400 group-hover:text-[var(--accent-primary)]" />
         </a>
       </div>
     </section>

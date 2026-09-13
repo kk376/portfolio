@@ -16,7 +16,7 @@ import { KeyboardShortcutsModal } from './components/KeyboardShortcutsModal';
 import { PERSONAL_INFO } from './data/portfolioData';
 
 const PortfolioContent: React.FC = () => {
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, palette, togglePalette } = useTheme();
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -27,7 +27,7 @@ const PortfolioContent: React.FC = () => {
     }, 2500);
   };
 
-  const triggerAction = useCallback((action: 'terminal' | 'theme' | 'email' | 'sonar') => {
+  const triggerAction = useCallback((action: 'terminal' | 'theme' | 'palette' | 'email' | 'sonar') => {
     switch (action) {
       case 'terminal': {
         const sysSection = document.getElementById('telemetry');
@@ -46,6 +46,11 @@ const PortfolioContent: React.FC = () => {
       case 'theme': {
         toggleTheme();
         showToast(isDark ? 'Switched to Light Canvas' : 'Switched to Dark Canvas');
+        break;
+      }
+      case 'palette': {
+        togglePalette();
+        showToast(palette === 'tokyonight' ? 'Switched to Catppuccin Palette' : 'Switched to Tokyo Night Palette');
         break;
       }
       case 'email': {
@@ -69,7 +74,7 @@ const PortfolioContent: React.FC = () => {
         break;
       }
     }
-  }, [toggleTheme, isDark]);
+  }, [toggleTheme, togglePalette, isDark, palette]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -103,6 +108,9 @@ const PortfolioContent: React.FC = () => {
       } else if (key === 't') {
         e.preventDefault();
         triggerAction('theme');
+      } else if (key === 'p') {
+        e.preventDefault();
+        triggerAction('palette');
       } else if (key === 'c') {
         e.preventDefault();
         triggerAction('email');
@@ -117,8 +125,8 @@ const PortfolioContent: React.FC = () => {
   }, [triggerAction]);
 
   return (
-    <div className="min-h-screen bg-[#F9F9FF] dark:bg-[#1E1E28] text-slate-800 dark:text-slate-200 antialiased font-sans transition-colors duration-300">
-      {/* Greg Sithole Fixed Sidebar Navigation */}
+    <div className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-primary)] antialiased font-sans transition-colors duration-300">
+      {/* Fixed Sidebar Navigation */}
       <Sidebar />
 
       {/* Main Content Area: Offset for Desktop Sidebar */}
@@ -138,19 +146,19 @@ const PortfolioContent: React.FC = () => {
       <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2">
         <button
           onClick={() => setShortcutsOpen(true)}
-          className="group relative px-3.5 py-2 rounded-full border border-slate-200/90 dark:border-white/10 bg-white/90 dark:bg-[#252536]/90 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:border-[#FF4C60]/60 hover:shadow-lg hover:shadow-[#FF4C60]/10 transition-all duration-200 shadow-md flex items-center gap-2.5 cursor-pointer active:scale-95"
+          className="group relative px-3.5 py-2 rounded-full border border-slate-200/90 dark:border-[var(--border-subtle)] bg-white/90 dark:bg-[var(--bg-card)]/90 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:border-[var(--accent-primary)]/60 hover:shadow-lg hover:shadow-[var(--accent-primary)]/10 transition-all duration-200 shadow-md flex items-center gap-2.5 cursor-pointer active:scale-95"
           title="Keyboard Shortcuts (Press ? or ⌘K)"
           aria-label="Open keyboard shortcuts modal"
         >
           <div className="flex items-center gap-1.5">
-            <span className="flex items-center justify-center w-5 h-5 rounded-md bg-[#FF4C60]/10 text-[#FF4C60] border border-[#FF4C60]/20 group-hover:bg-[#FF4C60] group-hover:text-white transition-colors duration-200 shadow-xs">
+            <span className="flex items-center justify-center w-5 h-5 rounded-md bg-[var(--accent-light)] text-[var(--accent-primary)] border border-[var(--accent-primary)]/20 group-hover:bg-[var(--accent-primary)] group-hover:text-white transition-colors duration-200 shadow-xs">
               <Command className="w-3 h-3 stroke-[2.5]" />
             </span>
-            <kbd className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-[#181824] border border-slate-200 dark:border-white/10 text-[10px] font-mono font-bold text-slate-600 dark:text-slate-300 shadow-xs group-hover:border-[#FF4C60]/40 group-hover:text-[#FF4C60] transition-colors">
+            <kbd className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-[var(--bg-surface)] border border-slate-200 dark:border-[var(--border-subtle)] text-[10px] font-mono font-bold text-slate-600 dark:text-slate-300 shadow-xs group-hover:border-[var(--accent-primary)]/40 group-hover:text-[var(--accent-primary)] transition-colors">
               ?
             </kbd>
           </div>
-          <span className="text-[11px] font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-[#FF4C60] transition-colors">
+          <span className="text-[11px] font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-[var(--accent-primary)] transition-colors">
             Shortcuts
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" title="Keyboard navigation active" />
@@ -160,8 +168,8 @@ const PortfolioContent: React.FC = () => {
       {/* Action Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-20 right-6 z-50 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <div className="px-4 py-2.5 rounded-full border border-[#FF4C60]/40 bg-[#1E1E28] text-white font-mono text-xs shadow-xl flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-[#FF4C60] animate-ping" />
+          <div className="px-4 py-2.5 rounded-full border border-[var(--accent-primary)]/40 bg-[var(--bg-card)] text-[var(--text-primary)] font-mono text-xs shadow-xl flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-ping" />
             <span>{toastMessage}</span>
           </div>
         </div>

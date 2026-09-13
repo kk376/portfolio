@@ -18,52 +18,52 @@ export const ProjectsSection: React.FC = () => {
         return (
           <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
-              <span className="text-[#FFD15C] font-bold">setup.sh (v5.5.7)</span>
+              <span className="text-[var(--accent-peach)] font-bold">setup.sh (v5.5.7)</span>
               <span>1,600+ lines bash</span>
             </div>
-            <p className="text-[#38EF7D]">$ ./setup.sh --verify-checksums</p>
+            <p className="text-[var(--accent-green)]">$ ./setup.sh --verify-checksums</p>
             <p className="text-slate-400">[INFO] RPM Fusion non-free: verified</p>
             <p className="text-slate-400">[INFO] Zed editor &amp; btop: configured</p>
-            <p className="text-[#08D9D6]">[OK] Fedora Workstation hardened</p>
+            <p className="text-[var(--accent-cyan)]">[OK] Fedora Workstation hardened</p>
           </div>
         );
       case 'kkfetch':
         return (
           <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
-              <span className="text-[#08D9D6] font-bold">kkfetch --bench</span>
+              <span className="text-[var(--accent-cyan)] font-bold">kkfetch --bench</span>
               <span>Rust Procfs</span>
             </div>
             <p className="text-slate-400">Benchmark: 5.6x faster than fastfetch</p>
-            <p className="text-[#FF4C60]">Kernel: Linux 6.14.0-rc5</p>
-            <p className="text-[#FFD15C]">CPU: AMD Ryzen 5 7535HS (12)</p>
-            <p className="text-[#38EF7D]">GPU State: D3cold preserved</p>
+            <p className="text-[var(--accent-primary)]">Kernel: Linux 6.14.0-rc5</p>
+            <p className="text-[var(--accent-peach)]">CPU: AMD Ryzen 5 7535HS (12)</p>
+            <p className="text-[var(--accent-green)]">GPU State: D3cold preserved</p>
           </div>
         );
       case 'cli-python-crud-project':
         return (
           <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
-              <span className="text-[#6C6CE5] font-bold">python3 main.py</span>
+              <span className="text-[var(--accent-secondary)] font-bold">python3 main.py</span>
               <span>pathlib CRUD</span>
             </div>
-            <p className="text-[#38EF7D]">[1] Create Directory Structure</p>
+            <p className="text-[var(--accent-green)]">[1] Create Directory Structure</p>
             <p className="text-slate-400">[2] Search &amp; Filter Logs</p>
             <p className="text-slate-400">[3] Batch File Operations</p>
-            <p className="text-[#FFD15C]">[OK] Exception handled safely</p>
+            <p className="text-[var(--accent-peach)]">[OK] Exception handled safely</p>
           </div>
         );
       case 'mini-projects-collection':
         return (
           <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
-              <span className="text-[#FF4C60] font-bold">python-mini-projects/</span>
+              <span className="text-[var(--accent-primary)] font-bold">python-mini-projects/</span>
               <span>10 Apps</span>
             </div>
             <p className="text-slate-400">├── expense_tracker.py</p>
             <p className="text-slate-400">├── password_strength.py</p>
             <p className="text-slate-400">├── student_grades.py</p>
-            <p className="text-[#38EF7D]">└── terminal_quiz.py</p>
+            <p className="text-[var(--accent-green)]">└── terminal_quiz.py</p>
           </div>
         );
       default:
@@ -78,14 +78,14 @@ export const ProjectsSection: React.FC = () => {
         subtitle="Independent software tools authored for Linux systems and Python fundamentals"
       />
 
-      {/* Greg Sithole Portfolio Filter Pills */}
+      {/* Portfolio Filter Pills */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
         <button
           onClick={() => setFilter('all')}
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'all'
-              ? 'bg-[#FF4C60] text-white shadow-md shadow-rose-500/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[#FF4C60] border border-slate-200 dark:border-white/5'
+              ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
+              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Everything
@@ -95,8 +95,8 @@ export const ProjectsSection: React.FC = () => {
           onClick={() => setFilter('linux')}
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'linux'
-              ? 'bg-[#FF4C60] text-white shadow-md shadow-rose-500/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[#FF4C60] border border-slate-200 dark:border-white/5'
+              ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
+              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Linux &amp; Shell
@@ -106,8 +106,8 @@ export const ProjectsSection: React.FC = () => {
           onClick={() => setFilter('systems')}
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'systems'
-              ? 'bg-[#FF4C60] text-white shadow-md shadow-rose-500/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[#FF4C60] border border-slate-200 dark:border-white/5'
+              ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
+              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Systems &amp; Telemetry
@@ -117,8 +117,8 @@ export const ProjectsSection: React.FC = () => {
           onClick={() => setFilter('python')}
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'python'
-              ? 'bg-[#FF4C60] text-white shadow-md shadow-rose-500/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[#FF4C60] border border-slate-200 dark:border-white/5'
+              ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
+              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Python &amp; Apps
@@ -135,7 +135,7 @@ export const ProjectsSection: React.FC = () => {
             <div>
               {/* Header: Tag + Badge */}
               <div className="flex items-center justify-between gap-2 mb-4">
-                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-50 dark:bg-rose-950/40 text-[#FF4C60]">
+                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--accent-light)] text-[var(--accent-primary)]">
                   {project.category}
                 </span>
 
@@ -153,7 +153,7 @@ export const ProjectsSection: React.FC = () => {
               </div>
 
               {/* Title & Tagline */}
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-[#FF4C60] transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-[var(--accent-primary)] transition-colors">
                 {project.title}
               </h3>
               <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3">
@@ -186,7 +186,7 @@ export const ProjectsSection: React.FC = () => {
 
               {/* Action Button */}
               <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
-                <span className="text-xs font-bold text-[#FF4C60]">
+                <span className="text-xs font-bold text-[var(--accent-primary)]">
                   {project.highlightMetric}
                 </span>
 
@@ -194,7 +194,7 @@ export const ProjectsSection: React.FC = () => {
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-[#FF4C60] hover:text-white dark:hover:bg-[#FF4C60] dark:hover:text-white transition-all text-slate-700 dark:text-slate-200"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-[var(--accent-primary)] hover:text-white dark:hover:bg-[var(--accent-primary)] dark:hover:text-white transition-all text-slate-700 dark:text-slate-200"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>Repository</span>

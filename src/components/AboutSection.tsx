@@ -10,10 +10,10 @@ interface SkillBar {
 }
 
 const skills: SkillBar[] = [
-  { name: 'Semantic HTML & Modern CSS', percentage: 90, color: '#FFD15C' },
-  { name: 'JavaScript & React Architecture', percentage: 85, color: '#FF4C60' },
-  { name: 'Linux Systems & Shell Automation', percentage: 88, color: '#6C6CE5' },
-  { name: 'Upstream PRs & WebGL Shaders', percentage: 80, color: '#08D9D6' },
+  { name: 'Semantic HTML & Modern CSS', percentage: 90, color: 'var(--accent-peach)' },
+  { name: 'JavaScript & React Architecture', percentage: 85, color: 'var(--accent-primary)' },
+  { name: 'Linux Systems & Shell Automation', percentage: 88, color: 'var(--accent-secondary)' },
+  { name: 'Upstream PRs & WebGL Shaders', percentage: 80, color: 'var(--accent-cyan)' },
 ];
 
 export const AboutSection: React.FC = () => {
@@ -35,7 +35,7 @@ export const AboutSection: React.FC = () => {
             <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-0.5">
               Kushagra Kumar
             </h3>
-            <p className="text-xs font-semibold text-[#FF4C60] mb-3">
+            <p className="text-xs font-semibold text-[var(--accent-primary)] mb-3">
               Frontend Developer
             </p>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 text-xs font-medium border border-emerald-200 dark:border-emerald-800/40">
@@ -90,10 +90,10 @@ export const AboutSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Greg About Box: 3 Clean Stats Cards */}
+      {/* 3 Clean Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
         <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
-          <FileCode className="w-8 h-8 text-[#FF4C60] mb-2" />
+          <FileCode className="w-8 h-8 text-[var(--accent-primary)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
             1,600+
           </span>
@@ -103,7 +103,7 @@ export const AboutSection: React.FC = () => {
         </div>
 
         <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
-          <Terminal className="w-8 h-8 text-[#6C6CE5] mb-2" />
+          <Terminal className="w-8 h-8 text-[var(--accent-secondary)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
             3
           </span>
@@ -113,7 +113,7 @@ export const AboutSection: React.FC = () => {
         </div>
 
         <div className="greg-card p-6 text-center flex flex-col items-center justify-center">
-          <Award className="w-8 h-8 text-[#FFD15C] mb-2" />
+          <Award className="w-8 h-8 text-[var(--accent-peach)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
             8.21
           </span>

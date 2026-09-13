@@ -92,7 +92,7 @@ export const ContactSection: React.FC = () => {
 
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-10 h-10 rounded-xl bg-[#FF4C60]/10 flex items-center justify-center text-[#FF4C60] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent-primary)]/10 flex items-center justify-center text-[var(--accent-primary)] shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-10 h-10 rounded-xl bg-[#6C6CE5]/10 flex items-center justify-center text-[#6C6CE5] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent-secondary)]/10 flex items-center justify-center text-[var(--accent-secondary)] shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -112,7 +112,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-10 h-10 rounded-xl bg-[#FFD15C]/15 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent-peach)]/15 flex items-center justify-center text-[var(--accent-peach)] shrink-0">
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
@@ -145,7 +145,7 @@ export const ContactSection: React.FC = () => {
         <div className="lg:col-span-7">
           <div className="greg-card p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-6 text-slate-900 dark:text-white font-bold text-lg">
-              <MessageSquare className="w-5 h-5 text-[#FF4C60]" />
+              <MessageSquare className="w-5 h-5 text-[var(--accent-primary)]" />
               <span>Send Me a Message</span>
             </div>
 
@@ -163,7 +163,7 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmitStatus('idle')}
-                  className="mt-2 inline-flex items-center text-xs font-semibold text-[#FF4C60] hover:underline cursor-pointer"
+                  className="mt-2 inline-flex items-center text-xs font-semibold text-[var(--accent-primary)] hover:underline cursor-pointer"
                 >
                   Send another message
                 </button>
@@ -196,7 +196,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Insert your name"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[#FF4C60] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
                     />
                   </div>
 
@@ -210,7 +210,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="Insert your email"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[#FF4C60] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
                     />
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Insert your subject"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[#FF4C60] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
                   />
                 </div>
 
@@ -238,7 +238,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Write your message"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[#FF4C60] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors resize-none"
                   />
                 </div>
 
