@@ -119,12 +119,18 @@ export const Sidebar: React.FC = () => {
               onClick={toggleTheme}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-[#252538] hover:bg-[var(--accent-light)] text-slate-700 dark:text-[#cdd6f4] hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/10 transition-all duration-200 cursor-pointer shadow-xs"
+              className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-slate-100 dark:bg-[#252538] hover:bg-[var(--accent-light)] text-slate-700 dark:text-[#cdd6f4] hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/10 transition-all duration-200 cursor-pointer shadow-xs group select-none"
             >
               {isDark ? (
-                <Sun className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[var(--accent-peach)] transition-transform hover:rotate-45" />
+                <>
+                  <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--accent-secondary)] transition-transform group-hover:-rotate-12" />
+                  <span className="text-xs font-semibold tracking-wide font-mono">Dark</span>
+                </>
               ) : (
-                <Moon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-700 transition-transform hover:-rotate-12" />
+                <>
+                  <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--accent-peach)] transition-transform group-hover:rotate-45" />
+                  <span className="text-xs font-semibold tracking-wide font-mono">Light</span>
+                </>
               )}
             </button>
 

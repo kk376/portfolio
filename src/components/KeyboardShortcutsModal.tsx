@@ -45,8 +45,8 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
     },
     {
       keys: ['S'],
-      label: 'Launch Tactical Sonar',
-      desc: 'Scroll to open source contributions and activate the live Cesium shader radar',
+      label: 'Jump to Open Source',
+      desc: 'Scroll directly to open source pull requests and upstream contributions',
       icon: <Radar className="w-4 h-4 text-[var(--accent-cyan)]" />,
       action: () => {
         onTriggerAction('sonar');

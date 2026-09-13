@@ -5,11 +5,9 @@ import { UPSTREAM_CONTRIBUTIONS } from '../data/portfolioData';
 import type { ContributionCategory, UpstreamContribution } from '../types';
 import { GithubIcon } from './icons/GithubIcon';
 import { GitlabIcon } from './icons/GitlabIcon';
-import { SonarCanvas } from './SonarCanvas';
 
 export const UpstreamSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ContributionCategory>('all');
-  const [showDemoForId, setShowDemoForId] = useState<string | null>(null);
   const [expandedDiagnosticId, setExpandedDiagnosticId] = useState<string | null>(null);
 
   const categories: { label: string; value: ContributionCategory; count: number }[] = [
@@ -120,17 +118,11 @@ export const UpstreamSection: React.FC = () => {
               <div>{getStatusBadge(item.status)}</div>
             </div>
 
-            {/* Title and Direct Link */}
+            {/* Title */}
             <div>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-baseline gap-2 text-xl sm:text-2xl font-bold text-slate-900 dark:text-white hover:text-[var(--accent-primary)] transition-colors leading-snug tracking-tight"
-              >
-                <span>{item.title}</span>
-                <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity shrink-0 translate-y-0.5" />
-              </a>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug tracking-tight">
+                {item.title}
+              </h3>
             </div>
 
             {/* Summary */}
@@ -149,36 +141,31 @@ export const UpstreamSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Interactive Cesium Sonar Demo */}
-            {item.hasInteractiveDemo && (
-              <div className="pt-2">
-                <button
-                  onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
-                  className="btn-coral text-xs font-bold py-2.5 px-6 shadow-sm flex items-center gap-2 cursor-pointer"
-                >
-                  <span>
-                    {showDemoForId === item.id
-                      ? 'Close Tactical Sonar Demo'
-                      : 'Launch Live Cesium Tactical Sonar'}
-                  </span>
-                  {showDemoForId === item.id ? (
-                    <ChevronUp className="w-4 h-4 stroke-[2.5]" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 stroke-[2.5]" />
-                  )}
-                </button>
-
-                {showDemoForId === item.id && (
-                  <div className="mt-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-[#0b0f19] p-3 shadow-lg">
-                    <SonarCanvas />
-                  </div>
+            {/* Interactive Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-accent text-xs font-bold py-2.5 px-5 shadow-sm inline-flex items-center gap-2 cursor-pointer transition-all hover:-translate-y-0.5"
+                title={`Open ${item.refLabel} on ${item.platform === 'gitlab' ? 'GitLab' : 'GitHub'}`}
+              >
+                {item.platform === 'gitlab' ? (
+                  <GitlabIcon className="w-4 h-4" />
+                ) : (
+                  <GithubIcon className="w-4 h-4" />
                 )}
-              </div>
-            )}
+                <span>
+                  {item.platform === 'gitlab'
+                    ? 'View MR on GitLab'
+                    : item.type === 'issue'
+                    ? 'View Issue on GitHub'
+                    : 'View PR on GitHub'}
+                </span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </a>
 
-            {/* Diagnostic Trace & Diff Inspector */}
-            {item.diagnostic && (
-              <div className="pt-1">
+              {item.diagnostic && (
                 <button
                   onClick={() => setExpandedDiagnosticId(expandedDiagnosticId === item.id ? null : item.id)}
                   className="px-5 py-2.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181825] hover:border-[var(--accent-primary)] text-slate-800 dark:text-slate-200 text-xs font-bold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
@@ -195,7 +182,12 @@ export const UpstreamSection: React.FC = () => {
                     <ChevronDown className="w-4 h-4 stroke-[2]" />
                   )}
                 </button>
+              )}
+            </div>
 
+            {/* Diagnostic Trace & Diff Inspector */}
+            {item.diagnostic && (
+              <div className="pt-1">
                 {expandedDiagnosticId === item.id && (
                   <div className="mt-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181825] p-5 space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

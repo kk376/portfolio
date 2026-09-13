@@ -58,15 +58,8 @@ const PortfolioContent: React.FC = () => {
         const upstreamSection = document.getElementById('upstream');
         if (upstreamSection) {
           upstreamSection.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => {
-            const openSonarBtn = Array.from(document.querySelectorAll<HTMLButtonElement>('#upstream button'))
-              .find((btn) => btn.textContent?.includes('Tactical Sonar'));
-            if (openSonarBtn && openSonarBtn.textContent?.includes('Launch Live')) {
-              openSonarBtn.click();
-            }
-          }, 350);
         }
-        showToast('Activating Live Cesium Tactical Sonar');
+        showToast('Jumped to Open Source Contributions');
         break;
       }
     }
