@@ -189,12 +189,12 @@ export const SystemTelemetry: React.FC = () => {
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex items-center gap-1.5 p-1 rounded-lg bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08]">
             <button
               onClick={() => setActiveTab('specs')}
-              className={`px-3 py-1 rounded text-xs font-mono transition-colors ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all ${
                 activeTab === 'specs'
-                  ? 'bg-white text-slate-900 dark:text-black font-semibold shadow-sm'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-sm'
                   : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
               }`}
             >
@@ -202,9 +202,9 @@ export const SystemTelemetry: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('terminal')}
-              className={`px-3 py-1 rounded text-xs font-mono transition-colors ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all ${
                 activeTab === 'terminal'
-                  ? 'bg-white text-slate-900 dark:text-black font-semibold shadow-sm'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-sm'
                   : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
               }`}
             >
@@ -216,7 +216,8 @@ export const SystemTelemetry: React.FC = () => {
         {activeTab === 'specs' ? (
           /* Structured Specs Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-cyan-400/50 dark:hover:border-cyan-500/40 transition-all shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500" />
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
                 <Monitor className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>Operating System</span>
@@ -225,7 +226,8 @@ export const SystemTelemetry: React.FC = () => {
               <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">{SYSTEM_SPECS.kernel}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-emerald-400/50 dark:hover:border-emerald-500/40 transition-all shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 to-teal-500" />
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
                 <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Processor Unit</span>
@@ -234,7 +236,8 @@ export const SystemTelemetry: React.FC = () => {
               <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">6 Cores / 12 Threads</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-purple-400/50 dark:hover:border-purple-500/40 transition-all shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 to-indigo-500" />
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
                 <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                 <span>Graphics Configuration</span>
@@ -243,7 +246,8 @@ export const SystemTelemetry: React.FC = () => {
               <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">{SYSTEM_SPECS.gpu}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-amber-400/50 dark:hover:border-amber-500/40 transition-all shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500" />
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
                 <HardDrive className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                 <span>Memory & State</span>
@@ -252,7 +256,8 @@ export const SystemTelemetry: React.FC = () => {
               <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Uptime: {SYSTEM_SPECS.uptime}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-cyan-400/50 dark:hover:border-cyan-500/40 transition-all shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-400 to-cyan-500" />
               <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
                 <Terminal className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>User Environment</span>
@@ -261,10 +266,11 @@ export const SystemTelemetry: React.FC = () => {
               <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">{SYSTEM_SPECS.terminal}</div>
             </div>
 
-            <div className="p-5 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm dark:shadow-none flex flex-col justify-between">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] hover:border-pink-400/50 dark:hover:border-pink-500/40 transition-all shadow-sm hover:shadow-md dark:shadow-xl relative overflow-hidden group flex flex-col justify-between">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-pink-500 to-rose-500" />
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-                  <Info className="w-4 h-4 text-slate-400" />
+                  <Info className="w-4 h-4 text-pink-500 dark:text-pink-400" />
                   <span>Editor & Toolchain</span>
                 </div>
                 <div className="text-sm font-semibold text-slate-900 dark:text-white">{SYSTEM_SPECS.editor}</div>

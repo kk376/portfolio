@@ -37,10 +37,11 @@ export const ContactSection: React.FC = () => {
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-cyan-300/80 dark:border-cyan-500/25 hover:border-cyan-500 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md dark:shadow-xl group flex flex-col justify-between transition-all duration-300"
+            className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-cyan-300/80 dark:border-cyan-500/25 hover:border-cyan-500 dark:hover:border-cyan-400 shadow-sm hover:shadow-lg hover:shadow-cyan-500/10 dark:shadow-xl group flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
           >
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500" />
             <div>
-              <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/15 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
                 <GithubIcon className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">GitHub</h3>
@@ -57,10 +58,11 @@ export const ContactSection: React.FC = () => {
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-purple-300/80 dark:border-purple-500/25 hover:border-purple-500 dark:hover:border-purple-500/60 shadow-sm hover:shadow-md dark:shadow-xl group flex flex-col justify-between transition-all duration-300"
+            className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-purple-300/80 dark:border-purple-500/25 hover:border-purple-500 dark:hover:border-purple-400 shadow-sm hover:shadow-lg hover:shadow-purple-500/10 dark:shadow-xl group flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
           >
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 to-indigo-500" />
             <div>
-              <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/30 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-500/15 border border-purple-200 dark:border-purple-500/30 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-4 group-hover:scale-110 transition-transform">
                 <LinkedinIcon className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">LinkedIn</h3>
@@ -73,9 +75,10 @@ export const ContactSection: React.FC = () => {
           </a>
 
           {/* Email Direct Card */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-pink-300/80 dark:border-pink-500/25 hover:border-pink-500 dark:hover:border-pink-500/60 shadow-sm hover:shadow-md dark:shadow-xl flex flex-col justify-between transition-all duration-300">
+          <div className="p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-pink-300/80 dark:border-pink-500/25 hover:border-pink-500 dark:hover:border-pink-400 shadow-sm hover:shadow-lg hover:shadow-pink-500/10 dark:shadow-xl flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-pink-500 to-rose-500" />
             <div>
-              <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-500/10 border border-pink-200 dark:border-pink-500/30 flex items-center justify-center text-pink-600 dark:text-pink-400 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-500/15 border border-pink-200 dark:border-pink-500/30 flex items-center justify-center text-pink-600 dark:text-pink-400 mb-4 group-hover:scale-110 transition-transform">
                 <Mail className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">Direct Email</h3>

@@ -145,7 +145,7 @@ export const UpstreamSection: React.FC = () => {
               </p>
 
               {/* How Kushagra Guided It */}
-              <div className="p-3.5 rounded-xl bg-purple-50 dark:bg-gradient-to-r dark:from-purple-500/10 dark:via-cyan-500/10 dark:to-transparent border border-purple-200 dark:border-purple-500/20 text-xs text-slate-700 dark:text-slate-300 font-sans leading-relaxed mb-4">
+              <div className="p-3.5 rounded-xl bg-purple-50/80 dark:bg-[#0e101c] dark:bg-gradient-to-r dark:from-purple-950/30 dark:via-cyan-950/20 dark:to-transparent border border-purple-200/90 dark:border-purple-500/30 text-xs text-slate-700 dark:text-slate-300 font-sans leading-relaxed mb-4">
                 <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-purple-700 dark:text-purple-300 mb-1">
                   <Sparkles className="w-3.5 h-3.5 text-pink-500 dark:text-pink-400" />
                   <span>My Role & AI Collaboration:</span>
@@ -158,7 +158,7 @@ export const UpstreamSection: React.FC = () => {
                 <div className="mb-4">
                   <button
                     onClick={() => setShowDemoForId(showDemoForId === item.id ? null : item.id)}
-                    className="px-4 py-2 rounded-xl bg-cyan-50 dark:bg-gradient-to-r dark:from-cyan-500/20 dark:to-blue-500/20 hover:bg-cyan-100 dark:hover:from-cyan-500/30 dark:hover:to-blue-500/30 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30 text-xs font-mono transition-colors flex items-center gap-2 shadow-sm"
+                    className="px-4 py-2 rounded-xl bg-cyan-50 hover:bg-cyan-100 dark:bg-cyan-950/40 dark:hover:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30 text-xs font-mono transition-colors flex items-center gap-2 shadow-sm"
                   >
                     <span>{showDemoForId === item.id ? 'Hide Tactical Sonar Demo' : 'Launch Interactive Cesium Sonar Demo'}</span>
                     {showDemoForId === item.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}

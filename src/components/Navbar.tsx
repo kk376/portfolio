@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
+import { LinkedinIcon } from './icons/LinkedinIcon';
 import { ThemeToggle } from './ThemeToggle';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -29,7 +30,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 dark:bg-[#06070b]/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/[0.08] shadow-sm dark:shadow-lg dark:shadow-black/50'
+          ? 'bg-white/90 dark:bg-[#06070b]/90 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/[0.08] shadow-sm dark:shadow-lg dark:shadow-black/50'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
@@ -78,15 +79,15 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Controls: Theme Toggle & Social */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          {/* Controls: Theme Toggle & Social Icons */}
+          <div className="hidden sm:flex items-center gap-2">
             <ThemeToggle />
 
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:border-cyan-400/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-all shadow-sm dark:shadow-none"
+              className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:border-cyan-400/60 hover:bg-cyan-500/10 text-slate-600 hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400 transition-all shadow-sm dark:shadow-none"
               title="GitHub Profile"
             >
               <GithubIcon className="w-4 h-4" />
@@ -96,10 +97,10 @@ export const Navbar: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 dark:bg-gradient-to-r dark:from-cyan-500/15 dark:via-purple-500/15 dark:to-pink-500/15 dark:hover:from-cyan-500/25 dark:hover:via-purple-500/25 dark:hover:to-pink-500/25 border border-purple-200 dark:border-purple-500/30 text-xs font-medium text-purple-700 dark:text-white transition-all flex items-center gap-1.5 shadow-sm dark:shadow-none"
+              className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:border-purple-400/60 hover:bg-purple-500/10 text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 transition-all shadow-sm dark:shadow-none"
+              title="LinkedIn Profile"
             >
-              <span>LinkedIn</span>
-              <ArrowUpRight className="w-3 h-3 text-purple-500 dark:text-purple-400" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
           </div>
 
@@ -136,7 +137,7 @@ export const Navbar: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white flex items-center gap-1.5 font-mono"
+                className="text-xs text-slate-600 hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400 flex items-center gap-1.5 font-mono"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 GitHub
@@ -147,6 +148,7 @@ export const Navbar: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-xs text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 flex items-center gap-1.5 font-mono"
               >
+                <LinkedinIcon className="w-3.5 h-3.5" />
                 LinkedIn
               </a>
             </div>

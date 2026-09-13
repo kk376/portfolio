@@ -6,22 +6,33 @@ export const SkillsSection: React.FC = () => {
   const getIcon = (idx: number) => {
     switch (idx) {
       case 0:
-        return <Code2 className="w-5 h-5 text-pink-400" />;
+        return <Code2 className="w-5 h-5 text-pink-500 dark:text-pink-400" />;
       case 1:
-        return <Database className="w-5 h-5 text-cyan-400" />;
+        return <Database className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />;
       default:
-        return <Terminal className="w-5 h-5 text-purple-400" />;
+        return <Terminal className="w-5 h-5 text-purple-500 dark:text-purple-400" />;
+    }
+  };
+
+  const getIconContainer = (idx: number) => {
+    switch (idx) {
+      case 0:
+        return 'bg-pink-50 dark:bg-pink-500/10 border-pink-200 dark:border-pink-500/30';
+      case 1:
+        return 'bg-cyan-50 dark:bg-cyan-500/10 border-cyan-200 dark:border-cyan-500/30';
+      default:
+        return 'bg-purple-50 dark:bg-purple-500/10 border-purple-200 dark:border-purple-500/30';
     }
   };
 
   const getBorderColor = (idx: number) => {
     switch (idx) {
       case 0:
-        return 'hover:border-pink-500/50 hover:shadow-pink-500/10';
+        return 'hover:border-pink-500/50 hover:shadow-pink-500/10 dark:hover:border-pink-500/40';
       case 1:
-        return 'hover:border-cyan-500/50 hover:shadow-cyan-500/10';
+        return 'hover:border-cyan-500/50 hover:shadow-cyan-500/10 dark:hover:border-cyan-500/40';
       default:
-        return 'hover:border-purple-500/50 hover:shadow-purple-500/10';
+        return 'hover:border-purple-500/50 hover:shadow-purple-500/10 dark:hover:border-purple-500/40';
     }
   };
 
@@ -49,12 +60,15 @@ export const SkillsSection: React.FC = () => {
           {SKILL_GROUPS.map((group, idx) => (
             <div
               key={group.title}
-              className={`p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] ${getBorderColor(idx)} transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-xl flex flex-col justify-between`}
+              className={`p-6 rounded-2xl bg-white dark:bg-[#0b0d16] border border-slate-200 dark:border-white/[0.08] ${getBorderColor(idx)} transition-all duration-300 shadow-sm hover:shadow-lg dark:shadow-xl flex flex-col justify-between relative overflow-hidden group`}
             >
+              {/* Top hairline accent gradient */}
+              <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${group.accentColor}`} />
+
               <div>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08]">
+                  <div className={`p-2.5 rounded-xl ${getIconContainer(idx)} group-hover:scale-105 transition-transform`}>
                     {getIcon(idx)}
                   </div>
                   <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-gradient-to-r ${group.accentColor} text-white font-semibold shadow-sm`}>

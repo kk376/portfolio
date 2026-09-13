@@ -8,7 +8,7 @@ export const AIWorkflowStory: React.FC = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-gradient-to-br dark:from-[#0e101c] dark:via-[#090b14] dark:to-[#0d0f1a] border border-purple-200 dark:border-purple-500/30 shadow-md dark:shadow-2xl relative overflow-hidden">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#0c0e18] dark:bg-gradient-to-br dark:from-[#0e101c] dark:via-[#090b14] dark:to-[#0d0f1a] border border-purple-200 dark:border-purple-500/30 shadow-md dark:shadow-2xl relative overflow-hidden">
           {/* Top rainbow accent hairline */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-pink-500 via-purple-500 via-cyan-400 to-emerald-400" />
 
@@ -32,8 +32,8 @@ export const AIWorkflowStory: React.FC = () => {
 
           {/* 3 Pillars Bento */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="p-5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-pink-200 dark:border-pink-500/20 hover:border-pink-300 dark:hover:border-pink-500/40 transition-colors space-y-2">
-              <div className="w-9 h-9 rounded-lg bg-pink-100/70 dark:bg-pink-500/10 border border-pink-200 dark:border-pink-500/30 flex items-center justify-center text-pink-600 dark:text-pink-400 mb-3">
+            <div className="p-5 rounded-xl bg-pink-50/40 dark:bg-white/[0.02] dark:bg-gradient-to-b dark:from-pink-950/20 dark:to-transparent border border-pink-200 dark:border-pink-500/25 hover:border-pink-400 dark:hover:border-pink-500/50 hover:shadow-md hover:shadow-pink-500/10 transition-all space-y-2 group">
+              <div className="w-9 h-9 rounded-lg bg-pink-100 dark:bg-pink-500/15 border border-pink-200 dark:border-pink-500/30 flex items-center justify-center text-pink-600 dark:text-pink-400 mb-3 group-hover:scale-105 transition-transform">
                 <Terminal className="w-4 h-4" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white">Curiosity & Problem Spotting</h3>
@@ -42,8 +42,8 @@ export const AIWorkflowStory: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-300 dark:hover:border-cyan-500/40 transition-colors space-y-2">
-              <div className="w-9 h-9 rounded-lg bg-cyan-100/70 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-3">
+            <div className="p-5 rounded-xl bg-cyan-50/40 dark:bg-white/[0.02] dark:bg-gradient-to-b dark:from-cyan-950/20 dark:to-transparent border border-cyan-200 dark:border-cyan-500/25 hover:border-cyan-400 dark:hover:border-cyan-500/50 hover:shadow-md hover:shadow-cyan-500/10 transition-all space-y-2 group">
+              <div className="w-9 h-9 rounded-lg bg-cyan-100 dark:bg-cyan-500/15 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-3 group-hover:scale-105 transition-transform">
                 <Laptop className="w-4 h-4" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white">Directing AI Architecture</h3>
@@ -52,8 +52,8 @@ export const AIWorkflowStory: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-emerald-200 dark:border-emerald-500/20 hover:border-emerald-300 dark:hover:border-emerald-500/40 transition-colors space-y-2">
-              <div className="w-9 h-9 rounded-lg bg-emerald-100/70 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-3">
+            <div className="p-5 rounded-xl bg-emerald-50/40 dark:bg-white/[0.02] dark:bg-gradient-to-b dark:from-emerald-950/20 dark:to-transparent border border-emerald-200 dark:border-emerald-500/25 hover:border-emerald-400 dark:hover:border-emerald-500/50 hover:shadow-md hover:shadow-emerald-500/10 transition-all space-y-2 group">
+              <div className="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-3 group-hover:scale-105 transition-transform">
                 <HeartHandshake className="w-4 h-4" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white">Upstream Transparency</h3>
