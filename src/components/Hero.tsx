@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252538] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >
             <GithubIcon className="w-5 h-5" />
           </a>
@@ -108,7 +108,7 @@ export const Hero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252538] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >
             <LinkedinIcon className="w-5 h-5" />
           </a>
@@ -116,7 +116,7 @@ export const Hero: React.FC = () => {
           <a
             href="mailto:contact@kk376.dev"
             aria-label="Send email"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252536] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252538] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >
             <Mail className="w-5 h-5" />
           </a>

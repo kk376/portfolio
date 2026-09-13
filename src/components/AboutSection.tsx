@@ -25,7 +25,7 @@ export const AboutSection: React.FC = () => {
         {/* Left Column: Avatar Profile Card */}
         <div className="md:col-span-4 flex flex-col items-center">
           <div className="w-full max-w-[260px] greg-card p-5 flex flex-col items-center text-center">
-            <div className="w-36 h-36 rounded-full overflow-hidden mb-4 shadow-lg border-4 border-white dark:border-[#1E1E28]">
+            <div className="w-36 h-36 rounded-full overflow-hidden mb-4 shadow-lg border-4 border-white dark:border-[#252538]">
               <img
                 src={avatarImg}
                 alt="Kushagra Kumar profile"
@@ -74,7 +74,7 @@ export const AboutSection: React.FC = () => {
                     <span className="text-slate-800 dark:text-slate-200">{skill.name}</span>
                     <span style={{ color: skill.color }}>{skill.percentage}%</span>
                   </div>
-                  <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-slate-100 dark:bg-[#181825] rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-500"
                       style={{

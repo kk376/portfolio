@@ -93,9 +93,9 @@ export const ResumeSection: React.FC = () => {
             {educationData.map((item, idx) => (
               <div key={idx} className="relative group">
                 {/* Timeline Dot */}
-                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-secondary)] border-2 border-white dark:border-[#252536] shadow-sm group-hover:scale-125 transition-transform" />
+                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-secondary)] border-2 border-white dark:border-[#252538] shadow-sm group-hover:scale-125 transition-transform" />
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold mb-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#181825] text-slate-600 dark:text-slate-300 text-xs font-semibold mb-2">
                   <Calendar className="w-3 h-3 text-[var(--accent-secondary)]" />
                   <span>{item.period}</span>
                 </div>
@@ -142,9 +142,9 @@ export const ResumeSection: React.FC = () => {
             {experienceData.map((item, idx) => (
               <div key={idx} className="relative group">
                 {/* Timeline Dot */}
-                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-primary)] border-2 border-white dark:border-[#252536] shadow-sm group-hover:scale-125 transition-transform" />
+                <span className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--accent-primary)] border-2 border-white dark:border-[#252538] shadow-sm group-hover:scale-125 transition-transform" />
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold mb-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#181825] text-slate-600 dark:text-slate-300 text-xs font-semibold mb-2">
                   <Calendar className="w-3 h-3 text-[var(--accent-primary)]" />
                   <span>{item.period}</span>
                 </div>

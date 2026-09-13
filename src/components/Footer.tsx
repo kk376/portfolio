@@ -38,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenShortcuts }) => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="w-9 h-9 rounded-full bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-xs hover:-translate-y-0.5 transition-all"
+            className="w-9 h-9 rounded-full bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-xs hover:-translate-y-0.5 transition-all"
           >
             <GithubIcon className="w-4 h-4" />
           </a>
@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenShortcuts }) => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="w-9 h-9 rounded-full bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-xs hover:-translate-y-0.5 transition-all"
+            className="w-9 h-9 rounded-full bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-xs hover:-translate-y-0.5 transition-all"
           >
             <LinkedinIcon className="w-4 h-4" />
           </a>
@@ -56,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenShortcuts }) => {
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
             aria-label="Email Kushagra"
-            className="w-9 h-9 rounded-full bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-xs hover:-translate-y-0.5 transition-all"
+            className="w-9 h-9 rounded-full bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-xs hover:-translate-y-0.5 transition-all"
           >
             <Mail className="w-4 h-4" />
           </a>
@@ -66,10 +66,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenShortcuts }) => {
               onClick={onOpenShortcuts}
               title="Keyboard Shortcuts (? or ⌘K)"
               aria-label="Keyboard Shortcuts"
-              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono bg-white dark:bg-[#252536] border border-slate-200 dark:border-white/10 text-slate-500 hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)]/40 transition-all shadow-xs active:scale-95 cursor-pointer"
+              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono bg-white dark:bg-[#181825] border border-slate-200 dark:border-white/10 text-slate-500 hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)]/40 transition-all shadow-xs active:scale-95 cursor-pointer"
             >
               <Command className="w-3.5 h-3.5 text-[var(--accent-primary)] group-hover:scale-110 transition-transform duration-200" />
-              <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#181824] border border-slate-200 dark:border-white/10 text-[10px] font-bold text-slate-700 dark:text-slate-300 group-hover:text-[var(--accent-primary)] transition-colors">
+              <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#181825] border border-slate-200 dark:border-white/10 text-[10px] font-bold text-slate-700 dark:text-slate-300 group-hover:text-[var(--accent-primary)] transition-colors">
                 ?
               </kbd>
               <span className="hidden sm:inline text-[11px] font-medium text-slate-600 dark:text-slate-400 group-hover:text-[var(--accent-primary)] transition-colors">

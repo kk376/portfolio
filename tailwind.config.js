@@ -25,27 +25,6 @@ export default {
           'card-hover': 'var(--bg-card-hover)',
           sidebar: 'var(--bg-sidebar)',
         },
-        greg: {
-          coral: 'var(--accent-primary)',
-          'coral-hover': 'var(--btn-primary-hover)',
-          'coral-light': 'var(--accent-light)',
-          'coral-muted': 'var(--accent-muted)',
-          yellow: 'var(--accent-peach)',
-          'yellow-light': '#FFF9E6',
-          'yellow-muted': 'rgba(255, 209, 92, 0.15)',
-          purple: 'var(--accent-secondary)',
-          'purple-light': '#F1F1FD',
-          'purple-muted': 'rgba(108, 108, 229, 0.15)',
-          cyan: 'var(--accent-cyan)',
-          green: 'var(--accent-green)',
-          body: 'var(--bg-canvas)',
-          card: 'var(--bg-card)',
-          border: 'var(--border-subtle)',
-          'dark-body': 'var(--bg-canvas)',
-          'dark-card': 'var(--bg-card)',
-          'dark-border': 'var(--border-subtle)',
-          'dark-card-hover': 'var(--bg-card-hover)',
-        },
       },
       fontFamily: {
         rubik: ['"Rubik"', '"Noto Sans"', 'sans-serif'],
@@ -54,17 +33,8 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
-        'greg': '20px',
-        'btn': '30px',
-        'card': '20px',
-        'pill': '9999px',
-      },
-      boxShadow: {
-        'greg': '0px 5px 20px 0px rgba(69, 67, 96, 0.1)',
-        'greg-dark': '0px 5px 20px 0px rgba(0, 0, 0, 0.25)',
-        'greg-coral': '0px 5px 20px 0px rgba(255, 76, 96, 0.4)',
-        'greg-yellow': '0px 5px 20px 0px rgba(255, 209, 92, 0.4)',
-        'greg-purple': '0px 5px 20px 0px rgba(108, 108, 229, 0.4)',
+        card: '20px',
+        pill: '9999px',
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',
@@ -92,3 +62,4 @@ export default {
   },
   plugins: [],
 }
+

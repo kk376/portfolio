@@ -68,7 +68,7 @@ export const UpstreamSection: React.FC = () => {
             className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
               selectedCategory === cat.value
                 ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
-                : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
+                : 'bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
             }`}
           >
             <span>{cat.label}</span>
@@ -76,7 +76,7 @@ export const UpstreamSection: React.FC = () => {
               className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold tabular-nums ${
                 selectedCategory === cat.value
                   ? 'bg-white/20 text-white'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
+                  : 'bg-slate-100 dark:bg-[#181825] text-slate-500 dark:text-slate-400'
               }`}
             >
               {cat.count}
@@ -95,7 +95,7 @@ export const UpstreamSection: React.FC = () => {
             {/* Header Bar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-white/5 pb-4">
               <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-                <span className="font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200 dark:border-white/10 tabular-nums">
+                <span className="font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-[#181825] px-2.5 py-1 rounded-full border border-slate-200 dark:border-white/10 tabular-nums">
                   DISPATCH 0{idx + 1}
                 </span>
 
@@ -181,7 +181,7 @@ export const UpstreamSection: React.FC = () => {
               <div className="pt-1">
                 <button
                   onClick={() => setExpandedDiagnosticId(expandedDiagnosticId === item.id ? null : item.id)}
-                  className="px-5 py-2.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800/60 hover:border-[var(--accent-primary)] text-slate-800 dark:text-slate-200 text-xs font-bold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181825] hover:border-[var(--accent-primary)] text-slate-800 dark:text-slate-200 text-xs font-bold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Code2 className="w-4 h-4 text-[var(--accent-primary)]" />
                   <span>
@@ -197,7 +197,7 @@ export const UpstreamSection: React.FC = () => {
                 </button>
 
                 {expandedDiagnosticId === item.id && (
-                  <div className="mt-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181824] p-5 space-y-4">
+                  <div className="mt-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181825] p-5 space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1">
                         <div className="font-mono text-[10px] font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">
@@ -254,7 +254,7 @@ export const UpstreamSection: React.FC = () => {
               {item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono text-[11px] font-medium border border-slate-200 dark:border-white/5"
+                  className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#181825] text-slate-600 dark:text-slate-400 font-mono text-[11px] font-medium border border-slate-200 dark:border-white/5"
                 >
                   #{tag}
                 </span>

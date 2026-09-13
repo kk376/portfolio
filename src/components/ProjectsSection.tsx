@@ -16,7 +16,7 @@ export const ProjectsSection: React.FC = () => {
     switch (id) {
       case 'fedora-post-install':
         return (
-          <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
+          <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
               <span className="text-[var(--accent-peach)] font-bold">setup.sh (v5.5.7)</span>
               <span>1,600+ lines bash</span>
@@ -29,7 +29,7 @@ export const ProjectsSection: React.FC = () => {
         );
       case 'kkfetch':
         return (
-          <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1 overflow-hidden">
+          <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
               <span className="text-[var(--accent-cyan)] font-bold">kkfetch --bench</span>
               <span>Rust Procfs</span>
@@ -42,7 +42,7 @@ export const ProjectsSection: React.FC = () => {
         );
       case 'cli-python-crud-project':
         return (
-          <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
+          <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
               <span className="text-[var(--accent-secondary)] font-bold">python3 main.py</span>
               <span>pathlib CRUD</span>
@@ -55,7 +55,7 @@ export const ProjectsSection: React.FC = () => {
         );
       case 'mini-projects-collection':
         return (
-          <div className="bg-[#181824] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
+          <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
               <span className="text-[var(--accent-primary)] font-bold">python-mini-projects/</span>
               <span>10 Apps</span>
@@ -85,7 +85,7 @@ export const ProjectsSection: React.FC = () => {
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'all'
               ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
+              : 'bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Everything
@@ -96,7 +96,7 @@ export const ProjectsSection: React.FC = () => {
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'linux'
               ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
+              : 'bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Linux &amp; Shell
@@ -107,7 +107,7 @@ export const ProjectsSection: React.FC = () => {
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'systems'
               ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
+              : 'bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Systems &amp; Telemetry
@@ -118,7 +118,7 @@ export const ProjectsSection: React.FC = () => {
           className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 ${
             filter === 'python'
               ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
-              : 'bg-white dark:bg-[#252536] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
+              : 'bg-white dark:bg-[#181825] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/5'
           }`}
         >
           Python &amp; Apps
@@ -140,7 +140,7 @@ export const ProjectsSection: React.FC = () => {
                 </span>
 
                 <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-[#181825] text-slate-600 dark:text-slate-300">
                     {project.badge}
                   </span>
                   {project.starsCount && (
@@ -177,7 +177,7 @@ export const ProjectsSection: React.FC = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                    className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-[#181825] text-slate-600 dark:text-slate-300"
                   >
                     {tag}
                   </span>
@@ -194,7 +194,7 @@ export const ProjectsSection: React.FC = () => {
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-[var(--accent-primary)] hover:text-white dark:hover:bg-[var(--accent-primary)] dark:hover:text-white transition-all text-slate-700 dark:text-slate-200"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-slate-100 dark:bg-[#181825] hover:bg-[var(--accent-primary)] hover:text-white dark:hover:bg-[var(--accent-primary)] dark:hover:text-white transition-all text-slate-700 dark:text-slate-200"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>Repository</span>

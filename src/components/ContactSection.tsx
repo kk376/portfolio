@@ -196,7 +196,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Insert your name"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#181825] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
                     />
                   </div>
 
@@ -210,7 +210,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="Insert your email"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#181825] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
                     />
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Insert your subject"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#181825] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors"
                   />
                 </div>
 
@@ -238,7 +238,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Write your message"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#181825] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm outline-none focus:border-[var(--accent-primary)] transition-colors resize-none"
                   />
                 </div>
 
