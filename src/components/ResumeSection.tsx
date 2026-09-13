@@ -12,21 +12,21 @@ interface TimelineItem {
 
 const educationData: TimelineItem[] = [
   {
-    period: '2019 - 2022',
+    period: 'Aug 2018 - Aug 2021 (Degree Conferred March 2022)',
     title: 'Bachelor of Computer Applications (BCA)',
     institution: 'Suresh Gyan Vihar University, Jaipur',
     description:
-      'Graduated with 8.2 CGPA (Distinction). Completed rigorous coursework across Relational Database Management Systems (MySQL), Data Structures, and Software Development fundamentals.',
+      'Completed three-year graduation with 8.21 CGPA (Distinction classification). Rigorous curriculum covering Relational Database Management Systems (MySQL), Data Structures, and Software Engineering principles.',
     highlights: [
-      '8.2 CGPA Distinction classification',
-      'Advanced SQL relational queries and database schema design',
-      'Comprehensive software engineering coursework',
+      '8.21 CGPA Distinction classification',
+      'Relational database schema design and SQL query formulation',
+      'Solid programming foundations in data structures and applications',
     ],
   },
   {
-    period: '2017 - 2019',
+    period: '2016 - May 2018',
     title: 'Senior Secondary Education (Class XII)',
-    institution: 'CBSE Curriculum',
+    institution: 'CBSE Curriculum (Result: 23 May 2018)',
     description:
       'Completed foundational coursework in Physics, Chemistry, Mathematics, and Computer Science.',
   },
@@ -34,37 +34,37 @@ const educationData: TimelineItem[] = [
 
 const experienceData: TimelineItem[] = [
   {
-    period: '2024 - Present',
-    title: 'Apprentice Software Engineer',
-    institution: 'Autonomous Practice & AI Pair-Programming',
+    period: 'July 2026 - Present',
+    title: 'Frontend Learner & Open Source Contributor',
+    institution: 'Upstream Open Source & Modern Web Development',
     description:
-      'Active daily practice mastering HTML5, CSS3, modern JavaScript, and React component architecture. Directing frontier AI coding agents to diagnose workstation bottlenecks and audit codebases.',
+      'Initiated dedicated open source contribution journey on 30 July 2026. Actively mastering modern frontend engineering across semantic HTML, CSS layout systems, modern JavaScript, and React component architectures.',
     highlights: [
-      'Engineered clean component architectures with React and Tailwind CSS',
-      'Authored 1,600+ lines of modular Bash automation for Fedora Linux',
-      '100% transparent pair-programming and tool disclosure',
+      'Cesium.js PR #214 merged: Resolved multi-pass GLSL tactical sonar shader defect',
+      'Mission Center & Zed: Traced PCIe D3cold GPU thrash and Wayland window lifecycles',
+      'Advanced completion of modern responsive CSS layout and design systems',
     ],
   },
   {
-    period: '2024',
-    title: 'Upstream Contributor',
-    institution: 'Cesium.js (WebGL Engine) PR #214',
+    period: 'Nov 2024 - Mid 2026',
+    title: 'Linux Systems & Workstation Engineering',
+    institution: 'Development Environment & Shell Automation (MSI Thin A15)',
     description:
-      'Diagnosed and fixed multi-pass GLSL tactical sonar shader degradation in Cesium 3D geospatial engine. Authored minimal reproduction and verified shader uniformity.',
+      'Configured dedicated Linux development workstation (Fedora 44, AMD Ryzen 5, NVIDIA RTX 2050 Mobile). Engineered modular shell provisioning suites and authored system telemetry tools while solidifying the foundation for full-time software engineering.',
     highlights: [
-      'PR #214 merged into upstream master repository',
-      'Eliminated rendering artifacts during rapid camera rotation',
+      'Engineered 1,600+ lines of modular Bash workstation provisioning',
+      'Authored sub-millisecond Rust kernel telemetry fetcher (kkfetch)',
     ],
   },
   {
-    period: '2024',
-    title: 'Systems & Tooling Contributor',
-    institution: 'Mission Center & Zed Wayland',
+    period: 'Aug 2022 - Mid 2024',
+    title: 'Competitive Examination Track & Analytical Aptitude',
+    institution: 'Public Sector Curriculum & Quantitative Foundations',
     description:
-      'Traced PCIe D3cold power thrash on hybrid graphics Fedora workstations; captured Wayland window lifecycle traces to assist open source maintainers.',
+      'Undertook rigorous self-directed preparation for national competitive examinations, developing deep discipline in logical deduction, quantitative analysis, and systematic problem solving before deliberately pivoting back to computer science and software development.',
     highlights: [
-      'Prevented unwanted discrete GPU spin-ups during background polling',
-      'Documented reproducible Wayland compositor trace logs',
+      'Advanced analytical problem-solving and quantitative reasoning',
+      'Conscious, committed decision to return to software engineering and open source',
     ],
   },
 ];

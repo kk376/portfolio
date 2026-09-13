@@ -3,15 +3,15 @@ import type { UpstreamContribution, Project, SkillGroup, SystemSpec } from '../t
 export const PERSONAL_INFO = {
   name: 'Kushagra Kumar',
   handle: 'kk376',
-  tagline: 'Frontend Learner • Open Source Explorer • AI Pair-Programmer',
+  tagline: 'Frontend Learner • Open Source Contributor • Linux Systems Explorer',
   shortBio:
-    'BCA graduate (8.2 CGPA) actively mastering Frontend development (HTML, CSS, JavaScript, React, Tailwind). While learning web fundamentals, I love pairing with AI to investigate Linux kernel quirks, author CLI utilities, and land upstream open source contributions.',
+    'BCA graduate (8.21 CGPA distinction) actively mastering Frontend development across HTML, CSS, JavaScript, React, and Tailwind CSS. Alongside modern web fundamentals, I investigate Linux system bottlenecks and ship upstream open source contributions.',
   email: 'kkushagra86@gmail.com',
   github: 'https://github.com/kk376',
   linkedin: 'https://www.linkedin.com/in/kushagra-kumar376/',
-  status: 'Learning Frontend Daily • Guiding AI on Open Source',
-  education: 'BCA (8.2 CGPA), Suresh Gyan Vihar University (2022)',
-  location: 'India',
+  status: 'Learning Frontend Daily • Shipping Upstream Contributions',
+  education: 'BCA (8.21 CGPA Distinction), Suresh Gyan Vihar University (2022)',
+  location: 'Jaipur, Rajasthan, India',
 };
 
 export const SKILL_GROUPS: SkillGroup[] = [
@@ -284,15 +284,15 @@ export const FLAGSHIP_PROJECTS: Project[] = [
 
 export const SYSTEM_SPECS: SystemSpec = {
   user: 'kk376',
-  host: 'victus-station',
-  os: 'Fedora Linux 44 (Workstation Edition)',
-  kernel: 'Linux 6.14.0-rc5-x86_64',
-  uptime: '4h 45m',
-  packages: '1942 (rpm), 34 (flatpak)',
-  shell: 'bash 5.2.32',
-  terminal: 'ghostty / alacritty',
-  cpu: 'AMD Ryzen 5 7535HS (12) @ 4.55 GHz',
-  gpu: 'NVIDIA GeForce RTX 2050 Mobile / AMD Radeon 660M',
-  memory: '4812 MiB / 15480 MiB (31%)',
+  host: 'Thin A15 B7UCX',
+  os: 'Fedora Linux 44 (Workstation Edition) x86_64',
+  kernel: 'Linux 7.2.4-200.fc44.x86_64',
+  uptime: '1 day, 15 hours, 36 mins',
+  packages: '2801 (rpm), 2 (flatpak), 1 (cargo), 26 (pip)',
+  shell: 'fish 4.6.0',
+  terminal: 'ghostty 1.3.1',
+  cpu: 'AMD Ryzen 5 7535HS (6c 12t) @ 3.84 GHz',
+  gpu: 'NVIDIA GeForce RTX 2050 (4 GiB) / AMD Radeon 680M',
+  memory: '9.88 GiB / 14.82 GiB (67%)',
   editor: 'Zed Editor / VS Code',
 };

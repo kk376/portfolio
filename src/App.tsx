@@ -33,19 +33,13 @@ const PortfolioContent: React.FC = () => {
         if (sysSection) {
           sysSection.scrollIntoView({ behavior: 'smooth' });
           setTimeout(() => {
-            const terminalTabBtn = document.querySelector<HTMLButtonElement>(
-              '#telemetry button:nth-of-type(2)'
-            );
-            if (terminalTabBtn && !terminalTabBtn.classList.contains('bg-[#FF4C60]')) {
-              terminalTabBtn.click();
-            }
             const input = document.querySelector<HTMLInputElement>('#telemetry input');
             if (input) {
               input.focus();
             }
           }, 350);
         }
-        showToast('Jumped to CLI Terminal (kkfetch benchmark)');
+        showToast('Jumped to CLI Terminal (kkfetch telemetry)');
         break;
       }
       case 'theme': {
