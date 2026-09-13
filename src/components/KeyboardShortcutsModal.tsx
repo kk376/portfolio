@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { X, Keyboard, Check, Copy, ExternalLink, Terminal, SunMoon, Mail, Radar, Compass, Palette } from 'lucide-react';
+import { X, Keyboard, Check, Copy, ExternalLink, Terminal, SunMoon, Mail, Radar, Compass } from 'lucide-react';
 
 interface KeyboardShortcutsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onTriggerAction: (action: 'terminal' | 'theme' | 'palette' | 'email' | 'sonar') => void;
+  onTriggerAction: (action: 'terminal' | 'theme' | 'email' | 'sonar') => void;
 }
 
 export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
@@ -45,15 +45,6 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
       },
     },
     {
-      keys: ['P'],
-      label: 'Switch Theme Palette',
-      desc: 'Toggle between Tokyo Night and Catppuccin color schemes',
-      icon: <Palette className="w-4 h-4 text-[var(--accent-primary)]" />,
-      action: () => {
-        onTriggerAction('palette');
-      },
-    },
-    {
       keys: ['C'],
       label: 'Copy Email Address',
       desc: 'Copy personal inbox address directly to your clipboard',
@@ -89,12 +80,12 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-150">
       <div
-        className="relative w-full max-w-2xl rounded-[20px] border border-slate-200 dark:border-white/10 bg-white dark:bg-[var(--bg-card)] shadow-2xl overflow-hidden"
+        className="relative w-full max-w-2xl rounded-[20px] border border-slate-200 dark:border-white/10 bg-white dark:bg-[#1e1e2e] shadow-2xl overflow-hidden"
         role="dialog"
         aria-modal="true"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[var(--bg-surface)]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181825]">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-xl bg-[var(--accent-light)] text-[var(--accent-primary)]">
               <Keyboard className="w-4 h-4" />
@@ -103,7 +94,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
               <h3 className="text-base font-bold text-slate-900 dark:text-white">
                 Command Wire &amp; Shortcuts
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-xs text-slate-500 dark:text-[#a6adc8] font-medium">
                 Instant workstation hotkeys for rapid navigation
               </p>
             </div>
@@ -124,16 +115,18 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
               <div
                 key={item.label}
                 onClick={item.action}
-                className={`p-3 rounded-xl border border-slate-200/80 dark:border-white/5 bg-slate-50/50 dark:bg-[var(--bg-canvas)]/50 flex items-center justify-between gap-4 transition-colors ${
-                  item.action ? 'cursor-pointer hover:border-[var(--accent-primary)] hover:bg-[var(--accent-light)]' : ''
+                className={`p-3 rounded-xl border border-slate-200/80 dark:border-white/5 bg-slate-50/80 dark:bg-[#252538]/70 flex items-center justify-between gap-4 transition-colors ${
+                  item.action
+                    ? 'cursor-pointer hover:border-[var(--accent-primary)]/50 hover:bg-[var(--accent-light)] dark:hover:bg-[#313244]'
+                    : ''
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-white dark:bg-[var(--bg-card)] border border-slate-200 dark:border-white/5 shrink-0">
+                  <div className="p-2 rounded-lg bg-white dark:bg-[#181825] border border-slate-200 dark:border-white/10 shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <div className="text-xs font-bold text-slate-900 dark:text-[#cdd6f4] flex items-center gap-2">
                       <span>{item.label}</span>
                       {item.action && (
                         <span className="text-[10px] font-mono font-medium text-[var(--accent-primary)] bg-[var(--accent-light)] px-1.5 py-0.5 rounded">
@@ -141,7 +134,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
                         </span>
                       )}
                     </div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                    <div className="text-[11px] text-slate-500 dark:text-[#a6adc8] font-medium">
                       {item.desc}
                     </div>
                   </div>
@@ -151,7 +144,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
                   {item.keys.map((key) => (
                     <kbd
                       key={key}
-                      className="px-2.5 py-1 rounded-md bg-white dark:bg-[var(--bg-surface)] border border-slate-200 dark:border-white/10 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 shadow-xs"
+                      className="px-2.5 py-1 rounded-md bg-white dark:bg-[#181825] border border-slate-200 dark:border-white/10 font-mono text-xs font-bold text-slate-800 dark:text-[#cdd6f4] shadow-xs"
                     >
                       {key}
                     </kbd>
@@ -180,11 +173,11 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-3 leading-relaxed font-medium">
+            <p className="text-[11px] text-slate-500 dark:text-[#a6adc8] mb-3 leading-relaxed font-medium">
               Formatted according to the CONTRIBUTING.md checklist for open source developer directories (ordered alphabetically by Kushagra under K).
             </p>
 
-            <div className="p-3 rounded-xl bg-slate-900 dark:bg-[#12141d] border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="p-3 rounded-xl bg-slate-900 dark:bg-[#181825] border border-slate-800 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <code className="font-mono text-xs text-[var(--accent-cyan)] break-all select-all">
                 {prSnippet}
               </code>
@@ -209,9 +202,9 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[var(--bg-surface)] flex items-center justify-between font-mono text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="px-6 py-3 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#181825] flex items-center justify-between font-mono text-[11px] text-slate-500 dark:text-[#a6adc8]">
           <span>Press Esc anytime to close</span>
-          <span className="text-[var(--accent-primary)] font-semibold">Custom Palette Edition</span>
+          <span className="text-[var(--accent-primary)] font-semibold">Catppuccin Edition</span>
         </div>
       </div>
     </div>
@@ -219,3 +212,4 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
 };
 
 export default KeyboardShortcutsModal;
+

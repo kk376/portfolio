@@ -12,7 +12,6 @@ import {
   Moon,
   Menu,
   X,
-  Palette as PaletteIcon,
 } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 
@@ -34,7 +33,7 @@ const navItems: NavItem[] = [
 ];
 
 export const Sidebar: React.FC = () => {
-  const { isDark, toggleTheme, palette, togglePalette, setPalette } = useTheme();
+  const { isDark, toggleTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -58,38 +57,73 @@ export const Sidebar: React.FC = () => {
 
   return (
     <>
-      {/* Mobile Top Bar */}
-      <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-white/90 dark:bg-[var(--bg-canvas)]/90 backdrop-blur-md border-b border-slate-200 dark:border-[var(--border-subtle)] z-40 px-5 flex items-center justify-between transition-colors">
-        <a href="#home" className="flex items-center gap-1 font-bold text-xl tracking-tight text-slate-900 dark:text-white">
-          <span>KK</span>
-          <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)]" />
-        </a>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={togglePalette}
-            aria-label={`Toggle palette: currently ${palette === 'tokyonight' ? 'Tokyo Night' : 'Catppuccin'}`}
-            title={`Palette: ${palette === 'tokyonight' ? 'Tokyo Night' : 'Catppuccin'}`}
-            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 transition-colors"
+      {/* Fixed Top Navigation Bar */}
+      <header className="fixed top-0 left-0 right-0 h-16 sm:h-20 bg-white/85 dark:bg-[#1e1e2e]/85 backdrop-blur-md border-b border-slate-200/80 dark:border-white/10 z-50 transition-colors duration-200 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+          {/* Brand Monogram */}
+          <a
+            href="#home"
+            className="flex items-center gap-2.5 group select-none cursor-pointer"
+            title="Kushagra Kumar"
           >
-            <PaletteIcon className="w-5 h-5 text-[var(--accent-primary)]" />
-          </button>
+            <div className="w-9 h-9 rounded-xl bg-[var(--accent-light)] border border-[var(--accent-primary)]/30 flex items-center justify-center font-mono font-bold text-sm text-[var(--accent-primary)] group-hover:bg-[var(--accent-primary)] group-hover:text-white transition-colors duration-200 shadow-xs">
+              KK
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-sm sm:text-base tracking-tight text-slate-900 dark:text-[#cdd6f4] group-hover:text-[var(--accent-primary)] transition-colors">
+                Kushagra Kumar
+              </span>
+              <span className="text-[10px] font-mono text-slate-500 dark:text-[#a6adc8] hidden sm:block">
+                Frontend &amp; Open Source
+              </span>
+            </div>
+          </a>
 
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 transition-colors"
-          >
-            {isDark ? <Sun className="w-5 h-5 text-[var(--accent-peach)]" /> : <Moon className="w-5 h-5 text-slate-700" />}
-          </button>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-1 xl:gap-1.5" aria-label="Main Navigation">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                    isActive
+                      ? 'bg-[var(--accent-primary)] text-white shadow-sm shadow-[var(--accent-primary)]/25'
+                      : 'text-slate-600 dark:text-[#a6adc8] hover:text-[var(--accent-primary)] dark:hover:text-[#cdd6f4] hover:bg-slate-100 dark:hover:bg-white/5'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
+                  <span>{item.name}</span>
+                </a>
+              );
+            })}
+          </nav>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle navigation menu"
-            className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Controls: Theme Switcher & Mobile Menu Button */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-[#252538] hover:bg-[var(--accent-light)] text-slate-700 dark:text-[#cdd6f4] hover:text-[var(--accent-primary)] border border-slate-200 dark:border-white/10 transition-all duration-200 cursor-pointer shadow-xs"
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[var(--accent-peach)] transition-transform hover:rotate-45" />
+              ) : (
+                <Moon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-700 transition-transform hover:-rotate-12" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              className="md:hidden p-2 rounded-xl text-slate-700 dark:text-[#cdd6f4] hover:bg-slate-100 dark:hover:bg-white/10 transition-colors border border-slate-200 dark:border-white/10"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -97,26 +131,29 @@ export const Sidebar: React.FC = () => {
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-50 flex">
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
             onClick={() => setMobileOpen(false)}
           />
 
-          <aside className="relative w-72 max-w-[80vw] bg-white dark:bg-[var(--bg-canvas)] h-full p-6 shadow-2xl flex flex-col justify-between z-10 transition-colors">
+          <aside className="relative w-72 max-w-[80vw] bg-white dark:bg-[#1e1e2e] h-full p-6 shadow-2xl flex flex-col justify-between z-10 transition-colors border-r border-slate-200 dark:border-white/10">
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-white/10">
                 <a
                   href="#home"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-1 font-bold text-2xl tracking-tight text-slate-900 dark:text-white"
+                  className="flex items-center gap-2 font-bold text-xl tracking-tight text-slate-900 dark:text-[#cdd6f4]"
                 >
-                  <span>KK</span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent-primary)]" />
+                  <div className="w-8 h-8 rounded-lg bg-[var(--accent-light)] border border-[var(--accent-primary)]/30 flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-primary)]">
+                    KK
+                  </div>
+                  <span>Kushagra</span>
                 </a>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                  aria-label="Close menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
@@ -129,135 +166,27 @@ export const Sidebar: React.FC = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`flex items-center gap-3.5 px-4 py-3 rounded-xl font-medium text-sm transition-colors ${
+                      className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-colors ${
                         isActive
-                          ? 'bg-[var(--accent-primary)] text-white shadow-md'
-                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-[var(--accent-primary)]'
+                          ? 'bg-[var(--accent-primary)] text-white shadow-md shadow-[var(--accent-primary)]/20'
+                          : 'text-slate-600 dark:text-[#a6adc8] hover:bg-slate-100 dark:hover:bg-white/5 hover:text-[var(--accent-primary)]'
                       }`}
                     >
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-4 h-4" />
                       <span>{item.name}</span>
                     </a>
                   );
                 })}
               </nav>
-
-              {/* Mobile Palette Switcher */}
-              <div className="mt-6 pt-5 border-t border-slate-100 dark:border-white/10">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 px-1">
-                  Theme Palette
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    onClick={() => setPalette('tokyonight')}
-                    className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                      palette === 'tokyonight'
-                        ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                        : 'bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10'
-                    }`}
-                  >
-                    Tokyo Night
-                  </button>
-                  <button
-                    onClick={() => setPalette('catppuccin')}
-                    className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                      palette === 'catppuccin'
-                        ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                        : 'bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10'
-                    }`}
-                  >
-                    Catppuccin
-                  </button>
-                </div>
-              </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-xs text-slate-400">
+            <div className="pt-6 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-xs text-slate-400 dark:text-[#6c7086]">
               <span>Frontend Developer</span>
               <span>© 2026 kk376</span>
             </div>
           </aside>
         </div>
       )}
-
-      {/* Desktop Fixed Left Sidebar */}
-      <aside className="hidden md:flex fixed top-0 left-0 bottom-0 w-[100px] bg-white dark:bg-[var(--bg-canvas)] border-r border-slate-200/80 dark:border-[var(--border-subtle)] z-50 flex-col items-center justify-between py-7 select-none shadow-sm transition-colors">
-        {/* Monogram Brand */}
-        <a
-          href="#home"
-          className="flex items-center gap-0.5 font-bold text-2xl tracking-tight text-slate-900 dark:text-white group"
-          title="Kushagra Kumar"
-        >
-          <span className="group-hover:text-[var(--accent-primary)] transition-colors">KK</span>
-          <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse" />
-        </a>
-
-        {/* Central Icon Navigation Stack */}
-        <nav className="flex flex-col items-center gap-3.5">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.href.substring(1);
-            return (
-              <a
-                key={item.name}
-                href={item.href}
-                title={item.name}
-                className={`relative group p-3 rounded-2xl transition-all duration-200 ${
-                  isActive
-                    ? 'text-[var(--accent-primary)] bg-[var(--accent-light)] shadow-sm'
-                    : 'text-slate-500 dark:text-slate-400 hover:text-[var(--accent-primary)] hover:bg-slate-100 dark:hover:bg-white/5'
-                }`}
-              >
-                <Icon className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
-                {/* Floating Tooltip */}
-                <span className="pointer-events-none absolute left-full ml-3.5 px-3 py-1 bg-slate-900 text-white text-xs font-semibold rounded-lg shadow-lg opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 whitespace-nowrap z-50">
-                  {item.name}
-                </span>
-                {isActive && (
-                  <span className="absolute -left-3.5 top-1/2 -translate-y-1/2 w-1.5 h-6 rounded-r-full bg-[var(--accent-primary)]" />
-                )}
-              </a>
-            );
-          })}
-        </nav>
-
-        {/* Bottom Actions: Palette Switcher, Theme Toggle and Vertical Copyright */}
-        <div className="flex flex-col items-center gap-3.5">
-          {/* Palette Switcher Button */}
-          <button
-            onClick={togglePalette}
-            aria-label={`Toggle palette (currently ${palette === 'tokyonight' ? 'Tokyo Night' : 'Catppuccin'})`}
-            title={`Palette: ${palette === 'tokyonight' ? 'Tokyo Night' : 'Catppuccin'} (Click to toggle)`}
-            className="p-2.5 rounded-full bg-slate-100 dark:bg-[var(--bg-card)] hover:bg-[var(--accent-light)] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] transition-all duration-200 cursor-pointer group relative"
-          >
-            <PaletteIcon className="w-5 h-5 transition-transform group-hover:rotate-45" />
-            <span className="pointer-events-none absolute left-full ml-3.5 px-3 py-1 bg-slate-900 text-white text-xs font-semibold rounded-lg shadow-lg opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 whitespace-nowrap z-50">
-              Palette: {palette === 'tokyonight' ? 'Tokyo Night' : 'Catppuccin'}
-            </span>
-          </button>
-
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle light or dark theme"
-            title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-            className="p-2.5 rounded-full bg-slate-100 dark:bg-[var(--bg-card)] hover:bg-[var(--accent-light)] text-slate-600 dark:text-slate-300 hover:text-[var(--accent-primary)] transition-all duration-200 cursor-pointer group relative"
-          >
-            {isDark ? (
-              <Sun className="w-5 h-5 text-[var(--accent-peach)] transition-transform hover:rotate-45" />
-            ) : (
-              <Moon className="w-5 h-5 text-slate-700 transition-transform hover:-rotate-12" />
-            )}
-            <span className="pointer-events-none absolute left-full ml-3.5 px-3 py-1 bg-slate-900 text-white text-xs font-semibold rounded-lg shadow-lg opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 whitespace-nowrap z-50">
-              Mode: {isDark ? 'Dark' : 'Light'}
-            </span>
-          </button>
-
-          <div className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 [writing-mode:vertical-rl] rotate-180 tracking-widest mt-1">
-            © 2026.
-          </div>
-        </div>
-      </aside>
     </>
   );
 };

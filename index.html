@@ -17,8 +17,7 @@
           document.documentElement.classList.add('dark');
           document.documentElement.classList.remove('light');
         }
-        const storedPalette = localStorage.getItem('palette') || 'tokyonight';
-        document.documentElement.setAttribute('data-palette', storedPalette);
+        localStorage.removeItem('palette');
       })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">

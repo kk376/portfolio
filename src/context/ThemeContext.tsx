@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ThemeContext, type Theme, type Palette } from './theme-context';
+import { ThemeContext, type Theme } from './theme-context';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
@@ -9,15 +9,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       return stored;
     }
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  });
-
-  const [palette, setPaletteState] = useState<Palette>(() => {
-    if (typeof window === 'undefined') return 'tokyonight';
-    const stored = localStorage.getItem('palette') as Palette | null;
-    if (stored === 'tokyonight' || stored === 'catppuccin') {
-      return stored;
-    }
-    return 'tokyonight';
   });
 
   useEffect(() => {
@@ -34,12 +25,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  useEffect(() => {
-    const root = document.documentElement;
-    root.setAttribute('data-palette', palette);
-    localStorage.setItem('palette', palette);
-  }, [palette]);
-
   const toggleTheme = () => {
     setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
@@ -48,29 +33,19 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setThemeState(newTheme);
   };
 
-  const togglePalette = () => {
-    setPaletteState((prev) => (prev === 'tokyonight' ? 'catppuccin' : 'tokyonight'));
-  };
-
-  const setPalette = (newPalette: Palette) => {
-    setPaletteState(newPalette);
-  };
-
   const isDark = theme === 'dark';
 
   return (
     <ThemeContext.Provider
       value={{
         theme,
-        palette,
         isDark,
         toggleTheme,
         setTheme,
-        togglePalette,
-        setPalette,
       }}
     >
       {children}
     </ThemeContext.Provider>
   );
 };
+
