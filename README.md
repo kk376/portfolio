@@ -2,11 +2,33 @@
 
 A modern, fast, and accessible developer portfolio built with React 19, TypeScript, and Tailwind CSS. Showcases frontend engineering, Linux systems tooling, and real upstream open-source contributions landed with AI pair-programming.
 
-![Portfolio Dark Mode](screenshots/portfolio-dark.png)
-*Catppuccin Mocha (Dark Mode)*
+## Interface & Showcase Gallery
 
-![Portfolio Light Mode](screenshots/portfolio-light.png)
-*Catppuccin Latte (Light Mode)*
+### Workstation Hero Canvas
+
+| Catppuccin Mocha (Dark Mode) | Catppuccin Latte (Light Mode) |
+| :---: | :---: |
+| ![Portfolio Dark Mode](screenshots/portfolio-dark.png) | ![Portfolio Light Mode](screenshots/portfolio-light.png) |
+
+### Flagship Projects & Systems Automation
+
+![Flagship Projects](screenshots/projects-dark.png)
+*Interactive project cards with verified live telemetry, star badges, and copy commands.*
+
+### Upstream Open Source & Triage Dispatches
+
+![Upstream Contributions](screenshots/upstream-dark.png)
+*Upstream pull requests and kernel/hardware investigations with structured diagnostic breakdowns.*
+
+### Workstation CLI & System Telemetry
+
+![System Telemetry & Terminal](screenshots/telemetry-dark.png)
+*Procfs hardware telemetry and interactive terminal emulator powered by `kkfetch`.*
+
+### Keyboard Command Palette
+
+![Keyboard Shortcuts](screenshots/shortcuts-dark.png)
+*Instant keyboard navigation (`?` or `Cmd + K`) for seamless power-user ergonomics.*
 
 ---
 
@@ -51,8 +73,12 @@ portfolio/
 ├── public/
 │   └── favicon.svg            # Minimal geometric SVG favicon
 ├── screenshots/
-│   ├── portfolio-dark.png     # Dark mode application preview
-│   └── portfolio-light.png    # Light mode application preview
+│   ├── portfolio-dark.png     # Dark mode workstation preview
+│   ├── portfolio-light.png    # Light mode workstation preview
+│   ├── projects-dark.png      # Flagship codebases and project cards
+│   ├── upstream-dark.png      # Upstream contributions and triage dispatches
+│   ├── telemetry-dark.png     # System telemetry and interactive CLI
+│   └── shortcuts-dark.png     # Keyboard navigation command palette
 ├── src/
 │   ├── assets/                # Static media and avatar images
 │   ├── components/            # Focused, accessible UI components

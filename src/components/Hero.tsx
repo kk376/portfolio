@@ -15,31 +15,40 @@ const phrases = [
 
 export const Hero: React.FC = () => {
   const [phraseIndex, setPhraseIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState(phrases[0]);
   const [isDeleting, setIsDeleting] = useState(false);
   const typingSpeed = 110;
 
   useEffect(() => {
-    const handleType = () => {
-      const fullPhrase = phrases[phraseIndex];
+    let timer: ReturnType<typeof setTimeout>;
 
-      if (!isDeleting) {
-        setCurrentText(fullPhrase.substring(0, currentText.length + 1));
-        if (currentText === fullPhrase) {
-          setTimeout(() => setIsDeleting(true), 2000);
+    if (!isDeleting && currentText === phrases[phraseIndex]) {
+      // Solidly display the complete phrase before initiating deletion
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2400);
+    } else if (isDeleting && currentText === '') {
+      // Brief pause before transitioning to next phrase and typing forward
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      }, 300);
+    } else {
+      timer = setTimeout(() => {
+        const fullPhrase = phrases[phraseIndex];
+        if (!isDeleting) {
+          setCurrentText(fullPhrase.substring(0, currentText.length + 1));
+        } else {
+          setCurrentText(fullPhrase.substring(0, currentText.length - 1));
         }
-      } else {
-        setCurrentText(fullPhrase.substring(0, currentText.length - 1));
-        if (currentText === '') {
-          setIsDeleting(false);
-          setPhraseIndex((prev) => (prev + 1) % phrases.length);
-        }
-      }
-    };
+      }, isDeleting ? 45 : typingSpeed);
+    }
 
-    const timer = setTimeout(handleType, isDeleting ? 50 : typingSpeed);
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, phraseIndex, typingSpeed]);
+
+  const isVowel = /^[aeiou]/i.test(currentText.trim());
+  const article = isVowel ? 'an ' : 'a ';
 
   return (
     <section
@@ -85,7 +94,7 @@ export const Hero: React.FC = () => {
         {/* Dynamic Subtitle */}
         <div className="h-9 flex items-center justify-center mb-6">
           <p className="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300">
-            <span>I'm an </span>
+            <span>I'm {article}</span>
             <span className="text-[var(--accent-primary)] font-semibold">{currentText}</span>
             <span className="inline-block w-0.5 h-5 bg-[var(--accent-primary)] ml-1 animate-pulse align-middle" />
           </p>
