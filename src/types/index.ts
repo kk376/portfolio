@@ -1,4 +1,4 @@
-export type ContributionCategory = 'all' | 'merged' | 'systems' | 'discussions' | 'packaging';
+export type ContributionCategory = 'all' | 'merged' | 'systems' | 'active' | 'discussions' | 'packaging';
 
 export type ContributionType = 'pr' | 'mr' | 'issue' | 'discussion' | 'package';
 

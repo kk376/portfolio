@@ -13,17 +13,18 @@ export const UpstreamSection: React.FC = () => {
   const categories: { label: string; value: ContributionCategory; count: number }[] = [
     { label: 'All Contributions', value: 'all', count: UPSTREAM_CONTRIBUTIONS.length },
     { label: 'Merged Upstream', value: 'merged', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'merged').length },
+    { label: 'Active PRs & MRs', value: 'active', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.status === 'open').length },
     { label: 'Systems & Kernel', value: 'systems', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'systems').length },
-    { label: 'Packaging & CI', value: 'packaging', count: UPSTREAM_CONTRIBUTIONS.filter((c) => c.category === 'packaging').length },
   ];
 
   const filtered = UPSTREAM_CONTRIBUTIONS.filter((item) => {
     if (selectedCategory === 'all') return true;
     if (selectedCategory === 'merged') return item.status === 'merged';
+    if (selectedCategory === 'active') return item.status === 'open';
     return item.category === selectedCategory;
   });
 
-  const getStatusBadge = (status: UpstreamContribution['status']) => {
+  const getStatusBadge = (status: UpstreamContribution['status'], type?: UpstreamContribution['type']) => {
     switch (status) {
       case 'merged':
         return (
@@ -36,13 +37,13 @@ export const UpstreamSection: React.FC = () => {
         return (
           <span className="rounded-full bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 text-[var(--accent-primary)] font-mono text-xs font-bold px-3 py-1 inline-flex items-center gap-1.5">
             <GitPullRequest className="w-3.5 h-3.5 stroke-[2.5]" />
-            ACTIVE PR
+            {type === 'mr' ? 'ACTIVE MR (UNDER REVIEW)' : 'ACTIVE PR (UNDER REVIEW)'}
           </span>
         );
       case 'investigated':
         return (
           <span className="rounded-full bg-[var(--accent-secondary)]/10 text-[var(--accent-secondary)] border border-[var(--accent-secondary)]/20 font-mono text-xs font-bold px-3 py-1 inline-flex items-center gap-1.5">
-            ROOT CAUSE TRACED
+            UPSTREAM INVESTIGATION
           </span>
         );
       default:
@@ -115,7 +116,7 @@ export const UpstreamSection: React.FC = () => {
                 <span className="text-slate-500 dark:text-slate-400 tabular-nums">{item.date}</span>
               </div>
 
-              <div>{getStatusBadge(item.status)}</div>
+              <div>{getStatusBadge(item.status, item.type)}</div>
             </div>
 
             {/* Title */}

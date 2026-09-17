@@ -36,11 +36,11 @@ describe('Portfolio Data Integrity & Schema Validation', () => {
     expect(UPSTREAM_CONTRIBUTIONS.length).toBeGreaterThanOrEqual(3);
     // Verify merged items come first
     expect(UPSTREAM_CONTRIBUTIONS[0].status).toBe('merged');
-    expect(UPSTREAM_CONTRIBUTIONS[1].status).toBe('merged');
-    expect(UPSTREAM_CONTRIBUTIONS[2].status).toBe('merged');
-    // Verify GitLab MR is positioned toward the end
-    expect(UPSTREAM_CONTRIBUTIONS[UPSTREAM_CONTRIBUTIONS.length - 2].platform).toBe('gitlab');
-    expect(UPSTREAM_CONTRIBUTIONS[UPSTREAM_CONTRIBUTIONS.length - 1].platform).toBe('gitlab');
+    expect(UPSTREAM_CONTRIBUTIONS[0].id).toBe('gods-eye-view-pr-216');
+    // Verify GitLab MR is present and open
+    const gitlabMR = UPSTREAM_CONTRIBUTIONS.find((c) => c.platform === 'gitlab');
+    expect(gitlabMR).toBeDefined();
+    expect(gitlabMR?.status).toBe('open');
 
     for (const item of UPSTREAM_CONTRIBUTIONS) {
       expect(item.id.length).toBeGreaterThan(0);

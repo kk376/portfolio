@@ -56,6 +56,25 @@ export const SKILL_GROUPS: SkillGroup[] = [
 
 export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
   {
+    id: 'gods-eye-view-pr-216',
+    platform: 'github',
+    type: 'pr',
+    repo: 'gods-eye-view',
+    repoOwner: 'bilawalsidhu',
+    refLabel: '#216',
+    title: 'fix(a11y): add accessible names to hud sliders and inputs',
+    url: 'https://github.com/bilawalsidhu/gods-eye-view/pull/216',
+    status: 'merged',
+    category: 'merged',
+    date: 'Sep 2026',
+    summary:
+      'Enhanced accessibility and screen reader support by adding accessible names, ARIA labels, and keyboard focus states to HUD controls.',
+    myRoleNote:
+      'Audited DOM accessibility issues in the UI and guided AI to patch the missing accessible labels.',
+    tags: ['GitHub PR', 'Merged Upstream', 'Accessibility', 'WCAG', 'Frontend'],
+    accentGradient: 'from-pink-500 to-rose-500',
+  },
+  {
     id: 'gods-eye-view-pr-214',
     platform: 'github',
     type: 'pr',
@@ -64,14 +83,14 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     refLabel: '#214',
     title: 'feat(styles): add Tactical Sonar visual style in Cesium',
     url: 'https://github.com/bilawalsidhu/gods-eye-view/pull/214',
-    status: 'merged',
-    category: 'merged',
+    status: 'open',
+    category: 'active',
     date: 'Sep 2026',
     summary:
       'Engineered a complete tactical military sonar shader pipeline for 3D Cesium globes with rotating phosphor beam and range rings.',
     myRoleNote:
       'Pitched the military sonar visual style concept and paired with AI to implement the GLSL shader math, phosphor decay trails, and nautical mile rings.',
-    tags: ['GitHub PR', 'Merged', 'Cesium.js', 'GLSL Shader', 'WebGL'],
+    tags: ['GitHub PR', 'Active / In Review', 'Cesium.js', 'GLSL Shader', 'WebGL'],
     accentGradient: 'from-cyan-500 to-blue-600',
     diagnostic: {
       symptom: 'Rotating radar beam suffered projection warping and clipping artifacts at high latitudes on 3D globe tiles due to planar distortion.',
@@ -91,42 +110,42 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     },
   },
   {
-    id: 'gods-eye-view-pr-216',
-    platform: 'github',
-    type: 'pr',
-    repo: 'gods-eye-view',
-    repoOwner: 'bilawalsidhu',
-    refLabel: '#216',
-    title: 'fix(a11y): add accessible names to hud sliders and inputs',
-    url: 'https://github.com/bilawalsidhu/gods-eye-view/pull/216',
-    status: 'merged',
-    category: 'merged',
+    id: 'mission-center-mr-117',
+    platform: 'gitlab',
+    type: 'mr',
+    repo: 'gng',
+    repoOwner: 'mission-center-devs',
+    refLabel: '!117',
+    title: 'gpu: Avoid waking suspended discrete GPUs during periodic refresh',
+    url: 'https://gitlab.com/mission-center-devs/gng/-/merge_requests/117',
+    status: 'open',
+    category: 'systems',
     date: 'Sep 2026',
     summary:
-      'Enhanced accessibility and screen reader support by adding accessible names, ARIA labels, and keyboard focus states to HUD controls.',
+      'Fixed Wayland desktop micro-stutters and freezes on hybrid AMD/NVIDIA laptops caused by NVTop waking the sleeping dGPU from D3cold every polling tick.',
     myRoleNote:
-      'Audited DOM accessibility issues in the UI and guided AI to patch the missing accessible labels.',
-    tags: ['GitHub PR', 'Merged', 'Accessibility', 'WCAG', 'Frontend'],
-    accentGradient: 'from-pink-500 to-rose-500',
-  },
-  {
-    id: 'packaging-ecosystem',
-    platform: 'github',
-    type: 'package',
-    repo: 'distro-packages',
-    repoOwner: 'upstream-distros',
-    refLabel: 'Multi-Distro',
-    title: 'System package maintainership: WinGet, Void Linux, Chimera, Termux',
-    url: 'https://github.com/microsoft/winget-pkgs/pull/422521',
-    status: 'merged',
-    category: 'packaging',
-    date: 'Aug - Sep 2026',
-    summary:
-      'Authored packaging manifests to distribute CLI utilities across Microsoft WinGet, Void Linux xbps-src, Chimera Linux cports, and Termux.',
-    myRoleNote:
-      'Guided AI to package the binaries according to each distribution standard format and submitted the PRs.',
-    tags: ['Packaging', 'Merged', 'WinGet', 'Void Linux', 'Termux'],
-    accentGradient: 'from-blue-500 to-indigo-600',
+      'Discovered the issue on my laptop, isolated the PCIe power thrash, and guided AI to inspect sysfs runtime_status in-memory and temporarily unlink sleeping nodes from NVTop list heads.',
+    tags: ['GitLab MR', 'Active / In Review', 'Linux Kernel', 'PCIe D3cold', 'Rust'],
+    accentGradient: 'from-emerald-500 to-cyan-500',
+    diagnostic: {
+      symptom: 'Periodic 1000ms NVTop poll woke sleeping NVIDIA discrete GPU from PCIe D3cold power state, triggering repetitive desktop Wayland micro-stutters and 10W battery drain.',
+      rootCause: 'NVTop device list traversal performed unconditional open() and ioctl queries on /sys/bus/pci/devices nodes without pre-checking Linux kernel runtime PM status in memory.',
+      fix: 'Implemented lightweight sysfs runtime_status parsing before polling. If status is suspended, device query is skipped, keeping the GPU sleeping.',
+      diffSnippet: {
+        file: 'src/nvtop_gpu.rs',
+        removed: [
+          '// Unconditionally poll device telemetry',
+          'let metrics = query_device_metrics(device_fd);',
+        ],
+        added: [
+          '// Check runtime PM status without waking PCIe bus',
+          'if is_device_suspended(device_sysfs_path) {',
+          '    return Ok(CachedGpuState::Sleeping);',
+          '}',
+          'let metrics = query_device_metrics(device_fd);',
+        ],
+      },
+    },
   },
   {
     id: 'zed-issue-63727',
@@ -162,63 +181,6 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
         ],
       },
     },
-  },
-  {
-    id: 'mission-center-mr-117',
-    platform: 'gitlab',
-    type: 'mr',
-    repo: 'gng',
-    repoOwner: 'mission-center-devs',
-    refLabel: '!117',
-    title: 'gpu: Avoid waking suspended discrete GPUs during periodic refresh',
-    url: 'https://gitlab.com/mission-center-devs/gng/-/merge_requests/117',
-    status: 'open',
-    category: 'systems',
-    date: 'Sep 2026',
-    summary:
-      'Fixed Wayland desktop micro-stutters and freezes on hybrid AMD/NVIDIA laptops caused by NVTop waking the sleeping dGPU from D3cold every polling tick.',
-    myRoleNote:
-      'Discovered the issue on my laptop, isolated the PCIe power thrash, and guided AI to inspect sysfs runtime_status in-memory and temporarily unlink sleeping nodes from NVTop list heads.',
-    tags: ['GitLab MR', 'Linux Kernel', 'PCIe D3cold', 'Rust', 'Wayland'],
-    accentGradient: 'from-emerald-500 to-cyan-500',
-    diagnostic: {
-      symptom: 'Periodic 1000ms NVTop poll woke sleeping NVIDIA discrete GPU from PCIe D3cold power state, triggering repetitive desktop Wayland micro-stutters and 10W battery drain.',
-      rootCause: 'NVTop device list traversal performed unconditional open() and ioctl queries on /sys/bus/pci/devices nodes without pre-checking Linux kernel runtime PM status in memory.',
-      fix: 'Implemented lightweight sysfs runtime_status parsing before polling. If status is suspended, device query is skipped, keeping the GPU sleeping.',
-      diffSnippet: {
-        file: 'src/nvtop_gpu.rs',
-        removed: [
-          '// Unconditionally poll device telemetry',
-          'let metrics = query_device_metrics(device_fd);',
-        ],
-        added: [
-          '// Check runtime PM status without waking PCIe bus',
-          'if is_device_suspended(device_sysfs_path) {',
-          '    return Ok(CachedGpuState::Sleeping);',
-          '}',
-          'let metrics = query_device_metrics(device_fd);',
-        ],
-      },
-    },
-  },
-  {
-    id: 'mission-center-issue-544',
-    platform: 'gitlab',
-    type: 'issue',
-    repo: 'mission-center',
-    repoOwner: 'mission-center-devs',
-    refLabel: '#544',
-    title: 'Hybrid GPU D3cold wakeup thrash causing Wayland desktop stutter',
-    url: 'https://gitlab.com/mission-center-devs/mission-center/-/issues/544',
-    status: 'investigated',
-    category: 'systems',
-    date: 'Sep 2026',
-    summary:
-      'Detailed root cause analysis explaining how periodic GPU gatherer queries trigger ACPI _PS0 resumes on hybrid laptops.',
-    myRoleNote:
-      'Gathered real-world reproduction logs on Fedora 44 and outlined the proposed sysfs checking solution for the community.',
-    tags: ['GitLab Issue', 'Root Cause Analysis', 'Power Mgmt', 'Linux'],
-    accentGradient: 'from-amber-500 to-orange-500',
   },
 ];
 

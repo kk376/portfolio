@@ -115,11 +115,10 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
             <div className="text-[var(--accent-primary)] font-semibold">Open Source Contributions:</div>
-            <div>* bilawalsidhu/gods-eye-view #214 (Tactical Sonar Cesium shader bugfix)</div>
-            <div>* bilawalsidhu/gods-eye-view #216 (WCAG accessibility fix)</div>
-            <div>* distro-packages Multi-Distro (WinGet, Void, Termux packaging)</div>
-            <div>* zed-industries/zed #63727 (Wayland shutdown timeout investigation)</div>
-            <div>* mission-center-devs/gng !117 (D3cold GPU power thrash fix)</div>
+            <div>* bilawalsidhu/gods-eye-view #216 (WCAG accessibility fix: Merged Upstream)</div>
+            <div>* bilawalsidhu/gods-eye-view #214 (Tactical Sonar Cesium shader: Active PR)</div>
+            <div>* mission-center-devs/gng !117 (PCIe D3cold GPU power thrash fix: Active MR)</div>
+            <div>* zed-industries/zed #63727 (Wayland shutdown timeout: Upstream Investigation)</div>
           </div>
         );
         break;
