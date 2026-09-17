@@ -124,12 +124,40 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         );
         break;
 
+      case 'whoami':
+      case 'author':
+        outputNode = (
+          <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
+            <div className="text-[var(--accent-primary)] font-semibold">Kushagra Kumar (kk376)</div>
+            <div>* Role: Software Developer & Open Source Contributor</div>
+            <div>* Location: Kaman, Rajasthan, India</div>
+            <div>* GitHub: https://github.com/kk376</div>
+            <div>* Portfolio: https://github.com/kk376/portfolio</div>
+          </div>
+        );
+        break;
+
+      case 'license':
+      case 'copyright':
+        outputNode = (
+          <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
+            <div className="text-[var(--accent-secondary)] font-semibold">Personal Identity License:</div>
+            <div>* Copyright (c) 2026 Kushagra Kumar. All rights reserved.</div>
+            <div>* Source-available for learning, architecture inspection, and hiring review.</div>
+            <div>* 1:1 cloning, brand impersonation, and commercial redeployment are prohibited.</div>
+            <div>* Respect the craft: synthesize original work with attribution.</div>
+          </div>
+        );
+        break;
+
       case 'help':
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
             <div><span className="text-[var(--accent-primary)]">kkfetch</span>: print live workstation hardware specs</div>
             <div><span className="text-[var(--accent-peach)]">opensource</span>: list open source pull requests and investigations</div>
             <div><span className="text-[var(--accent-secondary)]">projects</span>: list flagship codebases</div>
+            <div><span className="text-[var(--accent-cyan)]">whoami</span>: author identity and provenance</div>
+            <div><span className="text-[var(--accent-primary)]">license</span>: license terms and usage boundaries</div>
             <div><span className="text-[var(--accent-cyan)]">clear</span>: clear terminal screen</div>
           </div>
         );

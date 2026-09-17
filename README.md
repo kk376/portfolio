@@ -148,6 +148,11 @@ Every push and pull request is automatically verified by GitHub Actions (`.githu
 
 ---
 
-## License
+## License & Attribution
 
-This project is open source and available under the [MIT License](LICENSE).
+This portfolio is source-available under a custom [Personal Identity License](LICENSE).
+
+- **Inspection & Learning**: You are welcome to view, study, and draw architectural inspiration from this codebase.
+- **Identity Protection**: Direct 1:1 redeployment, commercial distribution, template cloning, or impersonating personal project narratives and credentials is strictly prohibited.
+- **Inspiration**: If you build upon ideas or interaction patterns found here, please build your own authentic identity and provide attribution to original creators.
+
