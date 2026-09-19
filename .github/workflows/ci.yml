@@ -36,3 +36,6 @@ jobs:
 
       - name: Verify production build
         run: pnpm build
+
+      - name: Security audit
+        run: pnpm audit --audit-level=high
