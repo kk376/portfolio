@@ -82,7 +82,7 @@ export const AboutSection: React.FC = () => {
         <div className="portfolio-card p-6 text-center flex flex-col items-center justify-center">
           <FileCode className="w-8 h-8 text-[var(--accent-primary)] mb-2" />
           <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums">
-            1,600+
+            3,100+
           </span>
           <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
             Lines Shell Automation

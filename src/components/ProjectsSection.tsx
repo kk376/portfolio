@@ -18,8 +18,8 @@ export const ProjectsSection: React.FC = () => {
         return (
           <div className="bg-[#181825] p-4 rounded-xl font-mono text-[11px] text-slate-300 border border-white/5 space-y-1.5 overflow-hidden">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/5">
-              <span className="text-[var(--accent-peach)] font-bold">setup.sh (v5.5.7)</span>
-              <span>1,600+ lines bash</span>
+              <span className="text-[var(--accent-peach)] font-bold">setup.sh (v5.6.0)</span>
+              <span>3,100+ lines bash</span>
             </div>
             <p className="text-[var(--accent-green)]">$ ./setup.sh --verify-checksums</p>
             <p className="text-slate-400">[INFO] RPM Fusion non-free: verified</p>

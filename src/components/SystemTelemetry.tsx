@@ -101,7 +101,7 @@ cccccccc;.:odl:.;cccccccccccccc:,.
         outputNode = (
           <div className="py-1 text-xs font-mono space-y-1 text-slate-300">
             <div className="text-[var(--accent-peach)] font-semibold">Active Codebases:</div>
-            <div>* fedora-post-install (v5.5.7, 1600+ lines bash automation)</div>
+            <div>* fedora-post-install (v5.6.0, 3,100+ lines bash automation)</div>
             <div>* kkfetch (Rust sub-millisecond procfs CLI fetcher)</div>
             <div>* cli-python-crud-project (Python pathlib file manager)</div>
             <div>* 10-python-mini-projects (Interactive terminal utilities suite)</div>

@@ -29,7 +29,7 @@ const services: ServiceItem[] = [
     id: 2,
     title: 'Linux Systems Automation',
     description:
-      'Hardening Fedora 44 workstations with 1,600+ lines of modular bash provisioning, systemd services, kernel procfs parsing, and D3cold power tuning.',
+      'Hardening Fedora 44 workstations with 3,100+ lines of modular bash provisioning, PipeWire dynamic clocking, systemd services, and D3cold power tuning.',
     icon: <Terminal className="w-9 h-9 text-[var(--accent-peach)]" />,
     accentColor: 'var(--accent-peach)',
     bgLight: 'bg-[var(--accent-peach)]/10',
