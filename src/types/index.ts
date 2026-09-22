@@ -37,7 +37,7 @@ export interface Project {
   title: string;
   tagline: string;
   description: string;
-  category: 'linux' | 'systems' | 'python';
+  category: 'linux' | 'systems' | 'python' | 'rust';
   tags: string[];
   repoUrl: string;
   badge: string;

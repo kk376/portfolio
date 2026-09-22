@@ -214,6 +214,20 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     starsCount: 4,
   },
   {
+    id: 'kkpdf-zed',
+    title: 'kkpdf-zed',
+    tagline: 'Native PDF Viewer Extension for Zed Editor',
+    description:
+      'Rust native PDF viewer for Zed with Pdfium FFI rendering, O(1) LRU viewport caching, async background rasterization, and an ITU-R BT.709 luminosity tone mapper for accurate dark mode.',
+    category: 'rust',
+    tags: ['Rust', 'Zed Extension', 'Pdfium FFI', 'LRU Cache', 'GPUI'],
+    repoUrl: 'https://github.com/kk376/kkpdf-zed',
+    badge: 'Zed Extension',
+    highlightMetric: 'Native Pdfium Rendering',
+    accentColor: 'amber',
+    starsCount: 2,
+  },
+  {
     id: 'cli-python-crud-project',
     title: 'cli-python-crud-project',
     tagline: 'Complete Command-Line File & Directory Manager',
