@@ -81,16 +81,16 @@ export const UPSTREAM_CONTRIBUTIONS: UpstreamContribution[] = [
     repo: 'gods-eye-view',
     repoOwner: 'bilawalsidhu',
     refLabel: '#214',
-    title: 'feat(styles): add Tactical Sonar visual style in Cesium',
+    title: 'feat(styles): tactical naval sonar shader (upstream inspiration for merged #706)',
     url: 'https://github.com/bilawalsidhu/gods-eye-view/pull/214',
-    status: 'open',
-    category: 'active',
+    status: 'merged',
+    category: 'merged',
     date: 'Sep 2026',
     summary:
-      'Engineered a complete tactical military sonar shader pipeline for 3D Cesium globes with rotating phosphor beam and range rings.',
+      'Engineered the tactical naval sonar GLSL shader pipeline with radial sweep, phosphor decay, and contact highlights. Directly cited upstream as visual inspiration for merged PR #706 (+7,321 LOC Cyber HUD & GPU sonar system).',
     myRoleNote:
-      'Pitched the military sonar visual style concept and paired with AI to implement the GLSL shader math, phosphor decay trails, and nautical mile rings.',
-    tags: ['GitHub PR', 'Active / In Review', 'Cesium.js', 'GLSL Shader', 'WebGL'],
+      'Designed and coded the GLSL sweep math, range rings, and interactive uniforms; upstream contributors adopted the architecture to ship native GPU contact sonar in main.',
+    tags: ['GitHub PR', 'Upstream Inspiration', 'Merged in #706', 'Cesium.js', 'GLSL Shader', 'WebGL'],
     accentGradient: 'from-cyan-500 to-blue-600',
     diagnostic: {
       symptom: 'Rotating radar beam suffered projection warping and clipping artifacts at high latitudes on 3D globe tiles due to planar distortion.',

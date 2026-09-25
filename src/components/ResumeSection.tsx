@@ -40,7 +40,7 @@ const experienceData: TimelineItem[] = [
     description:
       'Initiated dedicated open source contribution journey on 30 July 2026. Actively mastering modern frontend engineering across semantic HTML, CSS layout systems, modern JavaScript, and React component architectures.',
     highlights: [
-      'Cesium.js PR #214 merged: Resolved multi-pass GLSL tactical sonar shader defect',
+      'God\'s Eye View: Authored GPU tactical sonar shader (PR #214), cited upstream as visual inspiration for merged #706 (+7.3k LOC)',
       'Mission Center & Zed: Traced PCIe D3cold GPU thrash and Wayland window lifecycles',
       'Advanced completion of modern responsive CSS layout and design systems',
     ],
