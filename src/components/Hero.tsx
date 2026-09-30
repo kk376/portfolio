@@ -4,6 +4,7 @@ import { GithubIcon } from './icons/GithubIcon';
 import { LinkedinIcon } from './icons/LinkedinIcon';
 import { Shapes } from './Shapes';
 import avatarImg from '../assets/github_avatar.jpg';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 const phrases = [
   'Frontend & React Learner',
@@ -103,7 +104,7 @@ export const Hero: React.FC = () => {
         {/* Social Icons Row */}
         <div className="flex items-center gap-4 mb-8">
           <a
-            href="https://github.com/kk376"
+            href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
@@ -113,7 +114,7 @@ export const Hero: React.FC = () => {
           </a>
 
           <a
-            href="https://linkedin.com/in/kk376"
+            href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
@@ -123,7 +124,7 @@ export const Hero: React.FC = () => {
           </a>
 
           <a
-            href="mailto:contact@kk376.dev"
+            href={`mailto:${PERSONAL_INFO.email}`}
             aria-label="Send email"
             className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-[#252538] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/5 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)] hover:-translate-y-1 shadow-sm transition-all"
           >

@@ -225,7 +225,7 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     badge: 'Zed Extension',
     highlightMetric: 'Native Pdfium Rendering',
     accentColor: 'amber',
-    starsCount: 2,
+    starsCount: 3,
   },
   {
     id: 'cli-python-crud-project',

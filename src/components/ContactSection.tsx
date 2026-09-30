@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Check, Copy, Send, MessageSquare, MapPin, Sparkles, Loader2, AlertCircle } from 'lucide-react';
 import { SectionHeader } from './SectionHeader';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -13,6 +13,15 @@ export const ContactSection: React.FC = () => {
     subject: '',
     message: '',
   });
+
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      const timer = setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const copyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
